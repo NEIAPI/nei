@@ -1,0 +1,105 @@
+<div class="m-import-interface" ref="interface">
+  <div class="m-interface-list">
+    <div class="tip">导入时，HTTP 接口引用的数据模型，如果在当前项目中不存在，则它会被自动创建</div>
+    {#if hasSameName}
+    <div class="tip">有相同的接口，请选择其中一项导入</div>
+    {/if}
+    {#list interfaces as interface}
+    <div class="m-interface-item {interface.class}">
+      <div class="item-header">
+        <div class="item-checkbox" on-click={this.select(interface_index)}>
+          <i class="u-checkbox u-icon-checkbox-normal" r-class={{"f-dn":interface.selected}}></i>
+          <i class="u-checkbox u-icon-checkbox-pressed" r-class={{"f-dn":!interface.selected}}></i>
+        </div>
+        <div class="item-name"><input value="{interface.name}" r-class={{"error-input":interface.errorTip !=null}}
+                                      on-input={this.setInterfaceName($event,interface)}/></div>
+        <div class="item-toggle" on-click={this.toggle(interface_index)}>
+          <i title="展开详情" class="u-icon-spread-small-normal" r-class={{"f-dn":interface.showPreview}}></i>
+          <i title="收起详情" class="u-icon-fold-up-small-normal" r-class={{"f-dn":!interface.showPreview}}></i>
+        </div>
+      </div>
+      <div class="error-tip" r-show={interface.errorTip}>{interface.errorTip}</div>
+      <div class="item-wrap" r-class={{"f-dn":!interface.showPreview}}>
+        <div class="item-row">基本信息：</div>
+        <div class="table-wrap">
+          <div class="item-row table-header">
+            <div title="方法">方法</div>
+            <div title="路径">路径</div>
+            <div title="描述">描述</div>
+          </div>
+          <div class="item-row table-body">
+            <div title={interface.method}>{interface.method}</div>
+            <div title={interface.path}>{interface.path}</div>
+            <div title={interface.description}>{interface.description}</div>
+          </div>
+        </div>
+        <div class="item-row">请求参数：{#if !interface.params.inputs.length}无{/if}</div>
+        <div class="table-wrap" r-class={{"f-dn":!interface.params.inputs.length}}>
+          <div class="item-row table-header">
+            <div title="名称">名称</div>
+            <div title="类型">类型</div>
+            <div title="描述">描述</div>
+            <div title="默认值">默认值</div>
+            <div title="是否必需">是否必需</div>
+          </div>
+          {#list interface.params.inputs as param}
+          <div class="item-row table-body">
+            <div title={param.name}>{param.name}</div>
+            <div {#if param.isArray}title="Array-{param.typeName}" {#else}title={param.typeName}{/if}>{#if
+              param.isArray}Array-{/if}{param.typeName}
+            </div>
+            <div title={param.description}>{param.description}</div>
+            <div title={param.defaultValue}>{param.defaultValue}</div>
+            <div title={param.required}>{param.required?"是":"否"}</div>
+          </div>
+          {/list}
+        </div>
+        <div class="item-row">响应参数：{#if !interface.params.outputs.length}无{/if}</div>
+        <div class="table-wrap" r-class={{"f-dn":!interface.params.outputs.length}}>
+          <div class="item-row table-header">
+            <div title="名称">名称</div>
+            <div title="类型">类型</div>
+            <div title="描述">描述</div>
+            <div title="默认值">默认值</div>
+            <div title="是否必需">是否必需</div>
+          </div>
+          {#list interface.params.outputs as param}
+          <div class="item-row table-body">
+            <div title={param.name}>{param.name}</div>
+            <div {#if param.isArray}title="Array-{param.typeName}" {#else}title={param.typeName}{/if}>
+              {#if param.isArray}Array-{/if}{param.typeName}
+            </div>
+            <div title={param.description}>{param.description}</div>
+            <div title={param.defaultValue}>{param.defaultValue}</div>
+            <div title={param.required}>{param.required?"是":"否"}</div>
+          </div>
+          {/list}
+        </div>
+      </div>
+    </div>
+    {/list}
+  </div>
+  <div class="m-interface-group">
+    <label>分组：</label>
+    <select2 source={groups} on-change={this.setGroup($event)}></select2>
+  </div>
+  <div class="m-interface-tag">
+    <label>标签：</label>
+    <div class="tags" ref="tags"></div>
+  </div>
+  <div class="m-interface-more">
+    <i class="u-icon-more-editor-normal normal"></i><i class="u-icon-more-editor-hover hover"></i><i
+    class="u-icon-more-editor-pressed pressed"></i>
+    <div class="menu-wrap">
+      <ul>
+        <li on-click={this.showImport(0,'json')}>导入JSON文件</li>
+        <li on-click={this.showImport(0,'swagger')}>导入Swagger文件</li>
+        <li on-click={this.showImport(0,'postman')}>导入Postman文件</li>
+        <li on-click={this.showImport(0,'har')}>导入HAR文件</li>
+        <!--<li r-class={{"f-dn":!isChrome}} on-click={this.showImport(2,'swagger')}>导入Swagger文件夹</li>-->
+      </ul>
+    </div>
+  </div>
+  <input type="file" class="j-file f-dn" multiple ref=fileInput on-change={this.import($event)}/>
+  <input type="file" class="j-dir f-dn" webkitdirectory ref=dirInput on-change={this.import($event)}/>
+</div>

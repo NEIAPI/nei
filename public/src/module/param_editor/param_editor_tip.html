@@ -1,0 +1,8 @@
+<!--可以粘贴 json 字符串的提示-->
+{#if !isNest}
+<span class="u-tip" r-class={{"f-dn":hideTip}}>可粘贴JSON字符串</span>
+{/if}
+
+{#if preview&&params.length==0}
+<div class="empty-param-tip">没有参数信息</div>
+{/if}

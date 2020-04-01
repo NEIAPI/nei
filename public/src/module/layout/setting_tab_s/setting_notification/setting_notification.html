@@ -1,0 +1,31 @@
+<meta charset="utf-8"/>
+<textarea name="txt" id="module-setting-notification">
+  <div class="m-setting-notification">
+  </div>
+</textarea>
+
+<textarea name="txt" id="setting-notification-body">
+    <div class="notification-part">
+         <div class="notification-onoff">
+            <div>通知开关：</div>
+            <div class="noti-button" r-class={{"on-btn":flag==1}}>
+                <span class='on' on-click={this.change('flag')}>on</span>
+                <span class='off' on-click={this.change('flag')}>off</span>
+                <div class="noti-button-circle" on-click={this.change('flag')}></div>
+            </div>
+        </div>
+        <div class="notification-type">
+            <div>通知方式：</div>
+            <div class="m-icons">
+                <div r-class={{"js-selected":methodEmail==1&&flag==1}}>
+                    <span class="u-icon-email-normal" title="邮件" on-click={this.change('methodEmail')}></span>
+                    <i class="u-icon-done-green-normal"></i>
+                </div>
+            </div>
+        </div>
+     </div>
+</textarea>
+
+<textarea name="css" data-src="./setting_notification.css"></textarea>
+<textarea name="js" data-src="./setting_notification.js"></textarea>
+

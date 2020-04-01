@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%- include common.ejs %>
+  <link rel="stylesheet" href="/src/modules/common/base.css"/>
+  <link rel="stylesheet" href="/src/page/index/index.css"/>
+  <link rel="stylesheet" href="/src/module/common/icons.css"/>
+  <link rel="stylesheet" href="/src/lib/flipclock/flipclock.css"/>
+</head>
+<body>
+<section class="m-banner">
+  <div class="m-nav m-navbar">
+    <div class="m-g-fit f-cb">
+      <ul class="nav nav-left">
+        <li><a href="/"></a></li>
+      </ul>
+      <ul class="nav nav-right">
+        <li><a href="https://github.com/x-orpheus/nei-toolkit" target="_blank">构建工具</a></li>
+        <li><a href="https://github.com/x-orpheus/nei-toolkit/blob/master/doc/NEI%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%BB%8B%E7%BB%8D.md" target="_blank">使用文档</a></li>
+        <li><a href="/tutorial">视频介绍</a></li>
+        <li><a href="https://github.com/x-orpheus/nei" target="_blank">Github</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="m-features-group">
+    <section class="m-interface">
+      <div class="u-pic">
+        <img src="/res/images/interface.png">
+      </div>
+      <div class="txt">
+        <h3>接口规范</h3>
+      </div>
+    </section>
+    <section class="m-cooperation">
+      <div class="u-pic">
+        <img src="/res/images/cooperation.png">
+      </div>
+      <div class="txt">
+        <h3>团队协作</h3>
+      </div>
+    </section>
+    <section class="m-spec">
+      <div class="project u-pic">
+        <img src="/res/images/spec.png">
+      </div>
+      <div class="txt">
+        <h3>工程规范</h3>
+      </div>
+    </section>
+  </div>
+  <div class="m-features-group">
+    <section class="m-tool">
+      <div class="u-pic">
+        <img src="/res/images/tool.png">
+      </div>
+      <div class="txt">
+        <h3>构建工具</h3>
+      </div>
+    </section>
+    <section class="m-mock">
+      <div class="u-pic">
+        <img src="/res/images/mock.png">
+      </div>
+      <div class="txt">
+        <h3>接口MOCK</h3>
+      </div>
+    </section>
+    <section class="m-test">
+      <div class="interface u-pic">
+        <img src="/res/images/test.png">
+      </div>
+      <div class="txt">
+        <h3>接口测试</h3>
+      </div>
+    </section>
+  </div>
+  <div class="m-mockapi-counter">
+    <div class="mockapi-tips">在线 MockStore API 调用次数</div>
+    <div class="flip-clock-container"></div>
+  </div>
+  <div class="m-g-fit">
+    <div class="container">
+      <div class="btn-group">
+        <a href="/dashboard/" class="btn">开始使用</a>
+      </div>
+    </div>
+  </div>
+  <div class="m-foot">
+    <div class="g-fit">
+      <div class="foot">
+        <a href="https://github.com/x-orpheus" target="_blank">网易云音乐开源作品</a>
+        <i></i>
+        <span>官方唯一反馈 QQ 群: 453281988</span>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- @DEFINE -->
+<script src="/src/lib/nej/src/define.js?pro=/src/module/&3rd=/src/lib/&rot=/src/"></script>
+<script src="/src/lib/jquery.min.js"></script>
+<script src="/src/lib/flipclock/flipclock.min.js"></script>
+<script>
+  NEJ.define([
+    '/src/page/index/index.js'
+  ], function (m) {
+    m._$$Module._$allocate({});
+  });
+</script>
+</body>
+</html>

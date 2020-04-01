@@ -1,0 +1,20 @@
+<meta charset="utf-8"/>
+<textarea name="txt" id="module-spec-list">
+	<div class="m-spec-list">
+		<div class="spec-filter-wrap">
+		</div>
+		<a class="u-spec-add stateful" href="">
+			<i class="u-icon-add-normal"></i>
+			新建规范
+		</a>
+	</div>
+</textarea>
+<textarea name="txt" id="m-spec-filter-wrap">
+	{#list list as item}
+		<a class="filter-item stateful " r-class={{'j-selected': item.selected}} on-click={this.filter(item.type)}>
+			{item.name}
+		</a>
+	{/list}
+</textarea>
+<textarea name="css" data-src="./spec_list.css"></textarea>
+<textarea name="js" data-src="./spec_list.js"></textarea>

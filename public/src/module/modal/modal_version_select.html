@@ -1,0 +1,9 @@
+<div class="m-version-select">
+  <ul class="m-version-list">
+    {#list versions as item}
+    <li class="u-version-item" r-class={{"z-selected":item.id==selected}} on-click={this.select(item_index)}>
+      {item.name}
+    </li>
+    {/list}
+  </ul>
+</div>

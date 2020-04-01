@@ -1,0 +1,86 @@
+.m-test {
+  $panelWidth=308px;
+
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .panel-wrap {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin: 10px;
+    width: $panelWidth;
+    background-color: #fff;
+    border-radius: 4px;
+
+    .sch-wrap {
+      position: relative;
+      margin: 10px 12px;
+    }
+
+    .sch-ipt {
+      width: 100%;
+    }
+
+    .inf-method {
+      margin-right: 10px;
+
+      &-get {
+        color: #7ED321;
+      }
+
+      &-post {
+        color: #F5A623;
+      }
+
+      &-put {
+        color: #4A90E2;
+      }
+
+      &-delete {
+        color: #ED4B48;
+      }
+    }
+  }
+
+  .panel-tab-wrap {
+    display: none;
+  }
+
+  .panel-tab-con {
+    flex: 1;
+    margin-bottom: 6px;
+    height: 0;
+  }
+
+  .main-tab-wrap {
+    position: absolute;
+    left: $panelWidth + 20;
+    right: 10px;
+    top: 10px;
+    bottom: 10px;
+    background-color: #fff;
+    border-radius: 4px;
+  }
+
+  .main-tab-tab {
+    display: flex;
+    position: absolute;
+    left: $panelWidth + 30;
+    right: 30px;
+    top: 80px;
+    bottom: 10px;
+    flex-direction: column;
+    z-index: 99;
+  }
+
+  .main-tab-tab-con {
+    flex: 1;
+    overflow: auto;
+  }
+
+  .u-form-create .button-group {
+    margin-bottom: 20px;
+  }
+}

@@ -1,0 +1,70 @@
+.m-modal-change-confirm-log {
+  .m-change-confirm-log {
+    height: 300px;
+    overflow-y: auto;
+    padding: 10px;
+    text-align: left;
+  }
+
+  .u-loading {
+    font-size: 20px;
+
+    .loading-txt {
+      position: absolute;
+      left: 30px;
+      font-size: 14px;
+    }
+  }
+
+  .confirm-log {
+    position: relative;
+    padding: 0 0 20px 10px;
+
+    .u-clog-item {
+      display: flex;
+      margin-bottom: 2px;
+
+      em {
+        flex: inherit;
+        width: 62px;
+        color: #999;
+      }
+
+      span {
+        white-space: normal;
+        word-wrap: break-word;
+        overflow: hidden;
+      }
+
+      &.u-clog-time {
+        font-size: 14px;
+      }
+    }
+
+    .m-clog-circle {
+      position: absolute;
+      padding: 4px 0;
+      left: -4px;
+      top: 2px;
+
+      .u-circle {
+        border: 2px solid #b2b2b2;
+        border-radius: 50%;
+        height: 4px;
+        width: 4px;
+      }
+    }
+
+    .u-line {
+      position: absolute;
+      top: 20px;
+      bottom: 0;
+      left: -1px;
+      border-left: 1px solid #e6e6e6;
+    }
+
+    &.clog-unconfirmed .u-clog-time {
+      color: #d9534f;
+    }
+  }
+}

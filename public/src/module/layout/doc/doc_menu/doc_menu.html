@@ -1,0 +1,68 @@
+<meta charset="utf-8"/>
+
+<textarea name="jst" id="module-layout-doc-menu">
+<h1>
+    <a class="app-name-link" data-nosearch="" href="/">${projectInfo.name|escape2}</a>
+</h1>
+
+<div class="sidebar-nav">
+<ul>
+<li>
+   <p><a class="stateful menu-link" data-click="toggle-menu-item" href="/doc/?id=${projectInfo.id}" title="项目描述"
+         data-id="default">项目描述</a></p>
+</li>
+<li>
+   <p><a class="stateful menu-link" data-click="toggle-menu-item" href="/doc/members/?id=${projectInfo.id}" title="项目成员"
+         data-id="members">项目成员</a></p>
+</li>
+
+{for item in data.sortData}
+{if isInMap(item_key)}
+<li>
+     <p><a class="stateful menu-link" data-click="toggle-menu-item" href="/doc/${item_key}/?id=${projectInfo.id}"
+           title="${map[item_key].name|escape2}列表" data-id="${item_key}">${map[item_key].name}列表</a></p>
+     <ul class="app-sidebar">
+    {for group in item}
+      <li>
+            <a class="menu-link" data-click="toggle-menu-item" data-id="${item_key}-${group.name|escape2}">
+                + ${group.name|escape2}
+            </a>
+            {if group.items.length>0}
+            <ul class="app-sub-sidebar">
+                {list group.items as detail}
+                {if detail.name}
+                    <li><a class="stateful menu-link section-link" data-click="toggle-menu-item"
+                           href="/doc/${item_key}/?id=${projectInfo.id}&resid=${detail.id}"
+                           title="${detail.name|escape2}" data-id="${item_key}-${detail.id}">${detail.name|escape2}</a></li>
+                {/if}
+                {/list}
+            </ul>
+            {/if}
+        </li>
+    {/for}
+    </ul>
+   </li>
+  {/if}
+ {/for}
+
+ <li>
+   <p><a class="menu-link" data-click="toggle-menu-item" href="javascript:void(0);" title="项目文档"
+         data-id="custom">项目文档</a></p>
+   <ul class="app-sidebar">
+     {for doc in data.customDocInfo}
+          <li>
+                <a class="stateful menu-link" href="/doc/custom/?id=${projectInfo.id}&resid=${doc.id}"
+                   data-click="toggle-menu-item" data-id="custom-${doc.id}">
+                    ${doc.name|escape2}
+                </a>
+            </li>
+     {/for}
+
+   </ul>
+ </li>
+
+</ul>
+<div>
+</textarea>
+
+<textarea name="js" data-src="./doc_menu.js"></textarea>

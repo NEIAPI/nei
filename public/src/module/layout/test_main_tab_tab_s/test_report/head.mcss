@@ -1,0 +1,35 @@
+.u-head {
+  border: 1px solid #e6e6e6;
+  font-size: 12px;
+
+  .list-row {
+    display: flex;
+    border-bottom: 1px solid #e6e6e6;
+
+    &:last-child {
+      border-bottom: 0px none;
+    }
+  }
+
+  .list-header {
+    background: #f5f5f5;
+    border-bottom: 1px solid #e6e6e6;
+  }
+
+  .list-col {
+    flex: 1;
+    text-align: left;
+    padding: 0px 12px;
+    height: 36px;
+    line-height: 36px;
+    box-sizing: border-box;
+  }
+
+  .empty {
+    line-height: 36px;
+  }
+
+  .highlight {
+    background-color: #fdedef;
+  }
+}

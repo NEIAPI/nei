@@ -1,0 +1,25 @@
+<div class="m-menu {classList}">
+  <ul class="menu" on-click={this.itemClick($event)}>
+    {#list xlist as item}
+    <li data-action={item.action}
+        {#if item.children && !!item.children.length}
+        class="menu-item menu-item-withsub {item.className||''}"
+        on-mouseenter={this.toggleSubmenu($event,true)} on-mouseleave={this.toggleSubmenu($event,false)}
+        {#else}
+        class="menu-item {item.className||''}"
+        {
+    /if}>
+    {item.name}
+    </li>
+    {/list}
+  </ul>
+  {#if childList && !!childList.length}
+  <ul ref="childMenu" class="menu menu-child" on-click={this.subItemClick($event)}
+      on-mouseenter={this.enterSubmenu($event)}>
+    {#list childList as child}
+    <li data-action={child.action} class="menu-item menu-item-sub {child.className||''}">{child.name}</li>
+    {/list}
+  </ul>
+  {/if}
+</div>
+

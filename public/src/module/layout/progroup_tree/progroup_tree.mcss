@@ -1,0 +1,229 @@
+.m-progroup-tree {
+  height: 100%;
+  width: 100%;
+
+  .progroup-tree-wrap {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    overflow-y: auto;
+  }
+
+  h3 {
+    font-size: 14px;
+    color: #222;
+    margin: 15px 0 0;
+    padding-left: 10px;
+    line-height: 30px;
+    position: relative;
+
+    a:link,
+    a:visited {
+      color: #333;
+
+      .glyphicon {
+        font-size: 12px
+      }
+    }
+
+    &:hover {
+      .u-do-more {
+        display: block;
+      }
+    }
+
+    &.j-selected {
+      .stateful {
+        color: #30a1f2 !important;
+      }
+    }
+  }
+
+  .u-do-more {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    display: none;
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+    line-height: 20px;
+    text-align: center;
+  }
+
+  .j-proGroup {
+    width: 100%;
+
+    & > li {
+      position: relative;
+      box-sizing: border-box;
+      width: 100%;
+
+      .glyphicon {
+        position: absolute;
+        top: 8px;
+        left: 8px;
+        display: inline-block;
+        color: #a6a6a6;
+      }
+
+      .pg-name {
+        color: #666666;
+      }
+
+      .pg-item {
+        display: inline-block;
+        //overflow: hidden;
+        box-sizing: border-box;
+        width: 100%;
+        height: 30px;
+        padding-left: 20px;
+        border-left: 3px solid #fff;
+        transition: all ease .3s;
+
+        .pg-name {
+          float: left;
+          font-size: 14px;
+          display: block;
+          max-width: 130px;
+          height: 30px;
+          line-height: 30px;
+          box-sizing: border-box;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          color: #222;
+        }
+
+        .lock {
+          position: absolute;
+          right: 0px;
+          top: 2px;
+          height: 24px;
+          line-height: 24px;
+          width: 24px;
+          text-align: center;
+        }
+
+        &:hover {
+          .u-do-more {
+            display: block;
+          }
+
+          .lock {
+            display: none;
+          }
+        }
+
+        &.j-selected {
+          .glyphicon {
+            color: #30a1f2 !important;
+          }
+
+          .pg-name {
+            color: #30a1f2 !important;
+          }
+        }
+
+        &:hover {
+          border-color: #e2eef7 !important;
+          background-color: #e2eef7 !important;
+        }
+
+        &.j-stuck {
+          border-color: #f5f5f5;
+          background-color: #f5f5f5;
+        }
+
+        &.j-selected-t {
+          color: #30a1f2;
+        }
+
+        .pg-name {
+          float: left;
+          font-size: 14px;
+          display: block;
+          max-width: 130px;
+          height: 30px;
+          line-height: 30px;
+          box-sizing: border-box;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          color: #222;
+        }
+      }
+    }
+
+    .j-projects {
+      width: 100%;
+      margin-top: -4px;
+
+      li {
+        margin-bottom: 0;
+        width: 100%;
+        box-sizing: border-box;
+        position: relative;
+
+        &:hover {
+          .u-do-more {
+            display: block;
+          }
+        }
+
+        a {
+          display: block;
+          width: 100%;
+          padding: 0 15px 0 12px;
+          box-sizing: border-box;
+          font-size: 12px;
+          color: #666;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          height: 30px;
+          line-height: 30px;
+          border-left: 3px solid #fff;
+          transition: all ease .3s;
+
+          &:hover {
+            background-color: #e2eef7 !important;
+            border-color: #e2eef7 !important;
+          }
+
+          &.j-selected {
+            background-color: #f2f2f2;
+            color: #30a1f2;
+            border-color: #30a1f2;
+
+            span {
+              color: #30a1f2;
+            }
+          }
+
+          &.j-stuck {
+            background-color: #f5f5f5;
+            border-color: #f5f5f5;
+          }
+
+          span {
+            color: #17a2b8;
+            margin: 0 -4px 0 -8px;
+
+            em {
+              max-width: 50px;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              overflow: hidden;
+              display: inline-block;
+              vertical-align: bottom;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+

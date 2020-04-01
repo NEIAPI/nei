@@ -1,0 +1,284 @@
+{
+  "0": [
+    {
+      "action": "type",
+      "name": "从数据模型导入",
+      "format": 0
+    },
+    {
+      "action": "json",
+      "name": "从JSON导入"
+    },
+    {
+      "action": "interface",
+      "name": "从接口导入"
+    },
+    {
+      "action": "JavaBean",
+      "name": "从JavaBean导入"
+    },
+    {
+      "action": "modify",
+      "name": "修改类型",
+      "sub": [
+        {
+          "format": 1,
+          "name": "枚举"
+        },
+        {
+          "format": 2,
+          "name": "数组"
+        },
+        {
+          "format": 3,
+          "name": "字符"
+        },
+        {
+          "format": 4,
+          "name": "数值"
+        },
+        {
+          "format": 5,
+          "name": "布尔"
+        },
+        {
+          "format": 6,
+          "name": "文件"
+        }
+      ]
+    }
+  ],
+  "1": [
+    {
+      "action": "type",
+      "name": "从数据模型导入",
+      "format": 1
+    },
+    {
+      "action": "json",
+      "name": "从JSON导入"
+    },
+    {
+      "action": "modify",
+      "name": "修改类型",
+      "sub": [
+        {
+          "format": 0,
+          "name": "哈希"
+        },
+        {
+          "format": 2,
+          "name": "数组"
+        },
+        {
+          "format": 3,
+          "name": "字符"
+        },
+        {
+          "format": 4,
+          "name": "数值"
+        },
+        {
+          "format": 5,
+          "name": "布尔"
+        },
+        {
+          "format": 6,
+          "name": "文件"
+        }
+      ]
+    }
+  ],
+  "2": [
+    {
+      "action": "modify",
+      "name": "修改类型",
+      "sub": [
+        {
+          "format": 0,
+          "name": "哈希"
+        },
+        {
+          "format": 1,
+          "name": "枚举"
+        },
+        {
+          "format": 3,
+          "name": "字符"
+        },
+        {
+          "format": 4,
+          "name": "数值"
+        },
+        {
+          "format": 5,
+          "name": "布尔"
+        },
+        {
+          "format": 6,
+          "name": "文件"
+        }
+      ]
+    }
+  ],
+  "3": [
+    {
+      "action": "modify",
+      "name": "修改类型",
+      "sub": [
+        {
+          "format": 0,
+          "name": "哈希"
+        },
+        {
+          "format": 1,
+          "name": "枚举"
+        },
+        {
+          "format": 2,
+          "name": "数组"
+        },
+        {
+          "format": 4,
+          "name": "数值"
+        },
+        {
+          "format": 5,
+          "name": "布尔"
+        },
+        {
+          "format": 6,
+          "name": "文件"
+        }
+      ]
+    }
+  ],
+  "4": [
+    {
+      "action": "modify",
+      "name": "修改类型",
+      "sub": [
+        {
+          "format": 0,
+          "name": "哈希"
+        },
+        {
+          "format": 1,
+          "name": "枚举"
+        },
+        {
+          "format": 2,
+          "name": "数组"
+        },
+        {
+          "format": 3,
+          "name": "字符"
+        },
+        {
+          "format": 5,
+          "name": "布尔"
+        },
+        {
+          "format": 6,
+          "name": "文件"
+        }
+      ]
+    }
+  ],
+  "5": [
+    {
+      "action": "modify",
+      "name": "修改类型",
+      "sub": [
+        {
+          "format": 0,
+          "name": "哈希"
+        },
+        {
+          "format": 1,
+          "name": "枚举"
+        },
+        {
+          "format": 2,
+          "name": "数组"
+        },
+        {
+          "format": 3,
+          "name": "字符"
+        },
+        {
+          "format": 4,
+          "name": "数值"
+        },
+        {
+          "format": 6,
+          "name": "文件"
+        }
+      ]
+    }
+  ],
+  "6": [
+    {
+      "action": "modify",
+      "name": "修改类型",
+      "sub": [
+        {
+          "format": 0,
+          "name": "哈希"
+        },
+        {
+          "format": 1,
+          "name": "枚举"
+        },
+        {
+          "format": 2,
+          "name": "数组"
+        },
+        {
+          "format": 3,
+          "name": "字符"
+        },
+        {
+          "format": 4,
+          "name": "数值"
+        },
+        {
+          "format": 5,
+          "name": "布尔"
+        }
+      ]
+    }
+  ],
+  "7": [
+    {
+      "action": "add",
+      "name": "添加"
+    }
+  ],
+  "8": [
+    {
+      "action": "add",
+      "name": "添加"
+    }
+  ],
+  "9": [
+    {
+      "action": "add",
+      "name": "添加"
+    }
+  ],
+  "header": [
+    {
+      "action": "type",
+      "name": "从数据模型导入"
+    },
+    {
+      "action": "json",
+      "name": "从JSON导入"
+    },
+    {
+      "action": "interface",
+      "name": "从接口导入"
+    }
+  ]
+}

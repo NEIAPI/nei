@@ -1,0 +1,16 @@
+<div class="m-notify m-notify-{position} {class}">
+  {#list messages as message}
+  <div class="u-message u-message-{message.state} bounceOutDown" on-click={this._onclick(message.state)}>
+    {#if message.state == "success"}
+    <i class="u-icon-tips-done-normal"></i>
+    {#elseif message.state == "error"}
+    <i class="u-icon-tips-error-normal"></i>
+    {#elseif message.state == "tip"}
+    <i class="u-icon-notice2-normal"></i>
+    {#else}
+    <i class="u-icon-notice2-normal"></i>
+    {/if}
+    <span>{message.text}</span>
+  </div>
+  {/list}
+</div>

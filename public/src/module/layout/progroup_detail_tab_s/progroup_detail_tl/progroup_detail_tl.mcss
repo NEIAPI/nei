@@ -1,0 +1,272 @@
+.m-pg-d-tl {
+  .f-dn {
+    display: none !important;
+  }
+  margin: 30px 0;
+
+  .u-select2 {
+    width: 170px;
+  }
+
+  .tool-info {
+    .tool-part {
+      margin-top: 20px;
+
+      .t-part-head {
+        padding: 0 20px;
+        box-sizing: border-box;
+        width: 100%;
+        height: 40px;
+        line-height: 40px;
+        font-size: 15px;
+        background: rgba(0, 0, 0, 0.05);
+
+        .j-open {
+          float: right;
+          display: block;
+          height: 100%;
+
+          .u-icon-arrow-down-normal {
+            display: block;
+            margin-top: 16px;
+          }
+        }
+      }
+
+      .extra {
+        .import-httpspec {
+          height: 30px;
+          line-height: 30px;
+          padding: 0 10px;
+          margin: 0 10px;
+          font-size: 12px;
+          color: white;
+          float: right;
+        }
+
+        &:after {
+          content: ' ';
+          clear: both;
+          display: block;
+        }
+      }
+
+      .spec-schema {
+        .spec-label {
+          margin-top: 10px;
+        }
+
+        .spec-label,
+        .spec-item-res-schema-description, .spec-item-interface-schema-description {
+          align-self: flex-start;
+        }
+
+        .editor {
+          flex: 1;
+          padding-left: 5px;
+          margin: 10px;
+        }
+      }
+
+      .t-part-specname {
+        label {
+          display: inline-block;
+          vertical-align: middle;
+          width: 85px;
+          text-align: right;
+          font-size: 12px;
+        }
+
+        .spec-item {
+          display: flex;
+          align-items: center;
+
+          &:not(:first-child) {
+            margin-top: 20px;
+          }
+
+          .spec-label {
+            width: 120px;
+          }
+
+          .spec-item-path,
+          .spec-item-param,
+          .spec-item-paramdesc,
+          .spec-item-method,
+          .spec-item-tag,
+          .spec-item-path-description,
+          .spec-item-param-description,
+          .spec-item-paramdesc-description,
+          .spec-item-method-description,
+          .spec-item-tag-description,
+          .spec-item-res-schema-description,
+          .spec-item-interface-schema-description {
+            height: 30px;
+            line-height: 30px;
+            padding-left: 5px;
+            border: 1px solid #eee;
+            margin: 10px;
+            flex: 1;
+
+            &.error-ipt {
+              border: 1px solid red;
+            }
+          }
+        }
+
+        .spec-vmlist-label {
+          vertical-align: top;
+          margin-top: 32px;
+        }
+
+        .spec-vmlist {
+          display: inline-block;
+          width: 85%;
+          margin: 20px 0;
+        }
+
+        .spec-vmlist:empty {
+          margin: 0;
+        }
+
+        .spec-select {
+          display: inline-block;
+          height: 30px;
+          vertical-align: middle;
+          font-size: 12px;
+        }
+
+        .u-spec-add {
+          margin-left: 10px;
+          color: #fff;
+        }
+
+        .spec-check {
+          display: inline-block;
+          color: #30a1f2;
+          font-size: 12px;
+          margin: 5px 0 0 97px;
+        }
+
+        .spec-clear {
+          display: inline-block;
+          cursor: pointer;
+          color: #30a1f2;
+          font-size: 12px;
+          margin-left: 10px;
+        }
+
+        .z-empty {
+          color: #999;
+          line-height: 30px;
+        }
+      }
+
+      .t-part-spec-explanation {
+        font-size: 12px;
+        color: #999;
+        margin-top: 20px;
+        margin-left: 15px;
+
+        li {
+          padding-left: 18px;
+        }
+      }
+
+      .t-part-vmlist {
+        label {
+          display: inline-block;
+          vertical-align: top;
+          margin-top: 15px;
+        }
+
+      }
+
+      .t-part-vmlist + .t-part-vmlist {
+        margin-top: 20px;
+      }
+
+      .pgvm-list {
+        display: inline-block;
+        width: 85%;
+      }
+
+      .tool-icon {
+        cursor: pointer;
+      }
+
+      .tool-part-content {
+        padding: 20px;
+      }
+    }
+  }
+
+  .tool-tag {
+    .t-part-content {
+      padding: 20px 0 0 20px;
+    }
+  }
+
+  .tool-setting {
+    .t-part-content {
+      padding-left: 20px;
+
+      .setting-item {
+        padding: 10px 0;
+        font-size: 12px;
+
+        &-label, &-check {
+          display: inline-block;
+          vertical-align: middle;
+        }
+
+        &-label {
+          margin-right: 6px;
+        }
+
+        &-check {
+          cursor: pointer;
+          font-size: 0;
+        }
+
+        .u-icon-checkbox-pressed {
+          display: none;
+        }
+
+        .selected {
+          .u-icon-checkbox-normal {
+            display: none;
+          }
+
+          .u-icon-checkbox-pressed {
+            display: inline-block;
+          }
+        }
+      }
+    }
+  }
+
+  .project-view-mode {
+    .setting-item-check {
+      cursor: default;
+    }
+  }
+
+  .u-select .empty-tip {
+    background-color: #f7f7f7;
+  }
+}
+
+.u-spec-add {
+  color: #fff;
+  display: inline-block;
+  background-color: #30a1f2;
+  width: 95px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+
+  &:link, &:hover, &:active {
+    color: #fff;
+  }
+}

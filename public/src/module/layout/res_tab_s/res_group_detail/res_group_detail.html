@@ -1,0 +1,52 @@
+<meta charset="utf-8"/>
+<textarea name="txt" id="module-res-group-detail">
+  <div class="m-res-g-d u-res-detail">
+  </div>
+</textarea>
+<textarea name="jst" id="m-res-g-detail">
+  <div class="d-block-wrap">
+		<div class="d-block">
+			<div class="block-item d-title">
+				<input type="text" name="name" value="${name|escape}" class="u-m-inp title" {if
+               !!permit}data-action='{"type":"modify","cache":"group","id":"${id}","name":"name","required":true}' {/if} readonly>
+			</div>
+			<div class="block-item item-description">
+				<label>描述：</label>
+				<textarea placeholder="暂无描述" title="${description|escape2}" name="description" class="u-m-inp u-m-txt" {if
+                  !!permit}data-action='{"type":"modify","cache":"group","id":"${id}","name":"description"}' {/if} >${description|escape2}<&#47;textarea>
+			</div>
+		</div>
+		<div class="d-block go-back">
+			<a href="/group/?pid=${projectId}" class="stateful">
+				<i class="glyphicon glyphicon-circle-arrow-left"></i>
+			</a>
+		</div>
+		<div class="d-block">
+			<div class="block-item respo">
+				<label>负责人：</label>
+				<div class="respo-select"></div>
+			</div>
+		</div>
+	</div>
+  <div class="d-block-wrap">
+    <div class="d-block">
+        <div class="block-item item-rpc-pom">
+          <label>RPC 工程的 POM 依赖：</label>
+          <div class="rpc-pom-editor"></div>
+        </div>
+        <div class="block-item item-rpc-key">
+          <label>RPC 工程的 KEY：</label>
+          <div class="rpc-key-editor"></div>
+        </div>
+    </div>
+  </div>
+	<div class="d-body">
+		<div class="d-item d-item-activity">
+				<label>历史操作：</label>
+				<div class="list"></div>
+		</div>
+	</div>
+</textarea>
+
+<textarea name="css" data-src="./res_group_detail.css"></textarea>
+<textarea name="js" data-src="./res_group_detail.js"></textarea>

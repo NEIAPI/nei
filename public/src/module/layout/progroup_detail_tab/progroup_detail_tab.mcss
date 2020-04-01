@@ -1,0 +1,5 @@
+.m-progroup-detail-tab {
+  .m-tab {
+    font-size: 16px;
+  }
+}

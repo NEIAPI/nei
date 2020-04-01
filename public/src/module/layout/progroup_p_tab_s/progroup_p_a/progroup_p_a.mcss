@@ -1,0 +1,10 @@
+.d-item-activity {
+  .activity-list {
+    height: 100%;
+    width: 100%;
+  }
+
+  .m-activitylist {
+    height: 100%;
+  }
+}

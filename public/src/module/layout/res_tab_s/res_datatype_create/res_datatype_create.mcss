@@ -1,0 +1,25 @@
+.m-res-d-c {
+  .form-group {
+    > label {
+      width: 60px;
+    }
+
+    .tag {
+      width: 50%;
+    }
+
+    .parameters {
+      width: t('calc(100% - 195px)');
+      padding: 5px 0;
+      text-align: left;
+    }
+
+    &.f-dn {
+      display: none !important;
+    }
+  }
+
+  .button-group {
+    margin-left: 60px;
+  }
+}

@@ -1,0 +1,31 @@
+<div class="res-version-modal">
+  {#if fromResList}
+  <div class="res-target">
+    <label class="label">目标资源：</label>
+    <select2 ref="interSelector" selected={interSel.selected} source={interSel.source}
+             on-change={this.changeInterface($event)} choseOnly={true}></select2>
+  </div>
+  {/if}
+  <div class="res-name">
+    <label class="label"><i class="signal-required">*</i>资源名称：</label>
+    <input class="text" r-model={this.data.name}/>
+    <span class="js-tip">资源名称不能和项目中的其他资源名称相同</span>
+  </div>
+  <div class="res-version">
+    <label class="label"><i class="signal-required">*</i>版本名称：</label>
+    <input class="text" r-model={this.data.version}/>
+    <span class="js-tip">版本名称不能为空</span>
+  </div>
+  <div class="res-parent">
+    <label class="label">基于该版本创建：</label>
+    <select2 ref="parent" source={[]} on-change={this.setParent($event)} choseOnly={true} sortList={false}></select2>
+  </div>
+  <div class="res-group">
+    <label class="label">分组：</label>
+    <select2 ref="group" source={[]} on-change={this.setGroup($event)} choseOnly={true}></select2>
+  </div>
+  <div class="res-tag">
+    <label class="label">标签：</label>
+    <div class="tags" ref="tag"></div>
+  </div>
+</div>

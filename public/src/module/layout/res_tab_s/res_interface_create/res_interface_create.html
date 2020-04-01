@@ -1,0 +1,118 @@
+<meta charset="utf-8"/>
+<textarea name="txt" id="module-res-interface-create">
+	<div class="m-r-i-c u-form-create">
+		<div class="form-title">
+			<div class="title">创建HTTP 接口</div>
+			<a class="goback stateful">返回<i class="u-icon-back-normal-2"></i></a>
+		</div>
+
+		<form data-focus-mode="1" class="m-form">
+
+			<div class="form-group">
+				<label>
+					<i class="signal-required">*</i>名称：
+				</label>
+				<input type="text" name="name" class="name form-item"
+               placeholder="请输入名称"
+               data-auto-focus="true"
+               data-required="true"
+               data-message="最多100个字符！"
+               data-tip="请输入HTTP 接口名称，最多100个字符"
+               maxlength="100"
+               minlength="1"
+               data-ignore="true">
+			</div>
+
+			<div class="form-group form-group-request">
+				<label>
+					<i class="signal-required">*</i>请求：
+				</label>
+				<div class="request">
+					<div class="method">
+
+						<!-- 智能输入选择器 -->
+
+					</div>
+
+					<input type="text" name="path" class="path form-item" value="/"
+                 placeholder="请输入相对路径，支持路径参数，例如：/api/get/:id"
+                 data-pattern="\/.*"
+                 data-required="true"
+                 data-tip="请输入相对路径，支持路径参数，例如：/api/get/:id"
+                 data-message="请输入相对路径，支持路径参数，例如：/api/get/:id"
+                 data-ignore="true">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label>描述：</label>
+				<textarea type="text" name="description" placeholder="请输入HTTP 接口描述信息" class="description form-item">&lt;/textarea>
+				</div>
+
+			<div class="form-group">
+				<label>代码映射：</label>
+				<input type="text" maxlength="500" name="classname" placeholder="请输入类名" class="classname form-item"
+               data-tip="自动生成代码时，作为该HTTP 接口的类名">
+			</div>
+
+			<div class="form-group form-group-schema">
+				<label>出入参规范：</label>
+				<div class="schema item-wrap">
+
+					<!-- 智能输入选择器 -->
+
+				</div>
+			</div>
+			<div class="form-group form-group-group">
+				<label>业务分组：</label>
+				<div class="groups item-wrap">
+
+					<!-- 智能输入选择器 -->
+
+				</div>
+				<a href="#" class="create">新建</a>
+			</div>
+
+			<div class="form-group">
+				<label>负责人：</label>
+				<div class="respo item-wrap">
+
+					<!-- 智能输入选择器 -->
+
+				</div>
+			</div>
+			<div class="form-group">
+				<label>关注人：</label>
+				<div class="follow item-wrap">
+
+					<!-- 智能输入选择器 -->
+
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label>
+					<i class="signal-required tag-required f-dn">*</i>标签：
+				</label>
+				<div class="tag item-wrap">
+
+					<!-- 智能提示输入框 -->
+
+				</div>
+				<span class="tag-tip js-mhd js-error js-nej-er f-dn" style="display: block;"></span>
+			</div>
+
+			<div class="button-group">
+				<button class="u-btn save" name="save" type="button">保存</button>
+			</div>
+      <p class="create-tip">
+        提示：如果想让项目中的接口风格保持一致，比如 URL 的大小写、参数是否使用驼峰命名法等等问题，可以使用<a
+        href="https://github.com/x-orpheus/nei-toolkit/blob/master/doc/NEI平台HTTP接口规范配置说明.md"
+        target="_blank">HTTP接口规范设置</a>。
+      </p>
+		</form>
+	</div>
+</textarea>
+
+<textarea name="css" data-src="./res_interface_create.css"></textarea>
+<textarea name="js" data-src="./res_interface_create.js"></textarea>

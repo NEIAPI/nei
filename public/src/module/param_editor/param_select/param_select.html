@@ -1,0 +1,85 @@
+<div r-class={{"p-select":true,"list-open":isOpen,"is-required-sel":isRequiredField}} ref="element">
+  <div
+    r-class={{"select-hd":true,"js-preview":preview&&!isOpen,"js-disabled":!editable,"complex-type":this.isComplexType()}}
+    title={selected?selected.name:placeholder}
+    on-mouseenter={this.showDatatypeDetail($event,true)}
+    on-mouseleave={this.showDatatypeDetail($event,false)}
+    on-click={this.toggle($event)}>
+    <input ref="input" class="dis-name" type="text" r-model={inputValue}
+           r-class={{"modify":selected&&selected.__datatype.type===2&&selected.__datatype.name!=''}}
+           title={inputValue} on-input={this.input($event)}
+           on-focus={this.focusInput($event)}
+           placeholder="{placeholder}"
+           on-keydown={this.keydown($event)} readonly={!editable}/>
+    <i class="u-trigon-down" ref="trigon"></i>
+    <!-- 没有选中项并且preview为true时的提示 -->
+    {#if !inputValue&&preview&&!isOpen&&!isNormalParam}
+    <span class="empty-tip" on-click={this.toggle($event)}>{emptyTip}</span>
+    {/if}
+  </div>
+  {#if editable&&isOpen&&xlist.length}
+  <div class="select-bd" r-show={isOpen} on-mousewheel="{this.mouseWheel($event)}">
+    <ul class="list-view" ref="listcon">
+      {#list xlist as item by item.id}
+      {#if item.__hide !== true}
+      <li r-class={{"js-disabled":item.id===undefined,"z-sel":sIndex===item_index,"is-array":item.id===9000}}
+          title={item.title||item.name}
+          on-click={this.select($event,item,item_index, true)}>
+        {#if item.__uiName}
+        <span r-html={item.__uiName}></span>
+        {#else}
+        <span>{item.name}</span>
+        {/if}
+      </li>
+      {/if}
+      {/list}
+    </ul>
+    {#if isNormalParam!==true&&isRequiredField!=true&&isHashMapKey!== true }
+    <div class="create-dt" title="新建数据模型" on-click={this.create($event)}>
+      <span><strong>+</strong>新建数据模型</span>
+    </div>
+    {/if}
+  </div>
+  {/if}
+  <!--普通参数没有详情，比如HTTP 接口的请求头、响应头等-->
+  {#if !isOpen&&showDetail&&!isNormalParam}
+  <div class="select-detail"
+       on-mouseenter={this.showDatatypeDetail($event,true)}
+       on-mouseleave={this.showDatatypeDetail($event,false)}>
+    <a href="{this.getDatatypeDetailLink(docPreview,selected.projectId,selected.id)}" class="stateful title"
+       title="{selected.name}" on-click={this.checkJump()}>
+      <span class="format-name">{this.getFormatName()}</span>
+      {#if showModify&&selected.format===0}
+      <span class="modify" href="javascript:void(0);" on-click={this.modify($event,selected)}>修改数据模型</span>
+      {/if}
+      <span class="version-name">{versionName}</span>
+      <span>
+                <em>查看详情</em>
+                <i class="glyphicon glyphicon-chevron-right"></i>
+            </span>
+    </a>
+    <div class="s-row-wrap">
+      <div class="s-row-hd">
+        {#list xheaders as header}
+        {#if header.skipInSelectDetail!==true}
+        <span>{header.name}</span>
+        {/if}
+        {/list}
+      </div>
+      <div class="s-row-bd">
+        {#list params as param}
+        {#if param.ignored!==1}
+        <div class="s-row">
+          {#list xheaders as header}
+          {#if header.skipInSelectDetail!==true}
+          <span r-html="{this.getFieldName(param, header.key)}" title="{this.getFieldName(param, header.key)}"></span>
+          {/if}
+          {/list}
+        </div>
+        {/if}
+        {/list}
+      </div>
+    </div>
+  </div>
+  {/if}
+</div>

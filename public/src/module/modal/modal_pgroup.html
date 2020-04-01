@@ -1,0 +1,51 @@
+{#if method == "create" || method == "modify"}
+<div class="create-part">
+  <div class="p-title">
+    <div class='js-ipt-parent'>
+      <input class="u-ipt" maxlength="50" type="text" r-class={{'j-err-ipt': !!inputError}}
+             placeholder="{this.data.typeName}名称" r-model={inputName} on-input={this.checkVal()}>
+    </div>
+  </div>
+  <div class="p-desc">
+    <div class='js-ipt-parent'>
+      <textarea class="u-txt" placeholder="{this.data.typeName}描述" r-model={description}></textarea>
+    </div>
+  </div>
+</div>
+{#elseif method == "transfer"}
+<div class="pg-transfer">
+  {#if !xlist.length}
+  <div class="pg-transfer-empty">
+    <i class="u-icon-alert-normal-2"></i><span>项目组没有成员，不能转交给别人了</span>
+  </div>
+  {#else}
+  <div class="pg-transfer-tip">
+    <span r-hide={!inputError}>请选择需要转交的项目组成员</span>
+  </div>
+  <div class="transfer">
+    <div class="label">移交给：</div>
+    <div class="field">
+      <select2 source={xlist} on-change={this.transfer($event)}></select2>
+    </div>
+  </div>
+  {/if}
+</div>
+{#else}
+<div class="pg-delete">
+  <div class="warn-part">
+    <div class="warn-icon u-icon-alert-normal-2"></div>
+    <div class="pg-delete-text">
+      将删除项目组以下所有内容且不可恢复：<br>
+      1. 该组下所有项目<br>
+      2. 该组下所有资源
+    </div>
+  </div>
+  <div class="pg-delete-name">
+    <div class="pg-delete-name-hint">
+      请在输入框中输入项目组的名称：（<strong>{name}</strong>）
+    </div>
+    <input type="text" class="u-input" r-class={{'j-err-ipt': !!inputError}} r-model={inputName} placeholder="项目组名称"
+           on-input={this.checkVal()}>
+  </div>
+</div>
+{/if}

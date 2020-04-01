@@ -1,0 +1,122 @@
+<div r-class="{{'m-param-editor-core':true,'param-editor-preview':preview,'param-editor-normal':isNormalParam}}">
+  <!--类别选择模板-->
+  {#include formatTpl}
+  <!--has-array, only-one-row, 都用来控制样式-->
+  <!--has-array表示字段中有数组类型，此时下拉框的宽度会变宽-->
+  <!--only-one-row表示只有一个字段，此时不显示删除按钮-->
+  <div
+    r-class="{{'editor-core':true,'has-array':hasArray,'x-row-not-editable':this.isNotEditableRow(),'x-row-not-sortable':this.isNotSortableRow()}}">
+    <div class="editor-hd">
+      {#list xheaders as item}
+      <span class="{item.clazz}">
+        {item.name}
+        {# if (item.key==='required')}
+        <i class="glyphicon glyphicon-question-sign"></i>
+        <span class="u-tip">
+          选择“是”，则该字段必须存在且类型须一致
+          <br/>
+          选择“否”，则该字段可有可无且值可为null
+        </span>
+        {/if}
+      </span>
+      {/list}
+      <span class="x-act">&nbsp;</span>
+      {#if !isNest}
+      <i class="glyphicon glyphicon-resize-full" title="切换到全屏模式"
+         on-click="{this.$root.$emit('toggle-fullscreen',true)}"></i>
+      <i class="glyphicon glyphicon-resize-small" title="切换到普通模式"
+         on-click="{this.$root.$emit('toggle-fullscreen',false)}"></i>
+      {/if}
+    </div>
+    <div class="editor-bd">
+      {#if params.length>=200}
+      <div class="empty-param-tip">参数数量超过 200，无法展示</div>
+      {/if}
+
+      {#if params.length <= 200}
+
+      {#list params as param}
+
+      {#if param.imported}
+      <div r-class="{{'x-row-imported':true,'editing-ignored':!!param.editingIgnored}}"
+           {#if draggableRow}
+           on-dragstart="{this.dragStart($event, param_index)}"
+           on-dragend="{this.dragEnd($event, param_index)}"
+           on-dragover="{this.dragOver($event)}"
+           on-dragenter="{this.dragEnter($event)}"
+           draggable="true"
+           {
+      /if}>
+      <!--导入数据模型的名称及其他操作-->
+      <div class="imported-datatype">
+        <span class="dt-wrap">
+          <i class="glyphicon glyphicon-triangle-right"></i>
+          <a href="{this.getDatatypeDetailLink(docPreview,pid,param.id)}" class="stateful" on-click="{this.checkJump()}"
+             title="{param.name}">
+              {param.name}
+              <br/>
+              {param.version.name}
+          </a>
+          <i on-click="{this.toggleIgnoredEditing(param.id,true)}" title="显示全部属性"
+             class="toggle-ignore glyphicon glyphicon-eye-close"></i>
+          <i on-click="{this.toggleIgnoredEditing(param.id,false)}" title="隐藏忽略属性"
+             class="toggle-ignore glyphicon glyphicon-eye-open"></i>
+          <i on-click="{this.removeParam(param_index,parentParam)}" title="删除"
+             class="glyphicon glyphicon-remove"></i>
+        </span>
+      </div>
+      <!--导入数据模型的字段-->
+      {#list param.params as importedParam}
+      {#include importedParamRowTpl}
+      {/list}
+    </div>
+    {#else}
+
+    <!--普通参数-->
+    {#include paramRowTpl}
+
+    {/if}
+
+    {/list}
+
+    <!--一些提示信息-->
+    {#include paramTipTpl}
+    {/if}
+  </div>
+</div>
+{#if format===dbConst.MDL_FMT_HASH||format===dbConst.MDL_FMT_ENUM||format===dbConst.MDL_FMT_ARRAY||format===dbConst.MDL_FMT_HASHMAP}
+<div r-class="{{'editor-action':true,'editor-action-adding':this.hasAddingParam()}}">
+  {#if format!==dbConst.MDL_FMT_HASHMAP}
+  <button on-click="{this.addParam()}" class="u-btn" type="button">添加</button>
+  {/if}
+  {#if format!==dbConst.MDL_FMT_ARRAY && format!==dbConst.MDL_FMT_HASHMAP}
+  <button on-click="{this.import(importTypes.DATATYPE,parentParam)}" class="u-btn btn-datatype" type="button">从数据模型导入
+  </button>
+  {/if}
+  {#if format!==dbConst.MDL_FMT_HASHMAP}
+  <button on-click="{this.import(importTypes.JSON)}" class="u-btn btn-json" type="button">从JSON导入</button>
+  {/if}
+  {#if format!==dbConst.MDL_FMT_ENUM && format!==dbConst.MDL_FMT_HASHMAP && isNormalParam!==true}
+  <button on-click="{this.import(importTypes.INTERFACE)}" class="u-btn" type="button">从在线接口导入</button>
+  {#if format!==dbConst.MDL_FMT_ARRAY && format!==dbConst.MDL_FMT_HASHMAP}
+  <button on-click="{this.import(importTypes.JAVABEAN)}" class="u-btn" type="button">从JavaBean导入</button>
+  {/if}
+  <!--如果本身就是创建数据模型的界面，则不需要显示这个按钮-->
+  {#if isCreatingDatatype!==true&&format===dbConst.MDL_FMT_HASH}
+  <button on-click="{this.saveAsDatatype()}" class="u-btn" type="button">保存为数据模型</button>
+  {/if}
+  {/if}
+  <!--复制枚举的所有键值对-->
+  {#if preview&&format===dbConst.MDL_FMT_ENUM}
+  <button on-click="{this.copyEnum()}" class="u-btn btn-copy-enum" type="button">复制所有键值对</button>
+  {/if}
+  {#if preview&&!isNest&&this.hasAddingParam()}
+  <button on-click="{this.saveAllParams()}" class="u-btn save-btn" type="button">保存</button>
+  <button on-click="{this.cancelAddingParams()}" class="u-btn cancel-btn" type="button">取消</button>
+  {/if}
+</div>
+{#if format===dbConst.MDL_FMT_ARRAY}
+<p class="normal-tip">提示：您可以添加不同类型的数组元素。</p>
+{/if}
+{/if}
+</div>

@@ -1,0 +1,47 @@
+<div class="m-interface-testprogress">
+  <div class="progress">
+    <div class="finished">
+      <em class="number">{finishNum}</em>
+      <span class="status">已完成</span>
+    </div>
+    <div class="unfinished">
+      <em class="number">{unfinishNum}</em>
+      <span class="status">未完成</span>
+    </div>
+  </div>
+  <div class="interface-list">
+    {#if !queue.length}
+    <span>未检测到测试数据</span>
+    {#else}
+    <ul>
+      <li>
+        <div class="name">用例名称</div>
+        <div class="inf-name">接口名称</div>
+        <div class="opt"></div>
+      </li>
+      {#list testcases as item}
+      <li>
+        <div class="name"><a on-click={this._redirect(item.pgid,item.pid,item.iid,item.id)}>{item.name}</a></div>
+        <div class="inf-name">{infCache._$getItemInCache(item.iid).name}</div>
+        <div class="opt">
+          {#if item.state == 0}
+          <a class="u-icon-delete-normal" title="从测试列表中删除" on-click={this.remove(item_index)}></a>
+          <i class="u-icon-waiting-test-normal"></i>
+          {#elseif item.state == 1}
+          <a class="u-icon-detail-normal" on-click={this._redirect(item.pgid,item.pid,item.iid,item.id)}
+             title="查看测试报告"></a>
+          <i class="u-icon-state-done-normal"></i>
+          {#elseif item.state == 2}
+          <a class="u-icon-detail-normal" on-click={this._redirect(item.pgid,item.pid,item.iid,item.id)}
+             title="查看测试报告"></a>
+          <i class="u-icon-alert-normal spin"></i>
+          {#elseif item.state == 4}
+          <i class="u-loading u-loading-gif"><i></i></i>
+          {/if}
+        </div>
+      </li>
+      {/list}
+    </ul>
+    {/if}
+  </div>
+</div>

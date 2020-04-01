@@ -1,0 +1,13 @@
+{
+  "name": "jsonbean",
+  "homepage": "https://github.com/NEYouFan/jsonbean",
+  "_release": "d92a3ed8cf",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "d92a3ed8cf01915ebf5735545ae6122c1ee88984"
+  },
+  "_source": "https://github.com/NEYouFan/jsonbean.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/NEYouFan/jsonbean.git"
+}

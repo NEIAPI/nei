@@ -1,0 +1,38 @@
+.m-r-r-c {
+  .classname-select {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0;
+
+    .u-select2 {
+      width: 100%;
+
+      .select-hd {
+        padding: 0;
+        border-color: #e6e6e6;
+      }
+    }
+
+    .js-mhd-parent {
+      flex: 1;
+
+      .path {
+        width: 100%;
+      }
+    }
+  }
+
+  .respo .u-dropdown {
+    width: 100%;
+  }
+
+  .tag {
+    width: 50%;
+  }
+
+  .follow {
+    width: 50%;
+  }
+}

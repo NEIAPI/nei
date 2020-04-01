@@ -1,0 +1,21 @@
+.m-test-group {
+  height: 100%;
+  min-height: 600px;
+
+  .main-tab-tab-con {
+    .no-item-tip {
+      margin: 50px auto 0;
+      height: 240px;
+      text-align: center;
+      color: #999;
+
+      .u-icon-no-found-data {
+        display: inline-block;
+      }
+    }
+  }
+
+  .pro_inf_tree_wrap {
+    height: 100%;
+  }
+}

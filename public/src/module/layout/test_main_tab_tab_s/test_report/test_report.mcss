@@ -1,0 +1,78 @@
+.m-test-report {
+  padding-bottom: 20px;
+
+  .marker-err {
+    background-color: #fdedef;
+    position: absolute;
+  }
+
+  .err-data {
+    color: #f04c62;
+    padding-left: 5px;
+    vertical-align: bottom;
+  }
+
+  .d-item {
+    display: flex;
+    padding: 20px 0 0;
+    margin: 0;
+
+    .field {
+      flex: 1;
+      text-align: left;
+      color: #222;
+
+      ol {
+        margin-left: 12px;
+      }
+
+      li {
+        list-style-type: decimal;
+      }
+
+      .testfail, .testsuccess {
+        font-size: 1.1em;
+      }
+
+      .testfail {
+        color: #f04c62;
+
+        a:link,
+        a:visited {
+          color: #30a1f2;
+        }
+      }
+
+      .testsuccess {
+        color: #56c969;
+      }
+
+      .method {
+        font-weight: bold;
+        display: inline-block;
+        margin-right: 5px;
+      }
+
+      .path {
+        display: inline-block;
+      }
+
+      .u-head {
+        margin-top: -8px;
+      }
+    }
+
+    &.d-item-testResult {
+      h3 {
+        color: #bbb;
+        font-size: 1.1em;
+        margin: 10px 0 5px 0;
+      }
+    }
+
+    > label {
+      width: 66px;
+      text-align: right;
+    }
+  }
+}

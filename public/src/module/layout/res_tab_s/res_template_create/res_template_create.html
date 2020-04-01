@@ -1,0 +1,81 @@
+<meta charset="utf-8"/>
+<textarea name="txt" id="module-res-template-create">
+	<div class="m-res-t-c u-form-create">
+	<div class="form-title">
+		<div class="title">新建页面模板</div>
+		<a class="goback stateful">返回<i class="u-icon-back-normal-2"></i></a>
+	</div>
+		<form data-focus-mode="1" class="m-form">
+			<div class="form-group">
+				<label>
+					<i class="signal-required">*</i>模版名称：
+				</label>
+				<input type="text" name="name" class="name form-item"
+               placeholder="请输入名称"
+               data-auto-focus="true"
+               data-required="true"
+               data-message="最多20个中文或者40个英文字符！"
+               data-tip="请输入模板名称，最多20个中文或者40个英文字符"
+               data-max-length="40"
+               data-min-length="1"
+               data-ignore="true">
+			</div>
+
+			<div class="form-group">
+				<label>
+					<i class="signal-required">*</i>路径：
+				</label>
+				<input type="text" name="path" class="path form-item" value="/"
+               placeholder="请输入路径"
+               data-tip="模板文件相对于模板根路径的地址，如 /page/test"
+               data-message="模板文件相对于模板根路径的地址，如 /page/test"
+               data-pattern="^(?!.*\:\/\/).*\/(?!.*\:\/\/).*$" data-ignore="true">
+			</div>
+
+			<div class="form-group">
+				<label>模版描述：</label>
+				<textarea type="text" name="description" placeholder="请输入模板描述信息" class="description form-item">&lt;/textarea>
+				</div>
+
+				<div class="form-group">
+					<label>预填数据：</label>
+					<div class="parameters t-c-parameters-editor"></div>
+				</div>
+
+				<div class="form-group form-group-group">
+					<label>业务分组：</label>
+					<div class="groups item-wrap">
+
+						<!-- 智能输入选择器 -->
+
+					</div>
+					<a class="create">新建</a>
+				</div>
+
+				<div class="form-group">
+					<label>负责人：</label>
+					<div class="respo item-wrap">
+
+						<!-- 智能输入选择器 -->
+
+					</div>
+				</div>
+
+				<div class="form-group form-item">
+					<label>标签：</label>
+					<div class="tag item-wrap">
+
+						<!-- 智能提示输入框 -->
+
+					</div>
+				</div>
+
+				<div class="button-group">
+					<button class="save u-btn" name="save" type="button">保存</button>
+				</div>
+			</form>
+		</div>
+	</textarea>
+
+<textarea name="css" data-src="./res_template_create.css"></textarea>
+<textarea name="js" data-src="./res_template_create.js"></textarea>

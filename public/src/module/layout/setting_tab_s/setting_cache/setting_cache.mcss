@@ -1,0 +1,28 @@
+.m-setting-cache {
+  margin-top: 30px;
+
+  .cache-part {
+    width: 100%;
+    box-sizing: border-box;
+
+    .clear-part {
+      margin-top: 20px;
+
+      .clear-btn {
+        width: 102px;
+        height: 34px;
+        line-height: 34px;
+        background-color: #30a1f2;
+        color: #fff;
+        text-align: center;
+        display: inline-block;
+      }
+
+      .description {
+        margin-top: 10px;
+        color: #bbb;
+        width: 500px;
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+.m-res-client-c {
+  .description {
+    height: 80px;
+  }
+
+  .tag {
+    width: 50%;
+  }
+
+  .dates {
+    .date-picker {
+      z-index: 100;
+      margin-left: 85px;
+      margin-top: 30px;
+    }
+  }
+}

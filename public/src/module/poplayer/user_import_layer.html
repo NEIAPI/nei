@@ -1,0 +1,54 @@
+<div class="m-user-import">
+  <div class="search"><input type="text" class="u-input" ref="input" on-input={this.search($event)} placeholder="搜索">
+  </div>
+  <div class="d-header">
+    <div class="list-row ">
+      <div class="list-col list-col-check" r-class={{"selected":selectAll}}><i class="u-icon-checkbox-normal"
+                                                                               on-click={this.selectAll(xlist)}></i><i
+        class="u-icon-checkbox-pressed" on-click={this.selectAll(xlist)}></i></div>
+      <div class="list-col list-col-user">用户</div>
+      <div class="list-col list-col-role">角色</div>
+    </div>
+  </div>
+  <div class="d-body">
+    {#if !searchFlag && !xlist.length || searchFlag && (noItemFlag || xlistNoItemflag)}
+    <div class="list-empty">
+      没有找到相关的用户
+    </div>
+    {/if}
+    {#list xlist as x}
+    <div class="list-row" r-class={{'f-dni': !x.hit}} on-click={this.selectItem($event,x)}>
+      <div class="list-col list-col-check" r-class={{"selected":checkStatus[x.id]}}><i
+        class="u-icon-checkbox-normal"></i><i class="u-icon-checkbox-pressed"></i></div>
+      {#if x.hasInclude}
+      <div class="list-col list-col-user" r-html={x.itemState.realname}></div>
+      {#else}
+      <div class="list-col list-col-user" title={x.realname}>{x.realname}</div>
+      {/if}
+      <div class="list-col list-col-role">
+        <select2 source={source} selected={x.selected} on-change={this.roleUpdate(this.data.$event,x)} initSilent=false
+                 preview=true></select2>
+      </div>
+    </div>
+    {/list}
+    <h2 class="title"> 项目组已存在的用户</h2>
+    {#list existList as x}
+    <div class="list-row list-row-exist" r-class={{'f-dni': !x.hit}}>
+      <div class="list-col list-col-check selected"><i class="u-icon-checkbox-pressed"></i></div>
+      {#if x.hasInclude}
+      <div class="list-col list-col-user" r-html={x.itemState.realname}></div>
+      {#else}
+      <div class="list-col list-col-user" title={x.realname}>{x.realname}</div>
+      {/if}
+      <div class="list-col list-col-role">
+        <span class="exist-role">{x.roleName}</span>
+      </div>
+    </div>
+    {/list}
+    {#if !searchFlag && !existList.length || searchFlag && (noItemFlag || existListNoItemflag)}
+    <div class="list-empty">
+      没有找到相关的用户
+    </div>
+    {/if}
+  </div>
+</div>

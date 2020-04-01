@@ -1,0 +1,81 @@
+<div class="test-report-list">
+  <ul>
+    {#list reports as report}
+    <li class="report" on-click={this.toggleShow(report)}>
+      <div class="expand" r-class={{'active': report.show}}>
+        <i class="glyphicon glyphicon-chevron-right"></i>
+      </div>
+      <div class="path" r-html={report.path}></div>
+      <div class="opt">
+        {#if report.status === 0}
+        <i class="u-icon-alert-normal spin"></i>
+        {#elseif report.status === 1}
+        <i class="u-icon-state-done-normal"></i>
+        {/if}
+      </div>
+    </li>
+    {#if report.show}
+    <div class="report-detail">
+      <div class="d-item d-item-testResult">
+        <label>{#if report.testcase}验证提示：{#else}错误提示：{/if}</label>
+        <div class="field j-flag">
+          {#if report.status === 1}
+          <p class="testsuccess">测试通过</p>
+          {#else}
+          <p class="testfail">测试失败:</p>
+          {#if report.testcase}
+          {#if report.testcase.updatedata.data.report}
+          {report.testcase.updatedata.data.report}
+          {#else}
+          {#list report.errors as errorlist}
+          {#if errorlist && errorlist.length > 0}
+          <h3>{errorlist_index === 0? "响应数据：":"响应头："}</h3>
+          <ol>
+            {#list errorlist as error}
+            {#if error.type === 0}
+            <li>JSON格式错误：{error.message}{#if error.row}，行:{error.row}{/if}</li>
+            {#elseif error.type === 1}
+            <li>类型不匹配：<code class="err-data">{error.data|escape} </code>{#if error.datatype} is not
+              {error.datatype}{/if}{#if error.row}，行:{error.row}{/if}
+            </li>
+            {#elseif error.type === 2}
+            <li>{#if error.message}{error.message|escape}{#else}期望值不匹配{/if}：expect {error.expect} -> got <code
+              title={error.data} class="err-data">{error.data} </code>{#if error.row}，行:{error.row}{/if}
+            </li>
+            {#elseif error.type === 4}
+            <li>{#if error.message}{error.message|escape}{#else}不支持的字段{/if}：{error.keys.join(" -> ")}</li>
+            {#elseif error.type === 5}
+            <li>{#if error.message}{error.message|escape}{#else}多余字段{/if}：{error.keys.join(" -> ")}</li>
+            {#else}
+            <li>{item_index === 0?"缺少字段":"缺少"}：{error.keys.join(" -> ")}</li>
+            {/if}
+            {/list}
+          </ol>
+          {/if}
+          {/list}
+          {/if}
+          {#else}
+          <div class="testfail">转换规则执行错误：</div>
+          <div class="testfail">{report.err.message}</div>
+          {/if}
+          {/if}
+        </div>
+      </div>
+      <div class="d-item">
+        <label>响应头：</label>
+        <div class="field j-flag">
+          <res-header ref={'header_' + report_index} list={report.resHeader} isolate=1></res-header>
+        </div>
+      </div>
+      <div class="d-item">
+        <label>原始响应：</label>
+        <div class="field j-flag">
+          <aceEditor ref={'data_' + report_index} className="res-edt" showGutter={true} readOnly={true} maxLines={20}
+                     highlightActiveLine={true} empty="无" defaultValue={report.displayResData}></aceEditor>
+        </div>
+      </div>
+    </div>
+    {/if}
+    {/list}
+  </ul>
+</div>

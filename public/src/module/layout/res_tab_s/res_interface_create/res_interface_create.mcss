@@ -1,0 +1,87 @@
+.m-r-i-c {
+  .request {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0;
+
+    .method {
+      .u-select2 {
+        width: 90px;
+
+        .select-hd {
+          border-right-width: 0;
+          border-color: #e6e6e6;
+        }
+      }
+    }
+
+    .js-mhd-parent {
+      flex: 1;
+
+      .path {
+        width: 100%;
+      }
+    }
+  }
+
+  .respo .u-dropdown {
+    width: 100%;
+  }
+
+  .tag {
+    width: 50%;
+  }
+
+  .tag-tip {
+    &.js-error {
+      height: auto;
+      min-width: auto;
+      overflow: hidden;
+      max-width: 245px;
+    }
+  }
+
+  .follow {
+    width: 50%;
+  }
+
+  .form-group-request {
+    .js-error {
+      height: auto;
+      line-height: auto;
+    }
+  }
+
+  .create-tip {
+    margin-left: 85px;
+    margin-top: 20px;
+
+    a:link,
+    a:visited {
+      color: #30a1f2;
+    }
+  }
+
+  .hide {
+    display: none;
+  }
+
+  .form-group-schema {
+    .schema {
+      width: 50%;
+
+      .radio-container {
+        display: flex;
+        flex-wrap: wrap;
+        min-height: 30px;
+        align-items: center;
+
+        label:not(:last-child) {
+          margin-right: 7px;
+        }
+      }
+    }
+  }
+}

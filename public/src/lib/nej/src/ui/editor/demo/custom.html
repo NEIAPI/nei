@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>test editor</title>
+    <meta charset="utf-8"/>
+      <style>
+          div.m-abc{width:800px;height:400px;}
+      </style>
+
+  </head>
+  <body>
+    <script>window.NEJ_CONF={root:'../../../../res/'};</script>
+    <script src="../../../define.js"></script>
+    <script>
+      define([
+          'base/event',
+          '../custom.js'
+      ],function(_v,_i){
+          var editor = _i._$$CustomEditor._$allocate({
+              parent:document.body,
+              clazz:'m-abc'
+          });
+      });
+    </script>
+  </body>
+</html>

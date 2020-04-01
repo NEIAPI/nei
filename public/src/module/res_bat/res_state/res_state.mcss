@@ -1,0 +1,26 @@
+// .m-modal-res-group {
+//     .modal-dialog {
+//         width: 50%;
+//     }
+//     .res-group {
+//         text-align: left;
+//         padding: 0 30px;
+//         .label {
+//             vertical-align: middle;
+//             color: #999;
+//         }
+//         .btn {
+//             color: #56c969;
+//             margin-left: 5px;
+//             line-height: 30px;
+//             vertical-align: middle;
+//         }
+//         .list-view {
+//             max-height: 90px !important;
+//         }
+//     }
+// }
+
+// .m-modal-group-inline {
+//     background-color: transparent;
+// }

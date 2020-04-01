@@ -1,0 +1,14 @@
+<div class="m-import-json" r-class={{"draging":isDraging}} on-dragenter={this.ondragenter($event)}
+     on-dragleave={this.ondragleave($event)} on-drop={this.ondrop($event)} on-dragover={this.ondragover($event)}>
+  <div class="oper">
+    <span class="func"><input ref="upload" type="file" accept=".json" class="u-icon-upload-file-normal"/><i
+      class="u-icon-file-pressed"></i></span>
+    <span class="func" title="json格式化" ref="jsonFormatBtn">
+            <i class="u-icon-json-format"></i>
+        </span>
+    文件拖入此区域可导入
+  </div>
+  <div class="edit">
+    <pre id="editor_ace"></pre>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<div r-class={{"m-tagme":true,"tagme-preview":preview,"tagme-readonly":!editable,"list-open":!hideDropdown}}>
+  <div class="f-cb tagme-con" on-click={this.focus($event)} ref="tagmecon">
+    {#list xlist as item by item_index}
+    <span class="t-item" title="{item.name}" r-style="{itemStyle}">
+            <em>{item.name}</em>
+            <i on-click={this.remove(item_index, $event)}>×</i>
+        </span>
+    {/list}
+    <!-- 没有标签时的提示 -->
+    <span r-class={{"no-tag-tip":true,"f-dn":!(!xlist.length&&hideDropdown&&preview)}} on-click={this.focus($event)}
+          ref="notagtip" r-html={noTagTip}></span>
+    {#if editable}
+    <input ref="input" {#if !preview}placeholder={placeholder}{/if} class="tag-input" type="text" r-model={inputValue}
+           on-input={this.input($event)} on-keydown={this.keydown($event)}/>
+    {/if}
+  </div>
+  <ul r-class={{"tag-list":true,"f-dn":hideDropdown}} ref="listcon">
+    {#if !hideDropdown && !foreceHideDropdown}
+    {#list ylist as item by item_index}
+    {#if item_index < maxNum}
+    <li r-class={{"list-item":true,"js-selected":sIndex===item_index,"not-selectable":item.id===-1}}
+        title="{item.title||item.name}" on-click={this.add($event,item)}>
+      {#if item.__uiName}
+      <span r-html={item.__uiName}></span>
+      {#else}
+      <span>{item.name}</span>
+      {/if}
+      <!--搜索匹配的时候 __uiName 会算上 nameDesc, 此时就不用显示默认的 nameDesc-->
+      {#if !item.__uiName && item.nameDesc}
+      <span>{item.nameDesc}</span>
+      {/if}
+      {#list item.tags as tag}
+      <em class="tip-tag" title={tag}>{tag}</em>
+      {/list}
+    </li>
+    {/if}
+    {/list}
+    {/if}
+  </ul>
+</div>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%- include common.ejs %>
+  <link href="/src/module/common/icons.css" rel="stylesheet"/>
+  <link href="/src/module/common/fonts.css" rel="stylesheet"/>
+  <link href="/src/module/common/unit.css" rel="stylesheet"/>
+  <link href="/src/module/common/markdown.css" rel="stylesheet"/>
+  <link href="/src/module/layout/doc/doc.css" rel="stylesheet"/>
+  <link href="/src/lib/editor-md/css/editormd.css" rel="stylesheet"/>
+</head>
+<body class="ready sticky" id="doc">
+<div class="loading">
+  <i></i>
+</div>
+
+<!-- @MERGE -->
+<script src="/src/lib/jquery.min.js"></script>
+<script src="/src/lib/editor-md/js/editormd.js"></script>
+<script src="/src/lib/editor-md/plugins/link-dialog/link-dialog.js"></script>
+<script src="/src/lib/editor-md/plugins/reference-link-dialog/reference-link-dialog.js"></script>
+<script src="/src/lib/editor-md/plugins/image-dialog/image-dialog.js"></script>
+<script src="/src/lib/editor-md/plugins/reference-link-dialog/reference-link-dialog.js"></script>
+<script src="/src/lib/editor-md/plugins/code-block-dialog/code-block-dialog.js"></script>
+<script src="/src/lib/editor-md/plugins/table-dialog/table-dialog.js"></script>
+<script src="/src/lib/editor-md/plugins/emoji-dialog/emoji-dialog.js"></script>
+<script src="/src/lib/editor-md/plugins/goto-line-dialog/goto-line-dialog.js"></script>
+<script src="/src/lib/editor-md/plugins/help-dialog/help-dialog.js"></script>
+<script src="/src/lib/editor-md/plugins/html-entities-dialog/html-entities-dialog.js"></script>
+<script src="/src/lib/editor-md/plugins/preformatted-text-dialog/preformatted-text-dialog.js"></script>
+<script src="/src/lib/highlight/highlight.min.js"></script>
+<script src="/src/lib/markdown-it/dist/markdown-it.min.js"></script>
+<!-- /@MERGE -->
+<!-- @VERSION -->
+<script>location.config = {root: '/src/module/'};</script>
+<script src="/src/lib/nej/src/define.js?pro=/src/module/&3rd=/src/lib/&rot=/src/"></script>
+<script src="/src/page/document.js"></script>
+</body>
+</html>

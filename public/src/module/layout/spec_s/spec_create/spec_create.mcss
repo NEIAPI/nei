@@ -1,0 +1,137 @@
+.m-spec-create {
+  padding: 0 30px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  min-height: 500px;
+
+  .m-title {
+    height: 60px;
+    line-height: 60px;
+    font-size: 24px;
+    color: #666666;
+    position: relative;
+    border-bottom: 1px solid #e6e6e6;
+  }
+
+  .u-back {
+    display: block;
+    font-size: 14px;
+    position: absolute;
+    line-height: inherit;
+    right: 0;
+    top: 0;
+    color: #222;
+
+    span {
+      vertical-align: middle;
+    }
+  }
+
+  .u-back:hover {
+    cursor: pointer;
+  }
+
+  .m-form {
+    color: #222222;
+    width: 100%;
+
+    .js-invalid {
+      border-color: #f04c62 !important;
+    }
+
+    .item {
+      margin-top: 20px;
+      display: flex;
+      position: relative;
+
+      .js-mhd-parent {
+        flex: 1;
+        display: flex;
+      }
+
+      label {
+        display: block;
+        width: 90px;
+        text-align: right;
+        margin-top: 5px;
+        font-size: 12px;
+
+        .u-required {
+          position: absolute;
+          color: #f04c62;
+          font-size: 20px;
+          vertical-align: bottom;
+          margin-right: 5px;
+          top: 4px;
+          left: 40px;
+        }
+      }
+
+      .form-item {
+        display: block;
+        width: 500px;
+        color: #222222;
+        font-size: 12px;
+        box-sizing: border-box;
+        border: 1px solid #e6e6e6;
+        height: 30px;
+        padding: 0 10px;
+        transition: all ease 0.3s;
+
+        &:focus {
+          border-color: #aaa;
+        }
+      }
+
+      .u-des {
+        height: 80px;
+        padding: 3px 10px;
+      }
+
+      .u-select {
+        display: block;
+
+        .select-hd, .select-bd {
+          width: 500px;
+        }
+      }
+
+      .u-ext {
+        border-color: #e6e6e6;
+        width: 500px;
+      }
+
+      .label {
+        margin-top: 0;
+      }
+    }
+  }
+
+  .m-btn {
+    margin-top: 30px;
+    font-size: 14px;
+    position: relative;
+  }
+
+  .u-submit {
+    position: absolute;
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #ffffff;
+    left: 90px;
+    background: #30a1f2;
+
+    &:hover {
+      background: #2b91b9;
+    }
+  }
+
+  .f-dn {
+    display: none !important;
+  }
+}

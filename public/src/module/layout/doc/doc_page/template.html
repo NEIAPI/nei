@@ -1,0 +1,88 @@
+<h1 class="title tc">页面</h1>
+<section class="pages">
+  {list data as page}
+  <section>
+    <h3 id="pages-${page.id}">
+      ${page.name|escape2}
+      <!-- <a class="backtop" href="#catalog">返回目录 ↑</a> -->
+    </h3>
+    <p class="moreinfo"><span class="strong">描述</span>：{if page.description}${page.description|escape2}{else}无{/if}</p>
+    <p class="moreinfo"><span class="strong">标签</span>：{if page.tag}${page.tag|escape2}{else}无{/if}</p>
+    <p class="moreinfo"><span class="strong">路径</span>：${page.path|escape2}</p>
+    <p class="moreinfo"><span class="strong">分组</span>：${page.group.name|escape2}</p>
+    <p class="moreinfo"><span class="strong">创建人</span>：${page.creator.realname|escape2}</p>
+    <p class="moreinfo"><span class="strong">创建时间</span>：${page.createTime|format:'yyyy-MM-dd HH:mm:ss'}</p>
+    {if page.params.length==0}
+    <p class="moreinfo"><span class="strong">参数</span>：无</p>
+    {else}
+    <h5>参数</h5>
+    <table>
+      <thead>
+      <tr>
+        <th>名称</th>
+        <th>类型</th>
+        <th>默认值</th>
+        <th>描述</th>
+      </tr>
+      </thead>
+      <tbody>
+      {list page.params as param}
+      <tr>
+        <td>${param.name|escape2}</td>
+        <td>
+          {if param.isArray}Array-{/if}
+          {if param.typeName|escape2}
+          {if param.type>10003}
+          <a class="stateful" href="/doc/datatypes/?id=${projectInfo.id}&resid=${param.type}"
+             title="${param.typeName|escape2}">${param.typeName|escape2}</a>
+          {else}
+          ${param.typeName|escape2}
+          {/if}
+          {else}
+          <a class="stateful" href="/doc/datatypes/?id=${projectInfo.id}&resid=${param.type}" title="Object">Object</a>
+          {/if}
+        </td>
+        <td>${param.defaultValue|escape2}</td>
+        <td>${param.description|escape2}</td>
+      </tr>
+      {/list}
+      </tbody>
+    </table>
+
+    <h5>范例</h5>
+    <pre class="highlight highlight-source-json">
+                    <code class="sample-code hljs" data-id="${page.id}" data-key="params">{if page.mockHtml}${page.mockHtml}{/if}</code>
+                </pre>
+    {/if}
+    {if page.templates.length==0}
+    <p>模版：无</p>
+    {else}
+    <h5>模版</h5>
+    <table>
+      <thead>
+      <tr>
+        <th>名称</th>
+        <th>路径</th>
+        <th>模版描述</th>
+        <th>负责人</th>
+        <th>分组</th>
+      </tr>
+      </thead>
+      <tbody>
+      {list page.templates as template}
+      <tr>
+        <td><a class="stateful" href="/doc/templates/?id=${projectInfo.id}&resid=${template.id}">${template.name|escape2}</a>
+        </td>
+        <td>${template.path|escape2}</td>
+        <td>${template.description|escape2}</td>
+        <td>${template.respo.realname|escape2}</td>
+        <td>${template.group.name|escape2}</td>
+      </tr>
+      {/list}
+      </tbody>
+    </table>
+    {/if}
+
+  </section>
+  {/list}
+</section>

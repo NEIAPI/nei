@@ -1,0 +1,122 @@
+{
+  "ownprogroup": [
+    {
+      "name": "创建项目组",
+      "action": "pg-create",
+      "role": "normal"
+    }
+  ],
+  "progroup": [
+    {
+      "name": "创建项目",
+      "action": "pro-create",
+      "role": "creator,administrator"
+    },
+    {
+      "name": "修改",
+      "action": "pg-modify",
+      "role": "creator"
+    },
+    {
+      "name": "删除",
+      "action": "pg-delete",
+      "role": "creator"
+    },
+    {
+      "name": "锁定|解锁",
+      "action": "pg-lock",
+      "role": "creator,administrator"
+    },
+    {
+      "name": "移交",
+      "action": "pg-transfer",
+      "role": "creator"
+    },
+    {
+      "name": "置顶|取消置顶",
+      "action": "pg-top",
+      "role": "creator,administrator,normal"
+    },
+    {
+      "name": "退出",
+      "action": "pg-quit",
+      "role": "normal,administrator"
+    }
+  ],
+  "defaultProgroup": [
+    {
+      "name": "创建项目",
+      "action": "pro-create",
+      "role": "creator,administrator"
+    },
+    {
+      "name": "修改",
+      "action": "pg-modify",
+      "role": "creator"
+    },
+    {
+      "name": "删除",
+      "action": "pg-delete",
+      "role": "creator"
+    },
+    {
+      "name": "锁定|解锁",
+      "action": "pg-lock",
+      "role": "creator,administrator"
+    },
+    {
+      "name": "置顶|取消置顶",
+      "action": "pg-top",
+      "role": "creator,administrator,normal"
+    },
+    {
+      "name": "退出",
+      "action": "pg-quit",
+      "role": "normal,administrator"
+    }
+  ],
+  "project": [
+    {
+      "name": "查看文档",
+      "action": "view-doc",
+      "role": "creator,administrator,normal"
+    },
+    {
+      "name": "复制项目",
+      "action": "pro-copy",
+      "role": "creator"
+    },
+    {
+      "name": "修改",
+      "action": "pro-modify",
+      "role": "creator,administrator"
+    },
+    {
+      "name": "删除",
+      "action": "pro-delete",
+      "role": "creator"
+    },
+    {
+      "name": "移交",
+      "action": "pro-transfer",
+      "role": "owner"
+    },
+    {
+      "name": "置顶|取消置顶",
+      "action": "pro-top",
+      "role": "creator,administrator"
+    }
+  ],
+  "publicsource": [
+    {
+      "name": "功能介绍",
+      "action": "features",
+      "role": "creator,administrator,normal"
+    },
+    {
+      "name": "复制资源",
+      "action": "pro-copy",
+      "role": "creator"
+    }
+  ]
+}

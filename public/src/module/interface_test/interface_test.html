@@ -1,0 +1,595 @@
+<div class="u-interface-test">
+  <p class="js-tip-xhrtp" r-hide={isxhrptIst}>测试依赖
+    <a href="https://chrome.google.com/webstore/detail/fbakmpanchidgmjopcmcddoihgjkfcjn"
+       target="xhr-proxy-tool"> XHR Proxy Tool </a>插件，
+    <a href="https://chrome.google.com/webstore/detail/fbakmpanchidgmjopcmcddoihgjkfcjn"
+       target="xhr-proxy-tool" on-click={this.installXhrExt($event)}>点击安装</a>
+    {#if refreshAfterIst}，安装后请刷新页面{/if}
+  </p>
+
+  <form>
+    <div class="form-group">
+      <label>
+        <i class="signal-required">*</i>服务器：
+      </label>
+      <input type="text" name="host"
+             r-class={{"host":true,"form-item":true,"js-invalid":xlist[0].__test.host.error}}
+             placeholder="请设置服务器环境" r-model={xlist[0].__test.host.value}
+             on-change={this.checkEmpty(xlist[0].__test.host,'value',true)} readonly>
+      <span class="js-tip js-tip-host">您可以<a class="j-set-host" href="javascript:void(0)" on-click={this.manageHosts()}>设置</a>项目的服务器环境</span>
+    </div>
+
+    <div class="req-list">
+      {#list xlist as x}
+      <div class="req-item">
+        <div class="req-con">
+          <div class="form-group">
+            <label>地址：</label>
+            <div class="item-text">
+              <span class="method">{x.method}</span>
+              <span class="path">{x.path}</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>
+              <i class="signal-required">*</i>名称：
+            </label>
+            <input type="text" name="name" f
+                   r-class={{"name":true,"form-item":true,"js-invalid":x.__test.name.error}}
+                   placeholder="请输入测试用例名称" r-model={x.__test.name.value}
+                   on-change={this.checkEmpty(x.__test.name,'value')}>
+          </div>
+
+          <div class="form-group form-description">
+            <label>描述：</label>
+            <textarea name="description" placeholder="请输入测试用例描述信息" class="description form-item"
+                      r-model={x.__test.description.value}></textarea>
+          </div>
+
+          <div class="form-group" r-hide={!x.params.pathParams || x.params.pathParams.length===0}>
+            <label>参数：</label>
+            <ul class="req-form form-item">
+              <li>
+                <ul class="list-head">
+                  <li class="item-name">名称</li>
+                  <li class="item-type">类型</li>
+                  <li class="item-value">值</li>
+                </ul>
+              </li>
+              {#list x.params.pathParams as param}
+              <li>
+                <ul>
+                  <li class="item-name" title="{param.name}">{param.name}</li>
+                  <li class="item-type" title="{param.typeName}">
+                    {#if param.__datatype.type !== TYPE.system}
+                    <a {#if param.__datatype.type !=TYPE.hidden}
+                       href="/datatype/detail/?pid={pid}&id={param.type}" {/if} class="stateful
+                    type-link">
+                    {#if param.isArray || x.reqFormat == FORMAT.array}Array&lt;{/if}
+                    {param.typeName || 'Object'}
+                    {#if param.isArray || x.reqFormat == FORMAT.array}&gt;{/if}
+                    </a>
+                    <ul class="parlist">
+                      {#if param.__datatype.type != TYPE.hidden}
+                      <li class="link-detail">
+                        <a href="/datatype/detail/?pid={pid}&id={param.type}" class="stateful">查看详情</a>
+                        <i class="u-icon-arrow-right-normal"></i>
+                      </li>
+                      {/if}
+                      <li>
+                        <ul>
+                          {#if param.__datatype.format == FORMAT.enum || x.reqFormat == FORMAT.enum}
+                          <li class="par-name">值</li>
+                          {#else}
+                          <li class="par-name">属性名</li>
+                          {/if}
+                          <li class="par-type">类型</li>
+                          <li class="par-description">描述</li>
+                        </ul>
+                      </li>
+                      {#list param.__datatype.params as param}
+                      <li>
+                        <ul>
+                          {#if param.__datatype.format == FORMAT.enum || x.reqFormat == FORMAT.enum}
+                          <li class="par-name" title={param.defaultValue}>
+                            {param.defaultValue}
+                          </li>
+                          {#else}
+                          <li class="par-name" title={param.name}>
+                            {param.name}
+                          </li>
+                          {/if}
+                          <li class="par-type" title={param.typeName}>
+                            {#if param.isArray}Array {param.typeName}
+                            {#else}{param.typeName}{/if}
+                          </li>
+                          <li class="par-description" title={param.description}>
+                            {param.description}
+                          </li>
+                        </ul>
+                      </li>
+                      {/list}
+                    </ul>
+                    {#elseif param.isArray || x.reqFormat == FORMAT.array}Array&lt;{param.typeName}&gt;
+                    {#elseif x.reqFormat == FORMAT.enum}枚举
+                    {#else}{param.typeName}
+                    {/if}
+                  </li>
+                  <li class="item-value">
+                    <input type="text" name="param-{param.name}" title="{param.__value}"
+                           placeholder="请输入路径参数"
+                           class="req-param" r-model={param.__value}
+                           on-change={this.checkPathParam(param,'__value')}>
+                    {#if param.error || param.errorMsg}
+                    <span class="js-error"><i class="u-icon-alert-normal"></i>{#if param.error}路径参数不能为空！{#else}{param.errorMsg}{/if}</span>
+                    {/if}
+                  </li>
+                </ul>
+              </li>
+              {/list}
+            </ul>
+          </div>
+          <div class="form-group quick-content-type-group">
+            <label>&nbsp;</label>
+            <form>
+              <ul class="d-quick-select" on-click={this.changeContentType($event)}>
+                <li>快速选择请求体类型：</li>
+                <li>
+                  <label>
+                    <input type="radio" name="req-body-type" value="application/json" {#if
+                           reqContentType==="application/json"} checked{/if}>
+                    <em>json</em>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="req-body-type" value="application/x-www-form-urlencoded" {#if
+                           reqContentType==="application/x-www-form-urlencoded"} checked{/if}>
+                    <em>x-www-form-urlencoded</em>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="req-body-type" value="multipart/form-data" {#if
+                           reqContentType==="multipart/form-data"} checked{/if}>
+                    <em>form-data</em>
+                  </label>
+                </li>
+              </ul>
+            </form>
+          </div>
+          <div class="form-group">
+            <label>请求头：</label>
+            {#if x.params.reqHeaders.length > 0}
+            <ul class="req-header req-form form-item">
+              <li>
+                <ul class="list-head">
+                  <li class="item-name">名称</li>
+                  <li class="item-value">值</li>
+                </ul>
+              </li>
+              {#list x.params.reqHeaders as reqHeader}
+              <li>
+                <ul>
+                  <li class="item-name" title={reqHeader.description || reqHeader.name}>
+                    {reqHeader.name}
+                  </li>
+                  <li class="item-value">
+                    <input type="text"
+                           class="rh-ipt"
+                           name="reqheader-{reqHeader.name|escape}"
+                           title="{reqHeader.__value}"
+                           on-change={this.runScript(x)}
+                           r-model={reqHeader.__value}>
+                  </li>
+                </ul>
+              </li>
+              {/list}
+            </ul>
+            {#else}
+            <p class="item-text">无</p>
+            {/if}
+          </div>
+
+          <div class="form-group req-form-group">
+            <label>请求参数：</label>
+            {#if x.params.inputs.length > 0}
+            <div class="options-bar">
+              <a href="javascript:void(0);" on-click={this.clearMockData(x)}>清空所有值</a>
+              <input type="checkbox" id="hidden-ignored" r-model={hiddenIgnored}><label
+              for="hidden-ignored">隐藏不发送字段</label>
+            </div>
+            {/if}
+            {#if x.params.inputs.length > 0}
+            <ul class="req-data req-form form-item">
+              <li>
+                <ul class="list-head">
+                  {#if x.reqFormat == FORMAT.hash || x.reqFormat == FORMAT.hashmap}
+                  <li class="item-name">名称</li>
+                  {/if}
+                  <li class="item-type">类型</li>
+                  <li class="item-required">是否不发送</li>
+                  <li class="item-value">值</li>
+                </ul>
+              </li>
+              {#list x.params.inputs as input}
+              {#if !hiddenIgnored || !input.__options.ignored}
+              {#if input.__datatype.format == FORMAT.file}
+              <li>
+                <ul class="list-file">
+                  {#if x.reqFormat == FORMAT.hash || x.reqFormat == FORMAT.hashmap}
+                  <li class="item-name" title="{input.name}">{input.name}</li>
+                  {/if}
+                  <li class="item-type" title="{input.typeName}">
+                    {#if input.type > 10003}
+                    <a href="/datatype/detail/?pid={pid}&id={input.type}" class="stateful">{input.typeName}</a>
+                    {#else}{input.typeName}
+                    {/if}
+                  </li>
+                  <li class="item-required">
+                    <input type="checkbox" r-model={input.__options.ignored}>
+                  </li>
+                  <li class="item-value">
+                    <label class="choose-file"
+                           for="m-res-i-tc-{input.name|escape}">请选择文件</label>
+                    <input name="reqdata-{input.name|escape}" class="rd-file"
+                           id="m-res-i-tc-{input.name|escape}" type="file"
+                           on-change={this.onFileChoosen($event,input)}>
+                    <span>{#if input.__value}{input.__value.name}{#else}未选择任何文件{/if}</span>
+                  </li>
+                </ul>
+              </li>
+
+              {#elseif x.reqFormat != FORMAT.enum || input_index<1}
+              <li>
+                <ul>
+                  {#if x.reqFormat == FORMAT.hash || x.reqFormat == FORMAT.hashmap}
+                  <li class="item-name" title={input.name}>{input.name}</li>
+                  {/if}
+                  <li class="item-type">
+                    {#if input.__datatype.type !== TYPE.system}
+                    <a {#if input.__datatype.type !=TYPE.hidden}
+                       href="/datatype/detail/?pid={pid}&id={input.type}" {/if} class="stateful
+                    type-link">
+                    {#if input.isArray || x.reqFormat == FORMAT.array}Array&lt;{/if}
+                    {input.typeName || 'Object'}
+                    {#if input.isArray || x.reqFormat == FORMAT.array}&gt;{/if}
+                    </a>
+                    <ul class="parlist">
+                      {#if input.__datatype.type != TYPE.hidden}
+                      <li class="link-detail">
+                        <a href="/datatype/detail/?pid={pid}&id={input.type}" class="stateful">查看详情</a>
+                        <i class="u-icon-arrow-right-normal"></i>
+                      </li>
+                      {/if}
+                      <li>
+                        <ul>
+                          {#if input.__datatype.format == FORMAT.enum || x.reqFormat == FORMAT.enum}
+                          <li class="par-name">值</li>
+                          {#else}
+                          <li class="par-name">属性名</li>
+                          {/if}
+                          <li class="par-type">类型</li>
+                          <li class="par-description">描述</li>
+                        </ul>
+                      </li>
+                      {#list input.__datatype.params as param}
+                      <li>
+                        <ul>
+                          {#if input.__datatype.format == FORMAT.enum || x.reqFormat == FORMAT.enum}
+                          <li class="par-name" title={param.defaultValue}>
+                            {param.defaultValue}
+                          </li>
+                          {#else}
+                          <li class="par-name" title={param.name}>
+                            {param.name}
+                          </li>
+                          {/if}
+                          <li class="par-type" title={param.typeName}>
+                            {#if param.isArray}Array {param.typeName}
+                            {#else}{param.typeName}{/if}
+                          </li>
+                          <li class="par-description" title={param.description}>
+                            {param.description}
+                          </li>
+                        </ul>
+                      </li>
+                      {/list}
+                    </ul>
+                    {#elseif input.isArray || x.reqFormat == FORMAT.array}Array&lt;{input.typeName}&gt;
+                    {#elseif x.reqFormat == FORMAT.enum}枚举
+                    {#else}{input.typeName}
+                    {/if}
+                  </li>
+                  <li class="item-required"><input type="checkbox" r-model="{input.__options.ignored}"></li>
+                  <li class="item-value">
+
+                    {#if input.__datatype.format === FORMAT.hash || input.__datatype.format == FORMAT.hashmap ||
+                    input.__datatype.format === FORMAT.string}
+                    <aceEditor className="rd-edt" defaultValue={input.__value||input.defalutValue}
+                               ref={input.id}
+                               highlight={input.__errState}
+                               on-input={this.onEditorChange($event,input)}
+                               on-blur={this.checkValidity(input,x.reqFormat,null,x)}
+                               on-focus={this.hideErrMsg(input.__errState)}></aceEditor>
+                    <span class="js-tip" r-hide={!input.description}>
+	                                        <i class="u-icon-notice2-normal"></i>{input.description}
+                                        </span>
+                    {#if input.__errState && input.__errState.length>0}
+                    <span class="js-error"><i class="u-icon-alert-normal"></i>{this.getErrMsg(input.__errState)}</span>
+                    {/if}
+
+                    {#else}
+                    <input type="text"
+                           class="rd-ipt"
+                           name="reqdata-{input.name|escape}"
+                           title={input.__value}
+                           r-model={input.__value}
+                           on-blur={this.checkValidity(input,x.reqFormat,x.reqFormat ==
+                    FORMAT.enum&&x.params.inputs,x)}
+                    on-click={this.hideErrMsg(input.__errState)}>
+                    {#if input.description}
+                    <span class="js-tip">
+                                            <i class="u-icon-notice2-normal"></i>{input.description}
+                                        </span>
+                    {/if}
+                    {#if input.__errState && input.__errState.length>0}
+                    <span class="js-error"><i class="u-icon-alert-normal"></i>{this.getErrMsg(input.__errState)}</span>
+                    {/if}
+                    {/if}
+                  </li>
+                </ul>
+              </li>
+              {/if}
+              {/if}
+              {/list}
+            </ul>
+            {#else}
+            <p class="item-text">无</p>
+            {/if}
+          </div>
+
+          <div class="form-group">
+            <label>发送规则：</label>
+            <p class="item-text">{x.beforeScript||'无'}</p>
+          </div>
+
+          <div class="form-group form-script-result" r-hide={!x.beforeScript}>
+            <label>处理结果：</label>
+            <aceEditor className="script-result form-item" readOnly={true} defaultValue={x.beforeScriptResult}
+                       showGutter={true} highlightActiveLine={true} empty={'无'}></aceEditor>
+          </div>
+
+          <div class="form-group">
+            <label>响应头：</label>
+            {#if x.params.resHeaders.length > 0}
+            <ul class="req-header req-form form-item">
+              <li>
+                <ul class="list-head">
+                  <li class="item-name">名称</li>
+                  <li class="item-value">预期值</li>
+                  <li class="item-error">出错提示</li>
+                </ul>
+              </li>
+              {#list x.params.resHeaders as resHeader}
+              <li>
+                <ul>
+                  <li class="item-name" title={resHeader.description||resHeader.name}>
+                    {resHeader.name}
+                  </li>
+                  <li class="item-value">
+                    <input type="text"
+                           class="rhe-ipt"
+                           name="resheader-{resHeader.name|escape}"
+                           title="{resHeader.name}"
+                           r-model={resHeader.__value}>
+                  </li>
+                  <li class="item-error">
+                    <input type="text"
+                           class="rhe-err-ipt"
+                           name="resexpect-{output.name|escape}"
+                           title={resHeader.name}
+                           r-model={resHeader.__error}>
+                  </li>
+                </ul>
+              </li>
+              {/list}
+            </ul>
+            {#else}
+            <p class="item-text">无</p>
+            {/if}
+          </div>
+
+          <div class="form-group">
+            <label>响应数据：</label>
+            {#if x.params.outputs.length > 0}
+            <ul class="req-data req-form form-item resexpect">
+              <li>
+                <ul class="list-head">
+                  {#if x.resFormat == FORMAT.hash || x.resFormat == FORMAT.hashmap}
+                  <li class="item-name">名称</li>
+                  {/if}
+                  <li class="item-type">类型</li>
+                  <li class="item-value">预期值</li>
+                  <li class="item-error">出错提示</li>
+                </ul>
+              </li>
+              {#list x.params.outputs as output}
+              {#if output.__datatype.format == FORMAT.file}
+              <li>
+                <ul class="list-file">
+                  {#if x.resFormat == FORMAT.hash || x.resFormat == FORMAT.hashmap}
+                  <li class="item-name" title="{output.name}">{output.name}</li>
+                  {/if}
+                  <li class="item-type" title="{output.typeName}">
+                    {#if output.type > 10003}
+                    <a href="/datatype/detail/?pid={pid}&id={output.type}" class="stateful">{output.typeName}</a>
+                    {#else}{output.typeName}
+                    {/if}
+                  </li>
+                  <li class="item-value">
+                    <label class="choose-file"
+                           for="m-res-i-tc-{output.name|escape}">请选择文件</label>
+                    <input name="resexpect-{output.name|escape}"
+                           class="re-file"
+                           type="file"
+                           id="m-res-i-tc-{output.name|escape}"
+                           on-change={this.onFileChoosen($event,output)}>
+                    <span>{#if input.__value}{input.__value.name}{#else}未选择任何文件{/if}</span>
+                  </li>
+                  <li class="item-error">
+                    <input type="text"
+                           class="re-err-ipt"
+                           name="resexpect-{output.name|escape}"
+                           title={output.__error}
+                           r-model={output.__error}>
+                  </li>
+                </ul>
+              </li>
+              {#elseif x.resFormat != FORMAT.enum || output_index<1}
+              <li>
+                <ul class="123-{input}">
+                  {#if x.resFormat == FORMAT.hash || x.resFormat == FORMAT.hashmap}
+                  <li class="item-name" title="{output.name}">{output.name}</li>
+                  {/if}
+                  <li class="item-type">
+                    {#if output.__datatype.type !== TYPE.system}
+                    <a {#if output.__datatype.type !=TYPE.hidden}
+                       href="/datatype/detail/?pid={pid}&id={output.type}" {/if} class="stateful
+                    type-link">
+                    {#if output.isArray || x.resFormat == FORMAT.array}Array&lt;{/if}
+                    {output.typeName || 'Object'}
+                    {#if output.isArray || x.resFormat == FORMAT.array}&gt;{/if}</a>
+                    <ul class="parlist">
+                      {#if output.__datatype.type != TYPE.hidden}
+                      <li class="link-detail">
+                        <a href="/datatype/detail/?pid={pid}&id={output.type}"
+                           class="stateful">查看详情</a>
+                        <i class="u-icon-arrow-right-normal"></i>
+                      </li>
+                      {/if}
+                      <li>
+                        <ul>{#if output.__datatype.format == FORMAT.enum || x.resFormat == FORMAT.enum}
+                          <li class="par-name">值</li>
+                          {#else}
+                          <li class="par-name">属性名</li>
+                          {/if}
+                          <li class="par-type">类型</li>
+                          <li class="par-description">描述</li>
+                        </ul>
+                      </li>
+                      {#list output.__datatype.params as param}
+                      <li>
+                        <ul>
+                          {#if output.__datatype.format == FORMAT.enum || x.resFormat == FORMAT.enum}
+                          <li class="par-name" title={param.defaultValue}>
+                            {param.defaultValue}
+                          </li>
+                          {#else}
+                          <li class="par-name" title={param.name}>
+                            {param.name}
+                          </li>
+                          {/if}
+                          <li class="par-type" title={param.typeName}>
+                            {#if param.isArray}Array {param.typeName}
+                            {#else}{param.typeName}{/if}
+                          </li>
+                          <li class="par-description" title={param.description}>
+                            {param.description}
+                          </li>
+                        </ul>
+                      </li>
+                      {/list}
+                    </ul>
+                    {#elseif output.isArray || x.resFormat == FORMAT.array}Array&lt;{output.typeName}&gt;
+                    {#elseif x.resFormat == FORMAT.enum}枚举
+                    {#else}{output.typeName}
+                    {/if}
+                  </li>
+
+                  {#if output.__datatype.format == FORMAT.hash || output.__datatype.format == FORMAT.hashmap}
+                  <li class="item-value">
+                    <aceEditor className="re-edt" defaultValue={output.__value||output.defalutValue}
+                               highlight={output.__errState}
+                               on-input={this.onEditorChange($event,output)}
+                               on-blur={this.checkValidity(output,x.resFormat,null,null,true)}
+                               on-focus={this.hideErrMsg(output.__errState)}>
+                    </aceEditor>
+                    <span class="js-tip" r-hide={!output.description}>
+                                            <i class="u-icon-notice2-normal"></i>{output.description}
+                                        </span>
+                    {#if output.__errState && output.__errState.length>0}
+                    <span class="js-error"><i class="u-icon-alert-normal"></i>{this.getErrMsg(output.__errState)}</span>
+                    {/if}
+                  </li>
+                  <li class="item-error">
+                    <aceEditor className="re-err-edt" defaultValue={output.__error}
+                               on-input={this.onEditorChange($event,output,'__error')}></aceEditor>
+                  </li>
+
+                  {#else}
+                  <li class="item-value">
+                    <input type="text"
+                           class="re-ipt"
+                           name="resexpect-{output.name|escape}"
+                           title={output.__value}
+                           r-model={output.__value}
+                           on-blur={this.checkValidity(output,x.resFormat,x.resFormat ==
+                    FORMAT.enum&&x.params.outputs,null,true)}
+                    on-click={this.hideErrMsg(output.__errState)}>
+                    <span class="js-tip" r-hide={!output.description}>
+                                            <i class="u-icon-notice2-normal"></i>{output.description}
+                                        </span>
+                    {#if output.__errState && output.__errState.length>0}
+                    <span class="js-error"><i class="u-icon-alert-normal"></i>{this.getErrMsg(output.__errState)}</span>
+                    {/if}
+                  </li>
+                  <li class="item-error">
+                    <input type="text"
+                           class="re-err-ipt"
+                           name="resexpect-{output.name|escape}"
+                           title={output.name}
+                           r-model={output.__error}>
+                  </li>
+                  {/if}
+                </ul>
+              </li>
+              {/if}
+              {/list}
+            </ul>
+            {#else}
+            <p class="item-text">无</p>
+            {/if}
+          </div>
+
+          <!--<div class="form-group" r-hide={!x.afterScript}>-->
+          <!--<label>接收规则：</label>-->
+          <!--<p class="item-text">{x.afterScript}</p>-->
+          <!--</div>-->
+
+          <!--<div class="form-group form-script-result" r-hide={!x.afterScript}>-->
+          <!--<label>执行结果：</label>-->
+          <!--<aceEditor className="script-result form-item" readOnly={true} defaultValue={x.afterScriptResult} showGutter={true} highlightActiveLine={true} empty={'无'}></aceEditor>-->
+          <!--</div>-->
+        </div>
+      </div>
+      {/list}
+    </div>
+    <div class="button-group">
+      {#if isCreateTest}
+      <button r-class={{"u-btn":true,"starttest":true,"u-btn-disabled":!!errCount}} name="starttest" type="button"
+              on-click={this.onSubmitClick($event)} {#if errCount>0}disabled{/if}>开始测试
+      </button>
+      {#else}
+      <button r-class={{"u-btn":true,"retest":true,"u-btn-disabled":!!errCount}} name="retest" type="button"
+              on-click={this.onSubmitClick($event)} {#if errCount>0}disabled{/if}>保存并重测
+      </button>
+      <button r-class={{"u-btn":true,"starttest":true,"u-btn-disabled":!!errCount}} name="starttest" type="button"
+              on-click={this.onSubmitClick($event,true)} {#if errCount>0}disabled{/if}>新建测试
+      </button>
+      {/if}
+    </div>
+
+  </form>
+</div>

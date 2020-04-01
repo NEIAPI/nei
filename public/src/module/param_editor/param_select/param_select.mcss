@@ -1,0 +1,266 @@
+/**
+  * 数据类型下拉框组件
+  */
+
+.u-trigon-down {
+  display: inline-block;
+  border-width: 5px;
+  border-style: solid dashed dashed dashed;
+  border-color: #777 transparent transparent transparent;
+}
+
+.p-select {
+  position: relative;
+  font-size: 12px;
+  text-align: left;
+
+  .select-hd {
+    box-sizing: border-box;
+    border: 1px solid #d2d6de;
+    position: relative;
+    height: 30px;
+    line-height: 30px;
+    transition: all ease .3s;
+    width: 100%;
+    overflow: hidden;
+    background-color: #fff;
+    margin-left: -5px;
+
+    &.js-preview {
+      border-color: transparent;
+
+      .u-trigon-down {
+        opacity: 0;
+      }
+
+      &:hover {
+        border-color: #e6e6e6;
+
+        .u-trigon-down {
+          opacity: 1;
+        }
+      }
+    }
+
+    &.js-disabled {
+      border-color: #fff;
+      padding: 0;
+
+      .u-trigon-down {
+        opacity: 0;
+      }
+
+      &:hover {
+        border-color: #fff;
+
+        .u-trigon-down {
+          opacity: 0;
+        }
+      }
+
+      .dis-name {
+        cursor: default;
+      }
+    }
+
+    .dis-name {
+      width: 100%;
+      display: inline-block;
+      box-sizing: border-box;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      border: 0 none;
+      background-color: transparent;
+      font-size: 12px;
+      margin-left: 0;
+      cursor: pointer;
+    }
+
+    &.complex-type {
+      .dis-name {
+        color: #30a1f2;
+
+        &.modify {
+          color: #ffa736;
+        }
+      }
+    }
+
+    .btn {
+      padding: 0 12px;
+      display: inline-block;
+      width: 100%;
+      height: 30px;
+      box-sizing: border-box;
+      line-height: 30px;
+      color: #999;
+      border: 1px solid #ddd;
+    }
+
+    .btn-error {
+      border-color: #ff0000;
+    }
+
+    .u-trigon-down {
+      position: absolute;
+      top: 12px;
+      right: 5px;
+      opacity: 1;
+      transition: opacity ease .3s;
+      z-index: 1;
+    }
+  }
+
+  .select-bd,
+  .select-detail {
+    position: absolute;
+    z-index: 99;
+    width: 400px;
+    top: 100%;
+    display: none;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    font-size: 12px;
+    border: 1px solid #e6e6e6;
+    margin-top: -1px;
+    margin-left: -5px;
+
+    .u-input {
+      display: block;
+      height: 30px;
+      line-height: 30px;
+    }
+  }
+
+  &.is-required-sel .select-bd {
+    width: 72px;
+  }
+
+  .list-view {
+    box-sizing: border-box;
+    background: #fff;
+    color: #555;
+    max-height: 210px;
+    overflow-y: auto;
+
+    & > li {
+      padding: 0 8px;
+      line-height: 30px;
+      color: #222;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      transition: all ease .3s;
+
+      &:hover {
+        background: #eee;
+        opacity: .8;
+      }
+
+      &.js-disabled:hover {
+        background: #fff;
+        opacity: 1;
+        cursor: not-allowed;
+      }
+
+      &.z-sel {
+        background: #eee;
+      }
+    }
+  }
+
+  .hl {
+    background-color: #fd9c41;
+    color: #333;
+  }
+
+  .empty-tip {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 4px;
+    background-color: #fff;
+    color: #bbb;
+    pointer-events: none;
+
+    &.f-dn {
+      display: none !important;
+    }
+  }
+
+  .create-dt {
+    background: #fff;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    border-top: 1px solid #f5f5f5;
+    color: #30a1f2;
+  }
+
+  .list-view {
+    border-bottom: 0 none;
+  }
+
+  .select-detail {
+    display: block;
+    cursor: default;
+
+    .title {
+      display: flex;
+      padding: 6px;
+
+      .format-name, .version-name, .modify {
+        flex: 1;
+      }
+
+      .modify {
+        z-index: 100;
+      }
+
+      &:hover {
+        .glyphicon {
+          color: #30a1f2;
+        }
+      }
+    }
+
+    .s-row-hd {
+      border-top: 1px solid #e6e6e6;
+      padding: 4px 8px;
+      display: flex;
+    }
+
+    .s-row-bd {
+      max-height: 150px;
+      overflow: auto;
+    }
+
+    .s-row {
+      display: flex;
+      padding: 4px 8px;
+
+      a:link,
+      a:visited {
+        color: #30a1f2;
+      }
+    }
+
+    .s-row-hd > span, .s-row > span {
+      flex: 1;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+  }
+}
+
+.inline-create {
+  .create-dt {
+    display: none !important;
+  }
+}
+

@@ -1,0 +1,11 @@
+<div class="apply-part">
+  <div class="pg-title">
+    项目组：{this.data.progroupName}
+  </div>
+  <div class="apply-desc">
+		<span class='js-ipt-parent'>
+			<textarea class="u-txt" placeholder='申请理由' r-model={description} r-class={{'j-err-txt': !!textareaeError}}
+                on-input={this.checkVal()}></textarea>
+		</span>
+  </div>
+</div>

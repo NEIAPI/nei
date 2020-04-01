@@ -1,0 +1,36 @@
+<div class="t-d-panel">
+  <canvas ref=canvas class="canvas" height="0" width="0"
+          on-mousemove={this.handleCanvasMove($event)}
+          on-click={this.handleCanvasClick($event)}
+  >
+  </canvas>
+  {#if hoverElem}
+  <div class="menu"
+       r-style={{'left': hoverElem.x +
+  'px', 'top': hoverElem.y + 'px'}}>
+  {#if hoverElem.layer.type === 'INTERFACE'}
+  <div class="menu-item" on-click={this.addInterface(hoverElem.layer,hoverElem.elem)}><i
+    class="u-icon u-icon-plus-small-small"></i></div>
+  <div class="menu-item" on-click={this.selectBind(hoverElem.layer,hoverElem.elem)}><i
+    class="u-icon u-icon-link-normal"></i></div>
+  <div class="menu-item" on-click={this.viewTestcases(hoverElem.layer,hoverElem.elem)}><i
+    class="u-icon u-icon-edit-normal"></i></div>
+  <div class="menu-item" on-click={this.deleteInterface(hoverElem.layer,hoverElem.elem)}><i
+    class="u-icon u-icon-delete-normal"></i></div>
+  {/if}
+  <div class="menu-item"
+       {#if hoverElem.layer.type===
+  'INTERFACE'}
+  on-click={this.addRule(hoverElem.layer,hoverElem.elem)}
+  {#else}
+  on-click={this.toInterface(hoverElem.layer)}
+  {/if}><i class="u-icon u-icon-import-normal"></i></div>
+</div>
+{/if}
+{#if hoverLayer}
+<div class="layer-menu"
+     r-style={{'top': hoverLayer.y + 'px'}}>
+<div class="menu-item" on-click={this.deleteLayer(hoverLayer.layer)}><i class="u-icon u-icon-delete-normal"></i></div>
+</div>
+{/if}
+</div>

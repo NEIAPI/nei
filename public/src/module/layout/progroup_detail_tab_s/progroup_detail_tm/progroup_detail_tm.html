@@ -1,0 +1,92 @@
+<meta charset="utf-8"/>
+<textarea name="txt" id="module-pg-d-tm">
+	<div class="m-pg-d-tm">
+	</div>
+</textarea>
+<textarea name="txt" id="m-pg-d-tm">
+		<div class="add-user">
+			<h3 class="title">添加用户到项目组</h3>
+			<div class="item-user">
+	              <label>用户：</label>
+	              <div class="tagme-user item-cnt"></div>
+			</div>
+			<div class="item-role">
+	              <label>角色：</label>
+	              <div class="role-select item-cnt" ref=addRoleSelected></div>
+			</div>
+			<div class="btn-wrap">
+				<button class="add-btn u-btn" on-click={this.addUser()}>添加用户到项目组</button>
+				<span class="import-user" on-click={this.importUser()}>从其他项目组导入</span>
+			</div>
+		</div>
+		<div class="member-list">
+			<div class="member-hd">
+				<div class="info f-toe">
+					<span class="name">{progroup.name}</span>项目组成员<span class="count">{count}</span>
+				</div>
+				<div class="operate-wrap">
+					<input class="search search-inp" placeholder='搜索已存在的用户' on-input={this.search($event)}>
+				</div>
+			</div>
+			<div class="member-bd">
+			    <div class="list" ref=memberList>
+				    {#list list as user}
+					    <div class="member-item" r-class={{'f-dn': !user.hit}}>
+						    <div class="user-info">
+							    {#if user.portrait ===''}
+							        <div class="avater {user.bgClassName}">
+								        <span class="txt">{user.letterText}</span>
+							        </div>
+							    {#else}
+							           <div class="avater" style="background-image:url({user.portrait})"></div>
+							    {/if}
+							    <div class="user-name">
+								    {#if user.hasInclude}
+								        <span class="realname" r-class={{"not-set": !(user.itemState.realname)}}
+                              r-html={user.itemState.realname || '未设置'}></span>
+                    {#else}
+								        <span class="realname" r-class={{"not-set": !(user.realname)}}>{user.realname || '未设置'}</span>
+								    {/if}
+								    {#if !!user.meFlag}
+								        <span class="me">你</span>
+								    {/if}
+							    </div>
+							    <div class="time"><span class="join-time">{user.loginTime}</span>&nbsp;加入项目组</div>
+						    </div>
+						    <div class="role-wrap">
+							    {#if user.role !== 'creator'}
+							        <div class="role-select-2">
+								        <select2 source={source} selected={user.selected}
+                                 on-change={this.roleUpdate(this.data.$event,user)} initSilent=false
+                                 preview=true></select2>
+							        </div>
+							    {#else}
+							         <div class="role-select-2"><span class="creator">创建人</span></div>
+							    {/if}
+						    </div>
+							<div class="opt">
+								{#if !!user.meFlag && user.role == 'creator'}
+									<span class="transfer" title="转交" on-click={this.passTo(progroup.id)}><i
+                    class="u-icon-transfer-normal"></i><i class="u-icon-transfer-hover"></i></span>
+								{#elseif !user.meFlag && user.role == 'creator'}
+								<span></span>
+								{#elseif !!user.meFlag && user.isAdministrator}
+									<span class="quit" on-click={this.quitPgroup(progroup.id)}>退出</span>
+								{#else}
+									<i class="u-icon-delete-normal" title="删除" on-click={this.deleteUser(user,user_index)}></i>
+								{/if}
+							</div>
+					    </div>
+				    {/list}
+				    {#if searchFlag == true && !!noItemflag && noItemflag == true}
+					    <div class="no-item-tip">
+						    <i class="u-icon-no-found-data"></i>
+						    <p>暂无数据</p>
+					    </div>
+				    {/if}
+			    </div>
+			</div>
+		</div>
+</textarea>
+<textarea name="css" data-src="./progroup_detail_tm.css"></textarea>
+<textarea name="js" data-src="./progroup_detail_tm.js"></textarea>

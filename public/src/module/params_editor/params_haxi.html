@@ -1,0 +1,103 @@
+<div class="wrap-editor">
+  <div r-hide={isHideFullButton} class="fullScreen" title="全屏" on-click={this.doFullScreen($event)}><i
+    class="u-icon-spread-normal"></i></div>
+  <table class="m-tb-editor m-tb-editor-haxi">
+    <thead>
+    <tr>
+      <th>名称</th>
+      <th class="sel">类型</th>
+      <th>默认值</th>
+      <th>生成规则</th>
+      <!--<th>验证规则</th>-->
+      <th>描述</th>
+      <th class="opt"></th>
+    </tr>
+    </thead>
+    <tbody>
+    {#list params as p}
+    {#if p.isImport}
+    <tr class="{p_index%2==0?'odd':''}">
+      <td><span title={p.name}>{p.name}</span></td>
+      {#if p.originalType == 10000}
+      <td>
+        <DatatypeSelect pid={pid} type={p.type} typeName={p.typeName} isArray={p.isArray} format={format}
+                        hasCreate={hasCreate} isolate on-change={this._onSelectChange($event,p_index)} noArray={noArray}
+                        noObject={noObject}></DatatypeSelect>
+      </td>
+      {#else}
+      {#if p.isArray == 1}
+      <td><span title={p.typeName}>Array {p.typeName || "Object"}</span></td>
+      {#else}
+      <td><span title={p.typeName}>{p.typeName || "Object"}</span></td>
+      {/if}
+      {/if}
+      <td><input type="text" class="u-input" r-model={p.defaultValue}/></td>
+      <td><input type="text" class="u-input" r-model={p.genExpression}
+                 on-click={this.createExp(p_index,'genExpression')}/></td>
+      <!--<td><input type="text" class="u-input" r-model={p.valExpression} on-click={this.createExp(p_index,'valExpression')} /></td>-->
+      <td><input type="text" class="u-input" r-model={p.description}/></td>
+      <td class="opt">
+        {#if params.length > 1}
+        <a title="删除" on-click={this.remove(p_index)}><i title="删除" class="u-icon u-icon-no-normal"></i><i
+          class="u-icon u-icon-no-hover"></i></a>
+        {/if}
+      </td>
+    </tr>
+    {#else}
+    <tr class="{p_index%2==0?'odd':''}">
+      <td>
+        <input title={p.name} type="text" class="u-input" {#if p_index===0&&hasTip} on-focus={this.showTip()}
+               on-blur={this.showTip()}{/if} r-class={{"u-input-error":p.error}} r-model={p.name}
+               on-input={this.parseJson($event,p_index)}/>
+      </td>
+      <td>
+        <DatatypeSelect pid={pid} type={p.type} typeName={p.typeName} isArray={p.isArray} format={format}
+                        hasCreate={hasCreate} isolate on-change={this._onSelectChange($event,p_index)} noArray={noArray}
+                        noObject={noObject}></DatatypeSelect>
+      </td>
+      <td><input title={p.defaultValue} type="text" class="u-input" r-model={p.defaultValue}/></td>
+      <td><input title={p.genExpression} type="text" class="u-input u-input-exp" readonly r-model={p.genExpression}
+                 on-click={this.createExp(p_index,'genExpression')}/></td>
+      <!--<td><input title={p.valExpression} type="text" class="u-input u-input-exp" readonly r-model={p.valExpression} on-click={this.createExp(p_index,'valExpression')} /></td>-->
+      <td><input title={p.description} type="text" class="u-input" r-model={p.description}/></td>
+      <td class="opt opt-2">
+        {#if params.length > 1}
+        <a title="删除" on-click={this.remove(p_index)}><i title="删除" class="u-icon u-icon-no-normal"></i><i
+          class="u-icon u-icon-no-hover"></i></a>
+        {/if}
+      </td>
+    </tr>
+    {/if}
+    {#if p.isObject}
+    <tr>
+      <td colspan="6">
+        <div class="no-name-datatype">
+          <div class="arrow"></div>
+          <haxiEditor params={p.params} noObject={true} isHideFullButton={true} hasCreate={false} pid={pid} format={0}
+                      hasTip={false} btns={btns2}></haxiEditor>
+        </div>
+      </td>
+    </tr>
+    {/if}
+    {/list}
+    </tbody>
+  </table>
+  <span class="u-tip" r-class={{"f-dn":hideTip}} ref="tip">可粘贴JSON字符串</span>
+  <div class="operation">
+    {#list btns as bt}
+    {#if bt=="add"}
+    <a class="u-btn u-btn-add" on-click={this.add()}>添加</a>
+    {#elseif bt=="datatype"}
+    <a class="u-btn u-btn-import" on-click={this.import('type')}>从数据模型导入</a>
+    {#elseif bt=='datatype2'}
+    <a class="u-btn u-btn-import" on-click={this.import('type2')}>导入类型属性</a>
+    {#elseif bt=="json"}
+    <a class="u-btn u-btn-import" on-click={this.import('json')}>从JSON导入</a>
+    {#elseif bt=="interface"}
+    <a class="u-btn u-btn-import" on-click={this.import('interface')}>从接口导入</a>
+    {#elseif bt=="javabean"}
+    <a class="u-btn u-btn-import" on-click={this.import('javabean')}>从JavaBean导入</a>
+    {/if}
+    {/list}
+  </div>
+</div>

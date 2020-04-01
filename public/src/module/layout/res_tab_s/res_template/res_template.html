@@ -1,0 +1,26 @@
+<meta charset="utf-8"/>
+<textarea name="txt" id="module-res-template">
+  <div class="m-pg-p-r-t">
+	<div class="list-content">
+  		<div class="resource-feature-part f-dn">
+	  		<div class="stateful resource-add create-btn" data-click="create">
+	  			<i class='u-icon-add-normal template-add-icon'></i>
+	  			新建模板
+                <div class="toggle-btn" data-click="toggle">
+					<i class="line"></i>
+					<i class="arrow u-icon-arrow-down-white-normal"></i>
+				</div>
+	  		</div>
+            <ul class="create-menu">
+				<!-- <li class="submenu file" data-click="import-file">文件导入ftl模版</li> -->
+				<li class="submenu dir" data-click="import-dir"><span>文件夹导入ftl模版</span></li>
+			</ul>
+  		</div>
+        <input type="file" class="j-file f-dn" accept=".ftl" multiple/>
+        <input type="file" class="j-dir f-dn" webkitdirectory/>
+  	</div>
+  </div>
+</textarea>
+
+<textarea name="css" data-src="./res_template.css"></textarea>
+<textarea name="js" data-src="./res_template.js"></textarea>

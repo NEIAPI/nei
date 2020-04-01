@@ -1,0 +1,16 @@
+<!--嵌套时没有类别切换选项-->
+<!--HTTP 接口的请求头和响应头也没有类别切换选项,isNormalParam为true-->
+{#if !isNest && isNormalParam!==true&&formatChangeable!==false && !isModifyDatatype}
+<div r-class="{{'format-group':true,'format-group-preview':preview,'modifying-format':modifyingFormat}}">
+  {#list formats as item}
+  <label title={item.name} on-click={this.changeFormat($event,item)} r-class="{{checked:item.format===format}}">
+    <input type="radio" name="format" {#if item.format===format}checked{/if}>
+    <em>{item.name}</em>
+  </label>
+  {/list}
+  {#if preview}
+  <a href="#" on-click="{this.modifyFormat($event,true)}" class="modify-format-btn">修改</a>
+  <button on-click="{this.modifyFormat($event,false)}" class="u-btn" type="button">取消修改</button>
+  {/if}
+</div>
+{/if}

@@ -1,0 +1,174 @@
+.m-tagme {
+  position: relative;
+
+  .tagme-con {
+    border: 1px solid #e6e6e6;
+    line-height: 24px;
+    padding: 2px;
+    cursor: text;
+    transition: all ease .3s;
+  }
+
+  &.list-open {
+    .tagme-con {
+      border-bottom-color: #fff;
+      background: #fff;
+    }
+  }
+
+  .t-item {
+    float: left;
+    margin: 1px 2px;
+    color: #fff;
+    background-color: #aaa;
+    padding: 1px 15px;
+    border-radius: 15px;
+    text-align: center;
+    position: relative;
+    cursor: default;
+    font-size: 12px;
+    line-height: 20px;
+    height: 20px;
+
+    em {
+      max-width: 100px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+
+    i {
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+      opacity: .5;
+      cursor: pointer;
+      border: none;
+      background: 0 0;
+      margin: 0;
+      padding: 0;
+      transition: all ease .1s;
+      position: absolute;
+      right: 4px;
+      top: 1px;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  .tag-input {
+    border: 0 none;
+    padding: 0 5px;
+    line-height: 24px;
+    outline: 0;
+    width: 200px;
+  }
+
+  .tag-list {
+    border: 1px solid #e6e6e6;
+    border-top: 0 none;
+    max-height: 280px;
+    overflow-y: auto;
+    line-height: 20px;
+    outline: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    //top: 31px;
+    z-index: 9;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    font-size: 12px;
+
+    li {
+      transition: all ease .3s;
+      padding: 5px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      cursor: default;
+
+      &.js-selected,
+      &:hover {
+        background-color: #eee;
+      }
+
+      &.not-selectable {
+        background-color: #fff !important;
+        cursor: not-allowed;
+        color: #bbb;
+      }
+
+      .tip-tag {
+        border-radius: 3px;
+        background-color: #29addd;
+        height: 22px;
+        line-height: 22px;
+        width: 54px;
+        margin: 0 5px 0 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: #fff;
+        text-align: center;
+        font-size: 12px;
+        float: right;
+        white-space: nowrap;
+        padding: 0 4px;
+      }
+    }
+  }
+
+  &.tagme-preview,
+  &.tagme-readonly {
+    .tagme-con {
+      border-color: transparent;
+    }
+
+    .t-item i {
+      visibility: hidden;
+    }
+
+    &:hover {
+      .tagme-con {
+        border-color: #e6e6e6;
+      }
+    }
+
+    &.tagme-edit {
+      .tagme-con {
+        border-color: #e6e6e6;
+      }
+
+      .t-item i {
+        visibility: visible;
+      }
+    }
+  }
+
+  &.tagme-readonly {
+    .tagme-con {
+      cursor: default;
+    }
+
+    &:hover {
+      .tagme-con {
+        border-color: transparent;
+      }
+    }
+  }
+
+  .hl {
+    background-color: #fd9c41;
+    color: #333;
+  }
+
+  .no-tag-tip {
+    color: #bbb;
+    font-style: italic;
+    font-size: 12px;
+    margin-left: 4px;
+    pointer-events: none;
+  }
+}

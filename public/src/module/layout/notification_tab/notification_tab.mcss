@@ -1,0 +1,32 @@
+.m-notification-tab {
+  padding: 0 30px;
+
+  .f-cb {
+    zoom: 1;
+  }
+
+  .tab {
+    position: relative;
+
+    .unread {
+      position: absolute;
+      top: 5px;
+      right: 17px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background-color: #f04c62;
+      line-height: 16px;
+      text-align: center;
+      font-size: 10px;
+      color: #fff;
+    }
+  }
+
+  .js-selected {
+    .unread {
+      display: none;
+    }
+  }
+
+}

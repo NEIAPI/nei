@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>test suggest</title>
+    <meta charset="utf-8"/>
+    <style>
+      p{margin:200px 0;}
+      .abc{width:170px;}
+    </style>
+  </head>
+  <body>
+    <input type="text" id="abc"/>
+    <br/>
+    <input type="text"/>
+    <script src="../../../define.js"></script>
+    <script>
+      define([
+          '../suggest.js'
+      ],function(_i){
+          _i._$$Suggest._$allocate({
+              input:'abc',
+              clazz:'abc',
+              autofill:!1,
+              onchange:function(_event){
+                  console.log(_event);
+                  this._$setList(['1','2','3','4']);
+              },
+              onselect:function(v){
+                  console.log(v);
+              }
+          });
+      });
+    </script>
+  </body>
+</html>

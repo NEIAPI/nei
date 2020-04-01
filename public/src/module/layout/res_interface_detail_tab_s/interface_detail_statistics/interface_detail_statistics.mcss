@@ -1,0 +1,134 @@
+.m-i-d-s {
+  .d-item-clients {
+    flex-direction: column !important;
+
+    label {
+      min-width: auto;
+      margin-bottom: 5px;
+      margin-top: 0;
+    }
+    margin-top: 30px !important;
+  }
+
+  .u-m-txt {
+    height: 90px !important;
+  }
+
+  .clients-list {
+    width: t('calc(100% - 110px)');
+    font-size: 12px;
+
+    .m-stripedlist {
+      .list-wrap {
+        border: 1px solid #e6e6e6;
+      }
+
+      .list-hd {
+        border-bottom: 1px solid #e6e6e6;
+        background-color: #f5f5f5 !important;
+      }
+
+      .list-bd {
+        .row-item {
+          border-bottom: 1px solid #e6e6e6;
+        }
+
+        .row-item:last-child {
+          border: none;
+        }
+      }
+
+      .add-row {
+        margin-top: 10px;
+      }
+    }
+  }
+
+  .d-item-clients {
+    .tag {
+      height: 40px;
+      line-height: 40px;
+      flex: 1;
+    }
+
+    .row-add-item {
+      .m-tagme {
+        margin-top: 5px;
+
+        .tagme-con {
+          box-sizing: border-box;
+          padding: 0;
+          overflow: hidden;
+          background-color: #fff;
+
+          .tag-input {
+            box-sizing: border-box;
+            line-height: 30px;
+            vertical-align: top;
+          }
+
+          .tag-item {
+            margin: 2px;
+          }
+        }
+
+        .tag-list {
+          z-index: 11;
+        }
+      }
+    }
+
+    .z-margin {
+      margin-top: -58px;
+    }
+
+    .create-btn {
+      display: inline-block;
+      color: #30a1f2;
+      padding: 0 10px 0 15px;
+      height: 20px;
+      line-height: 20px;
+      border-left: 1px solid #e6e6e6;
+      margin-top: 9px;
+    }
+
+    .confirm, .cancel {
+      margin: 9px 0 0 20px;
+      cursor: pointer;
+    }
+
+    .cancel {
+      margin-right: 15px;
+    }
+  }
+}
+
+.m-progroup-p .m-i-d-s .m-stripedlist {
+  .list-wrap {
+    background-color: #fff;
+  }
+
+  .list-row {
+    .col-nei-actions {
+      width: 115px;
+    }
+
+    .list-col {
+      margin-right: 30px;
+    }
+
+    &:hover {
+      .col-nei-actions {
+        position: static;
+        width: 115px;
+        padding-right: 0;
+        background-color: transparent;
+      }
+    }
+  }
+
+  .list-bd {
+    position: static;
+    padding-bottom: 0;
+  }
+}

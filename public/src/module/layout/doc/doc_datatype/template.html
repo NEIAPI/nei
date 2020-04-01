@@ -1,0 +1,155 @@
+<h1 class="title tc">数据模型列表</h1>
+<section class="datatypes">
+  {list data as dt}
+  <section>
+    <h3 id="datatypes-${dt.id}">
+      {if dt.name}${dt.name|escape2}{else}匿名类型数据{/if}
+    </h3>
+    <blockquote>
+      <pre class="desc">{if dt.description}${dt.description|escape2}{else}暂无描述信息{/if}</pre>
+    </blockquote>
+    <p class="moreinfo"><span class="strong">类别</span>：
+      {list formats as item}
+      {if item.format===dt.format}
+      ${item.name|escape2}
+      {/if}
+      {/list}
+    </p>
+    <!-- print all only -->
+    {if printAll && dt.params.length > 0}
+    {if dt.format === hashFormat}
+    <table>
+      <thead>
+      <tr>
+        <th>名称</th>
+        <th>类型</th>
+        <th>描述</th>
+        <th>默认值</th>
+        <th>生成规则</th>
+      </tr>
+      </thead>
+      <tbody>
+      {list dt.params as param}
+      <tr>
+        <td title="${param.name|escape2}">${param.name|escape2}</td>
+        <td>
+          {if param.isArray}Array-{/if} {if param.typeName} {if param.type>10003}
+          <a class="stateful" href="/doc/datatypes/?id=${projectInfo.id}&resid=${param.type}"
+             title="${param.typeName|escape2}">${param.typeName|escape2}</a>
+          {else} ${param.typeName|escape2} {/if} {else}
+          <a class="stateful" href="/doc/datatypes/?id=${projectInfo.id}&resid=${param.type}" title="Object">Object</a>
+          {/if}
+        </td>
+        <td title="${param.description|escape2}">${param.description|escape2}</td>
+        <td title="${param.defaultValue|escape2}">${param.defaultValue|escape2}</td>
+        <td title="${param.genExpression|escape2}">${param.genExpression|escape2}</td>
+      </tr>
+      {/list}
+      </tbody>
+    </table>
+    <!-- 数组类型 -->
+    {elseif dt.format === arrayFormat}
+    <table>
+      <thead>
+      <tr>
+        <th>数组元素类型</th>
+        <th>描述</th>
+        <th>默认值</th>
+        <th>生成规则</th>
+      </tr>
+      </thead>
+      <tbody>
+      {list dt.params as param}
+      <tr>
+        <td>
+          {if param.type>10003}
+          <a class="stateful" href="/doc/datatypes/?id=${projectInfo.id}&resid=${param.type}"
+             title="${param.typeName|escape2}">${param.typeName|escape2}</a>
+          {else} ${param.typeName|escape2} {/if}
+        </td>
+        <td title="${param.description|escape2}">${param.description|escape2}</td>
+        <td title="${param.defaultValue|escape2}">${param.defaultValue|escape2}</td>
+        <td title="${param.genExpression|escape2}">${param.genExpression|escape2}</td>
+      </tr>
+      {/list}
+      </tbody>
+    </table>
+    <!-- 枚举类型 -->
+    {elseif dt.format === enumFormat}
+    <table>
+      <thead>
+      <tr>
+        <th>值</th>
+        <th>类型</th>
+        <th>键</th>
+        <th>描述</th>
+      </tr>
+      </thead>
+      <tbody>
+      {list dt.params as param}
+      <tr>
+        <td title="${param.defaultValue|escape2}">${param.defaultValue|escape2}</td>
+        <td title="${param.typeName|escape2}">
+          {if param.type>10003}
+          <a class="stateful" href="/doc/datatypes/?id=${projectInfo.id}&resid=${param.type}"
+             title="${param.typeName|escape2}">${param.typeName|escape2}</a>
+          {else} ${param.typeName|escape2} {/if}
+        </td>
+        <td title="${param.name|escape2}">${param.name|escape2}</td>
+        <td title="${param.description|escape2}">${param.description|escape2}</td>
+      </tr>
+      {/list}
+      </tbody>
+    </table>
+    {else}
+    <table>
+      <thead>
+      <tr>
+        <th>类型</th>
+        <th>默认值</th>
+        <th>描述</th>
+        <th>生成规则</th>
+      </tr>
+      </thead>
+      <tbody>
+      {list dt.params as param}
+      <tr>
+        <td>
+          {if param.type>10003}
+          <a class="stateful" href="/doc/datatypes/?id=${projectInfo.id}&resid=${param.type}" title="${param.typeName}">${param.typeName|escape2}</a>
+          {else} ${param.typeName|escape2} {/if}
+        </td>
+        <td title="${param.defaultValue}">${param.defaultValue|escape2}</td>
+        <td title="${param.description}">${param.description|escape2}</td>
+        <td title="${param.genExpression}">${param.genExpression|escape2}</td>
+      </tr>
+      {/list}
+      </tbody>
+    </table>
+    {/if}
+    {/if}
+    <!-- print all only -->
+
+    <div class="m-datatype-params"></div>
+    <h5>范例</h5>
+    <pre class="highlight highlight-source-json">
+          <code class="sample-code hljs" data-id="${dt.id}" data-key="params">{if dt.mockHtml}${dt.mockHtml}{/if}</code>
+        </pre>
+    <p class="tip">更多信息</p>
+    <section class="moreinfo-wrap">
+      <p class="moreinfo"><span class="strong">标签</span>：{if dt.tag}${dt.tag|escape2}{else}无{/if}</p>
+      <p class="moreinfo"><span class="strong">分组</span>：${dt.group.name|escape2}</p>
+      <p class="moreinfo"><span class="strong">创建人</span>：${dt.creator.realname|escape2}</p>
+      <p class="moreinfo"><span class="strong">当前版本</span>：{if dt.version}${dt.version.name|escape2}{else}无{/if}</p>
+      {if dt.versions && dt.versions.length>0}
+      <p class="moreinfo"><span class="strong">历史版本</span>：
+        {list dt.versions as version}
+        <a class="stateful" href="/doc/datatypes/?id=${projectInfo.id}&resid=${version.id}" target="_blank">${version.name|escape2}</a>
+        {/list}
+      </p>
+      {/if}
+      <p class="moreinfo"><span class="strong">创建时间</span>：${dt.createTime|format:'yyyy-MM-dd HH:mm:ss'}</p>
+    </section>
+  </section>
+  {/list}
+</section>

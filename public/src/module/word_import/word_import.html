@@ -1,0 +1,75 @@
+<div class="m-word-list">
+  <div class="list-row select-all-page">
+    <div class="list-col list-col-check" r-class={{"selected":selectAllPage}}><i class="u-icon-checkbox-normal"
+                                                                                 on-click={this.selectAllPage()}></i><i
+      class="u-icon-checkbox-pressed" on-click={this.selectAllPage()}></i>
+    </div>
+    <div class="list-col list-col-name">全选所有</div>
+  </div>
+  <div class="word-header">
+    <div class="list-row">
+      <div class="list-col list-col-check" r-class={{"selected":selectAll}}><i class="u-icon-checkbox-normal"
+                                                                               on-click={this.selectAll(xlist)}></i><i
+        class="u-icon-checkbox-pressed"
+        on-click={this.selectAll(xlist)}></i></div>
+      <div class="list-col list-col-name">名称</div>
+      {#if jsonList}
+      <div class="list-col list-col-des">描述</div>
+      <div class="list-col list-col-des">联想词</div>
+      {#else}
+      <div class="list-col list-col-des">直接使用频次</div>
+      {/if}
+    </div>
+  </div>
+  <div class="word-body">
+    {#if loading || creating}
+    <div class="list-empty">
+      {loading ? '加载参数中...': '批量创建中...'}
+    </div>
+    {#elseif !xlist.length}
+    <div class="list-empty">
+      没有找到相关的参数，请检查是否已全部导入
+    </div>
+    {#else}
+    {#list xlist as x}
+    <div class="list-row" on-click={this.selectItem($event,x.name)}>
+      <div class="list-col list-col-check" r-class={{"selected":checkStatus[x.name]}}>
+        <i class="u-icon-checkbox-normal"></i><i class="u-icon-checkbox-pressed"></i>
+      </div>
+      <div class="list-col list-col-name" title={x.name}>{x.name}</div>
+      {#if jsonList}
+      <div class="list-col list-col-des" title={x.description}>{x.description}</div>
+      <div class="list-col list-col-des" title={x.associatedWord}>{x.associatedWord}</div>
+      {#else}
+      <div class="list-col list-col-des" title={x.times}>{x.times}</div>
+      {/if}
+    </div>
+    {/list}
+    {/if}
+  </div>
+  <div id="word-import-page" r-hide="{!showPage}">
+    <a href="#" class="zbtn sbtn">首页</a>
+    <a href="#" class="zbtn zprv">上一页</a>
+    <a href="#" class="zpgi"></a>
+    <a href="#" class="zpgi"></a>
+    <a href="#" class="zpgi"></a>
+    <a href="#" class="zpgi"></a>
+    <a href="#" class="zpgi"></a>
+    <a href="#" class="zpgi"></a>
+    <a href="#" class="zpgi"></a>
+    <a href="#" class="zpgi"></a>
+    <a href="#" class="zpgi"></a>
+    <a href="#" class="zbtn znxt">下一页</a>
+    <a href="#" class="zbtn ebtn">末页</a>
+  </div>
+  <div class="m-word-more">
+    <div class="m-word-group">
+      <label>分组：</label>
+      <select2 source={groups} on-change={this.setGroup($event)}></select2>
+    </div>
+    <div class="m-word-tag">
+      <label>标签：</label>
+      <div class="tag" ref="tags"></div>
+    </div>
+  </div>
+</div>

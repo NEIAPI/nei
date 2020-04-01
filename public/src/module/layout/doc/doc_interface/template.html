@@ -1,0 +1,259 @@
+<h1 class="title tc">HTTP 接口</h1>
+<!-- HTTP 接口列表 -->
+<section class="interfaces">
+  <!-- <h2>HTTP 接口列表</h2> -->
+  {list interfaces as interface}
+  <section>
+    <h3 id="interfaces-${interface.id}" title="${interface.name|escape2}">
+      ${interface.name|escape2}
+    </h3>
+    {if interface.description}
+    <blockquote>
+      <pre class="desc">${interface.description|escape2}</pre>
+    </blockquote>
+    {else}
+    <blockquote>
+      <p>暂无描述信息</p>
+    </blockquote>
+    {/if}
+    <p class="tip">
+      请求信息
+    </p>
+    <p class="api">
+      <label class="method method-${interface.method}">${interface.method|escape2}</label>
+      <code class="path">${interface.path|escape2}{if interface.method === 'GET' && interface.params.inputs.length >
+        0}?{list interface.params.inputs as input}{if input_index !== 0}&{/if}${input.name + '=' +
+        input.defaultValue}{/list}{/if}</code>
+    </p>
+    {if interface.params.reqHeaders.length>0}
+    <h5>请求头</h5>
+    <table>
+      <thead>
+      <tr>
+        <th>名称</th>
+        <th>默认值</th>
+        <th>描述</th>
+      </tr>
+      </thead>
+      <tbody>
+      {list interface.params.reqHeaders as header}
+      <tr>
+        <td>${header.name|escape2}</td>
+        {if header.defaultValue}
+        <td>${header.defaultValue|escape2}</td>
+        {else}
+        <td>-</td>
+        {/if}
+        {if header.description}
+        <td title="${header.description|escape2}">${header.description|escape2}</td>
+        {else}
+        <td>-</td>
+        {/if}
+      </tr>
+      {/list}
+      </tbody>
+    </table>
+
+    {else}
+    <h5>请求头：无</h5>
+    {/if}
+
+    {if interface.params.inputs.length>0}
+    ${interface.params.inputs.format}
+    <h5>请求参数：
+      {list formats as item}
+      {if item.format === interface.reqFormat}
+      ${item.name|escape2}
+      {/if}
+      {/list}
+    </h5>
+    {if printAll}
+    <table>
+      <thead>
+      <tr>
+        <th>名称</th>
+        <th>类型</th>
+        <th>描述</th>
+        <th>必需</th>
+        <th>默认值</th>
+        <th>生成规则</th>
+      </tr>
+      </thead>
+      <tbody>
+      {list interface.params.inputs as input}
+      <tr>
+        <td>{if input.name}${input.name|escape2}{else}匿名类型数据{/if}</td>
+        <td>
+          {if input.isArray}Array-{/if} {if input.typeName} {if input.type>10003}
+          <a class="stateful" href="/doc/datatypes/?id=${projectInfo.id}&resid=${input.type}"
+             title="${input.typeName|escape2}">${input.typeName|escape2}</a>
+          {else} ${input.typeName|escape2} {/if} {else}
+          <a class="stateful" href="/doc/datatypes/?id=${projectInfo.id}&resid=${input.type}" title="Object">Object</a>
+          {/if}
+        </td>
+
+        {if input.description}
+        <td title="${input.description|escape2}">${input.description|escape2}</td>
+        {else}
+        <td>-</td>
+        {/if} {if input.required}
+        <td>是</td>
+        {else}
+        <td>否</td>
+        {/if} {if input.defaultValue}
+        <td>${input.defaultValue|escape2}</td>
+        {else}
+        <td>-</td>
+        {/if} {if input.genExpression}
+        <td>${input.genExpression|escape2}</td>
+        {else}
+        <td>-</td>
+        {/if}
+
+      </tr>
+      {/list}
+      </tbody>
+    </table>
+    {/if}
+
+    <div class="m-interface-inputs" id="m-interface-inputs-${interface.id}"></div>
+
+    <h5>范例展示</h5>
+    <pre class="highlight highlight-source-json">
+        <code class="sample-code hljs" data-id="${interface.id}" data-key="inputs" data-format=${interface.reqFormat}>{if interface.mockHtml}${interface.mockHtml[0]}{/if}</code>
+    </pre>
+    {else}
+    <h5>请求参数：无</h5>
+    <h5>范例展示：无</h5>
+    {/if}
+
+    <p class="tip">
+      响应信息
+    </p>
+
+    {if interface.params.resHeaders.length>0}
+    <h5>响应头</h5>
+    <table>
+      <thead>
+      <tr>
+        <th>名称</th>
+        <th>默认值</th>
+        <th>描述</th>
+      </tr>
+      </thead>
+      <tbody>
+      {list interface.params.resHeaders as resHeader}
+      <tr>
+        <td>${resHeader.name|escape2}</td>
+        {if resHeader.defaultValue}
+        <td>${resHeader.defaultValue|escape2}</td>
+        {else}
+        <td>-</td>
+        {/if}
+        {if resHeader.description}
+        <td>${resHeader.description|escape2}</td>
+        {else}
+        <td>-</td>
+        {/if}
+      </tr>
+      {/list}
+      </tbody>
+    </table>
+
+    {else}
+    <h5>响应头：无</h5>
+    {/if}
+
+    {if interface.params.outputs.length>0}
+    <h5>返回数据：
+      {list formats as item}
+      {if item.format === interface.resFormat}
+      ${item.name|escape2}
+      {/if}
+      {/list}
+    </h5>
+
+    {if printAll}
+    <table>
+      <thead>
+      <tr>
+        <th>名称</th>
+        <th>类型</th>
+        <th>描述</th>
+        <th>默认值</th>
+        <th>生成规则</th>
+      </tr>
+      </thead>
+      <tbody>
+      {list interface.params.outputs as output}
+      <tr>
+        <td>${output.name|escape2}</td>
+        <td>
+          {if output.typeName} {if output.isArray}Array-{/if} {if output.type>10003}
+          <a class="stateful" href="/doc/datatypes/?id=${projectInfo.id}&resid=${output.type}"
+             title="${output.typeName|escape2}">${output.typeName|escape2}</a>
+          {else} ${output.typeName|escape2} {/if} {else} {if output.isArray}Array-{/if}
+          <a class="stateful" href="/doc/datatypes/?id=${projectInfo.id}&resid=${output.type}"
+             title="Object">Object</a>
+          {/if}
+        </td>
+        {if output.description}
+        <td title="${output.description|escape2}">${output.description|escape2}</td>
+        {else}
+        <td>-</td>
+        {/if} {if output.defaultValue}
+        <td>${output.defaultValue|escape2}</td>
+        {else}
+        <td>-</td>
+        {/if} {if output.genExpression}
+        <td>${output.genExpression|escape2}</td>
+        {else}
+        <td>-</td>
+        {/if}
+
+      </tr>
+      {/list}
+      </tbody>
+    </table>
+    {/if}
+    <div class="m-interface-outputs" id="m-interface-outputs-${interface.id}"></div>
+    <h5>范例展示</h5>
+    <pre class="highlight highlight-source-json">
+        <code class="sample-code hljs" data-id="${interface.id}" data-key="outputs" data-format=${interface.resFormat}>{if interface.mockHtml}${interface.mockHtml[1]}{/if}</code>
+    </pre>
+    {else}
+    <h5>返回数据：无</h5>
+    <h5>范例展示：无</h5>
+    {/if}
+    <p class="tip">
+      更多信息
+    </p>
+    <section class="moreinfo-wrap">
+      <p class="moreinfo">
+        <span class="strong">接口创建人</span>：${interface.creator.realname|escape2}
+      </p>
+      <p class="moreinfo">
+        <span class="strong">接口负责人</span>：${interface.respo.realname|escape2}
+      </p>
+      <p class="moreinfo"><span class="strong">当前版本</span>：{if
+        interface.version}${interface.version.name|escape2}{else}无{/if}</p>
+      {if interface.versions && interface.versions.length>0}
+      <p class="moreinfo"><span class="strong">历史版本</span>：
+        {list interface.versions as version}
+        <a class="stateful" href="/doc/interfaces/?id=${projectInfo.id}&resid=${version.id}" target="_blank">${version.name|escape2}</a>
+        {/list}
+      </p>
+      {/if}
+      <p class="moreinfo">
+        <span class="strong">标签</span>：${interface.tag|escape2}
+      </p>
+      <p class="moreinfo">
+        <span class="strong">分组</span>：${interface.group.name|escape2}
+      </p>
+      <p class="moreinfo">
+        <span class="strong">创建时间</span>：${interface.createTime|format:'yyyy-MM-dd HH:mm:ss'}
+      </p>
+    </section>
+  </section>
+  {/list}
+</section>

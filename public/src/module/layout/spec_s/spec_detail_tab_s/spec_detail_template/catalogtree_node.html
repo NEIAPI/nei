@@ -1,0 +1,30 @@
+<li class="m-item" ref="node" on-mousedown={this.mouseDown($event)} {#if !source.editable}
+    on-mouseup={this.mouseUp($event)}{/if}>
+  {#if source.type == dirType}
+  <div class="m-node" r-style={{"padding-left":left+'px'}}
+       r-class={{"js-selected":source.selected,"js-dragenter":dragenter}} {#if drag&&isMySpec}
+       on-mouseenter={this.mouseEnter($event)} on-mouseleave={this.mouseLeave($event)}{/if} on-dblclick={this.toggle()}
+       {#if isMySpec} on-contextmenu={this.showMenu($event)}{/if}>
+    <div class="node-toggle" on-click={this.toggle()} r-class={{"js-open":source.opened}}>
+      <div class="arrow" r-class={{"f-dn":!source.hasChildren}}></div>
+    </div>
+    <span class="node-icon"><i class="u-icon-folder-normal"></i></span>
+    <input r-class={{'js-editable':source.editable}} class="node-name" value={source.name} ref="input" {#if
+           source.editable}on-blur={this.save()} on-keypress={this.keypress($event)}{#else}readonly {/if} />
+  </div>
+  <ul class="m-tree-s" r-class={{"f-dn":!source.opened}}>
+    {#list source.children as item}
+    <Node source={item} isMySpec={isMySpec} on-sort={this.sort()} level={level+1} drag={drag}></Node>
+    {/list}
+  </ul>
+  {#else}
+  <div class="m-node" r-style={{"padding-left":left+'px'}} r-class={{"js-selected":source.selected}} {#if
+       drag&&isMySpec} on-mouseenter={this.mouseEnter($event)} on-mouseleave={this.mouseLeave($event)}{/if} {#if
+       isMySpec} on-contextmenu={this.showMenu($event)}{/if}>
+    <div class="node-toggle"></div>
+    <span class="node-icon"><i class="u-icon-txt-normal"></i></span>
+    <input class="node-name" r-class={{'js-editable':source.editable}} value={source.name} ref="input" {#if
+           source.editable}on-blur={this.save()} on-keypress={this.keypress($event)}{#else}readonly {/if} />
+  </div>
+  {/if}
+</li>

@@ -1,0 +1,14 @@
+<meta charset="utf-8"/>
+<textarea name="txt" id="module-test-tab">
+  <div class="m-test-tab">
+      <div class="m-test-tab-cnt f-cb"></div>
+  </div>
+</textarea>
+<textarea name="jst" id="module-test-tab-cnt">
+    {list xlist as x}
+    <a class="stateful tab f-fl inf-type-${x.type}" href="/test/${x.type}/" data-id="${x.type}">${x.name}</a>
+    {/list}
+</textarea>
+
+<textarea name="css" data-src="./test_tab.css"></textarea>
+<textarea name="js" data-src="./test_tab.js"></textarea>

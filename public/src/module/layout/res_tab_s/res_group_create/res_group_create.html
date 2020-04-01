@@ -1,0 +1,57 @@
+<meta charset="utf-8"/>
+<textarea name="txt" id="module-res-group-create">
+	<div class="m-res-g-c u-form-create">
+		<div class="form-title">
+			<div class="title">新建业务分组</div>
+			<a class="goback stateful">返回<i class="u-icon-back-normal-2"></i></a>
+		</div>
+		<form data-focus-mode="1" class="m-form">
+			<div class="form-group">
+				<label>
+					<i class="signal-required">*</i>名称：
+				</label>
+				<input type="text" name="name" class="name form-item"
+               data-auto-focus="true"
+               data-required="true"
+               placeholder="请输入名称"
+               data-message="请输入业务分组名称，最多20个中文或者40个英文字符"
+               data-tip="最多20个中文或者40个英文字符！"
+               data-max-length="40"
+               data-min-length="1"
+               data-ignore="true">
+			</div>
+
+			<div class="form-group">
+				<label>描述：</label>
+				<textarea type="text" name="description" placeholder="请输入业务分组描述信息" class="description form-item">&lt;/textarea>
+			</div>
+
+			<div class="form-group">
+				<label>&nbsp;</label>
+				<p class="form-item tip">使用技巧：在现实世界中，有些项目很复杂，会拆分成多个独立的工程。有时候，我们需要记录一些工程本身的信息，比如 RPC 工程，有 POM 依赖和 KEY 等信息，这样在查看 RPC 接口时就更加一目了然了。此时，我们可以将“业务分组”当成“工程”来看待，将这些信息保存在“业务分组”中。</p>
+			</div>
+
+			<div class="form-group">
+				<label>RPC 工程的 POM 依赖：</label>
+        <div class="rpc-pom-editor"></div>
+			</div>
+
+			<div class="form-group">
+				<label>RPC 工程的 KEY：</label>
+        <div class="rpc-key-editor"></div>
+			</div>
+
+			<div class="form-group">
+				<label>负责人：</label>
+				<div class="respo item-wrap"><!-- 智能输入选择器 --></div>
+			</div>
+
+			<div class="button-group">
+				<button class="u-btn save" name="save" type="button">保存</button>
+			</div>
+		</form>
+	</div>
+</textarea>
+
+<textarea name="css" data-src="./res_group_create.css"></textarea>
+<textarea name="js" data-src="./res_group_create.js"></textarea>

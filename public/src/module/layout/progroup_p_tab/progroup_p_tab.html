@@ -1,0 +1,15 @@
+<meta charset="utf-8"/>
+<textarea name="txt" id="module-progroup-p-tab">
+  <div class="m-progroup-p-tab">
+      <div class="f-cb m-tab"></div>
+  </div>
+</textarea>
+<textarea name="jst" id="module-progroup-p-tabs">
+    {list xlist as x}
+    <a class="stateful tab" href="{if x.type!='page'}/project{/if}/${x.type}/?pid=${id}"
+       data-id="/progroup/p/${x.type}/">${x.name}</a>
+  {/list}
+</textarea>
+
+<textarea name="css" data-src="./progroup_p_tab.css"></textarea>
+<textarea name="js" data-src="./progroup_p_tab.js"></textarea>

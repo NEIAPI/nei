@@ -1,0 +1,30 @@
+{#if !xlist.length}
+<div class="empty">
+  <div class="icon">
+    <i class="u-icon-no-found-data"></i>
+  </div>
+  <div class="tip">无未处理申请</div>
+</div>
+{#else}
+{#list xlist as item}
+<div class="apply">
+  <div class="inner">
+    <p>申请项目组: <a href="/progroup/detail/privilege/?pgid={item.progroupId}"
+                 class="stateful">{item.applyingProGroup.name}</a></p>
+    <p>申请人: {item.applicant.realname||'未知'}（{item.applicant.email}）</p>
+    <p>申请时间: {item.uiCreateTime}</p>
+    <p>申请消息: {item.applyMessage}</p>
+    <div class="opt">
+      {#if item.state == "1"}
+      <span class="agree">已同意</span>
+      {#elseif item.state == "2"}
+      <span class="reject">已拒绝</span>
+      {#else}
+      <i title="同意" on-click={this._agree(item_index,item)} class="u-icon u-icon-yes-normal"></i>
+      <i title="拒绝" on-click={this._reject(item_index,item)} class="u-icon u-icon-no-normal"></i>
+      {/if}
+    </div>
+  </div>
+</div>
+{/list}
+{/if}

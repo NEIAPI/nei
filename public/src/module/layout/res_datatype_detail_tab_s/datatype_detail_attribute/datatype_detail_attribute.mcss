@@ -1,0 +1,64 @@
+.m-dt-d-att {
+  .d-item-attributes {
+    flex-direction: column;
+    padding-top: 16px;
+    margin-top: 20px;
+
+    > label {
+      min-width: initial;
+    }
+
+    .format-group-preview {
+      margin: -22px 0 6px 40px;
+    }
+
+    .list {
+      width: t('calc(100% - 110px)');
+    }
+
+    .editor-full-screen {
+      .format-group-preview {
+        margin-left: 0;
+      }
+    }
+
+    > .list > .m-param-editor > .m-param-editor-core > .editor-core {
+      background-color: #fff;
+    }
+  }
+
+  .d-item-examples {
+    flex-direction: column;
+    padding-top: 6px;
+
+    > label {
+      min-width: initial;
+      margin: 0 0 6px;
+    }
+  }
+
+  .sample-code {
+    width: t('calc(100% - 110px)');
+  }
+
+  .item-description {
+    align-items: stretch;
+
+    label {
+      align-self: baseline;
+      margin-top: 4px;
+    }
+
+    .u-m-txt {
+      align-items: stretch;
+      height: 60px !important;
+    }
+
+    .z-autoheight {
+      visibility: hidden;
+      align-items: stretch;
+      padding: 4px 0;
+      width: 0;
+    }
+  }
+}

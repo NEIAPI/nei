@@ -1,0 +1,14 @@
+<meta charset="utf-8"/>
+<textarea name="txt" id="module-spec-detail-tab">
+  <div class="m-spec-detail-tab">
+      <div class="tab-wrap"></div>
+  </div>
+</textarea>
+<textarea name="jst" id="module-spec-detail-tabs">
+    {list xlist as x}
+    <a class="stateful tab" href="/spec/detail/${x.type}/?id=${id}" data-id="/spec/detail/${x.type}/">${x.name}</a>
+    {/list}
+</textarea>
+
+<textarea name="css" data-src="./spec_detail_tab.css"></textarea>
+<textarea name="js" data-src="./spec_detail_tab.js"></textarea>

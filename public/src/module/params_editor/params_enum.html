@@ -1,0 +1,50 @@
+<div class="wrap-editor">
+  <div r-hide={isHideFullButton} class="fullScreen" title="全屏" on-click={this.doFullScreen($event)}><i
+    class="u-icon-spread-normal"></i></div>
+  <table class="m-tb m-tb-editor m-tb-editor-enum">
+    <thead>
+    <tr>
+      <th>值</th>
+      <th>类型</th>
+      <th>键（可选）</th>
+      <th>描述</th>
+      <th class="opt"></th>
+    </tr>
+    </thead>
+    <tbody>
+    {#list params as p}
+    {#if p.parentId}
+    <tr>
+      <td><span title={p.defaultValue}>{p.defaultValue}</span></td>
+      <td><span title={p.typeName}>{p.typeName}</span></td>
+      <td><input title={p.name} type="text" class="u-input" r-model={p.name}/></td>
+      <td><input title={p.description} type="text" class="u-input" r-model={p.description}/></td>
+      <td class="opt opt-2"><a title="删除" on-click={this.remove(p_index)}><i title="删除"
+                                                                             class="u-icon u-icon-no-normal"></i><i
+        class="u-icon u-icon-no-hover"></i></a></td>
+    </tr>
+    {#else}
+    <tr>
+      <td><input title={p.defaultValue} type="text" class="u-input" r-class={{"u-input-error":p.error}} autofocus
+                 r-model={p.defaultValue}/></td>
+      <td>
+        <DatatypeSelect pid={pid} type={p.type} typeName={p.typeName} isArray={isArray} format={format}
+                        hasCreate={hasCreate} isolate on-change={this._onSelectChange($event,p_index)} noArray={noArray}
+                        noObject={noObject}></DatatypeSelect>
+      </td>
+      <td><input title={p.name} type="text" class="u-input" r-model={p.name}/></td>
+      <td><input title={p.description} type="text" class="u-input" r-model={p.description}/></td>
+      <td class="opt opt-2"><a title="删除" on-click={this.remove(p_index)}><i title="删除"
+                                                                             class="u-icon u-icon-no-normal"></i><i
+        class="u-icon u-icon-no-hover"></i></a></td>
+    </tr>
+    {/if}
+    {/list}
+    </tbody>
+  </table>
+  <div class="operation">
+    <a class="u-btn u-btn-add" on-click={this.add()}>添加</a>
+    <a class="u-btn u-btn-import" on-click={this.import('type')}>从数据模型导入</a>
+    <a class="u-btn u-btn-import" on-click={this.import('json')}>从JSON导入</a>
+  </div>
+</div>

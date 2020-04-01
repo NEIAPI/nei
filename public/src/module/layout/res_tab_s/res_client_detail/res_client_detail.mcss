@@ -1,0 +1,18 @@
+.m-res-client-d {
+  .u-m-txt {
+    height: 50px !important;
+  }
+
+  .dates {
+    .date-picker {
+      z-index: 100;
+      margin-left: 60px;
+      margin-top: 100px;
+    }
+  }
+
+  .d-item-activity {
+    margin-top: 0;
+    padding-top: 20px;
+  }
+}

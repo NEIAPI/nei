@@ -1,0 +1,6 @@
+.m-test-record {
+  .con {
+    margin: 18px auto;
+    text-align: center;
+  }
+}

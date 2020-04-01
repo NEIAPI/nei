@@ -1,0 +1,297 @@
+<div class="cardlist">
+  <div class="res-head">
+    {#if title !== ''}
+    <div class="title">
+      {title}
+    </div>
+    {/if}
+    {#if sortable}
+    <div class="res-sort {sortType}">
+      {#list sortlist as item}
+      <a onselectstart='return false' class="j-sort sort{item.type}" on-click={this.sort(item.type)}>
+        <span>{item.name}</span>
+        <div class="j-sort-flag u-icon-arrow-up-normal-2"></div>
+        <div class="j-sort-flag u-icon-arrow-up-hover"></div>
+        <div class="j-sort-flag u-icon-arrow-down-normal-2"></div>
+        <div class="j-sort-flag u-icon-arrow-down-hover"></div>
+      </a>
+      {/list}
+    </div>
+    {/if}
+  </div>
+  <div class="res-ul">
+    <ul class="res-list f-cb">
+      {#if hasStickList}
+      {#list toplist as tp}
+      <li class="res-item item-top drag-li " data-res-id='{tp.id}' data-res-type={type}>
+        <div class="item-part">
+          <div class="item-info item-title">
+            <div class="icon-wrap">
+              {#if tp.showStick}
+              <span class='top-tag' on-click={this.top(tp)}>
+												<i class="j-tag top-txt-1">置顶</i>
+												<i class="j-tag top-txt-2">取消置顶</i>
+											</span>
+              {#else}
+              <span class='top-tag'>置顶</span>
+              {/if}
+              <span class="j-tag delete-tag u-icon-delete-normal" r-class={{'f-dn-important':!tp.showDelete}}
+                    data-action={tp.actionData}></span>
+            </div>
+            <div class="info-main">
+              {#if tp.showUpload}
+              {#if tp.logo === ''}
+              <div class="info-logo {tp.bgClassName}">
+                <upload-file on-change={this._change($event, tp)}></upload-file>
+                <span class="txt">{tp.letterText}</span>
+                <div class="icon">
+                  <i class="u-icon-upload-avartar-normal"></i>
+                </div>
+              </div>
+              {#else}
+              <div class="info-logo" style="background-image:url({tp.logo})">
+                <upload-file on-change={this._change($event, tp)}></upload-file>
+                <div class="icon">
+                  <i class="u-icon-upload-avartar-normal"></i>
+                </div>
+              </div>
+              {/if}
+              {#else}
+              {#if tp.logo === ''}
+              <div class="info-logo {tp.bgClassName}">
+                <span class="txt">{tp.letterText}</span>
+              </div>
+              {#else}
+              <div class="info-logo" style="background-image:url({tp.logo})">
+              </div>
+              {/if}
+              {/if}
+              {#if !!countable && resType == 3}
+              <a class="item-link stateful" href="/progroup/detail?pgid={tp.id}"
+                 title="{tp.name}">{tp.name}({tp.count})</a>
+              {#else}
+              <a class="item-link stateful" href="/project?pid={tp.id}" title="{tp.name}">{tp.name}</a>
+              {/if}
+            </div>
+          </div>
+          <div class="item-info item-desc">
+            {#if tp.description !== ''}
+            {tp.description}
+            {#else}
+            <p class="f-italic">暂无描述</p>
+            {/if}
+          </div>
+          {#if hasQuickEntrence}
+          <div class="quickentrence">
+            <div class="wrapsource">
+              {#list entranceList as entrance}
+              <a class="resource stateful" href="/{entrance.type}/?pid={tp.id}">{entrance.name}</a>
+              {/list}
+            </div>
+          </div>
+          {/if}
+        </div>
+      </li>
+      {/list}
+      {#list noToplist as np}
+      <li class="res-item item-normal drag-li " data-res-id='{np.id}' data-res-type={type}>
+        <div class="item-part">
+          <div class="item-info item-title">
+            <div class="icon-wrap">
+              {#if np.showStick}
+              <span class='top-tag' on-click={this.top(np)}>
+											<i class="j-tag u-icon-top-normal"></i>
+										</span>
+              {/if}
+              <span class="j-tag delete-tag u-icon-delete-normal" r-class={{'f-dn-important':!np.showDelete}}
+                    data-action={np.actionData}></span>
+            </div>
+            <div class="info-main">
+              {#if np.showUpload}
+              {#if np.logo === ''}
+              <div class="info-logo {np.bgClassName}">
+                <upload-file on-change={this._change($event,np)}></upload-file>
+                <span class="txt">{np.letterText}</span>
+                <div class="icon">
+                  <i class="u-icon-upload-avartar-normal"></i>
+                </div>
+              </div>
+              {#else}
+              <div class="info-logo" style="background-image:url({np.logo})">
+                <upload-file on-change={this._change($event, np)}></upload-file>
+                <div class="icon">
+                  <i class="u-icon-upload-avartar-normal"></i>
+                </div>
+              </div>
+              {/if}
+              {#else}
+              {#if np.logo === ''}
+              <div class="info-logo {np.bgClassName}">
+                <span class="txt">{np.letterText}</span>
+              </div>
+              {#else}
+              <div class="info-logo" style="background-image:url({np.logo})">
+              </div>
+              {/if}
+              {/if}
+              {#if countable && resType == 3}
+              <a class="item-link stateful" href="/progroup/detail?pgid={np.id}"
+                 title="{np.name}">{np.name}({np.count})</a>
+              {#else}
+              <a class="item-link stateful" href="/project?pid={np.id}" title="{np.name}">{np.name}</a>
+              {/if}
+
+            </div>
+          </div>
+          <div class="item-info item-desc">
+            {#if np.description != ''}
+            {np.description}
+            {#else}
+            <p class="f-italic">暂无描述</p>
+            {/if}
+          </div>
+          {#if hasQuickEntrence}
+          <div class="quickentrence">
+            <div class="wrapsource">
+              {#list entranceList as entrance}
+              <a class="resource stateful" href="/{entrance.type}/?pid={np.id}">{entrance.name}</a>
+              {/list}
+            </div>
+          </div>
+          {/if}
+        </div>
+      </li>
+      {/list}
+      {#list publist as pub}
+      <li class="res-item item-pub drag-li " data-res-id='{pub.id}' data-res-type={type}>
+        <div class="item-part">
+          <div class="item-info item-title">
+            <div class="icon-wrap">
+              <span class='j-tag top-tag'>公共</span>
+            </div>
+            <div class="info-main">
+              {#if pub.showUpload}
+              {#if pub.logo=== ''}
+              <div class="info-logo {pub.bgClassName}">
+                <upload-file on-change={this._change($event, pub)}></upload-file>
+                <span class="txt">{pub.letterText}</span>
+                <div class="icon">
+                  <i class="u-icon-upload-avartar-normal"></i>
+                </div>
+              </div>
+              {#else}
+              <div class="info-logo " style="background-image:url({pub.logo})">
+                <upload-file on-change={this._change($event, pub)}></upload-file>
+                <div class="icon">
+                  <i class="u-icon-upload-avartar-normal"></i>
+                </div>
+              </div>
+              {/if}
+              {#else}
+              {#if pub.logo=== ''}
+              <div class="info-logo {pub.bgClassName}">
+                <span class="txt">{pub.letterText}</span>
+              </div>
+              {#else}
+              <div class="info-logo " style="background-image:url({pub.logo})">
+              </div>
+              {/if}
+              {/if}
+              {#if countable && resType == 3}
+              <a class="item-link stateful" href="/progroup/detail?pgid={pub.id}" title="{pub.name}">{pub.name}({pub.count})</a>
+              {#else}
+              <a class="item-link stateful" href="/project?pid={pub.id}" title="{pub.name}">{pub.name}</a>
+              {/if}
+            </div>
+          </div>
+          <div class="item-info item-desc">
+            {#if pub.description !== ''}
+            {pub.description}
+            {#else}
+            <p class="f-italic">暂无描述</p>
+            {/if}
+          </div>
+          {#if resType != 3}
+          <div class="quickentrence">
+            <div class="wrapsource">
+              <a class="resource stateful" href="/interface/?pid={pub.id}">接口</a>
+              <a class="resource stateful" href="/datatype/?pid={pub.id}">模型</a>
+              <a class="resource stateful" href="/constraint/?pid={pub.id}">规则</a>
+            </div>
+          </div>
+          {/if}
+        </div>
+      </li>
+      {/list}
+      {#else}
+      <!-- 没有置顶非置顶的列表  -->
+      {#list noSticklist as item}
+      <li class="res-item item-normal drag-li " data-res-id='{item.id}' data-res-type='project'>
+        <div class="item-part">
+          <div class="item-info item-title">
+            <div class="info-main">
+              {#if item.showBelong.flag}
+              <div class="belong">item.showBelong.belong</div>
+              {/if}
+              {#if item.showUpload}
+              {#if item.logo === ''}
+              <div class="info-logo {item.bgClassName}">
+                <upload-file on-change={this._change($event, item)}></upload-file>
+                <span class="txt">{item.letterText}</span>
+                <div class="icon">
+                  <i class="u-icon-upload-avartar-normal"></i>
+                </div>
+              </div>
+              {#else}
+              <div class="info-logo" style="background-image:url({item.logo})">
+                <upload-file on-change={this._change($event, item)}></upload-file>
+                <div class="icon">
+                  <i class="u-icon-upload-avartar-normal"></i>
+                </div>
+              </div>
+              {/if}
+              {#else}
+              {#if item.logo === ''}
+              <div class="info-logo {item.bgClassName}">
+                <span class="txt">{item.letterText}</span>
+              </div>
+              {#else}
+              <div class="info-logo" style="background-image:url({item.logo})">
+              </div>
+              {/if}
+              {/if}
+              <a class="item-link stateful" href="/project?pid={item.id}" title="{item.name}">{item.name}</a>
+            </div>
+          </div>
+          <div class="item-info item-desc">
+            {#if item.description != ''}
+            {item.description}
+            {#else}
+            <p class="f-italic">暂无描述</p>
+            {/if}
+          </div>
+          <div class="quickentrence">
+            <div class="wrapsource">
+              <a class="resource stateful" href="/page/?pid={item.id}">页面</a>
+              <a class="resource stateful" href="/interface/?pid={item.id}">接口</a>
+              <a class="resource stateful" href="/datatype/?pid={item.id}">模型</a>
+              <a class="resource stateful" href="/template/?pid={item.id}">模板</a>
+              <a class="resource stateful" href="/constraint/?pid={item.id}">规则</a>
+              <a class="resource stateful" href="/group/?pid={item.id}">分组</a>
+            </div>
+          </div>
+        </div>
+      </li>
+      {/list}
+      {/if}
+      {#if addable}
+      <li class="res-add res-item" data-action={addResActionData}>
+        <div class="res-add-part">
+          <i class="u-icon-add-project"></i>
+          <i class="u-icon-add-project-hover"></i>
+        </div>
+      </li>
+      {/if}
+    </ul>
+  </div>
+</div>

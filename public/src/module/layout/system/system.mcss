@@ -1,0 +1,28 @@
+.g-bd {
+  height: 100%;
+}
+
+.m-sys {
+  position: relative;
+  min-width: 1088px;
+  min-height: 680px;
+  height: 100%;
+
+  .m-l {
+    width: 100px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  .m-r {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    left: 100px;
+    background-color: #e6e6e6;
+    overflow-y: hidden;
+  }
+}

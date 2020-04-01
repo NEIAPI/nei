@@ -1,0 +1,18 @@
+<div class="u-edit-menu">
+  <ul class="parent">
+    {#list list as item}
+    {#if item.sub}
+    <li>
+      {item.name}
+      <ul class="sub">
+        {#list item.sub as p}
+        <li on-click={this.select(item.action,p.format)}>{p.name}</li>
+        {/list}
+      </ul>
+    </li>
+    {#else}
+    <li on-click={this.select(item.action,item.format)}>{item.name}</li>
+    {/if}
+    {/list}
+  </ul>
+</div>

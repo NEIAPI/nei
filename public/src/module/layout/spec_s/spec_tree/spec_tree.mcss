@@ -1,0 +1,145 @@
+.m-spec-tree {
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #f7f7f7;
+  overflow-y: auto;
+
+  .f-dn {
+    display: none !important;
+  }
+
+  .m-header {
+    color: #222;
+
+    a {
+      font-weight: bold;
+      display: block;
+      font-size: 14px;
+      height: 60px;
+      line-height: 60px;
+      padding-left: 10px;
+      cursor: default;
+
+      &:hover {
+        color: #222;
+      }
+    }
+  }
+
+  .m-tree {
+    .item {
+      position: relative;
+      margin-top: 10px;
+      box-sizing: border-box;
+      width: 100%;
+
+      .item-top {
+        overflow: hidden;
+        height: 30px;
+        padding-left: 25px;
+        border-left: 3px solid transparent;
+        transition: all ease .3s;
+
+        .u-icon-arrow1 {
+          position: absolute;
+          top: 8px;
+          left: 12px;
+          display: inline-block;
+          vertical-align: middle;
+          border: 6px solid transparent;
+          border-left-color: #a6a6a6;
+        }
+
+        .j-open {
+          border: 6px solid transparent;
+          border-top-color: #a6a6a6;
+          top: 11px;
+          left: 9px;
+        }
+
+        .item-name {
+          border-left: 3px solid transparent;
+
+          .u-create-btn {
+            margin-left: 5px;
+            opacity: 0;
+
+            .u-icon-plus-small-hover, .u-icon-plus-small-pressed {
+              display: none;
+            }
+
+            &:hover {
+              .u-icon-plus-small-hover {
+                display: inline-block;
+              }
+
+              .u-icon-plus-small-small, .u-icon-plus-small-pressed {
+                display: none;
+              }
+            }
+
+            &:active {
+              .u-icon-plus-small-pressed {
+                display: inline-block;
+              }
+
+              .u-icon-plus-small-small, .u-icon-plus-small-hover {
+                display: none;
+              }
+            }
+          }
+        }
+
+        &:hover {
+          background-color: #e2eef7;
+
+          .u-create-btn {
+            opacity: 1;
+          }
+        }
+      }
+
+      .item-name {
+        font-size: 14px;
+        display: block;
+        height: 30px;
+        line-height: 30px;
+        box-sizing: border-box;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        transition: all ease 0.3s;
+      }
+
+      .item-sub {
+        .item-name {
+          padding: 0 15px 0 35px;
+          font-size: 12px;
+          color: #666;
+          display: block;
+          transition: all ease 0.3s;
+          border-left: 3px solid transparent;
+
+          &:hover {
+            background-color: #e2eef7;
+          }
+        }
+
+        .j-selected {
+          background-color: #ededed;
+          color: #30a1f2;
+          border-color: #30a1f2;
+
+          &:hover {
+            background-color: #ededed;
+          }
+        }
+      }
+    }
+
+    .j-selected-t {
+      color: #30a1f2;
+    }
+  }
+}

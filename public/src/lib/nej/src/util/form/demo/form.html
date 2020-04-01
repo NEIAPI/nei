@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NEJ实例 - Form表单控件</title>
+    <meta charset="utf-8" />
+    <style>
+      .js-invalid{border:1px solid #f00;}
+    </style>
+    <script>
+      function log(m){
+          var p = document.createElement('p');
+          p.innerHTML = m;
+          document.body.appendChild(p);
+      }
+    </script>
+  </head>
+  <body>
+    <input type="button" value="test" id="xyz"/>
+    <textarea name="ntp" id="abc">
+        <form>
+          <input type="text" name="aab" data-type="date" data-format="yyyy-MM-dd HH:mm:ss" data-message="输入正确的日期"/>
+          <div>
+              <input type="text" name="xyz" data-abc="true" />
+              <select name="abc" data-type="number">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+              </select>
+              <select name="def" multiple="true" data-type="number">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+              </select>
+          </div>
+          <input type="button" name="btn" value="ok"/>
+        </form>
+    </textarea>
+    
+    <script src="../../../define.js"></script>
+    <script>
+        NEJ.define([
+            'base/event',
+            'base/element',
+            'util/template/tpl',
+            '../form.js'
+        ],function(_v,_ex,_e,_t){
+            _e._$parseTemplate('abc');
+            var _webform;
+            var _form = _e._$getNodeTemplate('abc');
+            var _fbox = _form.getElementsByTagName('DIV')[0];
+            _v._$addEvent(_form.btn,'click',function(){
+                if (_webform._$checkValidity()){
+                    var _data = _webform._$data();
+                    console.log(_data);
+                    log('submit form to server');
+                }
+            });
+            _webform = _t._$$WebForm._$allocate({
+                form:_form,
+                attr:{
+                    abc:function(_node,_options){
+                        console.log('xxx');
+                    }
+                }
+            });
+            document.body.appendChild(_form);
+            
+            _webform._$setValue('def',[2,3]);
+            
+            _v._$addEvent(
+                'xyz','click',function(_event){
+                    _fbox.innerHTML = '<input type="text" name="jjj" data-required="true"/>';
+                }
+            );
+        });
+    </script>
+  </body>
+</html>

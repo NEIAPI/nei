@@ -1,0 +1,38 @@
+<div class="list-row list-header">
+  {#if level !=0}
+  <div class="list-col list-col-check" r-class={{"selected":allChecked}} on-click={this.selectAll()}><i
+    class="u-icon-checkbox-normal"></i><i class="u-icon-checkbox-pressed"></i></div>
+  {/if}
+  {#if hasChecked}
+  <div class="batch-action">
+    <span class="sel-num">(已选 <em>{checkNum}</em> 项)</span>
+    <span><a class="batch-action-item" on-click={this.doAppendModel()}>生成模型</a><a class="batch-action-item"
+                                                                                  on-click={this.batRemove()}>删除</a></span>
+    <a class="quick-action" href="#" on-click={this.clearSelected($event)}>取消选择</a>
+    <a class="quick-action" href="#" on-click={this.reverseSelected($event)}>反向选择</a>
+  </div>
+  {#else}
+  {#if format == 0}
+  <div class="list-col list-col-name"><em>名称</em></div>
+  <div class="list-col list-col-type"><em>类型</em></div>
+  <div class="list-col"><em>描述</em></div>
+  <div class="list-col"><em>默认值</em></div>
+  <div class="list-col"><em>生成规则</em></div>
+  <div class="list-col list-col-require" r-hide={!isRequire}><em>必需</em></div>
+  <div class="list-col list-col-do"></div>
+  {#elseif format == 1}
+  <div class="list-col list-col-name"><em>值</em></div>
+  <div class="list-col list-col-type"><em>类型</em></div>
+  <div class="list-col"><em>描述</em></div>
+  <div class="list-col"><em>键（可选）</em></div>
+  <div class="list-col list-col-do"></div>
+  {#elseif format == "header"}
+  <div class="list-col"><em>名称</em></div>
+  <div class="list-col"><em>值</em></div>
+  <div class="list-col"><em>描述</em></div>
+  <div class="list-col list-col-do"></div>
+  {#else}
+  {/if}
+  {/if}
+
+</div>

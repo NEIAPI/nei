@@ -1,0 +1,14 @@
+<meta charset="utf-8"/>
+<textarea name="txt" id="module-progroup-detail-tab">
+  <div class="m-progroup-detail-tab">
+      <div class="f-cb m-tab"></div>
+  </div>
+</textarea>
+<textarea name="jst" id="module-progroup-detail-tabs">
+    {list xlist as x}
+    <a class="stateful tab" href="/progroup/detail/${x.type}/?pgid=${id}" data-id="/progroup/detail/${x.type}/">${x.name}</a>
+    {/list}
+</textarea>
+
+<textarea name="css" data-src="./progroup_detail_tab.css"></textarea>
+<textarea name="js" data-src="./progroup_detail_tab.js"></textarea>

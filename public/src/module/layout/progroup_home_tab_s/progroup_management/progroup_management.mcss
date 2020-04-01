@@ -1,0 +1,17 @@
+
+.m-progroup-management {
+  margin: 0 30px 0 50px;
+
+  .tab {
+    flex: 1;
+    height: 30px;
+    line-height: 30px;
+    margin: 5px 0;
+    color: #21759b;
+    font-size: 14px;
+
+    &.js-selected {
+      background-color: rgba(0, 0, 0, .5);
+    }
+  }
+}

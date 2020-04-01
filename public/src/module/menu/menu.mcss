@@ -1,0 +1,41 @@
+.m-menu {
+  position: absolute;
+  color: #222;
+  font-size: 12px;
+  font-weight: normal;
+  z-index: 99;
+
+  .menu {
+    background-color: #fff;
+    border: 1px solid #efefef;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+
+    &-item {
+      position: relative;
+      overflow: hidden;
+      height: 30px;
+      line-height: 30px;
+      width: 90px;
+      padding: 0 15px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      cursor: default;
+
+      &:hover {
+        background: #f1f1f1;
+      }
+
+      &-withsub:after {
+        position: absolute;
+        right: 4px;
+        content: ">";
+        font-size: 14px;
+        font-weight: bold;
+      }
+    }
+
+    &-child {
+      position: absolute;
+    }
+  }
+}

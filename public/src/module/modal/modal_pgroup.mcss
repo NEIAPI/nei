@@ -1,0 +1,168 @@
+.create-part {
+  .u-ipt {
+    font-size: 14px;
+    width: 100%;
+    height: 40px;
+    padding: 14px 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 1px solid #e6e6e6;
+  }
+
+  .u-ipt.j-err-ipt {
+    border-color: #C71515;
+  }
+
+  .u-txt {
+    font-size: 14px;
+    width: 100%;
+    height: 80px;
+    padding: 14px 10px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    border: 1px solid #e6e6e6;
+  }
+}
+
+.create-part .u-btn {
+  width: 100%;
+  box-sizing: border-box;
+  color: #fff;
+}
+
+.modal-bd {
+  .pg-delete {
+    padding: 0 50px;
+    text-align: left;
+
+    .warn-part {
+      margin-bottom: 20px;
+
+      .warn-icon {
+        display: inline-block;
+        vertical-align: top;
+      }
+
+      .pg-delete-text {
+        display: inline-block;
+        color: #f04c62;
+      }
+    }
+
+    .pg-delete-name {
+      .pg-delete-name-hint {
+        color: #666;
+        margin-bottom: 10px;
+      }
+
+      .u-input {
+        width: 100%;
+        height: 40px;
+        border: 1px solid #e6e6e6;
+
+        &:hover {
+          border: 1px solid #e6e6e6;
+        }
+
+        &.j-err-ipt {
+          border-color: #c71515;
+        }
+      }
+    }
+  }
+
+  .pg-delete {
+    padding: 0 50px;
+    text-align: left;
+
+    .warn-part {
+      margin-bottom: 20px;
+
+      .warn-icon {
+        display: inline-block;
+        vertical-align: top;
+      }
+
+      .pro-delete-text {
+        display: inline-block;
+        color: #f04c62;
+      }
+    }
+
+    .pg-delete-name {
+      .pg-delete-name-hint {
+        color: #666;
+        margin-bottom: 10px;
+      }
+
+      .u-input {
+        width: 100%;
+        height: 40px;
+        border: 1px solid #e6e6e6;
+
+        &:hover {
+          border: 1px solid #e6e6e6;
+        }
+
+        &.j-err-ipt {
+          border-color: #c71515;
+        }
+      }
+    }
+  }
+}
+
+.m-pg-delete {
+  .modal-ft {
+    padding: 0 50px;
+
+    .u-btn {
+      background-color: #f04c62;
+    }
+  }
+}
+
+.m-pg-transfer {
+  .modal-dialog {
+    overflow: initial;
+  }
+
+  .pg-transfer {
+    .pg-transfer-tip {
+      height: 20px;
+      color: #f04c62;
+      text-align: left;
+    }
+
+    .pg-transfer-empty {
+      text-align: center;
+      padding: 20px 0px;
+
+      span {
+        line-height: 22px;
+        display: inline-block;
+        padding-left: 10px;
+        vertical-align: middle;
+      }
+    }
+
+    .transfer {
+      display: flex;
+      padding: 0px 0px 20px 0px;
+    }
+
+    .label {
+      line-height: 30px;
+      text-align: right;
+    }
+
+    .field {
+      flex: 1;
+      text-align: left;
+    }
+
+    .u-select2 {
+      width: 100%;
+    }
+  }
+}

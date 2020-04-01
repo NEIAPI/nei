@@ -1,0 +1,101 @@
+{#if level == 0}
+<div class="m-paramslist">
+  <div class="list-body">
+    <div r-hide={isHideFullButton} class="fullScreen" title="全屏" on-click={this.doFullScreen($event)}><i
+      class="u-icon-spread-normal"></i></div>
+    <div class="list-row list-header">
+      <div class="list-col "><em>类别</em></div>
+      <div class="list-col list-col-type"><em>类型</em></div>
+      <div class="list-col"><em>默认值</em></div>
+      <div class="list-col"><em>生成规则</em></div>
+      <!--<div class="list-col"><em>验证规则</em></div>-->
+      <div class="list-col"><em>描述</em></div>
+    </div>
+    <div class="list-row">
+      {#list params as p}
+      <div class="list-col">数组</div>
+      <div class="list-col list-col-type">
+        <div class="arraytype">{#if p.isArray == 1}<span class="array">Array</span>{/if}<span title={p.typeName}
+                                                                                              class="type"
+                                                                                              r-class={{"u-link":p.type>10003}}>{p.typeName || "Object"}</span>{#if
+          p.type>10003}
+          <type-property pid={pid} id={p.type}></type-property>
+          {/if}
+        </div>
+      </div>
+      <div class="list-col"><em title={p.defaultValue}>{p.defaultValue}</em></div>
+      <div class="list-col"><em title={p.genExpression}>{p.genExpression}</em></div>
+      <!--<div class="list-col"><input title={p.valExpression} type="text" readonly r-model={p.valExpression} class="u-input " placeholder="添加验证规则" data-active='required=false&id={p.id}&index={p_index}&actionType=expression&name=valExpression&cache=parameter' /></div>-->
+      <div class="list-col"><em title={p.description}>{p.description}</em></div>
+      {/list}
+    </div>
+  </div>
+</div>
+{#else}
+<div class="m-paramslist">
+  <div class="list-body">
+    <div r-hide={isHideFullButton} class="fullScreen" title="全屏" on-click={this.doFullScreen($event)}><i
+      class="u-icon-spread-normal"></i></div>
+    <div class="list-row list-header">
+      <div class="list-col "><em>类别</em></div>
+      <div class="list-col list-col-type"><em>类型</em></div>
+      <div class="list-col"><em>默认值</em></div>
+      <div class="list-col"><em>生成规则</em></div>
+      <!--<div class="list-col"><em>验证规则</em></div>-->
+      <div class="list-col"><em>描述</em></div>
+    </div>
+    {#list params as p}
+    <div class="list-row">
+      <div class="list-col">数组</div>
+      <div class="list-col list-col-type" r-class={{"list-col-edit":p.isEditObjectType}}>
+        <div class="wrap-arraytype"
+             data-active='required=false&id={p.id}&index={p_index}&actionType=select&isArray={p.isArray}&name=typeName&type={p.type}&typeName={p.typeName}&cache=parameter'>
+          <div class="arraytype">
+            {#if p.isArray == 1}<span class="array">Array</span>{/if}
+            <span title={p.typeName} class="type" r-class={{"u-link":p.type>10003}}><span class="backtype">{p.typeName || "Object"}</span></span>
+            {#if !p.typeName}<i title="修改" on-click={this.modifyAnonymousType($event,p.type,p_index)}
+                                class="u-icon-edit-normal"></i>{/if}
+            <a class="update" on-click={this.submitModify($event,p_index)}>保存</a><a class="cancel"
+                                                                                    on-click={this.cancelModify($event,p_index)}>取消</a>
+            {#if p.type>10003}
+            <type-property ref="tp{p_index}" isolate pid={pid} id={p.type}></type-property>
+            {/if}
+          </div>
+        </div>
+      </div>
+      <div class="list-col"><input title={p.defaultValue} type="text" readonly r-model={p.defaultValue} class="u-input "
+                                   placeholder="添加默认值"
+                                   data-active='required=false&id={p.id}&index={p_index}&actionType=input&name=defaultValue&cache=parameter'/>
+      </div>
+      <div class="list-col"><input title={p.genExpression} type="text" readonly r-model={p.genExpression}
+                                   class="u-input " placeholder="添加生成规则"
+                                   data-active='required=false&id={p.id}&index={p_index}&actionType=expression&name=genExpression&cache=parameter'/>
+      </div>
+      <!--<div class="list-col"><input title={p.valExpression} type="text" readonly r-model={p.valExpression} class="u-input " placeholder="添加验证规则" data-active='required=false&id={p.id}&index={p_index}&actionType=expression&name=valExpression&cache=parameter' /></div>-->
+      <div class="list-col"><input title={p.description} type="text" readonly r-model={p.description} class="u-input "
+                                   placeholder="添加描述"
+                                   data-active='required=false&id={p.id}&index={p_index}&actionType=input&name=description&cache=parameter'/>
+      </div>
+    </div>
+    {#if p.isEditObjectType}
+    <div class="list-row list-row-haxieditor">
+      <div class="haxieditor">
+        <div class="arrow"></div>
+        <haxiEditor ref="editor" params={p.attrs} isHideFullButton={true} noObject={true} hasCreate={false} pid={pid}
+                    format={0} btns={['add','datatype','json','interface','javabean']}></haxiEditor>
+      </div>
+    </div>
+    {/if}
+    {/list}
+  </div>
+  <div class="action-row">
+    <div title="更多" class="more ">
+      <i class="u-icon u-icon-more-editor-normal"></i><i class="u-icon u-icon-more-editor-hover"></i><i
+      class="u-icon u-icon-more-editor-pressed"></i>
+      <div class="wrap-menu">
+        <param-menu on-check={this._onMenuCheck($event)} format={format}></param-menu>
+      </div>
+    </div>
+  </div>
+</div>
+{/if}

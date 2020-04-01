@@ -1,0 +1,41 @@
+.p-advice {
+  position: absolute;
+  left: 30px;
+  top: -5px;
+  transform: translateY(-100%);
+  z-index: 20;
+  min-width: 200px;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 2px 6px 2px rgba(60, 64, 67, 0.15);
+  cursor: pointer;
+
+  & div, & a {
+    display: block;
+    padding: 5px 15px;
+    color: #30a1f2;
+
+    &:first-child {
+      padding-top: 10px;
+      color: #aaa;
+    }
+
+    &:last-child {
+      padding-bottom: 10px;
+    }
+  }
+
+  .u-advice {
+    font-size: 16px;
+  }
+
+  .u-advice:hover, .u-link:hover {
+    background-color: #30a1f2;
+    color: white;
+  }
+}
+
+
+
+
+

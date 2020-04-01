@@ -1,0 +1,54 @@
+.globalsearch-result {
+  background-color: #fff;
+  border-radius: 4px;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  right: 10px;
+  bottom: 10px;
+}
+
+/**
+ * 标签页
+ */
+.globalsearch-tab-wrap {
+  position: relative;
+  height: 59px;
+  z-index: 3;
+}
+
+.nei-scrolled {
+  box-shadow: 0 1px 2px 0px rgba(0, 0, 0, 0.1);
+
+  .m-tab {
+    border-bottom: none;
+  }
+}
+
+/**
+ * 内容
+ */
+.globalsearch-con-wrap {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+  padding-top: 82px;
+  z-index: 1;
+
+  .m-stripedlist {
+    margin: auto 30px;
+
+    .list-row {
+      .col-method {
+        width: 50px;
+      }
+
+      .col-create-time {
+        width: 150px;
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+<div class="u-unitgroup {class}">
+  {#list source as item}
+  <label class="u-radio2" title={item.name} z-sel={item === selected}  on-click={this.select(item)}>
+  <div class="radio2_box"><i class="icon icon-radio"></i></div>
+  {item.name}
+  </label>
+  {/list}
+</div>

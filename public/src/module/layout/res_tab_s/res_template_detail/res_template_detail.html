@@ -1,0 +1,78 @@
+<meta charset="utf-8"/>
+<textarea name="txt" id="module-res-template-detail">
+	<div class="m-res-t-d u-res-detail"></div>
+</textarea>
+<textarea name="jst" id="m-res-t-detail">
+	<div class="d-block-wrap">
+		<div class="d-block">
+			<div class="block-item d-title">
+				<input type="text" name="name" value="${name|escape}" class="u-m-inp title" {if
+               !!permit}data-action='{"type":"modify","cache":"template","id":"${id}","name":"name","required":true}' {/if} readonly>
+			</div>
+			<div class="block-item respo">
+				<label>负责人：</label>
+				<div class="respo-select"></div>
+			</div>
+			<div class="block-item group">
+				<label>业务分组：</label>
+				<div class="group-select"></div>
+			</div>
+            <div class="block-item item-description">
+                <label>描述：</label>
+                <textarea class="u-m-inp u-m-txt" placeholder="暂无描述" {if
+                          permit}data-action='{"type":"modify","cache":"template","id":"${id}","name":"description"}' {/if} >${description|escape2}<&#47;textarea>
+            </div>
+		</div>
+		<div class="d-block go-back">
+			<a href="javascript:void(0);" class="watch-btn watch {if isWatched==1}fn{/if}">关注</a>
+			<a href="javascript:void(0);" class="watch-btn cancle-watch {if isWatched==0}fn{/if}">取消关注</a>
+			<a href="/template/?pid=${projectId}" class="stateful">
+				<i class="glyphicon glyphicon-circle-arrow-left"></i>
+			</a>
+		</div>
+		<div class="d-block">
+			<div class="block-item item-tag">
+				<label>标签：</label>
+				<div class="tag-select"></div>
+			</div>
+			<div class="block-item watch-list">
+				<label>关注人：</label>
+				<div class="watch-list-container"></div>
+			</div>
+
+		</div>
+	</div>
+
+    <div class="d-body">
+        <div class="d-item d-item-path">
+            <label>文件路径：</label>
+	        <div class="path">
+		        <div class="path-inner">
+		            <input type="text" name="path" value="${path|escape}" class="u-m-inp" {if
+                       !!permit}data-action='{"type":"modify","cache":"template","id":"${id}","name":"path"}' {/if} readonly >
+		        </div>
+	        </div>
+        </div>
+
+        <div class="d-item d-item-parameters">
+            <label>预填数据：</label>
+            <div class="list">
+
+            </div>
+        </div>
+
+        <div class="d-item d-item-examples">
+            <label>范例展示：</label>
+            <div class="sample-code f-dn"></div>
+            <div class="f-italic no-sample-code f-dn"></div>
+        </div>
+
+        <div class="d-item d-item-activity">
+            <label>历史操作：</label>
+            <div class="list activity-list"></div>
+        </div>
+    </div>
+</textarea>
+
+<textarea name="css" data-src="./res_template_detail.css"></textarea>
+<textarea name="js" data-src="./res_template_detail.js"></textarea>

@@ -1,0 +1,37 @@
+/*json导入*/
+.m-modal-import {
+  .modal-dialog {
+    width: 500px;
+  }
+}
+
+.draging {
+  background: #f1f1c0
+}
+
+.m-import-json {
+  margin-bottom: 30px;
+  border: 1px solid #d2d6de;
+
+  .oper {
+    padding: 0px 10px;
+    font-size: 14px;
+    height: 40px;
+    line-height: 40px;
+    text-align: right;
+    border-bottom: 1px solid #d2d6de;
+    color: #999;
+
+    .func {
+      float: left;
+    }
+  }
+
+  .draging {
+    background: #f1f1c0
+  }
+
+  .edit {
+    text-align: left;
+  }
+}

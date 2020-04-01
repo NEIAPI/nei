@@ -1,0 +1,24 @@
+.u-select2group {
+  height: 30px;
+  display: flex;
+  flex: 1;
+
+  .u-select2 {
+    flex: 1;
+
+    .select-hd {
+      padding: 0px 15px 0px 5px;
+    }
+
+    .dis-name {
+      height: auto;
+      line-height: normal;
+    }
+  }
+}
+
+.u-select2group-double {
+  .u-select2:first-child {
+    margin-right: 5px;
+  }
+}

@@ -1,0 +1,208 @@
+.m-inter-d-req {
+  .d-item {
+    > label {
+      min-width: 60px;
+    }
+  }
+
+  .d-item-params {
+    display: block;
+
+    .path-param-table {
+      margin-top: 6px;
+      border: 1px solid #e6e6e6;
+      width: t('calc(100% - 110px)');
+
+      .no-item-tip {
+        color: #bbb;
+        font-style: italic;
+      }
+
+      .table-header {
+        border-bottom: 1px solid #efefef;
+      }
+
+      tr {
+        line-height: 35px;
+      }
+
+      th {
+        background-color: #f5f5f5;
+        padding: 0 10px;
+      }
+
+      td {
+        background-color: #fff;
+        padding: 0 10px;
+        width: 25%;
+
+        .u-select {
+          margin-top: -1px;
+        }
+      }
+
+      input {
+        width: 95%;
+      }
+    }
+  }
+
+  .d-item-reqheaders,
+  .d-item-inputs,
+  .d-item-examples {
+    flex-direction: column !important;
+
+    .format-group-preview {
+      margin: -22px 0 6px 64px;
+    }
+
+    .editor-full-screen {
+      .format-group-preview {
+        margin-left: 0;
+      }
+    }
+  }
+
+  .d-item-path {
+    margin-bottom: -16px;
+    flex-wrap: wrap;
+
+    .method {
+      width: 70px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+
+      .u-select2 {
+        width: auto;
+      }
+    }
+
+    .req-search {
+      max-width: 500px;
+      height: 30px;
+      line-height: 30px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-left: 10px;
+    }
+
+    .error-tip {
+      width: 100%;
+      color: red;
+      display: none;
+
+      &.active {
+        display: block;
+      }
+    }
+
+    .path {
+      .path-inner {
+        width: t('calc(100% - 110px)');
+      }
+    }
+  }
+
+  .d-item-mock-url {
+    margin-top: 20px;
+    margin-bottom: -12px;
+
+    .mock-url {
+      max-width: 70%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .method {
+      width: 63px;
+      display: inline-block;
+    }
+
+    a:link,
+    a:visited {
+      color: #30a1f2;
+      margin-left: 12px;
+    }
+  }
+
+  .d-item-mock-delay {
+    margin-top: 16px;
+
+    label {
+      margin-top: 6px;
+    }
+  }
+
+  .d-quick-select {
+    display: flex;
+    color: #999;
+
+    > li {
+      margin-right: 8px;
+
+      &:first-child {
+        margin-right: 0;
+      }
+    }
+
+    label > input {
+      margin-right: 4px;
+    }
+  }
+
+  .d-item-reqheaders {
+    .header-list {
+      width: t('calc(100% - 110px)');
+      margin-top: 6px;
+    }
+
+    .format-group-preview {
+      margin-left: 56px;
+    }
+  }
+
+  .d-item-inputs {
+    .inputs-list {
+      width: t('calc(100% - 110px)');
+    }
+  }
+
+  .d-item-examples {
+    label {
+      margin-bottom: 8px;
+    }
+  }
+
+  .d-item-script {
+    align-items: center !important;
+
+    input {
+      width: 30%;
+    }
+  }
+
+  .sample-code, .script, .script-result {
+    width: t('calc(100% - 110px)');
+  }
+
+  .script-edt {
+    min-height: 100px;
+  }
+
+  .error-title {
+    color: #999;
+    font-size: 12px;
+    margin-top: 30px;
+    margin-bottom: 8px;
+  }
+
+  .error-content {
+    color: red;
+
+    &:not(:last-child) {
+      margin-bottom: 4px;
+    }
+  }
+}

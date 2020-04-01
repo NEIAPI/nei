@@ -1,0 +1,36 @@
+<div style="text-align: left; height: 100%; margin-bottom: 120px;">
+  <div style="width: 500px;"><%= progroup.name %>【<a
+      href="<%= url %>/project?pid=<%= project.id %>"><%= project.name %></a>】的测试结果如下：
+  </div>
+  <br>
+  <table style="margin:0 auto; border-color: #eee; text-align: left;" width="500" cellpadding="5" cellspacing="0"
+         border="1">
+    <thead>
+    <tr>
+      <th>测试集</th>
+      <th>测试集类型</th>
+      <th>测试结果</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% for (var j = 0; j < testSets.length; j++) { %>
+    <tr>
+      <td>
+        <a
+          href="<%= url %>/test/group/<%= testSets[j].type === 0 ? 'suite' : 'dependency' %>/?pgid=<%= progroup.id %>&pid=<%= project.id %>&cid=<%= testSets[j].id %>"><%= testSets[j].name %></a>
+      </td>
+      <td><%= testSets[j].type === 0 ? '测试集' : '依赖测试集' %></td>
+      <td>
+        <% if (!result[testSets[j].id]) { %>
+        该测试集没有测试用例！
+        <% } else if (result[testSets[j].id].status) { %>
+        <span style="color: lightgreen">测试通过</span>
+        <% } else { %>
+        <span style="color: red">测试失败</span>
+        <% } %>
+      </td>
+    </tr>
+    <% } %>
+    </tbody>
+  </table>
+</div>

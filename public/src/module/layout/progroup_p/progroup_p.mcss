@@ -1,0 +1,365 @@
+.m-progroup-p {
+  .m-progroup-p-tab {
+    padding: 0 30px;
+  }
+
+  .f-dn {
+    display: none !important;
+  }
+
+  .f-vh {
+    visibility: hidden !important;
+  }
+
+  .tab-con {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-top: 60px;
+    z-index: 1;
+
+    > div {
+      margin: 30px 30px 20px 30px;
+
+      > .tab-wrap {
+        top: 61px;
+      }
+    }
+  }
+
+  .m-stripedlist .list-row {
+    .col-name,
+    .col-path {
+      flex: 2;
+    }
+  }
+
+  .list-bd {
+    position: absolute;
+    overflow: auto;
+    top: 219px;
+    left: 0;
+    right: 30px;
+    bottom: 0;
+    padding-bottom: 0px;
+    padding-left: 30px;
+    /*此属性可以防止在Chrome中滚动很卡的问题，也可以使用 will-change: transform;*/
+    transform: translate3d(0, 0, 0);
+
+    .v-list-phantom {
+      box-sizing: content-box;
+      padding-bottom: 100px;
+    }
+  }
+
+  /*
+   * 资源列表页面创建和搜索
+   */
+
+  .list-content {
+    .resource-feature-part {
+      position: absolute;
+      top: 135px;
+      right: 290px;
+
+      .u-icon-add-normal {
+        margin-top: -4px;
+      }
+
+      .resource-add {
+        color: #fff;
+        display: inline-block;
+        background-color: #30a1f2;
+        width: 95px;
+        height: 34px;
+        line-height: 34px;
+        text-align: center;
+      }
+    }
+  }
+
+  &.res-view {
+    .tab-con {
+      padding-top: 103px;
+    }
+
+    > .tab-con {
+      padding-top: 0;
+    }
+  }
+
+  /*
+   * 观察者模式样式
+   */
+
+  &.member-observer {
+    .delete-icon, .share-icon, .resource-add, .create-btn {
+      display: none !important;
+    }
+
+    .d-head {
+      .head-top {
+        .group, .respo, .status {
+          label {
+            margin-top: 0;
+          }
+        }
+
+        .group {
+          .group-select {
+            padding: 0 8px;
+          }
+        }
+
+        .respo {
+          .respo-select {
+            padding: 0 8px;
+          }
+        }
+
+        .status {
+          .status-select {
+            padding: 0 8px;
+          }
+        }
+      }
+
+      .item-tag {
+        display: flex;
+        align-items: center;
+      }
+    }
+
+  }
+
+  .observer-view {
+    padding: 50px;
+
+    .pro-name {
+      font-size: 18px;
+    }
+
+    .pro-description {
+      margin-top: 15px;
+      font-size: 15px;
+    }
+
+    .u-btn {
+      margin-top: 20px;
+    }
+
+    .applying {
+      background: #eee;
+    }
+  }
+
+  .others-view {
+    padding: 0 30px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+
+    .d-title {
+      position: relative;
+      height: 70px;
+      line-height: 70px;
+      border-bottom: 1px solid #e6e6e6;
+      vertical-align: middle;
+    }
+
+    .title {
+      height: auto;
+      width: 40%;
+      padding: 5px 10px;
+      font-size: 24px;
+      vertical-align: middle;
+      color: #222;
+    }
+
+    .item-description {
+      position: relative;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 10px 0;
+      min-height: 50px;
+
+      .u-m-inp {
+        font-size: 16px;
+        color: #666;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .u-m-inp {
+      border: none;
+
+      &:hover {
+        border: none;
+      }
+    }
+
+    .u-btn {
+      width: 220px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      margin-top: 20px;
+
+      &:hover {
+        color: #fff;
+      }
+    }
+
+    .applying {
+      flex-grow: 1;
+      margin: 0 auto;
+
+      .applying-cnt {
+        margin-top: 100px;
+        display: inline-block;
+        text-align: center;
+        color: #999;
+
+        p {
+          margin-top: 10px;
+        }
+      }
+    }
+
+    .markdown-body-doc {
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+
+.progroup-apply-layer {
+  width: 300px;
+  margin: auto;
+
+  .apply-part {
+    width: 100%;
+
+    .j-confirm {
+      width: 100%;
+      box-sizing: border-box;
+      color: #fff;
+    }
+
+    .m-form {
+      width: 100%;
+
+      h3 {
+        font-size: 20px;
+        color: #333;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .pg-title {
+        font-size: 14px;
+        color: #333;
+      }
+
+      .apply-desc {
+        margin-top: 25px;
+        margin-bottom: 25px;
+
+        .u-txt {
+          font-size: 14px;
+          width: 100%;
+          height: 80px;
+          padding: 14px 10px;
+          box-sizing: border-box;
+          border: 1px solid #e6e6e6;
+        }
+
+        .u-txt.j-err-ipt {
+          border-color: #C71515;
+        }
+      }
+    }
+  }
+}
+
+/*
+  * 资源列表操作按钮覆盖在时间上显示
+  */
+.m-pg-p-r, .m-progroup-p {
+  .m-stripedlist .list-row {
+    &:hover {
+      .col-nei-actions {
+        position: absolute;
+        right: 0;
+        opacity: 1;
+        width: 130px;
+        padding-right: 10px;
+        background-color: #f2f9fe;
+      }
+      background-color: #f2f9fe;
+    }
+
+    .col-create-time {
+      width: 120px;
+    }
+
+    .col-nei-actions {
+      width: 0;
+      padding: 0;
+    }
+  }
+}
+
+/*
+  * 资源列表引用列表样式
+  */
+.m-pg-p-r, .m-progroup-p {
+  .m-res-ref {
+    .m-stripedlist .list-row {
+      .col-nei-actions {
+        opacity: 1;
+        width: 40px;
+      }
+
+      &:hover {
+        .col-nei-actions {
+          position: relative;
+          width: 40px;
+          padding-right: 0;
+          background-color: transparent;
+        }
+        background-color: #f2f9fe;
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .m-progroup-p {
+    .u-res-detail {
+      .d-head {
+        .head-top {
+          .group, .status, .respo {
+            &-select {
+              min-width: 142px;
+            }
+          }
+        }
+      }
+
+      .u-select2 {
+        width: 142px;
+      }
+    }
+  }
+}

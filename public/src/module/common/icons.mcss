@@ -1,0 +1,1385 @@
+/**
+  * nei icons sprite
+  */
+[class^="u-icon-"], [class*=" u-icon-"] {
+  display: inline-block;
+  overflow: hidden;
+  text-indent: -9999px;
+  text-align: left;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+}
+
+.u-icon-3line-normal {
+  background-image: url('/res/sprite/3line_normal.png?sprite!');
+  width: 14px;
+  height: 10px;
+}
+
+.u-icon-add-editor-hover {
+  background-image: url('/res/sprite/add_editor_hover.png?sprite!');
+  width: 20px;
+  height: 20px;
+}
+
+.u-icon-add-editor-normal {
+  background-image: url('/res/sprite/add_editor_normal.png?sprite!');
+  width: 20px;
+  height: 20px;
+}
+
+.u-icon-add-editor-pressed {
+  background-image: url('/res/sprite/add_editor_pressed.png?sprite!');
+  width: 20px;
+  height: 20px;
+}
+
+.u-icon-add-normal {
+  background-image: url('/res/sprite/add_normal.png?sprite!');
+  width: 14px;
+  height: 14px;
+}
+
+.u-icon-add-project-hover {
+  background-image: url('/res/sprite/add_project_hover.png?sprite!');
+  width: 40px;
+  height: 40px;
+}
+
+.u-icon-add-project {
+  background-image: url('/res/sprite/add_project.png?sprite!');
+  width: 40px;
+  height: 40px;
+}
+
+.u-icon-add-catalog-disable {
+  background-image: url('/res/sprite/add-catalog_disable.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-add-catalog-hover {
+  background-image: url('/res/sprite/add-catalog_hover.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-add-catalog-normal {
+  background-image: url('/res/sprite/add-catalog_normal.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-add-file-disable {
+  background-image: url('/res/sprite/add-file_disable.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-add-file-hover {
+  background-image: url('/res/sprite/add-file_hover.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-add-file-normal {
+  background-image: url('/res/sprite/add-file_normal.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-add-new-hover {
+  background-image: url('/res/sprite/add-new_hover.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-add-new-normal {
+  background-image: url('/res/sprite/add-new_normal.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-alert-normal-2 {
+  background-image: url('/res/sprite/alert_normal_2.png?sprite!');
+  width: 24px;
+  height: 24px;
+}
+
+.u-icon-alert-normal {
+  background-image: url('/res/sprite/alert_normal.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-aos-normal {
+  background-image: url('/res/sprite/aos_normal.png?sprite!');
+  width: 44px;
+  height: 44px;
+}
+
+.u-icon-appling-project {
+  background-image: url('/res/sprite/appling_project.png?sprite!');
+  width: 150px;
+  height: 140px;
+}
+
+.u-icon-arrow-close-normal {
+  background-image: url('/res/sprite/arrow_close_normal.png?sprite!');
+  width: 12px;
+  height: 10px;
+}
+
+.u-icon-arrow-collected-normal {
+  background-image: url('/res/sprite/arrow_collected_normal.png?sprite!');
+  width: 6px;
+  height: 12px;
+}
+
+.u-icon-arrow-down-blue-normal {
+  background-image: url('/res/sprite/arrow_down_blue_normal.png?sprite!');
+  width: 12px;
+  height: 12px;
+}
+
+.u-icon-arrow-down-hover {
+  background-image: url('/res/sprite/arrow_down_hover.png?sprite!');
+  width: 10px;
+  height: 10px;
+}
+
+.u-icon-arrow-down-normal-2 {
+  background-image: url('/res/sprite/arrow_down_normal_2.png?sprite!');
+  width: 10px;
+  height: 10px;
+}
+
+.u-icon-arrow-down-normal {
+  background-image: url('/res/sprite/arrow_down_normal.png?sprite!');
+  width: 12px;
+  height: 12px;
+}
+
+.u-icon-arrow-down-white-normal {
+  background-image: url('/res/sprite/arrow_down_white_normal.png?sprite!');
+  width: 12px;
+  height: 12px;
+}
+
+.u-icon-arrow-filter-hover {
+  background-image: url('/res/sprite/arrow_filter_hover.png?sprite!');
+  width: 14px;
+  height: 14px;
+}
+
+.u-icon-arrow-filter-normal {
+  background-image: url('/res/sprite/arrow_filter_normal.png?sprite!');
+  width: 14px;
+  height: 14px;
+}
+
+.u-icon-arrow-left-hover {
+  background-image: url('/res/sprite/arrow_left_hover.png?sprite!');
+  width: 6px;
+  height: 10px;
+}
+
+.u-icon-arrow-left-normal {
+  background-image: url('/res/sprite/arrow_left_normal.png?sprite!');
+  width: 6px;
+  height: 10px;
+}
+
+.u-icon-arrow-left-unable {
+  background-image: url('/res/sprite/arrow_left_unable.png?sprite!');
+  width: 6px;
+  height: 10px;
+}
+
+.u-icon-arrow-normal {
+  background-image: url('/res/sprite/arrow_normal.png?sprite!');
+  width: 10px;
+  height: 10px;
+}
+
+.u-icon-arrow-open-normal {
+  background-image: url('/res/sprite/arrow_open_normal.png?sprite!');
+  width: 12px;
+  height: 10px;
+}
+
+.u-icon-arrow-right-hover {
+  background-image: url('/res/sprite/arrow_right_hover.png?sprite!');
+  width: 6px;
+  height: 10px;
+}
+
+.u-icon-arrow-right-normal {
+  background-image: url('/res/sprite/arrow_right_normal.png?sprite!');
+  width: 6px;
+  height: 10px;
+}
+
+.u-icon-arrow-right-unable {
+  background-image: url('/res/sprite/arrow_right_unable.png?sprite!');
+  width: 6px;
+  height: 10px;
+}
+
+.u-icon-arrow-up-hover {
+  background-image: url('/res/sprite/arrow_up_hover.png?sprite!');
+  width: 10px;
+  height: 10px;
+}
+
+.u-icon-arrow-up-normal-2 {
+  background-image: url('/res/sprite/arrow_up_normal_2.png?sprite!');
+  width: 10px;
+  height: 10px;
+}
+
+.u-icon-arrow-up-normal {
+  background-image: url('/res/sprite/arrow_up_normal.png?sprite!');
+  width: 12px;
+  height: 12px;
+}
+
+.u-icon-avatar-project-default {
+  background-image: url('/res/sprite/avatar_project_default.png?sprite!');
+  width: 50px;
+  height: 50px;
+}
+
+.u-icon-back-hover-2 {
+  background-image: url('/res/sprite/back_hover_2.png?sprite!');
+  width: 26px;
+  height: 26px;
+}
+
+.u-icon-back-hover {
+  background-image: url('/res/sprite/back_hover.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-back-normal-2 {
+  background-image: url('/res/sprite/back_normal_2.png?sprite!');
+  width: 26px;
+  height: 26px;
+}
+
+.u-icon-back-normal {
+  background-image: url('/res/sprite/back_normal.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-bar-share-hover {
+  background-image: url('/res/sprite/bar_share_hover.png?sprite!');
+  width: 26px;
+  height: 26px;
+}
+
+.u-icon-bar-share-normal {
+  background-image: url('/res/sprite/bar_share_normal.png?sprite!');
+  width: 26px;
+  height: 26px;
+}
+
+.u-icon-bar-share-pressed {
+  background-image: url('/res/sprite/bar_share_pressed.png?sprite!');
+  width: 26px;
+  height: 26px;
+}
+
+.u-icon-cancel-top-hover {
+  background-image: url('/res/sprite/cancel-top_hover.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-cancel-top-normal {
+  background-image: url('/res/sprite/cancel-top_normal.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-checkbox-normal {
+  background-image: url('/res/sprite/checkbox_normal.png?sprite!');
+  width: 16px;
+  height: 16px;
+}
+
+.u-icon-checkbox-pressed {
+  background-image: url('/res/sprite/checkbox_pressed.png?sprite!');
+  width: 16px;
+  height: 16px;
+}
+
+.u-icon-circle-border-white-normal {
+  background-image: url('/res/sprite/circle_border_white_normal.png?sprite!');
+  width: 40px;
+  height: 40px;
+}
+
+.u-icon-circle-white-normal {
+  background-image: url('/res/sprite/circle_white_normal.png?sprite!');
+  width: 40px;
+  height: 40px;
+}
+
+.u-icon-close-hover-2 {
+  background-image: url('/res/sprite/close_hover_2.png?sprite!');
+  width: 30px;
+  height: 30px;
+}
+
+.u-icon-close-hover {
+  background-image: url('/res/sprite/close_hover.png?sprite!');
+  width: 26px;
+  height: 26px;
+}
+
+.u-icon-close-normal-2 {
+  background-image: url('/res/sprite/close_normal_2.png?sprite!');
+  width: 30px;
+  height: 30px;
+}
+
+.u-icon-close-normal {
+  background-image: url('/res/sprite/close_normal.png?sprite!');
+  width: 26px;
+  height: 26px;
+}
+
+.u-icon-collect-hover {
+  background-image: url('/res/sprite/collect_hover.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-collect-normal {
+  background-image: url('/res/sprite/collect_normal.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-collect-pressed {
+  background-image: url('/res/sprite/collect_pressed.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-customer-normal {
+  background-image: url('/res/sprite/customer_normal.png?sprite!');
+  width: 16px;
+  height: 16px;
+}
+
+.u-icon-delete-disable {
+  background-image: url('/res/sprite/delete_disable.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-delete-hover-2 {
+  background-image: url('/res/sprite/delete_hover_2.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-delete-hover {
+  background-image: url('/res/sprite/delete_hover.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-delete-normal {
+  background-image: url('/res/sprite/delete_normal.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-detail-hover {
+  background-image: url('/res/sprite/detail_hover.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-detail-normal {
+  background-image: url('/res/sprite/detail_normal.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-done-gray-normal {
+  background-image: url('/res/sprite/done_gray_normal.png?sprite!');
+  width: 16px;
+  height: 16px;
+}
+
+.u-icon-done-green-normal {
+  background-image: url('/res/sprite/done_green_normal.png?sprite!');
+  width: 16px;
+  height: 16px;
+}
+
+.u-icon-done-white-normal {
+  background-image: url('/res/sprite/done_white_normal.png?sprite!');
+  width: 16px;
+  height: 16px;
+}
+
+.u-icon-download-disable {
+  background-image: url('/res/sprite/download_disable.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-download-hover {
+  background-image: url('/res/sprite/download_hover.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-download-normal {
+  background-image: url('/res/sprite/download_normal.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-edit-normal {
+  background-image: url('/res/sprite/edit_normal.png?sprite!');
+  width: 24px;
+  height: 24px;
+}
+
+.u-icon-editor-1-normal {
+  background-image: url('/res/sprite/editor_1_normal.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-editor-2-normal {
+  background-image: url('/res/sprite/editor_2_normal.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-editor-3-normal {
+  background-image: url('/res/sprite/editor_3_normal.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-editor-fx-normal {
+  background-image: url('/res/sprite/editor_fx_normal.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-editor-hover {
+  background-image: url('/res/sprite/editor_hover.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-editor-normal {
+  background-image: url('/res/sprite/editor_normal.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-email-normal {
+  background-image: url('/res/sprite/email_normal.png?sprite!');
+  width: 26px;
+  height: 26px;
+}
+
+.u-icon-excel-normal {
+  background-image: url('/res/sprite/excel_normal.png?sprite!');
+  width: 12px;
+  height: 16px;
+}
+
+.u-icon-feedback-hover {
+  background-image: url('/res/sprite/feedback_hover.png?sprite!');
+  width: 24px;
+  height: 24px;
+}
+
+.u-icon-feedback-normal {
+  background-image: url('/res/sprite/feedback_normal.png?sprite!');
+  width: 24px;
+  height: 24px;
+}
+
+.u-icon-feedback-pressed {
+  background-image: url('/res/sprite/feedback_pressed.png?sprite!');
+  width: 24px;
+  height: 24px;
+}
+
+.u-icon-file-hover {
+  background-image: url('/res/sprite/file_hover.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-file-normal {
+  background-image: url('/res/sprite/file_normal.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-fold-up-normal {
+  background-image: url('/res/sprite/fold-up_normal.png?sprite!');
+  width: 24px;
+  height: 24px;
+}
+
+.u-icon-fold-up-small-normal {
+  background-image: url('/res/sprite/fold-up_small_normal.png?sprite!');
+  width: 12px;
+  height: 12px;
+}
+
+.u-icon-folder-normal {
+  background-image: url('/res/sprite/folder_normal.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-foldup-normal {
+  background-image: url('/res/sprite/foldup_normal.png?sprite!');
+  width: 6px;
+  height: 12px;
+}
+
+.u-icon-forward-hover {
+  background-image: url('/res/sprite/forward_hover.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-forward-normal {
+  background-image: url('/res/sprite/forward_normal.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-github {
+  background-image: url('/res/sprite/github.png?sprite!');
+  width: 40px;
+  height: 12px;
+}
+
+.u-icon-guideline-normal {
+  background-image: url('/res/sprite/guideline_normal.png?sprite!');
+  width: 26px;
+  height: 26px;
+}
+
+.u-icon-guideline-pressed {
+  background-image: url('/res/sprite/guideline_pressed.png?sprite!');
+  width: 26px;
+  height: 26px;
+}
+
+.u-icon-guideline-white-hover {
+  background-image: url('/res/sprite/guideline_white_hover.png?sprite!');
+  width: 26px;
+  height: 26px;
+}
+
+.u-icon-guideline-white-normal {
+  background-image: url('/res/sprite/guideline_white_normal.png?sprite!');
+  width: 26px;
+  height: 26px;
+}
+
+.u-icon-guideline-find-collect-hover {
+  background-image: url('/res/sprite/guideline-find_collect_hover.png?sprite!');
+  width: 12px;
+  height: 12px;
+}
+
+.u-icon-guideline-find-collect-normal {
+  background-image: url('/res/sprite/guideline-find_collect_normal.png?sprite!');
+  width: 12px;
+  height: 12px;
+}
+
+.u-icon-guideline-find-collect-pressed {
+  background-image: url('/res/sprite/guideline-find_collect_pressed.png?sprite!');
+  width: 12px;
+  height: 12px;
+}
+
+.u-icon-guideline-search-hover {
+  background-image: url('/res/sprite/guideline-search_hover.png?sprite!');
+  width: 36px;
+  height: 36px;
+}
+
+.u-icon-guideline-search-normal {
+  background-image: url('/res/sprite/guideline-search_normal.png?sprite!');
+  width: 36px;
+  height: 36px;
+}
+
+.u-icon-guideline-search-pressed {
+  background-image: url('/res/sprite/guideline-search_pressed.png?sprite!');
+  width: 36px;
+  height: 36px;
+}
+
+.u-icon-help-hover {
+  background-image: url('/res/sprite/help_hover.png?sprite!');
+  width: 24px;
+  height: 24px;
+}
+
+.u-icon-help-normal {
+  background-image: url('/res/sprite/help_normal.png?sprite!');
+  width: 24px;
+  height: 24px;
+}
+
+.u-icon-help-pressed {
+  background-image: url('/res/sprite/help_pressed.png?sprite!');
+  width: 24px;
+  height: 24px;
+}
+
+.u-icon-import-disable {
+  background-image: url('/res/sprite/import_disable.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-import-hover-2 {
+  background-image: url('/res/sprite/import_hover_2.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-import-hover {
+  background-image: url('/res/sprite/import_hover.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-import-normal {
+  background-image: url('/res/sprite/import_normal.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-information-hover {
+  background-image: url('/res/sprite/information_hover.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-information-normal {
+  background-image: url('/res/sprite/information_normal.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-interface-test-hover {
+  background-image: url('/res/sprite/interface_test_hover.png?sprite!');
+  width: 36px;
+  height: 36px;
+}
+
+.u-icon-interface-test-normal {
+  background-image: url('/res/sprite/interface_test_normal.png?sprite!');
+  width: 36px;
+  height: 36px;
+}
+
+.u-icon-interface-test-pressed {
+  background-image: url('/res/sprite/interface_test_pressed.png?sprite!');
+  width: 36px;
+  height: 36px;
+}
+
+.u-icon-ios-normal {
+  background-image: url('/res/sprite/ios_normal.png?sprite!');
+  width: 44px;
+  height: 44px;
+}
+
+.u-icon-link-hover {
+  background-image: url('/res/sprite/link_hover.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-link-normal {
+  background-image: url('/res/sprite/link_normal.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-list-normal {
+  background-image: url('/res/sprite/list_normal.png?sprite!');
+  width: 16px;
+  height: 16px;
+}
+
+.u-icon-list-pressed {
+  background-image: url('/res/sprite/list_pressed.png?sprite!');
+  width: 16px;
+  height: 16px;
+}
+
+.u-icon-list2-normal {
+  background-image: url('/res/sprite/list2_normal.png?sprite!');
+  width: 16px;
+  height: 16px;
+}
+
+.u-icon-list2-pressed {
+  background-image: url('/res/sprite/list2_pressed.png?sprite!');
+  width: 16px;
+  height: 16px;
+}
+
+.u-icon-lock-hover {
+  background-image: url('/res/sprite/lock_hover.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-lock-normal {
+  background-image: url('/res/sprite/lock_normal.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-lock-pressed {
+  background-image: url('/res/sprite/lock_pressed.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-logo-main-page-white-normal {
+  background-image: url('/res/sprite/logo_main-page_white_normal.png?sprite!');
+  width: 60px;
+  height: 22px;
+}
+
+.u-icon-logo-register-blue-normal {
+  background-image: url('/res/sprite/logo_register_blue_normal.png?sprite!');
+  width: 120px;
+  height: 44px;
+}
+
+.u-icon-logo-register-title-blue-normal {
+  background-image: url('/res/sprite/logo_register_title_blue_normal.png?sprite!');
+  width: 72px;
+  height: 26px;
+}
+
+.u-icon-logo-register-white-normal {
+  background-image: url('/res/sprite/logo_register_white_normal.png?sprite!');
+  width: 144px;
+  height: 52px;
+}
+
+.u-icon-message-normal {
+  background-image: url('/res/sprite/message_normal.png?sprite!');
+  width: 26px;
+  height: 26px;
+}
+
+.u-icon-more-editor-hover {
+  background-image: url('/res/sprite/more_editor_hover.png?sprite!');
+  width: 20px;
+  height: 20px;
+}
+
+.u-icon-more-editor-normal {
+  background-image: url('/res/sprite/more_editor_normal.png?sprite!');
+  width: 20px;
+  height: 20px;
+}
+
+.u-icon-more-editor-pressed {
+  background-image: url('/res/sprite/more_editor_pressed.png?sprite!');
+  width: 20px;
+  height: 20px;
+}
+
+.u-icon-more-normal {
+  background-image: url('/res/sprite/more_normal.png?sprite!');
+  width: 18px;
+  height: 4px;
+}
+
+.u-icon-no-document {
+  background-image: url('/res/sprite/no_document.png?sprite!');
+  width: 150px;
+  height: 140px;
+}
+
+.u-icon-no-found-data {
+  background-image: url('/res/sprite/no_found_data.png?sprite!');
+  width: 150px;
+  height: 140px;
+}
+
+.u-icon-no-hover {
+  background-image: url('/res/sprite/no_hover.png?sprite!');
+  width: 24px;
+  height: 24px;
+}
+
+.u-icon-no-normal {
+  background-image: url('/res/sprite/no_normal.png?sprite!');
+  width: 24px;
+  height: 24px;
+}
+
+.u-icon-no-dynamic-normal {
+  background-image: url('/res/sprite/no-dynamic_normal.png?sprite!');
+  width: 150px;
+  height: 140px;
+}
+
+.u-icon-notice-hover {
+  background-image: url('/res/sprite/notice_hover.png?sprite!');
+  width: 36px;
+  height: 36px;
+}
+
+.u-icon-notice-normal {
+  background-image: url('/res/sprite/notice_normal.png?sprite!');
+  width: 36px;
+  height: 36px;
+}
+
+.u-icon-notice-pressed {
+  background-image: url('/res/sprite/notice_pressed.png?sprite!');
+  width: 36px;
+  height: 36px;
+}
+
+.u-icon-notice2-normal {
+  background-image: url('/res/sprite/notice2_normal.png?sprite!');
+  width: 18px;
+  height: 18px;
+}
+
+.u-icon-overview-hover {
+  background-image: url('/res/sprite/overview_hover.png?sprite!');
+  width: 36px;
+  height: 36px;
+}
+
+.u-icon-overview-normal {
+  background-image: url('/res/sprite/overview_normal.png?sprite!');
+  width: 36px;
+  height: 36px;
+}
+
+.u-icon-overview-pressed {
+  background-image: url('/res/sprite/overview_pressed.png?sprite!');
+  width: 36px;
+  height: 36px;
+}
+
+.u-icon-password-normal {
+  background-image: url('/res/sprite/password_normal.png?sprite!');
+  width: 16px;
+  height: 16px;
+}
+
+.u-icon-pdf-hover {
+  background-image: url('/res/sprite/pdf_hover.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-pdf-normal {
+  background-image: url('/res/sprite/pdf_normal.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-personal-setting-hover {
+  background-image: url('/res/sprite/personal-setting_hover.png?sprite!');
+  width: 36px;
+  height: 36px;
+}
+
+.u-icon-personal-setting-normal {
+  background-image: url('/res/sprite/personal-setting_normal.png?sprite!');
+  width: 36px;
+  height: 36px;
+}
+
+.u-icon-plus-small-hover {
+  background-image: url('/res/sprite/plus_small_hover.png?sprite!');
+  width: 16px;
+  height: 16px;
+}
+
+.u-icon-plus-small-pressed {
+  background-image: url('/res/sprite/plus_small_pressed.png?sprite!');
+  width: 16px;
+  height: 16px;
+}
+
+.u-icon-plus-small-small {
+  background-image: url('/res/sprite/plus_small_small.png?sprite!');
+  width: 16px;
+  height: 16px;
+}
+
+.u-icon-popo-normal {
+  background-image: url('/res/sprite/popo_normal.png?sprite!');
+  width: 26px;
+  height: 26px;
+}
+
+.u-icon-ppt-normal {
+  background-image: url('/res/sprite/ppt_normal.png?sprite!');
+  width: 12px;
+  height: 16px;
+}
+
+.u-icon-preserve-normal {
+  background-image: url('/res/sprite/preserve_normal.png?sprite!');
+  width: 24px;
+  height: 24px;
+}
+
+.u-icon-project-management-hover {
+  background-image: url('/res/sprite/project-management_hover.png?sprite!');
+  width: 36px;
+  height: 36px;
+}
+
+.u-icon-project-management-normal {
+  background-image: url('/res/sprite/project-management_normal.png?sprite!');
+  width: 36px;
+  height: 36px;
+}
+
+.u-icon-project-management-pressed {
+  background-image: url('/res/sprite/project-management_pressed.png?sprite!');
+  width: 36px;
+  height: 36px;
+}
+
+.u-icon-question-hover {
+  background-image: url('/res/sprite/question_hover.png?sprite!');
+  width: 24px;
+  height: 24px;
+}
+
+.u-icon-question-normal {
+  background-image: url('/res/sprite/question_normal.png?sprite!');
+  width: 24px;
+  height: 24px;
+}
+
+.u-icon-radio-normal {
+  background-image: url('/res/sprite/radio_normal.png?sprite!');
+  width: 16px;
+  height: 16px;
+}
+
+.u-icon-radio-pressed {
+  background-image: url('/res/sprite/radio_pressed.png?sprite!');
+  width: 16px;
+  height: 16px;
+}
+
+.u-icon-refresh-hover {
+  background-image: url('/res/sprite/refresh_hover.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-refresh-normal {
+  background-image: url('/res/sprite/refresh_normal.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-refresh-white-normal {
+  background-image: url('/res/sprite/refresh_white_normal.png?sprite!');
+  width: 16px;
+  height: 16px;
+}
+
+.u-icon-register-success {
+  background-image: url('/res/sprite/register_success.png?sprite!');
+  width: 100px;
+  height: 100px;
+}
+
+.u-icon-relieve-link-hover {
+  background-image: url('/res/sprite/relieve-link_hover.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-relieve-link-normal {
+  background-image: url('/res/sprite/relieve-link_normal.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-report-hover {
+  background-image: url('/res/sprite/report_hover.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-report-normal {
+  background-image: url('/res/sprite/report_normal.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-right-normal {
+  background-image: url('/res/sprite/right_normal.png?sprite!');
+  width: 12px;
+  height: 12px;
+}
+
+.u-icon-search-big-normal {
+  background-image: url('/res/sprite/search_big_normal.png?sprite!');
+  width: 24px;
+  height: 24px;
+}
+
+.u-icon-search-hover {
+  background-image: url('/res/sprite/search_hover.png?sprite!');
+  width: 16px;
+  height: 16px;
+}
+
+.u-icon-search-normal {
+  background-image: url('/res/sprite/search_normal.png?sprite!');
+  width: 16px;
+  height: 16px;
+}
+
+.u-icon-search-small-normal {
+  background-image: url('/res/sprite/search_small_normal.png?sprite!');
+  width: 18px;
+  height: 18px;
+}
+
+.u-icon-see-hover {
+  background-image: url('/res/sprite/see_hover.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-see-normal-2 {
+  background-image: url('/res/sprite/see_normal_2.png?sprite!');
+  width: 26px;
+  height: 26px;
+}
+
+.u-icon-see-normal {
+  background-image: url('/res/sprite/see_normal.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-setting-hover-2 {
+  background-image: url('/res/sprite/setting_hover_2.png?sprite!');
+  width: 14px;
+  height: 14px;
+}
+
+.u-icon-setting-hover {
+  background-image: url('/res/sprite/setting_hover.png?sprite!');
+  width: 24px;
+  height: 24px;
+}
+
+.u-icon-setting-normal-2 {
+  background-image: url('/res/sprite/setting_normal_2.png?sprite!');
+  width: 14px;
+  height: 14px;
+}
+
+.u-icon-setting-normal {
+  background-image: url('/res/sprite/setting_normal.png?sprite!');
+  width: 24px;
+  height: 24px;
+}
+
+.u-icon-setting-pressed {
+  background-image: url('/res/sprite/setting_pressed.png?sprite!');
+  width: 24px;
+  height: 24px;
+}
+
+.u-icon-share-cancel {
+  background-image: url('/res/sprite/share_cancel.png?sprite!');
+  width: 150px;
+  height: 140px;
+}
+
+.u-icon-share-hover {
+  background-image: url('/res/sprite/share_hover.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-share-normal {
+  background-image: url('/res/sprite/share_normal.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-share-pressed {
+  background-image: url('/res/sprite/share_pressed.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-shut-down-hover {
+  background-image: url('/res/sprite/shut-down_hover.png?sprite!');
+  width: 24px;
+  height: 24px;
+}
+
+.u-icon-shut-down-normal {
+  background-image: url('/res/sprite/shut-down_normal.png?sprite!');
+  width: 24px;
+  height: 24px;
+}
+
+.u-icon-spread-normal {
+  background-image: url('/res/sprite/spread_normal.png?sprite!');
+  width: 24px;
+  height: 24px;
+}
+
+.u-icon-spread-small-normal {
+  background-image: url('/res/sprite/spread_small_normal.png?sprite!');
+  width: 12px;
+  height: 12px;
+}
+
+.u-icon-state-done-normal {
+  background-image: url('/res/sprite/state_done_normal.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-state-fail-normal {
+  background-image: url('/res/sprite/state_fail_normal.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-state-result-of-last-time-normal {
+  background-image: url('/res/sprite/state_result-of-last-time_normal.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-swallow-normal {
+  background-image: url('/res/sprite/swallow_normal.png?sprite!');
+  width: 6px;
+  height: 12px;
+}
+
+.u-icon-swallow-not-normal {
+  background-image: url('/res/sprite/swallow_not_normal.png?sprite!');
+  width: 6px;
+  height: 12px;
+}
+
+.u-icon-switch-normal {
+  background-image: url('/res/sprite/switch_normal.png?sprite!');
+  width: 36px;
+  height: 22px;
+}
+
+.u-icon-tips-done-normal {
+  background-image: url('/res/sprite/tips_done_normal.png?sprite!');
+  width: 18px;
+  height: 18px;
+}
+
+.u-icon-tips-error-normal {
+  background-image: url('/res/sprite/tips_error_normal.png?sprite!');
+  width: 18px;
+  height: 18px;
+}
+
+.u-icon-top-hover {
+  background-image: url('/res/sprite/top_hover.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-top-normal {
+  background-image: url('/res/sprite/top_normal.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-top-bar-collect-hover {
+  background-image: url('/res/sprite/top-bar_collect_hover.png?sprite!');
+  width: 26px;
+  height: 26px;
+}
+
+.u-icon-top-bar-collect-normal {
+  background-image: url('/res/sprite/top-bar_collect_normal.png?sprite!');
+  width: 26px;
+  height: 26px;
+}
+
+.u-icon-top-bar-collect-pressed {
+  background-image: url('/res/sprite/top-bar_collect_pressed.png?sprite!');
+  width: 26px;
+  height: 26px;
+}
+
+.u-icon-top-bar-file-hover {
+  background-image: url('/res/sprite/top-bar_file_hover.png?sprite!');
+  width: 26px;
+  height: 26px;
+}
+
+.u-icon-top-bar-file-normal {
+  background-image: url('/res/sprite/top-bar_file_normal.png?sprite!');
+  width: 26px;
+  height: 26px;
+}
+
+.u-icon-transfer-hover {
+  background-image: url('/res/sprite/transfer_hover.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-transfer-normal {
+  background-image: url('/res/sprite/transfer_normal.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-txt-normal {
+  background-image: url('/res/sprite/txt_normal.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-unlock-hover {
+  background-image: url('/res/sprite/unlock_hover.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-unlock-normal {
+  background-image: url('/res/sprite/unlock_normal.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-upload-avartar-normal {
+  background-image: url('/res/sprite/upload_avartar_normal.png?sprite!');
+  width: 50px;
+  height: 50px;
+}
+
+.u-icon-upload-avartar-pressed {
+  background-image: url('/res/sprite/upload_avartar_pressed.png?sprite!');
+  width: 50px;
+  height: 50px;
+}
+
+.u-icon-upload-file-disable {
+  background-image: url('/res/sprite/upload_file_disable.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-upload-file-hover {
+  background-image: url('/res/sprite/upload_file_hover.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-upload-file-normal {
+  background-image: url('/res/sprite/upload_file_normal.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-upload-folder-disable {
+  background-image: url('/res/sprite/upload_folder_disable.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-upload-folder-hover {
+  background-image: url('/res/sprite/upload_folder_hover.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-upload-folder-normal {
+  background-image: url('/res/sprite/upload_folder_normal.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-waiting-test-normal {
+  background-image: url('/res/sprite/waiting_test_normal.png?sprite!');
+  width: 22px;
+  height: 22px;
+}
+
+.u-icon-web-normal {
+  background-image: url('/res/sprite/web_normal.png?sprite!');
+  width: 44px;
+  height: 44px;
+}
+
+.u-icon-word-normal {
+  background-image: url('/res/sprite/word_normal.png?sprite!');
+  width: 12px;
+  height: 16px;
+}
+
+.u-icon-yes-hover {
+  background-image: url('/res/sprite/yes_hover.png?sprite!');
+  width: 24px;
+  height: 24px;
+}
+
+.u-icon-yes-normal {
+  background-image: url('/res/sprite/yes_normal.png?sprite!');
+  width: 24px;
+  height: 24px;
+}
+
+.u-icon-yixin-logo-normal {
+  background-image: url('/res/sprite/yixin-logo_normal.png?sprite!');
+  width: 26px;
+  height: 26px;
+}
+
+.u-icon-json-format {
+  width: 22px;
+  height: 22px;
+  background-image: url(/res/sprite/file_normal.png?sprite!);
+}

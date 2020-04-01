@@ -1,0 +1,62 @@
+<meta charset="utf-8"/>
+<textarea name="txt" id="module-res-datatype-create">
+	<div class="m-res-d-c u-form-create">
+		<div class="form-title">
+			<div class="title">新建数据模型</div>
+			<a class="goback stateful">返回<i class="u-icon-back-normal-2"></i></a>
+		</div>
+		<form data-focus-mode="1" class="m-form">
+
+			<div class="form-group">
+				<label>
+					<i class="signal-required">*</i>名称：
+				</label>
+				<input type="text" name="name" class="name form-item"
+               placeholder="请输入名称"
+               data-auto-focus="true"
+               data-required="true"
+               data-message="请输入数据模型名称，以英文字母，数字，下划线组成的1-100字符"
+               data-tip="请输入数据模型名称，以英文字母，数字，下划线组成的1-100字符"
+               maxlength="100"
+               data-ignore="true"
+               data-pattern="^[\w]{1,100}$">
+			</div>
+
+			<div class="form-group">
+				<label>描述：</label>
+				<textarea type="text" name="description" placeholder="请输入数据模型的描述信息" class="description form-item">&lt;/textarea>
+			</div>
+
+			<div class="form-group">
+				<label>类别：</label>
+				<div class="parameters d-c-parameters-editor"></div>
+			</div>
+
+			<div class="form-group form-group-group">
+				<label>分组：</label>
+				<div class="groups item-wrap">
+
+				<!-- 智能输入选择器 -->
+
+				</div>
+				<a href="#" class="create">新建</a>
+			</div>
+
+			<div class="form-group">
+				<label>标签：</label>
+				<div class="tag item-wrap">
+
+					<!-- 智能提示输入框 -->
+
+				</div>
+			</div>
+
+			<div class="button-group">
+				<button class="save u-btn" name="save" type="button">保存</button>
+			</div>
+		</form>
+	</div>
+</textarea>
+
+<textarea name="css" data-src="./res_datatype_create.css"></textarea>
+<textarea name="js" data-src="./res_datatype_create.js"></textarea>

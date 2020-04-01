@@ -1,0 +1,33 @@
+.m-tab {
+  font-size: 16px;
+  position: relative;
+  border-bottom: 1px solid #ccc;
+  height: 46px;
+  line-height: 46px;
+  padding-top: 14px;
+  background-color: #fff;
+
+  .tab {
+    display: block;
+    float: left;
+    padding-right: 30px;
+    color: #666;
+
+    &.js-selected {
+      color: #30a1f2;
+    }
+
+    &.js-hovered {
+      color: #30a1f2;
+    }
+  }
+
+  .hl {
+    position: absolute;
+    height: 2px;
+    background-color: #30a1f2;
+    bottom: -1px;
+    left: 0;
+    transition: left ease 0.1s;
+  }
+}

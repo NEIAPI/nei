@@ -1,0 +1,107 @@
+{#if method == "create" || method == "modify"}
+<div class="create-part">
+  <div class="p-title">
+    <div class='js-ipt-parent'>
+      <label>名称</label>
+      <input class="u-ipt" maxlength="50" type="text" r-class={{'j-err-ipt': !!inputError}}
+             placeholder="{this.data.typeName}名称" r-model={inputName} on-input={this.checkVal()}>
+    </div>
+    <div class='js-ipt-parent'>
+      <label>业务线</label>
+      <div ref="lobSelect" class="lob-select"></div>
+    </div>
+  </div>
+  <div class="p-desc">
+    <div class='js-ipt-parent'>
+      <label>描述</label>
+      <div class="m-doc-wrapper">
+        <div class="m-doc-header">
+          <span title="收起预览" ref="toggleIcon" class="btn toggle-btn j-toggle-icon" data-click="toggle"><i
+            class="j-toggle u-icon-spread-normal"></i></span>
+        </div>
+        <div class="m-doc" ref="mDoc">
+
+          <div class="m-edit-l">
+            <div class="u-title"><span class="tip">支持 markdown 语法</span></div>
+            <div class="m-doc-editor" ref=docEditor></div>
+          </div>
+          <div class="m-edit-r f-dn" ref="previewWrap">
+            <div class="u-title">预览区</div>
+            <div class="m-doc-preview j-preview" ref=jPreview></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="doc-link">
+  <a href="/doc/?id={this.data.id}">查看项目文档</a>
+</div>
+{#elseif method == "copy"}
+<div class="create-part">
+  {#if !!isCoping}
+  <div class="p-copy-loading">
+    <span>正在复制项目（{name}）。。。</span>
+  </div>
+  {#else}
+  {#if !!xlist.length}
+  <div class="p-target">
+    <div class="label">复制到：</div>
+    <div class="field">
+      <select2 selected={xlist[0]} on-change={this.selectProgroup($event)} sortList={false} selectFirst={true}
+               source={xlist}></select2>
+    </div>
+  </div>
+  <div class="p-title">
+    <div class='js-ipt-parent'>
+      <input class="u-ipt" maxlength="50" type="text" r-class={{'j-err-ipt': !!inputError}}
+             placeholder="{this.data.typeName}名称" r-model={inputName} on-input={this.checkVal()}>
+    </div>
+  </div>
+  <div class="p-desc">
+    <div class='js-ipt-parent'>
+      <textarea class="u-txt" placeholder="{this.data.typeName}描述" r-model={description}></textarea>
+    </div>
+  </div>
+  {#else}
+  <div class="p-copy-empty">
+    <i class="u-icon-alert-normal-2"></i><span>您暂时还没有创建项目的权限</span>
+  </div>
+  {/if}
+  {/if}
+</div>
+{#elseif method == "transfer"}
+<div class="p-transfer">
+  {#if !xlist.length}
+  <div class="p-transfer-empty">
+    <i class="u-icon-alert-normal-2"></i><span>项目组没有相关权限成员，不能转交给别人了</span>
+  </div>
+  {#else}
+  <div class="p-transfer-tip">
+    <span r-hide={!inputError}>请选择需要转交的项目组成员</span>
+  </div>
+  <div class="transfer">
+    <div class="label">移交给：</div>
+    <div class="field">
+      <select2 source={xlist} on-change={this.transfer($event)}></select2>
+    </div>
+  </div>
+  {/if}
+</div>
+{#else}
+<div class="pro-delete">
+  <div class="warn-part">
+    <div class="warn-icon u-icon-alert-normal-2"></div>
+    <div class="pro-delete-text">
+      将删除该项目下所有资源：
+    </div>
+  </div>
+  <div class="pro-delete-name">
+    <div class="pro-delete-name-hint">
+      请在输入框中输入项目的名称：(<strong> {name} </strong>)
+    </div>
+    <input type="text" class="u-input" r-class={{'j-err-ipt': !!inputError}} r-model={inputName} placeholder="项目名称"
+           on-input={this.checkVal()}>
+  </div>
+</div>
+{/if}

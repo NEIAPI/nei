@@ -1,0 +1,15 @@
+.res-tag {
+  display: flex;
+  align-items: center;
+
+  .tag {
+    width: 350px;
+    text-align: left;
+
+    .m-tagme {
+      .tagme-con {
+        white-space: initial;
+      }
+    }
+  }
+}

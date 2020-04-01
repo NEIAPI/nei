@@ -1,0 +1,126 @@
+.test-report-list {
+  display: flex;
+  flex-direction: column;
+  padding: 0px 10px;
+
+  .report {
+    display: flex;
+    margin: 5px 0px;
+    background: #f1f1f1;
+    min-height: 40px;
+    padding: 8px 0px;
+    flex-wrap: wrap;
+    align-items: center;
+    cursor: pointer;
+
+    &:hover {
+      background: #e4e4e4;
+    }
+
+    .expand {
+      text-align: center;
+      width: 25px;
+
+      i {
+        color: #d5d5d5;
+        transform: scale(1.5);
+      }
+
+      &.active {
+        i {
+          transform: rotate(90deg) scale(1.5);
+        }
+      }
+    }
+
+    .path {
+      padding: 0px 12px;
+      flex: 1;
+      display: flex;
+      align-items: center;
+
+      .layer {
+        display: flex;
+        width: 90px;
+        flex: 1;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .t-item {
+        margin: 1px 2px;
+        color: #fff;
+        background-color: #aaa;
+        padding: 1px 15px;
+        border-radius: 15px;
+        text-align: center;
+        position: relative;
+        font-size: 12px;
+        line-height: 20px;
+        height: 20px;
+        display: inline-block;
+        max-width: 80px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+    }
+
+    .opt {
+      width: 60px;
+    }
+  }
+
+  .report-detail {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+
+    .d-item {
+      display: flex;
+      padding: 20px 0px;
+      margin: 0px;
+
+      label {
+        color: #999;
+      }
+
+      .field {
+        flex: 1;
+      }
+    }
+
+    .marker-err {
+      background-color: #fdedef;
+      position: absolute;
+    }
+
+    .d-item-testResult {
+      .testsuccess {
+        color: #56c969;
+      }
+
+      .testfail {
+        color: #f04c62;
+      }
+
+      .err-data {
+        max-width: 430px;
+        display: inline-block;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        color: #f04c62;
+        padding-left: 5px;
+        vertical-align: bottom;
+      }
+
+      h3 {
+        color: #bbb;
+        font-size: 1.1em;
+        margin: 10px 0 5px 0;
+      }
+    }
+  }
+}

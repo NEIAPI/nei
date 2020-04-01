@@ -1,0 +1,45 @@
+<div class="explain">
+  <div class="tip2" r-html={tip}></div>
+</div>
+<div class="ace">
+  <pre id="editor"></pre>
+</div>
+<div class="illustrate">
+  {#if !hasName}
+  无法检测到函数名！
+  {#elseif isSystemType}
+  该规则函数为系统内置规则函数，无法修改！
+  {#else}
+  你可以在下方{#if isCreate}创建{#else}修改{/if}规则函数 <em class="func-name">{funName}</em>，注意，只需要输入函数体。
+  {/if}
+</div>
+<div class="extra">
+  <div class="constraint-editor">
+    <pre id="c-editor"></pre>
+  </div>
+  {#if hasName&&!isSystemType}
+  <div class="other">
+    {#if isCreate}
+    <select2 class="group-selector" source={groupList} selected={group||groupList[0]}
+             on-change={this.changeGroup($event)}></select2>
+    <button class="u-btn create-btn" on-click={this.createConstraint()}>创建</button>
+    {#else}
+    <select2 class="group-selector" source={groupList} selected={constraint.group}
+             on-change={this.changeGroup($event)}></select2>
+    <button class="u-btn save-btn" on-click={this.saveConstraint()}>保存</button>
+    {/if}
+  </div>
+  {/if}
+</div>
+<div class="explain">
+  <div class="tip2">说明:
+    <ul>
+      <li>1. 输入字符后, 出现的智能提示列表即为在本项目中定义的规则函数集</li>
+      <li>2. JavaScript 代码应是对规则函数的调用, 函数的具体实现在规则函数中定义</li>
+      <li>3. NEI 对象下的方法为系统预置方法, 详情请查看: <a
+        href="https://github.com/x-orpheus/nei-toolkit/blob/master/doc/NEI%E5%B9%B3%E5%8F%B0%E7%B3%BB%E7%BB%9F%E9%A2%84%E7%BD%AE%E7%9A%84%E8%A7%84%E5%88%99%E5%87%BD%E6%95%B0%E9%9B%86.md"
+        target="_blank">系统预置方法</a></li>
+      <li>4. 系统已经集成了 <a href="http://mockjs.com/examples.html" target="_blank">Mock.js</a>，可直接使用</li>
+    </ul>
+  </div>
+</div>

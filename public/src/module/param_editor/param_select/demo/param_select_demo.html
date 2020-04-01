@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Select2 Demo</title>
+  <link rel="stylesheet" href="../../../module/common/base.css"/>
+  <link rel="stylesheet" href="../../../module/common/unit.css"/>
+  <link rel="stylesheet" href="../../../module/common/icons.css"/>
+  <style>
+    body {
+      padding: 50px;
+    }
+
+    .u-select2 {
+      width: 300px !important;
+    }
+  </style>
+</head>
+<body>
+<div id="test" style="margin: 30px auto;text-align: center"></div>
+<script src="../../../lib/nej/src/define.js?pro=/src/module/&3rd=/src/lib/"></script>
+<script>
+  NEJ.define([
+    'pro/cache/config_caches',
+    '../param_select.js'
+  ], function (caches, ParamSelect) {
+    /**
+     * @params source {Array}
+     *选择项改变时触发change事件
+     * @param {object}
+     * @property {object} sender 事件发送对象
+     * @property {object} selected 改变后的选择项
+     * @property {string} key 数据项的键
+     * @property  value 改变后的选择值
+     */
+    var listKey = null;
+    this.datatypeCache = caches.datatype._$allocate({
+      onlistload: function (evt) {
+        var source = this.datatypeCache._$getListInCache(listKey);
+        var select = new ParamSelect({
+          data: {
+            source: source,
+            selected: {
+              'name': 'String',
+              id: 10001
+            },
+            // 是否只能选中自动提示列表中的项, 默认为 true
+            initSilent: true,
+            preview: false,
+            editable: true,
+            isOpen: false
+          }
+        }).$inject('#test')
+          .$on('change', function (evt) {
+            console.log(evt);
+          });
+      }.bind(this)
+    });
+    listKey = this.datatypeCache._$getListKey(14304);
+    this.datatypeCache._$getList({
+      key: listKey,
+      data: {pid: 14304}
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<table class="path-param-table">
+  <tr class="table-header">
+    <th>名称</th>
+    <th>类型</th>
+    <th>默认值</th>
+    <th>描述</th>
+  </tr>
+  {#if pathParams.length > 0}
+  {#list pathParams as item}
+  <tr>
+    <td>{item.name}</td>
+    <td>
+      <select2 source={pathSource} preview={true} selected={item.typeSelected}
+               on-change={this.$emit('update-path-param-type',{evt:$event,param:item})}></select2>
+    </td>
+    <td class="description">
+      <input placeholder="添加默认值信息" type="text" name="defaultValue" value={item.defaultValue}
+             {#if !!permit} data-action={item.defaultValueActionData} {/if} title={description} class="u-m-inp"
+      readonly>
+    </td>
+    <td class="description">
+      <input placeholder="添加描述信息" type="text" name="description" value={item.description}
+             {#if !!permit} data-action={item.descriptionActionData} {/if} title={description} class="u-m-inp" readonly>
+    </td>
+  </tr>
+  {/list}
+  {#else}
+  <tr>
+    <td class="no-item-tip">没有参数信息</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  {/if}
+</table>

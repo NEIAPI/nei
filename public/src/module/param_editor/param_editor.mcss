@@ -1,0 +1,138 @@
+.m-param-editor {
+  position: relative;
+  font-size: 12px;
+
+  .format-group {
+    display: flex;
+    align-items: baseline;
+    height: 24px;
+    line-height: 24px;
+    margin-bottom: 12px;
+
+    label {
+      margin-right: 10px;
+      cursor: pointer;
+    }
+
+    &.format-group-preview {
+      > label {
+        em {
+          margin-left: 3px;
+        }
+        display: none;
+
+        &.checked {
+          display: flex;
+          align-items: center;
+        }
+      }
+
+      a:link, a:visited {
+        color: #30a1f2;
+      }
+
+      .u-btn {
+        padding: 0 4px;
+        line-height: 24px;
+        height: 24px;
+        margin-right: 0;
+        visibility: hidden;
+        transition: none;
+      }
+    }
+
+    &.modifying-format {
+      > label {
+        display: flex;
+        align-items: center;
+      }
+
+      a {
+        display: none;
+      }
+
+      .u-btn {
+        visibility: visible;
+      }
+    }
+  }
+
+  .glyphicon {
+    cursor: pointer;
+    color: #79797a;
+  }
+
+  .glyphicon-resize-full,
+  .glyphicon-resize-small {
+    position: absolute;
+    right: 9px;
+    top: 9px;
+    font-weight: bold;
+    visibility: hidden;
+  }
+
+  &:hover {
+    .glyphicon-resize-full,
+    .glyphicon-resize-small {
+      visibility: visible;
+    }
+  }
+
+  .glyphicon-resize-small {
+    display: none;
+  }
+
+  &.param-editor-full-screen {
+    .glyphicon-resize-full {
+      display: none;
+    }
+
+    .glyphicon-resize-small {
+      display: block;
+      visibility: visible;
+    }
+  }
+
+  .u-btn {
+    height: 30px;
+    line-height: 30px;
+    background: #fff;
+    color: #555;
+    padding: 0 10px;
+    border: 1px solid #efefef;
+    font-size: 12px;
+    transition: none;
+  }
+}
+
+// 文档页面的预览，真正的只读
+.param-editor-force-readonly {
+  .format-group-preview, .u-tip, .editor-action, .x-act,
+  .glyphicon-resize-full, .glyphicon-resize-small, .glyphicon-eye-close, .glyphicon-remove {
+    display: none !important;
+  }
+
+  .x-row:hover, .x-row-imported {
+    background-color: transparent !important;
+  }
+
+  input[readonly] {
+    border-color: transparent !important;
+    background-color: transparent !important;
+  }
+
+  .p-select .select-hd,
+  .p-select .select-hd:hover,
+  input[readonly]:hover {
+    border-color: transparent !important;
+    background-color: transparent !important
+  }
+
+  .x-row {
+    cursor: default !important;
+  }
+
+  .m-param-editor-core .nest-editor .arrow {
+    left: 26%;
+  }
+}

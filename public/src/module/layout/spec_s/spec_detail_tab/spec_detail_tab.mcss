@@ -1,0 +1,19 @@
+.m-spec-detail-tab {
+  .tab-wrap {
+    border-bottom: 1px solid #e6e6e6;
+  }
+
+  .tab {
+    margin-right: 30px;
+    color: #666666;
+    font-size: 16px;
+    font-weight: bold;
+    display: inline-block;
+    padding-bottom: 15px;
+
+    &.js-selected {
+      color: #30a1f2;
+      border-bottom: 2px solid #30a1f2;
+    }
+  }
+}

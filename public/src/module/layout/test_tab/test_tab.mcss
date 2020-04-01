@@ -1,0 +1,24 @@
+.m-test-tab {
+  .m-test-tab-cnt {
+    margin: 0 18px 0 20px;
+    padding: 2px;
+    line-height: 26px;
+    background-color: #e6e6e6;
+    text-align: center;
+  }
+
+  .tab {
+    height: 26px;
+    width: 50%;
+    color: #666;
+  }
+
+  .tab:hover {
+    color: #349fef;
+  }
+
+  .tab.js-selected {
+    color: #222;
+    background-color: #fff;
+  }
+}

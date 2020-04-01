@@ -1,0 +1,66 @@
+<meta charset="utf-8"/>
+<textarea name="txt" id="module-res-constraint-detail">
+	<div class="m-res-c-d u-res-detail"></div>
+</textarea>
+
+<textarea name="jst" id="m-res-c-detail">
+    <div class="d-block-wrap">
+		<div class="d-block">
+			<div class="block-item d-title">
+				<input type="text" name="name" value="${name|escape2}" class="u-m-inp title" readonly {if
+               !!permit}data-action='{"type":"modify","name":"name","cache":"constraint","id":"${id}","required":true, "errorMsg":"最多40位合法标识符，只能以字母、下划线(_)或美元符号($)开头，不能使用JS保留字！","pattern":"${nameRegex}"}'
+               {/if}>
+			</div>
+			<div class="block-item group">
+                <label>业务分组：</label>
+                <div class="group-select"></div>
+            </div>
+			<div class="block-item item-description">
+                <label>描述：</label>
+                <textarea class="u-m-inp u-m-txt" placeholder="暂无描述" title="${description|escape2}" {if
+                          !!permit}data-action='{"type":"modify","name":"description","cache":"constraint","id":"${id}"}'
+                          {/if} >${description|escape2}<&#47;textarea>
+            </div>
+		</div>
+		<div class="d-block go-back">
+			<a href="javascript:void(0);" class="watch-btn watch {if isWatched==1}fn{/if}">关注</a>
+			<a href="javascript:void(0);" class="watch-btn cancle-watch {if isWatched==0}fn{/if}">取消关注</a>
+			<a href="/constraint/?pid=${projectId}" class="stateful">
+				<i class="glyphicon glyphicon-circle-arrow-left"></i>
+			</a>
+		</div>
+		<div class="d-block">
+			<div class="block-item item-tag">
+				<label>标签：</label>
+				<div class="tag-select"></div>
+			</div>
+			<div class="block-item watch-list">
+				<label>关注人：</label>
+				<div class="watch-list-container"></div>
+			</div>
+
+		</div>
+	</div>
+
+    <div class="d-body">
+        <div class="d-item d-item-function">
+            <code>function <em class="funcname">${name|escape2}</em> () {</code>
+            <div class="func form-item">
+                <!-- 代码高亮编辑器 -->
+            </div>
+            <code>}</code>
+        </div>
+        <div class="d-item fg-desc">
+            <p>使用说明: <a
+              href="https://github.com/x-orpheus/nei-toolkit/blob/master/doc/NEI%E5%B9%B3%E5%8F%B0%E8%A7%84%E5%88%99%E5%87%BD%E6%95%B0%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.md"
+              target="_blank">NEI平台规则函数使用说明</a></p>
+        </div>
+         <div class="d-item d-item-activity">
+            <label>历史操作：</label>
+            <div class="list"></div>
+        </div>
+    </div>
+</textarea>
+
+<textarea name="css" data-src="./res_constraint_detail.css"></textarea>
+<textarea name="js" data-src="./res_constraint_detail.js"></textarea>

@@ -1,0 +1,17 @@
+<div class="pg-delete">
+  <div class="warn-part">
+    <div class="warn-icon u-icon-alert-normal-2"></div>
+    <div class="pg-delete-text">
+      将删除以下所有内容且不可恢复：<br>
+      1. 该组下所有项目<br>
+      2. 该组下所有资源
+    </div>
+  </div>
+  <div class="pg-delete-name">
+    <div class="pg-delete-name-hint">
+      请在输入框中输入项目组的名称
+    </div>
+    <input type="text" class="u-input" r-class={{'j-err-ipt': !!inputError}} r-model={inputName} placeholder="项目组名称"
+           on-input={this.checkVal()}>
+  </div>
+</div>

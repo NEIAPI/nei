@@ -1,0 +1,50 @@
+.m-progroup-search-tab {
+  padding: 0 30px 0 50px;
+
+  .m-tab {
+    padding-top: 12px;
+  }
+
+  .search-inp-wrap {
+    position: relative;
+    top: -42px;
+    float: right;
+    border: 1px solid #d2d6de;
+
+    .search-input {
+      height: 30px;
+      padding: 0 10px;
+      float: left;
+      border: none;
+      font-size: 12px;
+      width: 160px;
+
+      &:focus {
+        border-righr: 1px solid #d2d6de;
+      }
+    }
+
+    .search-btn {
+      height: 30px;
+      line-height: 30px;
+      font-size: 12px;
+      width: 50px;
+      padding: 0;
+      float: left;
+      border-left: 1px solid #d2d6de;
+      background-color: #f5f5f5;
+
+      &:hover, &:active {
+        background-color: #e6e6e6;
+      }
+    }
+
+    &.z-border {
+      border: 1px solid #aaa;
+
+      .search-btn {
+        border-left: 1px solid #aaa;
+      }
+    }
+  }
+}

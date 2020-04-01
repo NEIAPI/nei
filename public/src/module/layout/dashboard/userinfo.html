@@ -1,0 +1,12 @@
+<div class="user">
+  {#if user.portrait}
+  <span class="pic" style="background-image:url({user.portrait});"></span>
+  {#else}
+  <span class="pic u-avatar-fifth">{user.realname|fixname}</span>
+  {/if}
+  <span class="name">你好，<strong>{user.realname|| user.username}</strong></span>
+</div>
+<div class="bind">
+  <div class="warn" r-hide={user.emailState}>你还没有绑定邮箱，<a class="stateful" href="/setting/profile/">立即绑定</a></div>
+  <div class="warn" r-hide={user.realname}>你还没有填写真实姓名，<a class="stateful" href="/setting/profile/">立即设置</a></div>
+</div>

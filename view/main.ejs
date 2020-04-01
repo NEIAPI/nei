@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%- include common.ejs %>
+  <link href="/src/module/common/base.css" rel="stylesheet"/>
+  <link href="/src/module/common/unit.css" rel="stylesheet"/>
+  <link href="/src/module/common/fonts.css" rel="stylesheet"/>
+  <link href="/src/module/common/icons.css" rel="stylesheet"/>
+  <link href="/src/module/common/markdown.css" rel="stylesheet"/>
+  <link href="/src/lib/highlight/github.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="g-bd" id="g-bd"></div>
+<script>
+  window.pageConfig = {
+    user: <%- JSON.stringify(locals.user) %>,
+    nosServer: <%- JSON.stringify(locals.nosServer) %>
+  }
+</script>
+<!-- @MERGE {minify:true} -->
+<script src="/src/lib/ace/src/ace.js"></script>
+<script src="/src/lib/ace/src/ext-language_tools.js"></script>
+<script src="/src/lib/js-beautify/dist/beautify-min.js"></script>
+<script src="/src/lib/crypto-js/crypto-js.js"></script>
+<script src="/src/lib/markdown-it/dist/markdown-it.min.js"></script>
+<script src="/src/lib/highlight/highlight.min.js"></script>
+<script src="/src/lib/ajv/dist/ajv.min.js"></script>
+<!-- /@MERGE -->
+<!-- @VERSION -->
+<script>location.config = {root: '/src/module/'};</script>
+<script src="/src/lib/nej/src/define.js?pro=/src/module/&3rd=/src/lib/&rot=/src/"></script>
+<script src="/src/page/main.js"></script>
+</body>
+</html>

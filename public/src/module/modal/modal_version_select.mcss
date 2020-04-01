@@ -1,0 +1,29 @@
+.m-modal-version-select {
+  .m-version-list {
+    min-height: 100px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+
+    .u-version-item {
+      font-size: 14px;
+      height: 30px;
+      line-height: 30px;
+      transition: all ease 0.3s;
+
+      &:hover {
+        cursor: pointer;
+        background-color: #f2f9fe;
+      }
+    }
+  }
+
+  .z-selected {
+    background-color: #f2f9fe;
+  }
+
+  .modal-ft-single-btn {
+    button {
+      width: 40%;
+    }
+  }
+}

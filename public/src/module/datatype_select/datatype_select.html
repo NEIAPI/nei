@@ -1,0 +1,15 @@
+<div class="u-select2group {class}" r-class={{'u-select2group-double':!!isArray }} id={id}>
+  {#if isArray}
+  <select2 source={source} selected={{id:"array",name:"Array"}} ref="sel1" on-change={this._onChange($event,0)}
+           on-create={this._onCreate("sel1")} choseOnly={true} hasCreate={hasCreate} initSilent={true} isDataType={true}
+           isOpen={isOpen} noObject={noObject} on-toggle={this._watchOpen(1)}></select2>
+  <select2 source={source} selected={selected} ref="sel2" on-change={this._onChange($event,1)}
+           on-create={this._onCreate("sel2")} isolate choseOnly={true} hasCreate={hasCreate} initSilent={true}
+           isDataType={true} isOpen={backOpen} noObject={noObject} noArray={true}
+           on-toggle={this._watchOpen(2)}></select2>
+  {#else}
+  <select2 source={source} selected={selected} ref="sel1" on-change={this._onChange($event,0)}
+           on-create={this._onCreate("sel1")} hasCreate={hasCreate} initSilent={true} choseOnly={true} isDataType={true}
+           isOpen={isOpen} noObject={noObject} noArray={noArray} on-inputclick={this._watchOpen(1)}></select2>
+  {/if}
+</div>

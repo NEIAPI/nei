@@ -1,0 +1,56 @@
+<meta charset="utf-8"/>
+<textarea name="txt" id="module-res-datatype-detail">
+    <div class="m-r-dt-d u-res-detail">
+		<div class="tab-head"></div>
+		<div class="tab-body f-dn">
+			<div class="tab-wrap"></div>
+			<div class="tab-con-s"></div>
+		</div>
+	</div>
+</textarea>
+<textarea name="jst" id="m-res-d-detail">
+  <div class="d-block-wrap">
+    <div class="d-block">
+      <div class="block-item d-title">
+        <input type="text" name="name" value="${name|escape}" class="u-m-inp title" {if
+               !!permit}data-action='{"required":true,"type":"modify","cache":"datatype","id":${id},"name":"name","required":true}'
+               {/if} readonly maxlength="100">
+      </div>
+      <div class="block-item item-version">
+        <label>版本：</label>
+        <input type="text" name="version" value="${(version && version.name) || '' |escape}"
+               class="u-m-inp version-name" {if !!permit}
+               data-action='{"type":"modify","cache":"datatype","id":"${id}","name":"versionName"}' {/if} readonly />
+      </div>
+      <div class="block-item group">
+        <label>业务分组：</label>
+        <div class="group-select"></div>
+      </div>
+      <div class="block-item item-description">
+        <label>描述：</label>
+          <textarea type="text" name="description" placeholder="暂无描述" class="u-m-inp u-m-txt" {if
+                    permit}data-action='{"type":"modify","cache":"datatype","id":${id},"name":"description"}' {/if}>${description|escape2}<&#47;textarea>
+        </div>
+      </div>
+      <div class="d-block go-back">
+        <a href="javascript:void(0);" class="watch-btn watch {if isWatched==1}fn{/if}">关注</a>
+        <a href="javascript:void(0);" class="watch-btn cancle-watch {if isWatched==0}fn{/if}">取消关注</a>
+        <a href="/datatype/?pid=${projectId}" class="stateful">
+          <i class="glyphicon glyphicon-circle-arrow-left"></i>
+        </a>
+      </div>
+      <div class="d-block">
+        <div class="block-item item-tag">
+          <label>标签：</label>
+          <div class="tag-select"></div>
+        </div>
+        <div class="block-item watch-list">
+          <label>关注人：</label>
+          <div class="watch-list-container"></div>
+        </div>
+      </div>
+  </div>
+</textarea>
+
+<textarea name="css" data-src="./res_datatype_detail.css"></textarea>
+<textarea name="js" data-src="./res_datatype_detail.js"></textarea>

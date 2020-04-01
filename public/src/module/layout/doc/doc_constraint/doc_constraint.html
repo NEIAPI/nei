@@ -1,0 +1,44 @@
+<meta charset="utf-8"/>
+
+<textarea name="txt" id="markdown-body">
+  <div class="markdown-body-wrapper">
+    <div class="markdown-body-doc"></div>
+    <div class="buttons">
+     <div class="print-toggle-btn">
+      <div class="btn btn-primary print">
+          打印
+          <div class="toggle-btn">
+              <i class="line"></i>
+              <i class="arrow u-icon-arrow-down-white-normal"></i>
+          </div>
+      </div>
+      <div class="menu">
+        <div class="print-all">打印全部</div>
+        <div class="print-all-mock">打印全部 (mock)</div>
+      </div>
+     </div>
+    </div>
+  </div>
+</textarea>
+<textarea name="jst" id="doc-constraints">
+<h1 class="title tc">规则函数</h1>
+<section class="constraints">
+ {list data as dt}
+<section>
+     <h3 id="constraints-${dt.id}">
+        ${dt.name|escape2}
+       <!-- <a class="backtop" href="#catalog">返回目录 ↑</a> -->
+     </h3>
+     <p class="moreinfo"><span class="strong">描述</span>：{if dt.description}${dt.description|escape2}{else}无{/if}</p>
+     <p class="moreinfo"><span class="strong">标签</span>：{if dt.tag}${dt.tag}{else}无{/if}</p>
+     <p class="moreinfo"><span class="strong">适应类型</span>：${dt.type}</p>
+     <p class="moreinfo"><span class="strong">分组</span>：${dt.group.name|escape2}</p>
+     <p class="moreinfo"><span class="strong">创建人</span>：${dt.creator.realname|escape2}</p>
+     <p class="moreinfo"><span class="strong">创建时间</span>：${dt.createTime|format:'yyyy-MM-dd HH:mm:ss'}</p>
+
+        </section>
+    {/list}
+    </section>
+</textarea>
+
+<textarea name="js" data-src="./doc_constraint.js"></textarea>

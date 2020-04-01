@@ -1,0 +1,30 @@
+<div class="res-copy-move">
+  <div class="res-target">
+    <cascadeSelect ref="target" progroups={progroups} progroupSelected={progroup} projects={projects}
+                   projectSelected={project}
+                   progroupEditable={type=='copy'} label={label} on-changeProject={this.changeProject($event)}
+                   on-initData={this.initData($event)} on-select={this.submit($event)}></cascadeSelect>
+  </div>
+  <ul class="res-list">
+    {#list xlist as item}
+    <li class="res-item">
+      <div class="res-checkbox" on-click={this.select(item_index)}>
+        <i class="u-checkbox u-icon-checkbox-normal" r-class={{"f-dn-important":item.selected}}></i>
+        <i class="u-checkbox u-icon-checkbox-pressed" r-class={{"f-dn-important":!item.selected}}></i>
+      </div>
+      <div class="res-name">
+        <input r-model={item.name} r-class={{"js-disedit":type!="copy","js-error":item.error}} {#if type!="copy"
+               }readonly{/if} on-input={this.checkInput($event,item_index)} />
+      </div>
+    </li>
+    {/list}
+  </ul>
+  <div class="res-group">
+    <label class="label">分组：</label>
+    <select2 ref="group" source={[]} on-change={this.setGroup($event)} choseOnly={true}></select2>
+  </div>
+  <div class="res-tag">
+    <label class="label">标签：</label>
+    <div class="tags" ref="tag"></div>
+  </div>
+</div>

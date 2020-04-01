@@ -1,0 +1,17 @@
+<div class="u-dropdown" ref="element">
+  <div class="dropdown_hd" on-click={this.toggle()}>
+    {#if this.$body}
+    {#inc this.$body}
+    {#else}
+    <input class="u-input u-input-auto" r-class={{"btn-error":!pass}} readonly placeholder={title || '选择一个角色'}
+    r-model={title || ""} /><i class="u-icon u-icon-down"></i>
+    {/if}
+  </div>
+  <div class="dropdown_bd" r-hide={!open}>
+    <ul class="listview">
+      {#list source as item}
+      <li title={item.name} on-click={this.select(item)}>{item.name}</li>
+      {/list}
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,64 @@
+.m-modal-res-version {
+  .modal-dialog {
+    width: 50%;
+    overflow: initial;
+  }
+
+  .res-version-modal {
+    text-align: left;
+    padding: 0 30px;
+
+    .label {
+      width: 105px;
+      display: inline-block;
+      color: #999;
+    }
+
+    .res-group, .res-parent, .res-tag, .res-name, .res-version, .res-target {
+      height: 30px;
+      line-height: 30px;
+      margin-top: 10px;
+
+      .u-select, input {
+        margin-left: 3px;
+      }
+
+      .text {
+        padding: 5px 10px 5px;
+        width: 200px;
+      }
+    }
+
+    .res-tag {
+      position: relative;
+
+      .tags {
+        position: absolute;
+        top: 0;
+        left: 111px;
+        right: 0;
+      }
+    }
+
+    .signal-required {
+      font-size: 20px;
+      color: #f04c62;
+      margin-right: 5px;
+      vertical-align: middle;
+      position: relative;
+      top: 3px;
+    }
+
+    .js-tip {
+      color: #e0c05e;
+      background-color: #fdf7e5;
+      min-width: 150px;
+      font-size: 12px;
+      margin-left: 5px;
+      height: 30px;
+      line-height: 30px;
+      padding: 0 10px;
+      display: inline-block;
+    }
+  }
+}

@@ -1,0 +1,122 @@
+<!--导入字段的主体内容-->
+{#if !importedParam.ignored||param.editingIgnored}
+<div r-class="{{'x-row':true,ignored:!!importedParam.ignored}}">
+  <!--循环引用的显示-->
+  {#if param.circular}
+  <span class="empty-param-tip">{param.circularTip}</span>
+  {/if}
+
+  {#if !importedParam.circular}
+  {#list xheaders as item}
+  <span class="{item.clazz}">
+        {#if item.select}
+        {#if importedParam.isArray&&item.key!=='required'}
+        <param-select editable="{importedParam.originalType===dbConst.MDL_SYS_VARIABLE}"
+                      source="{this.getSelectSource()}"
+                      forceReadonly="{forceReadonly}"
+                      versionsMap="{versionsMap}"
+                      docPreview="{docPreview}"
+                      isNormalParam="{isNormalParam}"
+                      selectedId="{customDatatypes.ARRAY_ID}"
+                      showModify="{showModify&&importedParam.originalType===dbConst.MDL_SYS_VARIABLE}"
+                      preview="{preview&&!importedParam.adding}"
+                      on-create="{this.createDatatype($event)}"
+                      on-modify="{this.modifyDatatype($event,param)}"
+                      on-checkJump="{this.checkJump()}"
+                      on-change="{this.changeDatatype($event,param_index,false,importedParam_index)}">
+        </param-select>
+        <param-select editable="{importedParam.originalType===dbConst.MDL_SYS_VARIABLE}"
+                      source="{this.getSelectSource()}"
+                      forceReadonly="{forceReadonly}"
+                      versionsMap="{versionsMap}"
+                      docPreview="{docPreview}"
+                      isNormalParam="{isNormalParam}"
+                      selectedId="{importedParam.type}" isArrayElement="{true}"
+                      showModify="{showModify&&importedParam.originalType===dbConst.MDL_SYS_VARIABLE}"
+                      preview="{preview&&!importedParam.adding}"
+                      on-create="{this.createDatatype($event)}"
+                      on-modify="{this.modifyDatatype($event,param)}"
+                      on-checkJump="{this.checkJump()}"
+                      on-change="{this.changeDatatype($event,param_index,true,importedParam_index)}">
+        </param-select>
+        {#else}
+        <param-select editable="{importedParam.originalType===dbConst.MDL_SYS_VARIABLE}"
+                      source="{this.getSelectSource()}"
+                      forceReadonly="{forceReadonly}"
+                      versionsMap="{versionsMap}"
+                      docPreview="{docPreview}"
+                      key="{item.key}"
+                      param="{importedParam}"
+                      isNormalParam="{isNormalParam}"
+                      selectedId="{importedParam.type}"
+                      showModify="{showModify&&importedParam.originalType===dbConst.MDL_SYS_VARIABLE}"
+                      preview="{preview&&!importedParam.adding}"
+                      on-create="{this.createDatatype($event)}"
+                      on-modify="{this.modifyDatatype($event,param)}"
+                      on-checkJump="{this.checkJump()}"
+                      on-change="{this.changeDatatype($event,param_index,false,importedParam_index)}">
+        </param-select>
+        {/if}
+        {#else}
+        <input r-model="{importedParam[item.key]}" title="{importedParam[item.key]}" placeholder="{item.name}"
+               on-paste="{this.onPasteInput($event,importedParam_index)}"
+               on-blur="{this.onBlurInput($event,item.key,param_index,importedParam_index)}"
+               on-keydown="{this.onKeydownInput($event,item.key,param_index,importedParam_index)}"
+               {#if importedParam.inputError&&(item.key==(format===1?'defaultValue':'name'))}
+               class="u-input-error"
+               {/if}
+               {#if item.rule}
+               on-click="{this.createExp('genExpression',param_index,importedParam_index)}"
+               class="exp-input"
+               {#else}
+               on-mouseover="{this.onHoverInput($event,importedParam,item.key,param.imported)}"
+               on-focus="{this.onFocusInput($event,param_index,item_index,isNest)}"
+               {/if}
+               {#if item.key=='name'||readonlyNestEditor||forceReadonly}readonly{/if}>
+        {/if}
+    </span>
+  {/list}
+  {/if}
+  <span class="x-act">
+        <!--导入的数据模型的字段，有忽略和恢复的操作-->
+        <i on-click="{this.toggleParamIgnored(importedParam,1)}" class="glyphicon glyphicon-ban-circle"
+           title="忽略"></i>
+        <i on-click="{this.toggleParamIgnored(importedParam,0)}" class="glyphicon glyphicon-ok-circle"
+           title="恢复"></i>
+    </span>
+  <!--忽略字段的遮罩样式-->
+  {#if importedParam.ignored}
+  <span class="ignored-mask"></span>
+  {/if}
+</div>
+
+{#if importedParam.isObject&&!param.typeName}
+<!--odd 控制嵌套中奇偶编辑器的背景色-->
+<div
+  r-class="{{'nest-editor':true,'nest-editor-readonly':importedParam.originalType!==dbConst.MDL_SYS_VARIABLE,odd:odd==undefined?true:odd}}">
+  <em class="arrow"></em>
+  <!--isNest 标识嵌套，嵌套时没有“类别”选项-->
+  <param-editor-core
+    params="{importedParam.params}"
+    datatypes="{datatypes}"
+    words="{words}"
+    useWordStock="{useWordStock}"
+    source="{source}"
+    isNest="{true}"
+    showRequired="{showRequired}"
+    readonlyNestEditor="{importedParam.originalType!==dbConst.MDL_SYS_VARIABLE}"
+    preview="{preview}"
+    parentId="{importedParam.objectId}"
+    parentType="{paramTypes.datatype}"
+    parentParam="{importedParam}"
+    odd="{odd==undefined?false:!odd}"
+    showModify="{showModify}"
+    pid="{pid}"
+    forceReadonly="{forceReadonly}"
+    docPreview="{docPreview}"
+    showRequired="{showRequired}"
+  ></param-editor-core>
+</div>
+{/if}
+
+{/if}

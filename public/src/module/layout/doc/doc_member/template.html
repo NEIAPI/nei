@@ -1,0 +1,26 @@
+<div class="m-intro">
+  <h1 class="title tc">项目成员</h1>
+  <div class="item">
+    <div class="item-l">项目创建人：</div>
+    <div class="item-r">${projectInfo.creator.realname|escape2}</div>
+  </div>
+  <div class="item">
+    <div class="item-l">项目成员：</div>
+    <div class="item-r">
+      <table>
+        <tr>
+          <th>成员</th>
+        </tr>
+        <!-- map.members配置成员类型字段 -->
+        {list map.members as key}
+        {list projectInfo.members[key] as x}
+        <tr>
+          <td title="${x.realname|escape2}">${x.realname|escape2}</td>
+        </tr>
+        {/list}
+        {/list}
+      </table>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>

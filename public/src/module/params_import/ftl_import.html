@@ -1,0 +1,72 @@
+<div class="ftl-import">
+  <div class="m-dt-list">
+    {#if hasSameName}
+    <div class="tip">重名的文件，请选择其中一项导入</div>
+    {/if}
+    <div class="item-detail-block">
+      <p class="item-detail item-detail-name">
+        名称
+      </p>
+      <p class="item-detail item-detail-path">
+        路径
+      </p>
+    </div>
+    {#list dts as dt}
+    <div class="m-dt-item {dt.class}">
+      <div class="item-header">
+        <div class="item-checkbox" on-click={this.select(dt_index)}>
+          <i class="u-checkbox u-icon-checkbox-normal" r-class={{"f-dn":dt.selected}}></i>
+          <i class="u-checkbox u-icon-checkbox-pressed" r-class={{"f-dn":!dt.selected}}></i>
+        </div>
+        <div class="item-content-block">
+          <p class="item-content item-name">
+            <input type="text" r-model="{dt.name}"/>
+          </p>
+          <p class="item-content item-path">{dt.path}</p>
+        </div>
+
+        <div class="item-toggle" on-click={this.toggle(dt_index)}>
+          <i title="展开参数列表" class="u-icon-spread-small-normal" r-class={{"f-dn":dt.showPreview}}></i>
+          <i title="收起参数列表" class="u-icon-fold-up-small-normal" r-class={{"f-dn":!dt.showPreview}}></i>
+        </div>
+      </div>
+      <table class="item-params" r-class={{"f-dn":!dt.showPreview}}>
+        <tr>
+          <th title="名称" class="u-name">名称</th>
+          <th title="类型" class="u-type">类型</th>
+          <th title="描述" class="u-desc">描述</th>
+        </tr>
+        {#list dt.params as param}
+        <tr>
+          <td title={param.name}>{param.name}</td>
+          <td {#if param.isArray}title="Array-{param.type}" {#else}title={param.type}{/if}>{#if
+            param.isArray}Array-{/if}{param.type}
+          </td>
+          <td title={param.description}>{param.description}</td>
+        </tr>
+        {/list}
+      </table>
+    </div>
+    {/list}
+  </div>
+  <div class="m-dt-group">
+    <label>分组：</label>
+    <select2 source={groups} on-change={this.setGroup($event)}></select2>
+  </div>
+  <div class="m-dt-tag">
+    <label>标签：</label>
+    <div class="tags" ref="tags"></div>
+  </div>
+  <div class="m-dt-more">
+    <i class="u-icon-more-editor-normal normal"></i><i class="u-icon-more-editor-hover hover"></i><i
+    class="u-icon-more-editor-pressed pressed"></i>
+    <div class="menu-wrap">
+      <ul>
+        <li on-click={this.showImport(0)}>文件导入ftp</li>
+        <li r-class={{"f-dn":!isChrome}} on-click={this.showImport(1)}>文件夹导入ftl</li>
+      </ul>
+    </div>
+  </div>
+  <input type="file" class="j-file f-dn" accept=".ftl" multiple ref=fileInput on-change={this.import($event)}/>
+  <input type="file" class="j-dir f-dn" webkitdirectory ref=dirInput on-change={this.import($event)}/>
+</div>

@@ -1,0 +1,305 @@
+0.5.1   (2018-10-11)
+--------------------------------------------------------
+- BUG修复模块
+  * 修正 util/ajax/rest 无法发送 null 数据的问题
+  * 修正 util/animation/animation 在 safari12 中当前时间异常 bug
+
+0.5.0   (2018-06-22)
+--------------------------------------------------------
+- BUG修复模块
+  * 修正 util/cache/list 模块 GC 异常
+  * 修正 util/template/trimpath 重复引入异常
+
+0.4.9   (2018-04-12)
+--------------------------------------------------------
+- 功能支持
+  * 支持 res 依赖插件注入地址
+
+0.4.7   (2018-04-12)
+--------------------------------------------------------
+- BUG修复模块
+  * base/util 模块的 _$absolute 接口支持相对协议
+  * util/timer/animation 的 requestAnimationFrame 接口返回标识
+
+0.4.6   (2017-11-09)
+--------------------------------------------------------
+- BUG修复模块
+  * base/util 模块的 _$url2origin 接口支持相对协议
+  * util/ajax/loader/text 修正 XHR 重复加载文本内容时被缓存问题
+
+0.4.5   (2017-09-14)
+--------------------------------------------------------
+- 功能支持
+  * util/ajax/tag 模块增加 _$loadTemplate 接口需要跨域载入的时候采用 ajax 先加载文本再解析内容
+
+- 功能变化
+  * util/ajax/tag 模块 _$loadHtml 接口回退不支持跨域载入
+
+0.4.4   (2017-09-12)
+--------------------------------------------------------
+- 功能支持
+  * util/dispatcher/dispatcher 增加根据别名取模块 UMI 接口 _$getUMIByAlias
+  * util/cursor/cursor 增加 _$lineno 支持获取当前光标所在的行
+  * util/template/tpl _$parseTemplate 支持 type 为 nej/* 的 script 标签解析
+
+- 功能变化
+  * util/cache/list _$addItem 接口支持批量添加列表项
+  * util/ajax/tag 模块 _$loadHtml 接口需要跨域载入的时候采用 ajax 先加载文本再解析内容
+  * NEJ.define 处理过程忽略 NEJ 模板封装脚本，即 type="nej/*" 的 script 标签
+
+0.4.3   (2017-06-26)
+--------------------------------------------------------
+- 功能支持
+  * 添加消息总线机制
+
+0.4.2   (2017-06-05)
+--------------------------------------------------------
+- 功能变化
+  * util/ajax/rest 支持从输入的data中解析地址上的rest变量
+  * util/ajax/rest 支持 :PARAM 的地址变量格式
+  * util/cache/abstract 支持在 __doSendRequest 的hook接口中传入当前请求key
+  * base/element getChildren接口兼容IOS8的XML DOM
+
+
+0.4.1   (2017-06-01)
+--------------------------------------------------------
+- 功能变化
+  * bower 安装时忽略 test,doc,res,demo 目录
+
+0.4.0   (2017-04-10)
+--------------------------------------------------------
+- 功能支持
+  * 列表删除cache中回传服务器返回的结果
+
+- BUG修复模块
+  * util/flash/flash 删除flash检测次数限制
+
+0.3.9   (2017-03-22)
+--------------------------------------------------------
+- BUG修复模块
+  * 修复相对协议模块载入地址错误 (支持https)
+  * 修复platform模块无法判断Google Chrome for IOS
+  * 修复列表取单项详情时候传入的主键名称为 id
+
+0.3.8   (2017-02-09)
+--------------------------------------------------------
+- 功能支持
+  * 剪切板支持跨域flash引入
+  * NEJ 模块文件载入支持文件名版本号
+
+- BUG修复模块
+  * 修复 regularModule build 参数输入
+
+
+0.3.7   (2017-01-09)
+--------------------------------------------------------
+- 功能支持
+  * 支持缓存列表填充验证时重写列表项验证逻辑
+  * 支持缓存在 filter 阶段直接返回结果阻止发送请求
+  * 增加 __getListReqKey/__getItemReqKey 取请求标识
+  * 支持 __doSendRequest 时使用 options 配置请求地址
+  * __doSendRequest 过程的事件支持输入 cnf 配置信息对象
+
+- BUG修复模块
+  * 修正 util/cache/list 下 getList/getItem 的 ext 参数回传异常
+
+
+0.3.5   (2016-11-22)
+--------------------------------------------------------
+- BUG修复模块
+  * 修正 IE8 下取 DOM 属性异常问题
+
+
+0.3.4   (2016-11-16)
+--------------------------------------------------------
+- 功能支持
+  * 支持缓存配置 type 属性
+
+0.3.3   (2016-10-31)
+--------------------------------------------------------
+- 功能支持
+  * 缓存基类支持 _$dump 静态接口
+  * 支持 JSONP 接口调用
+
+- BUG修复模块
+  * cache 基类 __doSendRequest 接口判空逻辑调整
+  * XDR 请求时针对字符串数据序列化的问题
+
+0.3.2   (2016-10-12)
+--------------------------------------------------------
+- NEJ.define 注入增加 css 插件支持
+
+0.3.1   (2016-08-27)
+--------------------------------------------------------
+- BUG修复模块
+  * util/dispatcher/module 修复 regularModule init 参数
+  * 删除文档中单页模块的 template 打包标记
+
+0.3.0   (2016-07-18)
+--------------------------------------------------------
+- BUG修复模块
+  * base/klass 清除无效条件判断
+  * base/util string2object/object2string接口处理不合法URL异常
+  * util/cache/list 清除请求队列异常
+  * util/module/list 瀑布流列表分页问题
+  * define.js 在head中引入的异常
+
+- 功能支持
+  * util/dispatcher/dispatcher 重定向时模块退出判断支持
+  * util/dispatcher/module 模块构建时支持UMI配置参数
+
+0.2.8   (2016-03-29)
+0.2.7
+--------------------------------------------------------
+- 增加regularjs模块的支持
+  * util/dispatcher/regularModule.js
+- 功能增加
+  * base/element 增加 _$getParent 接口
+  * util/list/module 增加 _$nextPage,_$prevPage,_$pageTo 接口
+
+0.2.6   (2015-09-07)
+0.2.5
+--------------------------------------------------------
+- 兼容处理
+  * define.js识别nej内敛函数判断条件调整，支持 NEJ.define和define函数
+  * util/cache/cache兼容到nej.ut._$$Cache类名
+  * util/dispatcher/module兼容到nej.ut._$$Module类名
+  * 删除XDR请求回调中的try/catch，由应用逻辑自己保证批量请求的异常处理
+  * util/sortable/sortable在mousemove事件中开始拖拽
+
+0.2.4   (2015-01-20)
+--------------------------------------------------------
+- bug修正
+  * 修正模块调度器在带flash的ie下标题出现hash串的问题
+  * 修正在define.js之后内联非NEJ脚本的依赖异常
+
+0.2.3
+--------------------------------------------------------
+- bug修正
+  * 修正IE9下placeholder异常
+  * 修正IE6下弹层无法盖住select问题
+  * 修正日历在跨年选择时年份错误问题
+- 功能支持
+  * webform支持多选select
+
+0.2.2   (2014-11-18)
+--------------------------------------------------------
+- bug修正
+  * base/util._$encode
+- tag for 20141118
+
+0.2.1   (2014-11-13)
+--------------------------------------------------------
+- 增加API/控件支持
+  * ui/lightbox/lightbox
+  * util/lightbox/lightbox
+- webform组件对date类型的表单元素增加data-time支持
+
+0.2.0   (2014-11-05)
+--------------------------------------------------------
+- 修正define对实例返回结果的注入
+- 增加json!类型的插件注入
+- 增加regularjs!类型的插件注入
+- 增加API/控件支持
+  * util/selector/cascade
+  * util/suggest/at
+  * util/sort/*
+  * util/es/array
+  * util/lazy/*
+  * util/scroll/smart
+
+0.1.0   (2014-09-01)
+--------------------------------------------------------
+- 重构类模型，__super作为所有接口调用父类同名接口的方式
+- 独立类模型实现文件至{lib}base/klass.js
+- 支持AMD形式的路径，如base/klass，pro/extend/api
+- 支持纯文本资源的依赖载入
+- 增加依赖注入，保留兼容模式下名字空间形式
+- 独立平台适配，删除patched目录，独立到各API、控件
+- 清理没用控件或者后期重新开发控件及API
+  * 删除native
+  * 删除util/xmpp
+  * 删除util/gesture
+  * 删除util/ajax/connect.js
+  * 删除util/cache/config.js
+  * 删除util/dispatch/v1
+  * 删除util/module
+  * 删除util/tb.resizer
+  * 删除util/oauth
+  * 删除util/sorter
+  * 删除ui/arrows
+  * 删除ui/loading
+  * 删除ui/loadmore
+  * 删除ui/pullrefresh
+  * 删除ui/sorter
+  * util/cache/storage.manager.js 更名为 util/cache/manager.js
+
+define.js
+- NEJ.config接口名称改为NEJ.deps
+- 删除define.cmp.js兼容支持
+
+base/util.js
+- 删除_$mergeList
+- 迁移_$dom2object、_$xml2object至{lib}base/element.js
+- 增加接口_$query、_$merge、_$fetch替代原NEJ.Q、NEJ.X、NEJ.EX
+
+base/element.js
+- 交换_$getMaxBox接口输入参数顺序
+- 修改_$dom2object第二个参数为非必传参数
+- 独立_$highlight接口至util/highlight/highlight
+- 独立_$hover接口至util/hover/hover
+- 独立_$focus接口至util/focus/focus
+- 独立_$toggle接口至util/toggle/toggle
+- 独立_$cursor接口至util/cursor/cursor
+
+base/platform.js
+- 删除_$NOT_PATCH
+- 增加_$support/_$is接口
+
+base/event.js
+- 删除接口_$stopClick
+
+util/event.js
+- 更改_$$Event类名为_$$EventTarget，兼容_$$Event
+- _$addEvent接口功能使用_$pushEvent代替原来的_$setEvent
+- 删除_$api接口
+
+util/ajax/dwr.js
+- 删除_$setProxy接口
+
+util/ajax/tag.js
+- 修改onloaded载入回调函数名称为onload
+
+util/cache/storage.js
+- 删除_$cloneDataInStorage接口
+
+util/dispatcher
+- 合并module.2.js和module.base.js
+util/dispatcher.2.js
+- 删除_$apply接口，使用_$redirect代替
+
+util/page/page.js
+- 删除_e._$page接口
+
+util/template/tpl.js
+- 删除_e._$setup接口
+
+util/template/jst.js
+- 修改接口名称
+  _$addHtmlTemplate     -> _$add
+  _$getHtmlTemplate     -> _$get
+  _$getHtmlTemplateSeed -> _$seed
+  _$renderHtmlTemplate  -> _$render
+  _$registJSTExt        -> _$extend
+
+util/tab/tab.js
+- onchange事件阻止属性nostop改为stopped
+- 删除nej.e._$tab接口
+
+util/cache/share.js
+- localCache._$addEvent代替原nej.v._$addEvent方式添加事件监听
+
+
+
+
+

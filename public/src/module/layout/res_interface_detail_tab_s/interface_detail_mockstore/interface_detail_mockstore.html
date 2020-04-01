@@ -1,0 +1,65 @@
+<meta charset="utf-8"/>
+<textarea name="txt" id="module-interface-detail-mockstore">
+  <div class="m-inter-d-mockstore">
+    <div class="ms-item">
+      <label class="ms-item-label">前置业务逻辑脚本：</label>
+      <input class="blb-script u-m-inp" placeholder="添加前置业务逻辑规则" readonly="readonly">
+    </div>
+    <div class="ms-item">
+      <label class="ms-item-label">后置业务逻辑脚本：</label>
+      <input class="bla-script u-m-inp" placeholder="添加后置业务逻辑规则" readonly="readonly">
+    </div>
+    <div class="ms-item bind-model">
+      <label class="ms-item-label">关联数据模型：</label>
+      <div class="select-model">
+        <div class="show-detail f-dn"></div>
+      </div>
+      <div class="tip">关联的数据模型必须是哈希类型，而且必须有 id 字段，id 字段的类型必须是字符串或者数值</div>
+      <a class="clear-model f-dn" href="javascript:void(0);">清除</a>
+    </div>
+    <div class="ms-item">
+      <label class="ms-item-label">关联类型：</label>
+      <div class="select-type"></div>
+      <a class="clear-type f-dn" href="javascript:void(0);">清除</a>
+    </div>
+    <div class="ms-item">
+      <span class="ms-doc-tip">注意：使用前请认真阅读</span>
+      <a class="doc-link" href="https://github.com/x-orpheus/nei-toolkit/blob/master/doc/mockstore.md" target="_blank"> MockStore 使用文档</a>
+    </div>
+  </div>
+</textarea>
+
+<textarea name="jst" id="datatype-detail">
+  <a href="${link}" title="${selected.name}" class="title stateful">
+    <span class="format-name">哈希</span>
+    <span class="version-name">${versionName}</span>
+    <span>
+      <em>查看详情</em>
+      <i class="glyphicon glyphicon-chevron-right"></i>
+    </span>
+  </a>
+  <div class="s-row-wrap">
+    <div class="s-row-hd">
+      {list xheaders as header}
+      <span>${header.name}</span>
+      {/list}
+    </div>
+    <div class="s-row-bd">
+      {list params as param}
+      <div class="s-row">
+        {list xheaders as header}
+        <span>
+          {if param.type <= 10003 || header.key !== 'typeName'}
+          ${param[header.key]}
+          {else}
+          <a class="stateful" href="${param.link}" title="${param.typeName}">${param.typeName}</a>
+          {/if}
+        </span>
+        {/list}
+      </div>
+      {/list}
+    </div>
+  </div>
+</textarea>
+<textarea name="css" data-src="./interface_detail_mockstore.css"></textarea>
+<textarea name="js" data-src="./interface_detail_mockstore.js"></textarea>

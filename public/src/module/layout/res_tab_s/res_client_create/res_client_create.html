@@ -1,0 +1,78 @@
+<meta charset="utf-8"/>
+<textarea name="txt" id="module-res-client-create">
+	<div class="m-res-client-c u-form-create">
+		<div class="form-title">
+			<div class="title">新建客户端</div>
+			<a class="goback stateful">返回<i class="u-icon-back-normal-2"></i></a>
+		</div>
+		<form data-focus-mode="1" class="m-form">
+			<div class="form-group">
+				<label>
+					<i class="signal-required">*</i>名称：
+				</label>
+				<input type="text" name="name" class="name form-item"
+               data-auto-focus="true"
+               data-required="true"
+               placeholder="请输入名称"
+               data-message="请输入客户端名称，最多20个中文或者40个英文字符"
+               data-tip="最多20个中文或者40个英文字符！"
+               data-max-length="40"
+               data-min-length="1"
+               data-ignore="true"/>
+			</div>
+
+			<div class="form-group">
+				<label>下载链接：</label>
+				<input type="text" name="download-link" placeholder="请输入客户端下载链接" class="download-link form-item"/>
+			</div>
+
+			<div class="form-group">
+				<label>版本：</label>
+				<input type="text" name="version" placeholder="请输入客户端版本信息" class="version form-item"/>
+			</div>
+
+			<div class="form-group">
+				<label>描述：</label>
+				<textarea type="text" name="description" placeholder="请输入客户端描述信息" class="description form-item">&lt;/textarea>
+			</div>
+
+			<div class="dates">
+				<div class="form-group">
+					<label>上线日期：</label>
+					<input type="text" name="launch-date" placeholder="请选择客户端上线日期" class="date form-item"/>
+				</div>
+
+				<div class="form-group">
+					<label>下线日期：</label>
+					<input type="text" name="close-date" placeholder="请输入客户端下线日期" class="date form-item"/>
+				</div>
+			</div>
+
+			<div class="form-group form-group-group">
+				<label>分组：</label>
+				<div class="groups item-wrap">
+				</div>
+				<a href="#" class="create">新建</a>
+			</div>
+
+			<div class="form-group">
+				<label>负责人：</label>
+				<div class="respo item-wrap">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label>标签：</label>
+				<div class="tag item-wrap">
+				</div>
+			</div>
+
+			<div class="button-group">
+				<button class="u-btn save" name="save" type="button">保存</button>
+			</div>
+		</form>
+	</div>
+</textarea>
+
+<textarea name="css" data-src="./res_client_create.css"></textarea>
+<textarea name="js" data-src="./res_client_create.js"></textarea>

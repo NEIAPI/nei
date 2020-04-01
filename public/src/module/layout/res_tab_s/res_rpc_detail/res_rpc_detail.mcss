@@ -1,0 +1,41 @@
+.m-r-rpc-d {
+  .tab-body {
+    background-color: #f7f7f7;
+    padding: 20px;
+    position: relative;
+
+    .tab-wrap {
+      margin: 0;
+      background: none;
+    }
+
+    .tab-con {
+      margin-top: 10px;
+    }
+  }
+
+  .u-select2 {
+    width: 100%;
+
+    &:hover {
+      .u-tooltip {
+        opacity: 1;
+      }
+    }
+  }
+
+  .d-block .pom,
+  .d-block .key {
+    align-items: end !important;
+  }
+}
+
+.watch-list-container, .creator-container {
+  padding-left: 10px;
+}
+
+.watch-list-container {
+  .m-tagme {
+    margin-top: -6px;
+  }
+}

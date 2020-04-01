@@ -1,0 +1,80 @@
+<meta charset="utf-8"/>
+<textarea name="txt" id="module-res-constraint-create">
+	<div class="m-res-c-c u-form-create">
+	<div class="form-title">
+		<div class="title">新建规则函数</div>
+		<a class="goback stateful">返回<i class="u-icon-back-normal-2"></i></a>
+	</div>
+
+		<form data-focus-mode="1" class="m-form">
+			<div class="form-group">
+				<label>
+					<i class="signal-required">*</i>名称：
+				</label>
+        <!-- JS保留字取值为es5严格模式，数据来自https://github.com/zxqfox/reserved-words/blob/master/lib/reserved-words.js -->
+				<input type="text" name="name" class="name form-item"
+               placeholder="请输入名称"
+               data-auto-focus="true"
+               data-required="true"
+               data-tip="请输入规则函数名称，最多40位合法标识符，只能以字母、下划线(_)或美元符号($)开头，不能使用JS保留字"
+               data-message="最多40位合法标识符，只能以字母、下划线(_)或美元符号($)开头，不能使用JS保留字！"
+               data-pattern="CONSTRAINT_NAME_REGEX"
+               data-max-length="40"
+               data-min-length="1"
+               data-ignore="true">
+			</div>
+
+			<div class="form-group">
+				<label>描述：</label>
+				<textarea name="description" placeholder="请输入规则函数描述信息" class="description form-item"><&#47;textarea>
+      </div>
+
+      <!--<div class="form-group">
+        <label>适用类型：</label>
+        <div class="apply item-wrap" name="apply">
+        </div>
+      </div>-->
+
+			<div class="form-group">
+				<label>函数：</label>
+				<div class="fg-func">
+					<code>function <em class="funcname"></em> () {</code>
+					<div type="text" name="func" class="func form-item"></div>
+					<code>}</code>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label>&nbsp;&nbsp;</label>
+				<div class="fg-desc">
+					<p>使用说明: <a
+            href="https://github.com/x-orpheus/nei-toolkit/blob/master/doc/NEI%E5%B9%B3%E5%8F%B0%E8%A7%84%E5%88%99%E5%87%BD%E6%95%B0%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.md"
+            target="_blank">NEI平台规则函数使用说明</a></p>
+				</div>
+			</div>
+
+			<div class="form-group form-group-group">
+				<label>分组：</label>
+				<div class="groups item-wrap">
+				</div>
+				<a href="#" class="create">新建</a>
+			</div>
+
+			<div class="form-group">
+				<label>标签：</label>
+				<div class="tag item-wrap">
+
+					<!-- 智能提示输入框 -->
+
+				</div>
+			</div>
+
+			<div class="button-group">
+				<button class="save u-btn" name="save" type="button">保存</button>
+			</div>
+			</form>
+		</div>
+	</textarea>
+
+<textarea name="css" data-src="./res_constraint_create.css"></textarea>
+<textarea name="js" data-src="./res_constraint_create.js"></textarea>

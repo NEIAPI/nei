@@ -1,0 +1,135 @@
+{
+  "data": [
+    {
+      "name": "func",
+      "label": "函数",
+      "list": []
+    },
+    {
+      "name": "opr",
+      "label": "操作符",
+      "list": [
+        {
+          "name": "calc",
+          "label": "算术",
+          "list": [
+            {
+              "name": "add",
+              "label": "+"
+            },
+            {
+              "name": "minus",
+              "label": "-"
+            },
+            {
+              "name": "multiple",
+              "label": "*"
+            },
+            {
+              "name": "divide",
+              "label": "/"
+            },
+            {
+              "name": "mean",
+              "label": "\\"
+            },
+            {
+              "name": "power",
+              "label": "^"
+            }
+          ]
+        },
+        {
+          "name": "compare",
+          "label": "比较",
+          "list": [
+            {
+              "name": "equal",
+              "label": "=="
+            },
+            {
+              "name": "allEqual",
+              "label": "==="
+            },
+            {
+              "name": "greaterEqual",
+              "label": ">="
+            },
+            {
+              "name": "lessEqual",
+              "label": "<="
+            },
+            {
+              "name": "notEqual",
+              "label": "!="
+            },
+            {
+              "name": "greater",
+              "label": ">"
+            },
+            {
+              "name": "less",
+              "label": "<"
+            }
+          ]
+        },
+        {
+          "name": "logic",
+          "label": "逻辑",
+          "list": [
+            {
+              "name": "and",
+              "label": "&&"
+            },
+            {
+              "name": "or",
+              "label": "||"
+            },
+            {
+              "name": "not",
+              "label": "!"
+            }
+          ]
+        },
+        {
+          "name": "string",
+          "label": "字符串",
+          "list": [
+            {
+              "name": "concat",
+              "label": "&"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "const",
+      "label": "常量",
+      "list": [
+        {
+          "name": "",
+          "label": "",
+          "list": [
+            {
+              "name": "blankString",
+              "label": "\"\" - 空字符串"
+            },
+            {
+              "name": "false",
+              "label": "False"
+            },
+            {
+              "name": "true",
+              "label": "True"
+            },
+            {
+              "name": "null",
+              "label": "Null"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

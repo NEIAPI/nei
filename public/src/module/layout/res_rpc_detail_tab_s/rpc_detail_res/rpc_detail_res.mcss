@@ -1,0 +1,86 @@
+.m-rpc-d-res {
+  .d-item {
+    > label {
+      min-width: 60px;
+    }
+  }
+
+  .d-item-params {
+    display: block;
+  }
+
+  .d-item-outputs,
+  .d-item-examples {
+    flex-direction: column !important;
+
+    .format-group-preview {
+      margin: -22px 0 6px 64px;
+    }
+
+    .editor-full-screen {
+      .format-group-preview {
+        margin-left: 0;
+      }
+    }
+  }
+
+  .d-item-outputs {
+    margin-top: 20px;
+
+    .outputs-list {
+      width: t('calc(100% - 110px)');
+    }
+  }
+
+  .d-item-examples {
+    label {
+      margin-bottom: 8px;
+      min-width: auto;
+    }
+
+    .sample-code {
+      width: t('calc(100% - 110px)');
+      margin-top: 8px;
+    }
+
+    .error-tip {
+      color: red;
+      font-size: 14px;
+      margin-top: 8px;
+    }
+
+    .extra {
+      margin-top: 8px;
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
+
+    .tip {
+      color: #999;
+      font-size: 12px;
+    }
+
+    .btn-bar {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+      margin-right: 110px;
+    }
+
+    .u-btn.save-mock, .u-btn.refresh-mock {
+      height: 30px;
+      line-height: 30px;
+      font-size: 12px;
+      padding: 0 10px;
+
+      &.disabled {
+        background-color: grey;
+      }
+    }
+  }
+
+  .sample-code, .script, .script-result {
+    width: t('calc(100% - 110px)');
+  }
+}

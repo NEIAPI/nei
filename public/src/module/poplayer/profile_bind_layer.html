@@ -1,0 +1,21 @@
+<div class="p-bind-layer">
+  <div class="p-bind-layer-con">
+    <div class="b-ipt-wrap">
+      {#if type == "unbind"}
+      <div class="b-ipt-row">{message}</div>
+      {#else}
+      <div class="b-ipt-row">
+        <input class="u-ipt" placeholder={placeholder} value={value} r-model={value} r-class={{"js-error":valueError}}
+               on-focus={this.removeError('value')}/>
+      </div>
+      {/if}
+      <div class="b-ipt-row">
+        <input class="u-ipt" placeholder="请输入验证码" value={code} r-model={code}
+               on-focus={this.removeError('code')} r-class={{"js-error":codeError}}/>
+        <input type="button" class="u-code-btn" value="发送验证码" r-class={{'js-disabled':sendDisabled}}
+               on-click={this.sendcode()} ref="btn"/>
+      </div>
+    </div>
+    <div class="u-submit" on-click={this.submit()}>提交</div>
+  </div>
+</div>

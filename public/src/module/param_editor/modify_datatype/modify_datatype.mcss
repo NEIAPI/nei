@@ -1,0 +1,46 @@
+.inline-modify {
+  &.m-modal .modal-dialog {
+    padding: 30px;
+    width: 80%;
+    min-height: 60%;
+
+    .modal-hd {
+      height: 0;
+
+      .modal-close {
+        right: 0;
+      }
+    }
+
+    .modal-bd {
+      margin-top: 20px;
+    }
+
+    .m-res-d-m {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 30px;
+
+      > .title {
+        font-size: 14px;
+        color: #30a1f2;
+        margin-bottom: 10px;
+        text-align: left;
+      }
+
+      .editor {
+        margin-right: 150px;
+
+        .m-param-editor {
+          .format-group {
+            display: none;
+          }
+
+          .editor-action {
+            text-align: left;
+          }
+        }
+      }
+    }
+  }
+}

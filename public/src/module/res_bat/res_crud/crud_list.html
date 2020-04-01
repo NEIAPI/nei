@@ -1,0 +1,39 @@
+<ul class="list" ref="body">
+  {#list xlist as item}
+  <li class="item">
+    <div class="item-name">{item.name}</div>
+    <div class="item-con">
+      <div class="item-path">
+        <label class="label">根路径：</label>
+        <div class="root">
+          <input class="ipt path-ipt" r-model={item.path} r-class={{"j-error":item.error}}
+                 on-input={this.check($event,item_index)}/>
+        </div>
+      </div>
+      <ul class="item-interfaces">
+        {#list item.interfaces as interface}
+        <li class="interface">
+          <div class="checkbox" on-click={this.select(item_index,interface_index)}>
+            <i class="u-icon-checkbox-normal" r-class={{"f-dn-important":interface.selected}}></i>
+            <i class="u-icon-checkbox-pressed" r-class={{"f-dn-important":!interface.selected}}></i>
+          </div>
+          <span class="name" title={interface.name}>{interface.name}：</span>
+          <select2 source={methods} selected={interface.method}></select2>
+          <span class="path" title="{item.path}">{item.path}</span>
+          <input class="ipt" r-model={interface.addition}/>
+        </li>
+        {/list}
+      </ul>
+      <div class="item-group">
+        <label class="label align-right">分组：</label>
+        <select2 source={groups} sortList={false} initSilent={true}
+                 on-change={this.changeGroup($event,item_index)}></select2>
+      </div>
+      <div class="item-tags">
+        <label class="label align-right">标签：</label>
+        <div class="tag" data-index="{item_index}"></div>
+      </div>
+    </div>
+  </li>
+  {/list}
+</ul>

@@ -1,0 +1,74 @@
+.m-rpc-d-req {
+  .d-item {
+    > label {
+      min-width: 60px;
+    }
+  }
+
+  .d-item-params {
+    display: block;
+  }
+
+  .d-item-inputs,
+  .d-item-examples {
+    flex-direction: column !important;
+
+    .format-group-preview {
+      margin: -22px 0 6px 64px;
+    }
+
+    .editor-full-screen {
+      .format-group-preview {
+        margin-left: 0;
+      }
+    }
+  }
+
+  .d-item-inputs {
+    margin-top: 20px;
+
+    .inputs-list {
+      width: t('calc(100% - 110px)');
+    }
+  }
+
+  .d-item-examples {
+    label {
+      margin-bottom: 8px;
+    }
+  }
+
+  .sample-code, .script, .script-result {
+    width: t('calc(100% - 110px)');
+  }
+
+  .d-item-mock-url {
+    margin-top: 20px;
+
+    .mock-url {
+      max-width: 66%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .method {
+      width: 63px;
+      display: inline-block;
+    }
+
+    a:link,
+    a:visited {
+      color: #30a1f2;
+      margin-left: 6px;
+    }
+  }
+
+  .d-item-mock-delay {
+    margin-top: 10px;
+
+    label {
+      margin-top: 6px;
+    }
+  }
+}

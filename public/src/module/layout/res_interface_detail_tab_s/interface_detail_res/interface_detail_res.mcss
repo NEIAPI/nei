@@ -1,0 +1,141 @@
+.m-inter-d-res {
+  .d-item-resheaders,
+  .d-item-outputs,
+  .d-item-examples {
+    flex-direction: column !important;
+
+    label {
+      min-width: auto;
+      margin-bottom: 2px;
+    }
+
+    .format-group-preview {
+      margin: -22px 0 6px 64px;
+    }
+
+    .editor-full-screen {
+      .format-group-preview {
+        margin-left: 0;
+      }
+    }
+  }
+
+  .d-item-outputs {
+    .inputs-outputs {
+      width: t('calc(100% - 110px)');
+    }
+
+    .check-result {
+      color: #dc3545;
+      font-size: 14px;
+      margin-top: 8px;
+
+      .u-btn {
+        height: 30px;
+        line-height: 30px;
+        padding: 0 10px;
+        border: 1px solid #efefef;
+        font-size: 12px;
+        transition: none;
+      }
+
+      .import-tip {
+        color: #17a2b8;
+      }
+    }
+  }
+
+  .d-item-outputs, .d-item-examples {
+    label {
+      min-width: auto;
+    }
+
+    .sample-code {
+      width: t('calc(100% - 110px)');
+      margin-top: 8px;
+    }
+
+    .error-tip {
+      color: red;
+      font-size: 14px;
+      margin-top: 8px;
+    }
+
+    .extra {
+      margin-top: 8px;
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
+
+    .tip {
+      color: #999;
+      font-size: 12px;
+    }
+
+    .btn-bar {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+      margin-right: 110px;
+    }
+
+    .u-btn.save-mock, .u-btn.refresh-mock {
+      height: 30px;
+      line-height: 30px;
+      font-size: 12px;
+      padding: 0 10px;
+
+      &.disabled {
+        background-color: grey;
+      }
+    }
+  }
+
+  .d-item-resheaders {
+    .header-list {
+      width: t('calc(100% - 110px)');
+    }
+
+    .format-group-preview {
+      margin-left: 56px;
+    }
+  }
+
+  .d-item-outputs {
+    .inputs-outputs {
+      flex: 1;
+    }
+  }
+
+  .d-item-script {
+    align-items: center !important;
+
+    input {
+      width: 30%;
+    }
+  }
+
+  .sample-code, .script, .script-result {
+    width: 79%;
+  }
+
+  .script-edt {
+    min-height: 100px;
+  }
+
+  .error-title {
+    color: #999;
+    font-size: 12px;
+    margin-top: 30px;
+    margin-bottom: 8px;
+  }
+
+  .error-content {
+    color: red;
+
+    &:not(:last-child) {
+      margin-bottom: 4px;
+    }
+  }
+}

@@ -1,0 +1,31 @@
+<div class="u-prolist j-flag">
+  <div class="plist">
+    <div class="link" r-hide={type
+    === 2}>
+    <a href="/datatype/detail/?pid={pid}&id={id}" on-click={this._goto($event,pid,id)} class="stateful">查看详情</a> <i
+    class="u-icon-arrow-right-normal"></i>
+  </div>
+  <dl>
+    {#if formatType == 0}
+    <dt><span>名称</span><span>类型</span><span>描述</span></dt>
+    {#list plist as p}
+    <dd r-hide={p.ignored}><span title={p.name}>{p.name}</span><span title={p.typeName}>{#if p.isArray == 1}Array{/if} {p.typeName}</span><span
+      title={p.description}>{p.description}</span></dd>
+    {/list}
+    {#elseif formatType ==1}
+    <dt><span>值</span><span>描述</span></dt>
+    {#list plist as p}
+    <dd r-hide={p.ignored}><span title={p.defaultValue}>{p.defaultValue}</span><span title={p.description}>{p.description}</span>
+    </dd>
+    {/list}
+    {#else}
+    <dt><span>默认值</span><span>描述</span></dt>
+    {#list plist as p}
+    <dd r-hide={p.ignored}><span title={p.defaultValue}>{p.defaultValue}</span><span title={p.description}>{p.description}</span>
+    </dd>
+    {/list}
+    {/if}
+  </dl>
+</div>
+</div>
+

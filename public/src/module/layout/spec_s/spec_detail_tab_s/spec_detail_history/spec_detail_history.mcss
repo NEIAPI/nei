@@ -1,0 +1,11 @@
+.m-spec-d-h {
+  font-size: 14px;
+  overflow-y: auto;
+  position: absolute;
+  top: 20px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-flow: column;
+}

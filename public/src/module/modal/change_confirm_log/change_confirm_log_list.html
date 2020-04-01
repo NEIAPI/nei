@@ -1,0 +1,28 @@
+{list beg..end as y}
+{var x=xlist[y]}
+<div class="confirm-log${x.unconfirmedUsers.length ? ' clog-unconfirmed': ''}">
+  <div class="m-clog-circle">
+    <div class="u-circle"></div>
+  </div>
+  <div class="u-clog-item u-clog-time">
+    ${x.createTime|format:'yyyy-MM-dd HH:mm:ss'}
+  </div>
+  <div class="u-clog-item">
+    <em>变更者：</em>
+    <span>${x.creator.realname|escape}</span>
+  </div>
+  <div class="u-clog-item">
+    <em>变更详情：</em>
+    <span>${x.content|escape}</span>
+  </div>
+  <div class="u-clog-item">
+    <em>已确认者：</em>
+    <span>${x.confirmedUsers|filterUserRealnames: '无'}</span>
+  </div>
+  <div class="u-clog-item">
+    <em>未确认者：</em>
+    <span>${x.unconfirmedUsers|filterUserRealnames: '无'}</span>
+  </div>
+  <div class="u-line"></div>
+</div>
+{/list}

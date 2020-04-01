@@ -1,0 +1,83 @@
+<meta charset="utf-8"/>
+<textarea name="txt" id="module-interface-detail-req">
+	<div class="m-inter-d-req">
+	</div>
+</textarea>
+
+<textarea name="jst" id="interface-detail-req-content">
+	<div class="d-item d-item-path">
+		<label>请求地址：</label>
+		<div class="path">
+			<div class="path-inner">
+				<div class="method">
+					<div class="method-select"></div>
+				</div>
+				<input type="text" name="path" value="${path|escape}" title="${path|escape}" class="u-m-inp" {if
+               !!permit}data-action=${pathActionData}{/if} readonly>
+				<span class="req-search {if search ==''}f-dn {/if}" title='${search|escape}'>${search|escape}</span>
+			</div>
+		</div>
+	</div>
+	<div class="d-item d-item-mock-url">
+		<label>Mock地址：</label>
+    <p class="mock-url"></p>
+    <a href="#" class="copy-mock-url">复制地址</a>
+    <a href="https://github.com/x-orpheus/nei-toolkit/blob/master/doc/mockstore.md" target="_blank">更多详情</a>
+	</div>
+
+	<div class="d-item d-item-mock-delay">
+		<label>Mock请求延时响应毫秒数：</label>
+    <input type="text" name="mockDelay" value="${mockDelay|escape}" class="u-m-inp"
+           data-action='{"type":"modify","cache":"interface","id":"${id}","name":"mockDelay"}' readonly>
+	</div>
+	<div class="req-method-error-tip"></div>
+	<div class="d-item d-item-params">
+		<label>路径参数：</label>
+		<div class="path-param"></div>
+	</div>
+
+	<div class="d-item d-item-reqheaders">
+		<label>请求头：</label>
+    <form>
+      <ul class="d-quick-select">
+        <li>快速选择请求体类型：</li>
+        <li>
+          <label><input type="radio" name="req-body-type" value="application/json"><em>json</em></label>
+        </li>
+        <li>
+          <label><input type="radio" name="req-body-type" value="application/x-www-form-urlencoded"><em>x-www-form-urlencoded</em></label>
+        </li>
+        <li>
+          <label><input type="radio" name="req-body-type" value="multipart/form-data"><em>form-data</em></label>
+        </li>
+      </ul>
+    </form>
+		<div class="header-list"></div>
+	</div>
+
+	<div class="d-item d-item-inputs">
+		<label>请求参数：</label>
+		<div class="inputs-list"></div>
+	</div>
+
+	<div class="req-error-tip"></div>
+
+	<div class="d-item d-item-examples">
+		<label>范例：</label>
+		<div class="sample-code f-dn"></div>
+		<div class="f-italic no-sample-code">正在生成 mock 数据...</div>
+	</div>
+
+	<div class="d-item d-item-script">
+		<label>发送规则：</label>
+		<input class="script u-m-inp" placeholder="添加发送规则" readonly="readonly">
+	</div>
+
+	<div class="d-item d-item-scriptResult f-dn">
+		<label>处理结果：</label>
+		<div class="script-result"></div>
+	</div>
+</textarea>
+
+<textarea name="css" data-src="./interface_detail_req.css"></textarea>
+<textarea name="js" data-src="./interface_detail_req.js"></textarea>

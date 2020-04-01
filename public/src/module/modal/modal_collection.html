@@ -1,0 +1,21 @@
+<div class="res-ctn">
+  {#if action == 'create' || action == 'modify'}
+  <div class="res-name">
+    <input class="u-ipt" type="text" r-class={{'j-err-ipt': nameError}} placeholder="名称" r-model={name}
+           on-input={this.validateEmpty("name")}>
+  </div>
+  <div class="res-desc">
+    <textarea class="u-txt" placeholder="描述" r-model={description}></textarea>
+  </div>
+  {#elseif action == 'delete'}
+  <div class="delete-title">
+    <div class="delete-icon u-icon-alert-normal-2"></div>
+    <div class="delete-title-text">将删除该测试集所有信息</div>
+  </div>
+  <div class="delete-res-name">
+    <div class="delete-res-tip">请在下面输入测试集名称：(<strong> {nameOrigin} </strong>)</div>
+    <input type="text" class="u-ipt" r-class={{'j-err-ipt': !!nameError}} r-model={name} placeholder="测试集名称"
+           on-input={this.validateEmpty("name")}>
+  </div>
+  {/if}
+</div>

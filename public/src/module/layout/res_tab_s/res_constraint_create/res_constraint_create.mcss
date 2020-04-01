@@ -1,0 +1,38 @@
+.m-res-c-c {
+  .fn {
+    display: none;
+  }
+
+  .fg-func, .tag {
+    width: 50%;
+  }
+
+  .fg-func {
+    display: inherit;
+    flex-direction: column;
+
+    div.form-item {
+      width: 100%;
+    }
+
+    > code {
+      height: 30px;
+      line-height: 30px;
+      font-size: 12px;
+      color: #222;
+    }
+
+    .func {
+      height: 180px;
+    }
+  }
+
+  .fg-desc {
+    width: 51%;
+
+    a:link,
+    a:visited {
+      color: #30a1f2;
+    }
+  }
+}

@@ -1,0 +1,56 @@
+<div style="text-align:center;">
+  <table width="600" cellpadding="0" cellspacing="0" border="0" style="margin:0 auto;">
+    <tbody>
+    <tr>
+      <td>
+        <div style="width:600px;text-align:left;font:12px/15px simsun;color:#000;background:#fff;">
+          <div style="position: relative; width: 100%; height: 40px; background: #30a1f2;">
+            <img style="position: absolute; top: 50%; left: 20px; margin-top: -8px; width: 49px; height: 17px;"
+                 src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADEAAAARCAYAAAB0MEQqAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo4NEU0Q0NDRjREQTkxMUU2QTU2RUFGMjVFNjg4OTA4MyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo4NEU0Q0NEMDREQTkxMUU2QTU2RUFGMjVFNjg4OTA4MyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjg0RTRDQ0NENERBOTExRTZBNTZFQUYyNUU2ODg5MDgzIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjg0RTRDQ0NFNERBOTExRTZBNTZFQUYyNUU2ODg5MDgzIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+tAOy5QAAAVdJREFUeNrMlqFvwkAUxo/hECQTE4j9DfsLMKjpKezkFH5ycAQHowKDm5ue2TR6yfTMxMzEkpFSUFC+I3dJ09xr++6a5b7kl5A++pUv7/p4Ik3TIYjBCnSBqAGpPSVRH4ENGFuu55WACeGhnjES+oPRHsxAyzOE8YyJ+k7Xd8R9edl8ElMTxE2fnl3JilN/sPyWtT4tpEfj5GLXAUTgHmwFT1nPhkOd9YyzXCHKFFVtAD5AV4QsS2t74Ct3nfuuuB4npyNLGbbBEhwc35UgQhiuwbdDV1xDcEZs5RCKc/DEnGCuITgjlhXCcAN+KnZlWDAaax+x3PN5AZ5r+F/513eCog9+PSZYECEUHfDi2JVgQhhuwR+zK8GFUFyCN0tX3kGzJEQVybIQcWYe+2yuag+70yt2WrLFcpUUeaj96BEkYOq7wYAFuAKv2jMivit1varmBR7yKMAAkHgmF9yoxisAAAAASUVORK5CYII=">
+          </div>
+          <div
+            style="width: 598px; min-height: 307px; position: relative; border: 1px solid #e1e1e1; border-top: none;">
+            <div style="padding: 14px 19px; line-height: 26px; font-size: 14px; color: #222222;">
+              <p style="padding: 0; margin: 0;">
+                <% if(!!name) { %>
+                <%= name %> ，
+                <% } %>
+                您好：
+              </p>
+              <div style="padding: 0; margin: 0;">
+                <% if(type === 'captcha-bind') { %>
+                此次绑定邮箱需要的验证码如下，请在30分钟内输入验证码完成绑定。
+                <% } %>
+                <% if(type === 'captcha-unbind') { %>
+                此次解绑邮箱需要的验证码如下，请在30分钟内输入验证码完成绑定。
+                <% } else if (!!content) { %>
+                <%- content %>
+                <% } %>
+              </div>
+            </div>
+            <% if(type.indexOf('captcha') === 0) { %>
+            <div style="padding: 25px; text-align: center;">
+              <div
+                style="margin: 0 auto; width: 224px; height: 74px; text-align: center; line-height: 74px; background: #fff5de; border: 1px solid #fde8b7; font-size: 40px; color: #000022;"><%= captcha %></div>
+            </div>
+            <% } %>
+            <div style="position: absolute; bottom: 0; left: 0; width: 100%;">
+              <div
+                style="margin: 19px 19px 0;border-bottom: 1px dashed #e1e1e1;line-height: 14px;font-size: 14px; font-family: 'Verdana'; color: #222222;">
+                <div style="text-align: right;">NEI</div>
+                <div style="padding: 10px 0; text-align: right;">
+                  <a style="color: #30a1f2;"
+                     href="https://nei.netease.com/">https://nei.netease.com/</a>
+                </div>
+              </div>
+              <div style="margin: 10px 19px 19px; line-height: 12px; font-size: 12px;color: #c3c3c3;">
+                本邮件由 NEI 系统发出，请勿直接回复!
+              </div>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

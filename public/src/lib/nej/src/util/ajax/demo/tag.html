@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>test tag</title>
+    <meta charset="utf-8"/>
+    <script>
+      function log(m) {
+          var p = document.createElement('p');
+          p.innerHTML = m;
+          document.body.appendChild(p);
+      }
+
+
+    </script>
+  </head>
+  <body>
+    <input type="button" value="加载" onclick="a();"/>
+    <script src="../../../define.js"></script>
+    <script>
+      define([
+          '../tag.js'
+      ],function(_j){
+          
+          _j._$loadTemplate('./b.html',{
+              onload:function(result){
+                  log('same domain');
+                  log(result);
+              }
+          });
+
+          _j._$loadTemplate('http://localhost:8080/nej/src/util/ajax/demo/b.html',{
+              onload: function(result){
+                  log('same domain');
+                  log(result);
+              }
+          });
+
+          window.a = function (){
+              _j._$loadTemplate('http://a.b.com:8080/nej/src/util/ajax/demo/b.html',{
+                  onload: function(result){
+                      log('cross domain');
+                      log(result);
+                  }
+              });
+          };
+      });
+    </script>
+  </body>
+</html>

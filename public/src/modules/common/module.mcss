@@ -1,0 +1,61 @@
+/*
+ * 模块 css
+ */
+.g-head {
+  padding: 10px 0px;;
+}
+
+.g-foot {
+  padding-bottom: 20px;
+}
+
+.g-body {
+  position: absolute;
+  top: 50px;
+  left: 0px;
+  right: 0px;
+  bottom: 35px;
+  background: #ebeff2;
+}
+
+.g-foot {
+  position: absolute;
+  background: #ebeff2;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
+
+.m-foot {
+  line-height: 15px;
+  font-size: 12px;
+  text-align: center;
+
+  .copyright {
+    color: #999;
+  }
+}
+
+.m-head {
+  height: 30px;
+  line-height: 30px;
+  padding-left: 20px;
+
+  .nei {
+    display: inline-block;
+    height: 20px;
+    width: 56px;
+    vertical-align: middle;
+    text-indent: -9999em;
+    background: url("/res/images/logo_register_title_blue_normal.png") no-repeat;
+    background-size: 100% 100%;
+  }
+
+  .des {
+    margin-left: 5px;
+    font-size: 14px;
+    color: #aaa;
+    vertical-align: text-top;
+  }
+}
+

@@ -1,0 +1,76 @@
+<meta charset="utf-8"/>
+<textarea name="txt" id="module-res-client-detail">
+  <div class="m-res-client-d u-res-detail">
+  </div>
+</textarea>
+<textarea name="jst" id="m-res-client-detail">
+	<div class="d-block-wrap">
+		<div class="d-block">
+			<div class="block-item d-title">
+				<input type="text" name="name" value="${name|escape}" class="u-m-inp title" {if
+               permit}data-action='{"type":"modify","cache":"client","id":"${id}","name":"name","required":true}' {/if} readonly>
+			</div>
+			<div class="block-item respo">
+				<label>负责人：</label>
+				<div class="respo-select"></div>
+			</div>
+			<div class="block-item group">
+				<label>业务分组：</label>
+				<div class="group-select"></div>
+			</div>
+			<div class="block-item item-download-link">
+                <label>下载链接：</label>
+                <textarea readonly class="u-m-inp" placeholder="暂无下载链接" {if
+                          permit}data-action='{"type":"modify","cache":"client","id":"${id}","name":"downloadLink"}' {/if} >${downloadLink|escape2}<&#47;textarea>
+            </div>
+			<div class="block-item item-version">
+                <label>版本：</label>
+                <textarea readonly class="u-m-inp" placeholder="暂无版本" {if
+                          permit}data-action='{"type":"modify","cache":"client","id":"${id}","name":"version"}' {/if} >${version||""|escape2}<&#47;textarea>
+            </div>
+            <div class="block-item item-description">
+                <label>描述：</label>
+                <textarea class="u-m-inp u-m-txt" placeholder="暂无描述" {if
+                          permit}data-action='{"type":"modify","cache":"client","id":"${id}","name":"description"}' {/if} >${description|escape2}<&#47;textarea>
+            </div>
+		</div>
+
+		<div class="d-block go-back">
+			<!--<a href="javascript:void(0);" class="watch-btn watch {if isWatched==1}fn{/if}">关注</a>
+			<a href="javascript:void(0);" class="watch-btn cancle-watch {if isWatched==0}fn{/if}">取消关注</a>
+			<a href="javascript:void(0);" class="send-btn" title="发送消息给关注人">发送消息</a>-->
+			<a href="/client/?pid=${projectId}" class="stateful">
+				<i class="glyphicon glyphicon-circle-arrow-left"></i>
+			</a>
+		</div>
+
+		<div class="d-block">
+			<div class="block-item item-tag">
+				<label>标签：</label>
+				<div class="tag-select"></div>
+			</div>
+
+			<div class="dates">
+				<div class="block-item">
+					<label>上线日期：</label>
+					<input type="text" class="u-m-inp" name="launch-date" placeholder="暂无上线日期" value="${__launchDate|escape}">
+				</div>
+
+				<div class="block-item">
+					<label>下线日期：</label>
+					<input type="text" class="u-m-inp" name="close-date" placeholder="暂无下线日期" value="${__closeDate|escape}">
+				</div>
+			</div>
+		</div>
+	</div>
+
+    <div class="d-body">
+        <div class="d-item d-item-activity">
+            <label>历史操作：</label>
+            <div class="list activity-list"></div>
+        </div>
+    </div>
+</textarea>
+
+<textarea name="css" data-src="./res_client_detail.css"></textarea>
+<textarea name="js" data-src="./res_client_detail.js"></textarea>

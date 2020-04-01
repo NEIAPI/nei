@@ -1,0 +1,5 @@
+.m-notification-personal {
+  height: 100%;
+  position: relative;
+  box-sizing: border-box;
+}

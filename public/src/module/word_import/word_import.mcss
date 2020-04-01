@@ -1,0 +1,124 @@
+.m-word-list {
+  position: relative;
+  padding-bottom: 100px;
+
+  .search {
+    text-align: right;
+
+    input {
+      padding: 3px 5px 3px 10px;
+      width: 160px;
+      border-radius: 15px;
+      border: 1px solid #e6e6e6;
+
+      &:focus {
+        border-color: #aaa;
+      }
+    }
+  }
+
+  .select-all-page {
+    float: left;
+
+    .list-col {
+      border-bottom: none;
+    }
+  }
+
+  .list-row {
+    display: flex;
+    cursor: pointer;
+  }
+
+  .word-header {
+    clear: both;
+  }
+
+  .word-body {
+    position: relative;
+    color: #555;
+    //max-height: 400px;
+    min-height: 150px;
+    overflow: auto;
+  }
+
+  .list-empty {
+    padding: 20px;
+  }
+
+  .list-col {
+    height: 45px;
+    line-height: 45px;
+    border-bottom: 1px solid #e6e6e6;
+    text-align: left;
+    padding: 0px 5px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .list-col-check {
+    width: 40px;
+
+    .u-icon-checkbox-pressed {
+      display: none;
+    }
+  }
+
+  .list-col-name {
+    width: 200px;
+  }
+
+  .list-col-des {
+    flex: 1;
+  }
+
+  .selected {
+    .u-icon-checkbox-normal {
+      display: none;
+    }
+
+    .u-icon-checkbox-pressed {
+      display: inline-block;
+    }
+  }
+
+  #word-import-page {
+    margin-top: 10px;
+
+    a {
+      border: 1px solid #aaa;
+      padding: 2px 4px;
+      border-radius: 2px;
+      display: inline-block;
+    }
+
+    a.js-selected, a:hover {
+      border-color: #30a1f2;
+      color: #30a1f2;
+    }
+  }
+}
+
+.m-word-more {
+  text-align: left;
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  bottom: 20px;
+
+  .m-word-tag {
+    position: relative;
+    margin-top: 10px;
+    height: 30px;
+    line-height: 30px;
+
+    .tag {
+      position: absolute;
+      left: 39px;
+      right: 0;
+      top: 0;
+    }
+  }
+}
+

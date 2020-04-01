@@ -1,0 +1,96 @@
+<div class="pro-inf-tree">
+  <div class="select-wrap f-cb">
+    <div class="select-progroup select-ctn">
+      <select2 isolate ref="pgSelector" sortList={false} selected={pgSel.selected} source={pgSel.source}></select2>
+    </div>
+    <div class="select-project select-ctn">
+      <select2 isolate ref="projSelector" sortList={false} selected={projSel.selected}
+               source={projSel.source}></select2>
+    </div>
+    <div class="setting-project-wrap f-fl" on-click={this.toggleSetting($event)}>
+      <i class="u-icon-setting-normal setting-project"></i>
+      <i class="u-icon-setting-hover setting-project"></i>
+    </div>
+  </div>
+  <div class="inf-wrap">
+    <div class="group-root-list group-root" on-click={this.clickHandler($event)}>
+      <div class="interface-list group-hd {infsOpen?'j-opened':''}" data-caction="inf-toggle">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+        <span class="group-name">接口列表</span>
+        <span class="list-num" title="{infNum}" r-class={{'list-num-more': infNum>999}}>{infNum>999?"···":infNum}</span>
+        <span class="group-item-action import-testcase" data-caction="import-testcase"><i title="更多"
+                                                                                          class="u-icon-more-normal"></i></span>
+        <input type="file" ref="fileInput" on-change={this.import($event)} class="j-file f-dn" multiple/>
+      </div>
+      <ul class="group-bd {infsOpen?'':'f-dn'}">
+        {#list projInfs as group}
+        <li class="group-root group-root-1">
+          <div class="group-hd group-hd-1 {group.isOpen?'j-opened':''}" data-caction="group-toggle"
+               data-rid="{group.id}">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="group-name">{group.name}</span>
+          </div>
+          <ul class="group-bd group-bd-1 {group.isOpen?'':'f-dn'}">
+            {#list group.infs as inf}
+            <li>
+              <a href="{inf.href}" class="stateful group-item" r-class={{'j-selected': inf.id===iid}}>
+                <span class="inf-method inf-method-{inf.method.toLowerCase()}">{inf.method.substr(0,3)}</span>
+                <span class="group-item-name" title="{inf.name}" r-html={inf.nameEscaped}></span>
+                <span class="group-item-action" data-caction="inf-item" data-rid={inf.id}><i title="查看详情"
+                                                                                             class="u-icon-detail-normal item-action-icon"></i></span>
+              </a>
+            </li>
+            {/list}
+          </ul>
+        </li>
+        {/list}
+      </ul>
+    </div>
+    <div class="group-root-collect group-root" on-click={this.clickHandler($event)}>
+      <div class="group-hd {collsOpen?'j-opened':''}" data-caction="coll-toggle">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+        <span class="group-name">测试集</span>
+        <span class="collect-more" data-caction="coll-item" title="更多">
+                    <i class="u-icon-more-normal"></i>
+                </span>
+      </div>
+      <ul class="group-bd {collsOpen?'':'f-dn'}">
+        {#list projColls as coll}
+        {#if coll.type === 0}
+        <li>
+          <a href="/test/group/suite/?pgid={pgid}&pid={pid}&cid={coll.id}" class="stateful group-item"
+             r-class={{'j-selected': coll.id===cid}}>
+            <span class="group-item-name" title="{coll.name}" r-html={coll.nameEscaped}></span>
+            <span class="group-item-action" data-caction="coll-item" data-rid={coll.id}><i title="更多"
+                                                                                           class="u-icon-more-normal"></i></span>
+          </a>
+        </li>
+        {/if}
+        {/list}
+      </ul>
+    </div>
+    <div class="group-root-dependency group-root" on-click={this.clickHandler($event)}>
+      <div class="group-hd {dpcOpen?'j-opened':''}" data-caction="dpc-toggle">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+        <span class="group-name">依赖测试集</span>
+        <span class="dpc-more" data-caction="dpc-item" title="更多">
+          <i class="u-icon-more-normal"></i>
+        </span>
+      </div>
+      <ul class="group-bd {dpcOpen?'':'f-dn'}">
+        {#list projColls as coll}
+        {#if coll.type === 1}
+        <li>
+          <a href="/test/group/dependency/?pgid={pgid}&pid={pid}&cid={coll.id}" class="stateful group-item"
+             r-class={{'j-selected': coll.id===cid}}>
+            <span class="group-item-name" title="{coll.name}" r-html={coll.nameEscaped}></span>
+            <span class="group-item-action" data-caction="dpc-item" data-rid={coll.id}><i title="更多"
+                                                                                          class="u-icon-more-normal"></i></span>
+          </a>
+        </li>
+        {/if}
+        {/list}
+      </ul>
+    </div>
+  </div>
+</div>

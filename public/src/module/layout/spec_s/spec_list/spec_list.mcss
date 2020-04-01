@@ -1,0 +1,158 @@
+.m-spec-list {
+  padding: 30px;
+  position: relative;
+  height: 100%;
+  box-sizing: border-box;
+
+  .u-spec-add {
+    position: absolute;
+    top: 30px;
+    right: 223px;
+    color: #fff;
+    display: inline-block;
+    background-color: #30a1f2;
+    width: 95px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+
+    &:hover {
+      background-color: #2b91d9;
+    }
+
+    .u-icon-add-normal {
+      margin-right: 2px;
+      vertical-align: text-top
+    }
+  }
+
+  .m-spec-delete {
+    .spec-delete-layer {
+      margin: 0 50px 10px;
+    }
+
+    .warn-part {
+      margin-bottom: 20px;
+      display: flex;
+
+      .spec-delete-text {
+        flex: 1;
+        padding: 0 5px;
+        color: #f04c62;
+        line-height: 24px;
+        white-space: normal;
+        text-align: left;
+      }
+    }
+
+    .spec-delete-name {
+      .spec-delete-name-hint {
+        text-align: left;
+        color: #666;
+        margin-bottom: 10px;
+      }
+
+      .u-input {
+        width: 100%;
+      }
+
+      .j-err-ipt {
+        border-color: #f04c62;
+      }
+    }
+
+    .modal-ft {
+      padding: 0 50px 10px;
+
+      .u-btn {
+        background-color: #f04c62;
+      }
+    }
+  }
+
+  .m-stripedlist {
+    .share-cancel {
+      color: #999;
+    }
+
+    .col-nei-actions {
+      text-align: left;
+
+      .no-icon {
+        display: inline-block;
+        width: 22px;
+        height: 22px;
+      }
+
+      a {
+        margin: 0 5px;
+      }
+    }
+
+    .list-row {
+      &:hover {
+        .col-nei-actions {
+          position: absolute;
+          right: 0;
+          opacity: 1;
+          width: 220px;
+          padding-right: 10px;
+          background-color: #f2f9fe;
+        }
+        background-color: #f2f9fe;
+      }
+
+      .col-create-time {
+        width: 200px;
+      }
+
+      .col-nei-actions {
+        width: 0;
+        padding: 0;
+      }
+    }
+  }
+
+  .spec-filter-wrap {
+    display: inline-block;
+    position: absolute;
+    right: 330px;
+    top: 30px;
+
+    .filter-item {
+      float: left;
+      height: 32px;
+      line-height: 32px;
+      padding: 0 10px;
+      font-size: 12px;
+      color: #333;
+      border: 1px solid #e6e6e6;
+
+      &:last-child {
+        border-right: 1px solid #e6e6e6;
+      }
+
+      &:hover {
+        border: 1px solid #349fef;
+        color: #349fef;
+      }
+    }
+
+    .filter-item + .filter-item {
+      border-left: 1px solid transparent;
+
+      &:hover {
+        border-left: 1px solid #349fef;
+      }
+    }
+
+    .filter-item.j-selected {
+      background-color: #e6e6e6;
+
+      &:hover {
+        border: 1px solid transparent;
+        color: #333;
+      }
+    }
+  }
+}

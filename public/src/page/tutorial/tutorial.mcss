@@ -1,0 +1,283 @@
+a {
+  text-decoration: none;
+  outline: none;
+  color: #364149;
+
+  &:hover {
+    text-decoration: none;
+    outline: none;
+    color: #364149;
+  }
+
+  &:active {
+    text-decoration: none;
+    outline: none;
+    color: #364149;
+  }
+
+  &:focus {
+    text-decoration: none;
+    outline: none;
+    color: #364149;
+  }
+}
+
+.os-pc {
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 7px;
+  }
+
+  ::-webkit-scrollbar-button {
+    display: none;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background: #dddfe0;
+  }
+
+  ::-webkit-scrollbar-track {
+    width: 4px;
+    height: 7px;
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-track-piece {
+    background: transparent;
+  }
+}
+
+.flex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.flex-h {
+  -webkit-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.flex-v {
+  -webkit-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.flex-1 {
+  -webkit-box-flex: 1; /* OLD - iOS 6-, Safari 3.1-6 */
+  -moz-box-flex: 1; /* OLD - Firefox 19- */
+  -webkit-flex: 1; /* Chrome */
+  -ms-flex: 1; /* IE 10 */
+  flex: 1;
+}
+
+.os-pc {
+  ::-webkit-scrollbar-thumb {
+    background: #4c4d4f;
+  }
+}
+
+.clear {
+  clear: both;
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+
+.container-wrapper {
+  height: 100%;
+  overflow: hidden;
+}
+
+.container {
+  flex-grow: 1;
+  position: relative;
+}
+
+.sidebar-toggle {
+  background-color: transparent;
+  border: 0;
+  outline: none;
+  padding: 10px;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  text-align: center;
+  transition: opacity .3s;
+  z-index: 4
+}
+
+.sidebar-toggle .sidebar-toggle-button:hover {
+  opacity: .4
+}
+
+.sidebar-toggle span {
+  background-color: #42b983;
+  display: block;
+  margin-bottom: 4px;
+  width: 16px;
+  height: 2px;
+}
+
+.sidebar-wrapper {
+  height: 100%;
+  display: inline-block;
+}
+
+.sidebar {
+  border-right: 1px solid rgba(0, 0, 0, .07);
+  overflow-y: auto;
+  padding: 20px 0 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  transition: -webkit-transform .25s ease-out;
+  transition: transform .25s ease-out;
+  transition: transform .25s ease-out, -webkit-transform .25s ease-out;
+  z-index: 3;
+  color: #364149;
+  width: 180px;
+}
+
+.sidebar > h1 {
+  margin: 0 auto 16px;
+  margin: 0 auto 1rem;
+  font-size: 24px;
+  font-size: 1.5rem;
+  font-weight: 300;
+  text-align: center
+}
+
+.sidebar > h1 a {
+  color: inherit;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 30px;
+  display: inline-block;
+  width: 100%;
+}
+
+.sidebar > h1 .app-nav {
+  display: block;
+  position: static
+}
+
+.sidebar ul {
+  margin: 0;
+  padding: 0
+}
+
+.sidebar li {
+  margin: 6px 0 6px 15px;
+}
+
+.sidebar li > p {
+
+  margin: 0
+}
+
+.sidebar ul, .sidebar ul li {
+  list-style: none
+}
+
+.sidebar ul li a {
+  border-bottom: none;
+  display: block
+}
+
+.sidebar ul li a:hover {
+  text-decoration: underline;
+  color: #34495e;
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 4px
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 4px
+}
+
+.sidebar:hover::-webkit-scrollbar-thumb {
+  background: hsla(0, 0%, 53%, .4)
+}
+
+.sidebar:hover::-webkit-scrollbar-track {
+  background: hsla(0, 0%, 53%, .1)
+}
+
+.app-sub-sidebar .section-link:before {
+  content: "-";
+  padding-right: 4px;
+}
+
+body.close .sidebar-wrapper {
+  -webkit-transform: translateX(-300px);
+  transform: translateX(-300px);
+}
+
+.sidebar ul li a.active {
+  border-right: 2px solid;
+  color: #42b983;
+  font-weight: 600;
+}
+
+.content {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 180px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  overflow-y: auto;
+}
+
+video {
+  position: absolute;
+  left: 50%;
+  width: 96%;
+  transform: translateX(-50%);
+}
+
+.m-foot {
+  background-color: #222;
+  width: 100%;
+  height: 50px;
+
+  .foot {
+    color: #fff;
+    font-size: 11px;
+    text-align: center;
+    line-height: 50px;
+  }
+
+  i {
+    display: inline-block;
+    margin: 0px 10px;
+    height: 12px;
+    width: 1px;
+    background: #fff;
+    vertical-align: -2px;
+  }
+
+  a {
+    color: inherit;
+
+    &:hover {
+      color: #30a1f2;
+    }
+  }
+}

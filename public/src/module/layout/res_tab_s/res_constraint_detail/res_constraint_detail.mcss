@@ -1,0 +1,32 @@
+.m-res-c-d {
+  .d-item-function {
+    display: inherit;
+    flex-direction: column;
+    min-height: 100px;
+    padding: 20px 10px !important;
+    align-items: flex-start;
+    margin-top: 0;
+
+    .func {
+      width: 90%;
+      min-height: 150px;
+      margin: 10px 0;
+    }
+  }
+
+  .u-m-txt {
+    height: 40px !important;
+  }
+
+  .fg-desc {
+    background-color: #f7f7f7;
+    margin-top: -16px;
+    margin-left: 8px;
+    color: #999;
+
+    a:link,
+    a:visited {
+      color: #30a1f2;
+    }
+  }
+}

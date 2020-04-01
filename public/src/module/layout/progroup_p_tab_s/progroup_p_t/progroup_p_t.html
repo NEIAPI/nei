@@ -1,0 +1,128 @@
+<meta charset="utf-8"/>
+<textarea name="txt" id="module-pg-p-t">
+  <div class="m-pg-p-t">
+  </div>
+</textarea>
+
+<textarea name="jst" id="project-toollist">
+	<div class="tool-info">
+        <div class="tool-part tool-setting">
+            <div class="t-part-head">通用设置</div>
+            <div class="t-part-content"></div>
+        </div>
+        <div class="tool-part tool-tag">
+            <div class="t-part-head">工具标识</div>
+            <div class="t-part-content">
+                <div class="desc">
+                    <p>每个项目都有唯一的标识 key，<a target="_blank " class="link"
+                                          href="https://github.com/x-orpheus/nei-toolkit/">构建工具</a>可以使用这个 key 来请求项目的所有资源数据。给项目设置好规范后，您可以使用下面的命令来构建项目的初始工程目录结构：</p>
+                </div>
+                <pre class="copy-txt"><code class="sample-code">nei build -k <span class="key"></span></code></pre>
+                <i class="tool-icon u-icon-file-normal copy-btn" title='复制'></i>
+                 <i class="tool-icon u-icon-refresh-normal refresh-btn f-dn" title='重新生成key'></i>
+                <div class="desc">
+                    <p><a target="_blank"
+                          href="https://github.com/x-orpheus/nei-toolkit/">构建工具</a>的更多指令和用法请查看它的使用文档。</p>
+                </div>
+                <p class="toolkey-warn">
+                   为确保项目内数据的安全性和私密性，请勿轻易将该key暴露给项目组外用户。</p>
+              </p>
+            </div>
+        </div>
+        <div class="tool-part tool-web">
+            <div class="t-part-head">WEB工程规范
+                <a class="j-open" title='收起'><i class='u-icon-arrow-up-normal'></i></a>
+            </div>
+            <div class="tool-part-content">
+                <div class="t-part-specname">
+                    <label>工程规范：</label>
+                    <div class="spec-select spec-web-select"></div>
+                    <br>
+                    <a class="spec-check stateful f-dn">查看规范详情</a>
+                    <span class="spec-clear f-dn">清除</span><br><br>
+                    <label class="spec-vmlist-label ">变量映射规则：</label>
+                    <div class="spec-vmlist"></div>
+                </div>
+                <div class="t-part-cliarglist">
+                    <label>命令行参数：</label>
+                    <div class="procli-list clilist-web"></div>
+                </div>
+            </div>
+        </div>
+        <div class="tool-part tool-aos">
+            <div class="t-part-head">Android工程规范
+                <a class="j-open" title='收起'><i class='u-icon-arrow-up-normal'></i></a>
+            </div>
+            <div class="tool-part-content">
+                <div class="t-part-specname">
+                    <label>工程规范：</label>
+                    <div class="spec-select spec-aos-select"></div>
+                    <br>
+                    <a class="spec-check stateful f-dn">查看规范详情</a>
+                    <span class="spec-clear f-dn">清除</span><br><br>
+                    <label class="spec-vmlist-label ">变量映射规则：</label>
+                    <div class="spec-vmlist"></div>
+                </div>
+                <div class="t-part-cliarglist">
+                    <label>命令行参数：</label>
+                    <div class="procli-list clilist-aos"></div>
+                </div>
+            </div>
+        </div>
+        <div class="tool-part tool-ios">
+            <div class="t-part-head">iOS工程规范
+                <a class="j-open" title='收起'><i class='u-icon-arrow-up-normal'></i></a>
+            </div>
+            <div class="tool-part-content">
+                <div class="t-part-specname">
+                    <label>工程规范：</label>
+                    <div class="spec-select spec-ios-select"></div>
+                    <br>
+                    <a class="spec-check stateful f-dn">查看规范详情</a>
+                    <span class="spec-clear f-dn">清除</span><br><br>
+                    <label class="spec-vmlist-label ">变量映射规则：</label>
+                    <div class="spec-vmlist"></div>
+                </div>
+                <div class="t-part-cliarglist">
+                    <label>命令行参数：</label>
+                    <div class="procli-list clilist-ios"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tool-part tool-test">
+            <div class="t-part-head">测试工程规范
+                <a class="j-open" title='收起'><i class='u-icon-arrow-up-normal'></i></a>
+            </div>
+            <div class="tool-part-content">
+                <div class="t-part-specname">
+                    <label>工程规范：</label>
+                    <div class="spec-select spec-test-select"></div>
+                    <br>
+                    <a class="spec-check stateful f-dn">查看规范详情</a>
+                    <span class="spec-clear f-dn">清除</span><br><br>
+                    <label class="spec-vmlist-label ">变量映射规则：</label>
+                    <div class="spec-vmlist"></div>
+                </div>
+                <div class="t-part-cliarglist">
+                    <label>命令行参数：</label>
+                    <div class="procli-list clilist-test"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</textarea>
+
+<textarea name="jst" id="project-setting-items">
+    {list flags as flag}
+    <div class="setting-item ${flag.className || ''}" data-name="${flag.name}">
+        <div class="setting-item-label">${flag.label}:</div>
+        <div class="setting-item-check ${flag[flag.name] ? 'selected' : ''}">
+            <i class="u-icon-checkbox-normal"></i><i class="u-icon-checkbox-pressed"></i>
+        </div>
+    </div>
+    {/list}
+</textarea>
+
+<textarea name="css" data-src="./progroup_p_t.css"></textarea>
+<textarea name="js" data-src="./progroup_p_t.js"></textarea>

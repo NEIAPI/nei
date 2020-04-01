@@ -1,0 +1,68 @@
+.m-res-tab {
+  padding: 0 30px;
+  margin: -30px -30px -20px -30px;
+}
+
+.m-tab-sub {
+  font-size: 12px;
+  padding: 15px 0 8px;
+  background-color: #fff;
+
+  a:link {
+    color: #666;
+  }
+
+  .tab {
+    display: block;
+    float: left;
+    padding: 5px 10px;
+    margin-right: 10px;
+    text-align: center;
+    border-radius: 15px;
+    color: #666;
+
+    &:hover {
+      background-color: #f0f0f0;
+      color: #666;
+    }
+
+    &:active {
+      color: #fff;
+      background-color: #30a1f2;
+    }
+
+    &.js-selected {
+      color: #fff;
+      background-color: #30a1f2;
+    }
+  }
+}
+
+.nei-scrolled {
+  .m-res-tab {
+    box-shadow: 0 6px 3px -3px rgba(0, 0, 0, 0.1);
+  }
+}
+
+// 资源引用列表页面
+.m-res-ref {
+
+  .d-title {
+    height: 30px;
+
+    .res-name {
+      font-size: 20px;
+      margin: 0 0 0 4px;
+
+      .tip {
+        font-size: 12px;
+        color: #bbb;
+        margin: 0 0 0 4px;
+      }
+    }
+  }
+
+  .list-bd {
+    top: 266px;
+  }
+}

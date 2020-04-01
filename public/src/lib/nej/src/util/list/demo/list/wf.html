@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>test list module</title>
+    <meta charset="utf-8"/>
+    <style>
+      *{border:0;padding:0;margin:0;}
+      html,body{width:100%;height:100%;}
+      .fl{float:left;width:40%;padding-bottom:50px;}
+      .fr{float:right;}
+      .itm{margin:10px 0;overflow:hidden;}
+      .itm p{margin:0 150px 0 0;}
+      .itm a{margin-right:15px;font-size:12px;}
+    </style>
+  </head>
+  <body>
+    <div class="fl xx">
+      <h1>JST模版</h1>
+      <input type="button" value="prev" id="btnprev"/>
+      <input type="button" value="next" id="btnnext"/>
+      <div id="list-box-0"></div>
+      <div id="more-btn-0"> load more </div>
+      <div id="page-box-0"></div>
+    </div>
+    <div class="fl xx">
+      <h1>ITEM模版</h1>
+      <div id="list-box-1"></div>
+      <div id="more-btn-1"> load more </div>
+    </div>
+    <script src="../../../../define.js"></script>
+    <script>
+        NEJ.define([
+            'base/event',
+            'util/template/jst',
+            'util/list/waterfall',
+            './cache.js',
+            './item.js',
+            'text!./jst.html'
+        ], function (_v, _l, _t, _d, _i, _html) {
+
+          var jstkey = _l._$add(_html);
+          
+          var mdl = _t._$$ListModuleWF._$allocate({
+              limit:20,
+              
+              count:2,      // 加载多少次出现分页器
+              delta:200,    // 滚动距离底部多少像素触发加载更多
+              sbody:window, // 包含列表的滚动条所在容器节点或者ID
+              
+              parent:'list-box-0',
+              //more:'more-btn-0',
+              item:jstkey,
+              pager:{parent:'page-box-0'},
+              cache:{klass:_d._$$CustomCache,lkey:'test-list'},
+              onupdate:function(_event){
+                  console.log('update from jst -> '+_event.data.id);
+                  this._$update({
+                      id:_event.data.id,
+                      name:'xxx-'+(+new Date),
+                      loginTime:+new Date
+                  });
+              },
+              ondelete:function(_event){
+                  console.log('delete from jst -> '+_event.data.id);
+                  this._$delete(_event.data);
+              },
+              onpagechange:function(_event){
+                  console.log('go page -> '+_event.index);
+              }
+          });
+
+            _v._$addEvent(
+                'btnprev','click',function(){
+                        mdl._$prevPage();
+                }
+            );
+            _v._$addEvent(
+                'btnnext','click',function(){
+                    mdl._$nextPage();
+                }
+            );
+
+
+          _t._$$ListModuleWF._$allocate({
+              limit:20,
+              parent:'list-box-1',
+              more:'more-btn-1',
+              item:{klass:_i._$$Item},
+              cache:{klass:_d._$$CustomCache,lkey:'test-list'},
+              onupdate:function(_event){
+                  console.log('update from item -> '+_event.data.id);
+                  this._$update({
+                      id:_event.data.id,
+                      name:'xxx-'+(+new Date),
+                      loginTime:+new Date
+                  });
+              },
+              ondelete:function(_event){
+                  console.log('delete from item -> '+_event.data.id);
+                  this._$delete(_event.data);
+              }
+          });
+
+      });
+    </script>
+  </body>
+</html>

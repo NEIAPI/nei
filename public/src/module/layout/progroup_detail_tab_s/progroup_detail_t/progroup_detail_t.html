@@ -1,0 +1,64 @@
+<meta charset="utf-8"/>
+<textarea name="txt" id="module-pg-d-t">
+  <div class="m-pg-d-t">
+  </div>
+</textarea>
+<textarea name="txt" id="m-pg-d-t">
+		<div class="member-list">
+			<div class="member-hd">
+				<div class="info f-toe">
+					<span class="name">{progroup.name}</span>项目组成员<span class="count">{count}</span>
+				</div>
+				<div class="operate-wrap">
+					<input class="search search-inp" placeholder='搜索已存在的用户' on-input={this.search($event)}>
+				</div>
+			</div>
+			<div class="member-bd">
+			    <div class="list" ref=memberList>
+				    {#list list as user}
+					    <div class="member-item" r-class={{'f-dn': !user.hit}}>
+						    <div class="user-info">
+							     {#if user.portrait ===''}
+							         <div class="avater {user.bgClassName}">
+								        <span class="txt">{user.letterText}</span>
+							         </div>
+							    {#else}
+							           <div class="avater" style="background-image:url({user.portrait})"></div>
+							    {/if}
+							    <div class="user-name">
+								    {#if user.hasInclude}
+								        <span class="realname" r-class={{"not-set": !(user.itemState.realname)}}
+                              r-html={user.itemState.realname || '未设置'}></span>
+                    {#else}
+								        <span class="realname" r-class={{"not-set": !(user.realname)}}>{user.realname || '未设置'}</span>
+								    {/if}
+								    {#if !!user.meFlag}
+								        <span class="me">你</span>
+								    {/if}
+							    </div>
+							    <div class="time"><span class="join-time">{user.loginTime}</span>&nbsp;加入项目组</div>
+						    </div>
+						    <div class="role-wrap">
+								<div class="role-select-2">
+									  <div class="role-select-2"><span class="role">{user.selected.name}</span></div>
+								</div>
+						    </div>
+							<div class="opt">
+								{#if !!user.meFlag}
+									<span on-click={this.quitPgroup(progroup.id)}>退出</span>
+								{/if}
+							</div>
+					    </div>
+				    {/list}
+				    {#if searchFlag == true && !!noItemflag && noItemflag == true}
+					    <div class="no-item-tip">
+						    <i class="u-icon-no-found-data"></i>
+						    <p>暂无数据</p>
+					    </div>
+				    {/if}
+			    </div>
+			</div>
+		</div>
+</textarea>
+<textarea name="css" data-src="./progroup_detail_t.css"></textarea>
+<textarea name="js" data-src="./progroup_detail_t.js"></textarea>

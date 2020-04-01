@@ -1,0 +1,22 @@
+.m-progroup-p .m-pg-p-p {
+  margin: 0 20px;
+
+  .page-head {
+    margin-bottom: 30px;
+    width: 100%;
+  }
+
+  /*
+   * 资源列表页面创建和搜索
+   */
+
+  .list-content {
+    .resource-feature-part {
+      top: 90px;
+    }
+  }
+
+  .list-bd {
+    top: 176px;
+  }
+}

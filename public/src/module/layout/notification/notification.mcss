@@ -1,0 +1,105 @@
+.m-notification {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  right: 10px;
+  bottom: 10px;
+  background-color: #fff;
+  border-radius: 4px;
+
+  .nei-scrolled {
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15);
+
+    .m-notification-tab {
+      .m-tab {
+        border-bottom: none;
+      }
+    }
+  }
+
+  .tab-wrap {
+    z-index: 2;
+    position: relative;
+  }
+
+  .con-wrap {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: auto;
+    padding: 70px 30px 0;
+    z-index: 1;
+
+    .js-show {
+      display: block;
+    }
+
+    .m-notification-list {
+      min-height: 100%;
+      display: flex;
+      flex-flow: column;
+
+      a.stateful {
+        &:link,
+        &:visited {
+          color: #30a1f2;
+        }
+
+        &:hover {
+          color: #30a1f2;
+        }
+      }
+
+      .m-stripedlist {
+        flex: 1;
+
+        .u-icon-delete-normal {
+          &: hover {
+            cursor: pointer;
+          }
+        }
+
+        .list-row {
+          .batch-action-item {
+            margin-right: 10px;
+          }
+
+          .col-create-time, .col-status {
+            flex: 0 !important;
+            width: 200px;
+            min-width: 200px !important;
+            text-align: left;
+          }
+
+          .col-nei-actions {
+            margin: 0 12px;
+            text-align: left;
+            flex: 0 !important;
+            width: 60px;
+            min-width: 60px !important;
+
+            a {
+              margin-right: 6px;
+            }
+          }
+
+          .content-title {
+            cursor: pointer;
+          }
+        }
+
+        .read-row {
+          color: #999;
+
+          .col-title {
+            a:link, a:visited {
+              color: #999;
+            }
+          }
+        }
+      }
+    }
+  }
+}

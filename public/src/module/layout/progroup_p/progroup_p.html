@@ -1,0 +1,33 @@
+<meta charset="utf-8"/>
+<textarea name="txt" id="module-progroup-p">
+  <div class="m-progroup-p">
+      <div class="tab-wrap f-dn"></div>
+      <div class="tab-con f-dn">
+        <div class="u-loading u-loading-center f-dn"><i></i></div>
+      </div>
+      <div class="others-view f-dn"></div>
+  </div>
+</textarea>
+
+<textarea name='jst' id="pro-simple-info">
+    <div class="d-title">
+        <input name="name" value="${name|escape2}" class="u-m-inp title" readonly>
+    </div>
+    {if !!other && !applying}
+    <a class="u-btn apply stateful" data-action='{"event":"apply","id":${id},"name":"${pgname|escape2}"}'>申请加入项目组：${pgname|escape2}</a>
+    {/if}
+    {if !!other && !!applying}
+    <div class="applying">
+        <div class="applying-cnt">
+	        <i class="u-icon-appling-project"></i>
+	        <p> 正在申请项目组 ${pgname|escape2} 中</p>
+        </div>
+    </div>
+    {/if}
+    <div class="d-head markdown-body-doc">
+        <div class="item-description">${description} </div>
+    </div>
+</textarea>
+
+<textarea name="css" data-src="./progroup_p.css"></textarea>
+<textarea name="js" data-src="./progroup_p.js"></textarea>

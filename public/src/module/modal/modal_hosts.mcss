@@ -1,0 +1,265 @@
+.m-modal.m-modal-hosts {
+  .modal-dialog {
+    width: 600px;
+  }
+}
+
+.proj-setting-menu {
+  .menu-item-selected {
+    &:after {
+      position: absolute;
+      right: 4px;
+      content: "✓";
+      color: #56c969;
+      font-size: 14px;
+      font-weight: bold;
+    }
+  }
+}
+
+.hosts-editor {
+  .list-wrap {
+    border: 1px solid #e6e6e6;
+  }
+
+  .u-input {
+    width: 100%;
+    color: #222;
+  }
+
+  .u-icon-delete-normal {
+    display: none;
+  }
+
+  .u-icon-add-file-normal {
+    display: none;
+  }
+
+  .icon-set-default {
+    display: none;
+    width: 22px;
+    color: #56c969;
+    font-size: 16px;
+    font-weight: bold;
+    vertical-align: middle;
+    height: 22px;
+    line-height: 22px;
+  }
+
+  .list-row {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #e6e6e6;
+    color: #222;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &-normal {
+      .u-input {
+        border: 1px solid #fff;
+
+        &:hover {
+          border-color: #d2d6de;
+        }
+
+        &-editting {
+          border-color: #aaa !important;
+        }
+      }
+
+      &:hover {
+        .u-icon-delete-normal, .u-icon-add-file-normal, .icon-set-default {
+          display: inline-block;
+        }
+      }
+    }
+
+    &-empty {
+      line-height: 40px;
+      height: 40px;
+      text-indent: 10px;
+    }
+
+    .header-list {
+      padding-left: 40px;
+      padding-right: 5px;
+      padding-bottom: 5px;
+      width: 100%;
+
+      .editor-action {
+        text-align: left;
+
+        .btn-datatype, .btn-json {
+          display: none;
+        }
+      }
+
+      .editor-hd {
+        text-align: left;
+      }
+    }
+  }
+
+  .list-col {
+    position: relative;
+    flex: 1;
+    align-items: center;
+    padding: 0px 5px;
+    height: 40px;
+    line-height: 40px;
+    text-align: left;
+
+    em {
+      display: block;
+      overflow: hidden;
+      padding-left: 10px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    &-check {
+      width: 30px;
+      flex: none !important;
+      text-align: left;
+      text-indent: 5px;
+      cursor: pointer;
+
+      .u-icon-checkbox-pressed {
+        display: none;
+      }
+
+      .u-icon-checkbox-normal {
+        display: inline-block;
+      }
+
+      &.selected {
+        .u-icon-checkbox-pressed {
+          display: inline-block;
+        }
+
+        .u-icon-checkbox-normal {
+          display: none;
+        }
+      }
+    }
+
+    &-host {
+      flex: 1;
+    }
+
+    &-header {
+      width: 100px;
+      flex: none !important;
+    }
+
+    &-created {
+      width: 120px;
+      flex: none !important;
+    }
+
+    &-do {
+      width: 80px;
+      flex: none !important;
+      padding: 0 !important;
+      text-align: center;
+
+      i {
+        cursor: pointer;
+      }
+
+      a {
+        display: inline-block;
+        height: 24px;
+        width: 24px;
+        cursor: pointer;
+
+        .u-icon-yes-hover, .u-icon-no-hover {
+          display: none;
+        }
+
+        &:hover {
+          .u-icon-yes-hover, .u-icon-no-hover {
+            display: inline-block;
+          }
+
+          .u-icon-yes-normal, .u-icon-no-normal {
+            display: none;
+          }
+        }
+      }
+
+      &-default {
+        .icon-set-default {
+          cursor: default;
+          display: inline-block;
+        }
+      }
+    }
+  }
+
+  .list-header {
+    background-color: #f5f5f5;
+
+    .batch-action {
+      line-height: 40px;
+
+      &-item {
+        display: inline-block;
+        margin-right: 4px;
+        padding: 0 10px;
+        height: 28px;
+        border: 1px #ccc solid;
+        line-height: 28px;
+        background-color: #fff;
+        text-align: center;
+        cursor: pointer;
+      }
+    }
+
+    .quick-action {
+      cursor: pointer;
+
+      &:hover {
+        color: #30a1f2;
+      }
+    }
+  }
+
+  .list-body {
+    overflow: auto;
+  }
+
+  .action-row {
+    position: relative;
+    padding-top: 10px;
+    font-size: 0;
+    text-align: left;
+
+    .add {
+      display: inline-block;
+      position: relative;
+      vertical-align: bottom;
+      width: 20px;
+      height: 20px;
+      line-height: 20px;
+      cursor: pointer;
+
+      &:hover {
+        .u-icon-add-editor-normal {
+          display: none;
+        }
+
+        .u-icon-add-editor-hover {
+          display: inline-block;
+        }
+      }
+    }
+
+    .u-icon-add-editor-hover {
+      display: none;
+    }
+  }
+}

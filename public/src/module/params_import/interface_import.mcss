@@ -1,0 +1,105 @@
+/* 接口导入*/
+.m-modal .modal-dialog {
+  width: 600px;
+}
+
+.fn {
+  display: none;
+}
+
+.m-import-interface {
+  margin-bottom: 30px;
+
+  .item {
+    margin-bottom: 10px;
+    zoom: 1;
+
+    &:after {
+      display: block;
+      clear: both;
+      visibility: hidden;
+      height: 0;
+      overflow: hidden;
+      content: ".";
+    }
+
+    .u-dropdown {
+      float: left;
+      width: 100px;
+    }
+
+    .u-input {
+      float: left;
+      margin-left: -1px;
+      width: 302px;
+    }
+
+    .lab {
+      float: left;
+      height: 30px;
+      line-height: 30px;
+      width: 80px;
+      text-align: right
+    }
+
+    .ipt {
+
+      box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+
+    }
+
+    .u-select2 {
+      width: 100px;
+      float: left;
+
+      .select-hd {
+        border-right: 0px;
+      }
+    }
+
+    .ipt-edit {
+      border: 1px solid #d2d6de;
+      text-align: left;
+      overflow: hidden;
+    }
+  }
+}
+
+/*json导入*/
+.m-modal-import {
+  .modal-dialog {
+    width: 500px;
+  }
+}
+
+.draging {
+  background: #f1f1c0
+}
+
+.m-import-json {
+  margin-bottom: 30px;
+  border: 1px solid #d2d6de;
+
+  .oper {
+    padding: 0px 10px;
+    font-size: 14px;
+    height: 40px;
+    line-height: 40px;
+    text-align: right;
+    border-bottom: 1px solid #d2d6de;
+    color: #999;
+
+    .func {
+      float: left;
+    }
+  }
+
+  .draging {
+    background: #f1f1c0
+  }
+
+  .edit {
+    text-align: left;
+  }
+}

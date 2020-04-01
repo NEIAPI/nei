@@ -1,0 +1,19 @@
+{
+  "RDS_PROGROUP_DEFAULT": "progroup_default_",
+  "RDS_PROJECT_DEFAULT": "project_default_",
+  "RDS_BISGROUP_DEFAULT": "bisgroup_default_",
+  "RDS_DATATYPE_SYSTEM": "datatype_system",
+  "RDS_DATATYPE": "datatype_project_",
+  "RDS_DATATYPE_DETAIL": "datatype_detail_project_",
+  "RDS_INTERFACE": "interface_project_",
+  "RDS_RPC": "rpc_project_",
+  "RDS_TEMPLATE": "template_project_",
+  "RDS_BISGROUP": "bisgroup_project_",
+  "RDS_CONSTRAINT": "constraint_project_",
+  "RDS_CONSTRAINT_SYSTEM": "constraint_system",
+  "RDS_WORD": "word_project_",
+  "RDS_WORD_OVERWRITE": "word_overwrite",
+  "RDS_WORD_SYSTEM": "word_system",
+  "RES_WATCH": "_watch_project_",
+  "RDS_MOCKSTORE_CALLTIMES": "mockstore_calltimes"
+}

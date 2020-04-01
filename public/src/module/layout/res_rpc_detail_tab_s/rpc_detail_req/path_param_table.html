@@ -1,0 +1,22 @@
+<table class="path-param-table">
+  <tr class="table-header">
+    <th>名称</th>
+    <th>描述</th>
+  </tr>
+  {#if pathParams.length > 0}
+  {#list pathParams as item}
+  <tr>
+    <td>{item.name}</td>
+    <td>
+      <input placeholder="添加描述信息" type="text" name="description" value={item.description} {#if !!permit}
+             data-action={item.actionData} {/if} title={description} class="u-m-inp" readonly>
+    </td>
+  </tr>
+  {/list}
+  {#else}
+  <tr>
+    <td class="no-item-tip">没有参数信息</td>
+    <td></td>
+  </tr>
+  {/if}
+</table>

@@ -1,0 +1,15 @@
+<div class="item-tip" r-hide={!verify}>您可以使用{verify.info|accessInfo}接收验证码</div>
+<div class="item" r-class={{"item-verify":!!verify}}>
+  <input class="u-input u-input-auto {class}" r-class={{"u-input-code":!!verify}} type={type || "text"}
+  on-keydown={this._listenKeydown($event)} on-focus = {pass = true} maxlength={maxlength || 50} on-blur={this.blur()}
+  r-model={value} placeholder={placeholder}/>
+  {#if !!verify}
+  <button type="button" class="u-btn u-btn-primary send" r-class={{"u-btn-disabled":verify.isSending}} {#if
+          verify.isSending}disabled{
+  /if} r-html={verify.content} on-mousedown={this.sendCode()}></button>
+  {/if}
+  {#if !!email}
+  <span class="suffix">@{email}</span>
+  {/if}
+</div>
+<div class="item-error" r-hide={pass}>{tip}</div>

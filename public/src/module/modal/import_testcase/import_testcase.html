@@ -1,0 +1,130 @@
+<div class="m-import-testcase" ref="testcase">
+  <div class="m-testcase-list">
+    <div class="tip">导入时，传入参数名称若与接口不符合，则会被置为对应参数的默认值</div>
+    {#list importData as import}
+    <div class="m-interface-item">{import.interface.name}</div>
+    {#list import.testcases as testcase}
+    <div class="m-testcase-item">
+      <div class="item-header">
+        <div class="item-checkbox" on-click={this.select(import,testcase_index)}>
+          <i class="u-checkbox u-icon-checkbox-normal" r-class={{"f-dn":testcase.selected}}></i>
+          <i class="u-checkbox u-icon-checkbox-pressed" r-class={{"f-dn":!testcase.selected}}></i>
+        </div>
+        <div class="item-name"><input value="{testcase.name}"
+                                      on-input={this.setTestcaseName($event,import,testcase_index)}/></div>
+        <div class="item-toggle" on-click={this.toggle(import,testcase_index)}>
+          <i title="展开详情" class="u-icon-spread-small-normal" r-class={{"f-dn":testcase.showPreview}}></i>
+          <i title="收起详情" class="u-icon-fold-up-small-normal" r-class={{"f-dn":!testcase.showPreview}}></i>
+        </div>
+      </div>
+      <div class="item-wrap" r-class={{"f-dn":!testcase.showPreview}}>
+        <div class="item-row">路径参数：{#if !import.interface.params.pathParams.length}无{/if}</div>
+        <div class="table-wrap" r-class={{"f-dn":!import.interface.params.pathParams.length}}>
+          <div class="item-row table-header">
+            <div title="名称">名称</div>
+            <div title="类型">类型</div>
+            <div title="值">值</div>
+          </div>
+          <div class="item-row table-body">
+            {#list import.interface.params.pathParams as pathParam}
+            <div title={pathParam.name}>{pathParam.name}</div>
+            <div title={pathParam.typeName}>{pathParam.typeName}</div>
+            <div title={testcase.pathParams[pathParam.name]||pathParam.defaultValue}>
+              {testcase.pathParams[pathParam.name]||pathParam.defaultValue}
+            </div>
+            {/list}
+          </div>
+        </div>
+        <div class="item-row">请求头：{#if !import.interface.params.reqHeaders.length}无{/if}</div>
+        <div class="table-wrap" r-class={{"f-dn":!import.interface.params.reqHeaders.length}}>
+          <div class="item-row table-header">
+            <div title="名称">名称</div>
+            <div title="值">值</div>
+          </div>
+          {#list import.interface.params.reqHeaders as reqHeader}
+          <div class="item-row table-body">
+            <div title={reqHeader.name}>{reqHeader.name}</div>
+            <div title={testcase.reqHeaders[reqHeader.name]||reqHeader.defaultValue}>
+              {testcase.reqHeaders[reqHeader.name]||reqHeader.defaultValue}
+            </div>
+          </div>
+          {/list}
+        </div>
+        <div class="item-row">请求参数：{#if !import.interface.params.inputs.length}无{/if}</div>
+        <div class="table-wrap" r-class={{"f-dn":!import.interface.params.inputs.length}}>
+          <div class="item-row table-header">
+            <div title="名称">名称</div>
+            <div title="类型">类型</div>
+            <div title="描述">是否不发送</div>
+            <div title="默认值">值</div>
+          </div>
+          {#list import.interface.params.inputs as param}
+          {#if param.ignored !== 1}
+          <div class="item-row table-body">
+            <div title={param.name}>{param.name}</div>
+            <div {#if param.isArray||import.interface.resFormat===2}title="Array-{param.typeName||'Object'}"
+                 {#else}title={param.typeName||'Object'}{/if}>{#if
+              param.isArray||import.interface.resFormat===2}Array-{/if}{param.typeName||'Object'}
+            </div>
+            <div title={testcase.reqData[param.name].ignored?"是":"否"}>{testcase.reqData[param.name].ignored?"是":"否"}
+            </div>
+            <div title={testcase.reqData[param.name].value||param.defaultValue}>
+              {testcase.reqData[param.name].value||param.defaultValue}
+            </div>
+          </div>
+          {/if}
+          {/list}
+        </div>
+        <div class="item-row">响应头：{#if !import.interface.params.resHeaders.length}无{/if}</div>
+        <div class="table-wrap" r-class={{"f-dn":!import.interface.params.resHeaders.length}}>
+          <div class="item-row table-header">
+            <div title="名称">名称</div>
+            <div title="预期值">预期值</div>
+          </div>
+          {#list import.interface.params.resHeaders as resHeader}
+          <div class="item-row table-body">
+            <div title={resHeader.name}>{resHeader.name}</div>
+            <div title={testcase.resExpectHeaders[resHeader.name].value||resHeader.defaultValue}>
+              {testcase.resExpectHeaders[resHeader.name].value||resHeader.defaultValue}
+            </div>
+          </div>
+          {/list}
+        </div>
+        <div class="item-row">响应参数：{#if !import.interface.params.outputs.length}无{/if}</div>
+        <div class="table-wrap" r-class={{"f-dn":!import.interface.params.outputs.length}}>
+          <div class="item-row table-header">
+            <div title="名称">名称</div>
+            <div title="类型">类型</div>
+            <div title="预期值">预期值</div>
+          </div>
+          {#list import.interface.params.outputs as param}
+          {#if param.ignored !== 1}
+          <div class="item-row table-body">
+            <div title={param.name}>{param.name}</div>
+            <div {#if param.isArray||import.interface.resFormat===2}title="Array-{param.typeName||'Object'}"
+                 {#else}title={param.typeName||'Object'}{/if}>
+              {#if param.isArray||import.interface.resFormat===2}Array-{/if}{param.typeName||'Object'}
+            </div>
+            <div title={testcase.resExpect[param.name].value||param.defaultValue}>
+              {testcase.resExpect[param.name].value||param.defaultValue}
+            </div>
+          </div>
+          {/if}
+          {/list}
+        </div>
+      </div>
+    </div>
+    {/list}
+    {/list}
+  </div>
+  <div class="m-testcase-more">
+    <i class="u-icon-more-editor-normal normal"></i><i class="u-icon-more-editor-hover hover"></i><i
+    class="u-icon-more-editor-pressed pressed"></i>
+    <div class="menu-wrap">
+      <ul>
+        <li on-click={this.showImport('json')}>导入测试用例</li>
+      </ul>
+    </div>
+  </div>
+  <input type="file" class="j-file f-dn" multiple ref=fileInput on-change={this.import($event)}/>
+</div>

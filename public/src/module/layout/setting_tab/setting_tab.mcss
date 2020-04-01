@@ -1,0 +1,11 @@
+.m-setting-tab {
+  border-bottom: 1px solid #e6e6e6;
+
+  .tab {
+    &.js-selected {
+      .unread {
+        display: none;
+      }
+    }
+  }
+}

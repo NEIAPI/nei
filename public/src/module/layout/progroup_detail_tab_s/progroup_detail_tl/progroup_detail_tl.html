@@ -1,0 +1,154 @@
+<meta charset="utf-8"/>
+<textarea name="txt" id="module-pg-d-tl">
+  <div class="m-pg-d-tl">
+  </div>
+</textarea>
+
+<textarea name="jst" id="progroup-toollist">
+	<div class="tool-info">
+		<div class="tool-part tool-setting">
+			<div class="t-part-head">通用设置</div>
+			<div class="t-part-content"></div>
+		</div>
+		<div class="tool-part tool-http">
+			<div class="t-part-head">HTTP接口规范设置
+				<a class="j-open" title='收起'><i class='u-icon-arrow-up-normal'></i></a>
+			</div>
+			<div class="tool-part-content">
+				<div class="extra">
+					<button class="import-httpspec u-btn" href="javascript:void(0);">从其他项目组导入</button>
+				</div>
+				<div class="t-part-specname">
+					<div class="spec-item">
+						<label class="spec-label">请求路径规范：</label>
+						<input type="text" class="spec-item-path" placeholder="请输入正则表达式"/>
+						<input type="text" class="spec-item-path-description" name="path_description" placeholder="请求路径规范">
+					</div>
+					<div class="spec-item">
+						<label class="spec-label">参数名称规范：</label>
+						<input type="text" class="spec-item-param" placeholder="请输入正则表达式"/>
+						<input type="text" class="spec-item-param-description" name="param_description" placeholder="请求参数名称规范">
+					</div>
+					<div class="spec-item">
+						<label class="spec-label">参数描述规范：</label>
+						<input type="text" class="spec-item-paramdesc" placeholder="请输入正则表达式"/>
+						<input type="text" class="spec-item-paramdesc-description" name="paramdesc_description"
+                   placeholder="请求参数描述规范">
+					</div>
+					<div class="spec-item">
+						<label class="spec-label">请求方式规范：</label>
+						<input type="text" class="spec-item-method" placeholder="请输入正则表达式"/>
+						<input type="text" class="spec-item-method-description" name="method_description" placeholder="请求方式规范">
+					</div>
+					<div class="spec-item">
+						<label class="spec-label">标签规范：</label>
+						<input type="text" class="spec-item-tag" placeholder="请输入正则表达式"/>
+						<input type="text" class="spec-item-tag-description" name="tag_description" placeholder="标签规范">
+					</div>
+					<div class="spec-item spec-schema">
+						<label class="spec-label">响应结果规范：</label>
+						<div class="editor"></div>
+						<input type="text" class="spec-item-res-schema-description" name="res_schema_description"
+                   placeholder="响应结果规范 Schema">
+					</div>
+					<div class="spec-item spec-schema">
+						<label class="spec-label">接口出入参规范：</label>
+						<div class="editor"></div>
+						<input type="text" class="spec-item-interface-schema-description" name="interface_schema_description"
+                   placeholder="接口出入参规范 Schema">
+					</div>
+				</div>
+				<div class="t-part-spec-explanation">
+					说明：
+					<p>1、规范判断使用正则表达式，不需要在头尾添加"/"，不支持标志（flag），建议添加^与$来进行整个串的匹配以防止错误情况的出现。</p>
+					<p>2、参数规范 的正则，它匹配接口中的所有参数名称。</p>
+					<p>3、你可以在 <a href="https://regex101.com/" target="_blank">这个网站</a> 检验你的正则表达式。</p>
+					<p>4、注意，为了兼容老接口，约定在设置规范之前创建的接口时，对于不规范的输入，只会提示，不会限制更新。</p>
+					<p>5、比如：
+						<ul>
+							<li>a. 请求路径强制小写，可以使用路径参数，示例：^\/[a-z0-9/:{}-]+(\?([a-zA-Z0-9=&:{}]+)*)?$</li>
+							<li>b. 参数必须为驼峰，示例：^[a-z][a-zA-Z0-9]*$</li>
+						</ul>
+          </p>
+				</div>
+			</div>
+		</div>
+		<div class="tool-part tool-web">
+			<div class="t-part-head">WEB工程规范
+				<a class="j-open" title='收起'><i class='u-icon-arrow-up-normal'></i></a>
+			</div>
+			<div class="tool-part-content">
+				<div class="t-part-specname">
+					<label>工程规范：</label>
+					<div class="spec-select spec-web-select"></div><br>
+					<a class="spec-check stateful f-dn">查看规范详情</a>
+					<span class="spec-clear f-dn">清除</span><br>
+					<label class="spec-vmlist-label ">变量映射规则：</label>
+					<div class="spec-vmlist"></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="tool-part tool-aos">
+			<div class="t-part-head">Android工程规范
+				<a class="j-open" title='收起'><i class='u-icon-arrow-up-normal'></i></a>
+			</div>
+			<div class="tool-part-content">
+				<div class="t-part-specname">
+					<label>工程规范：</label>
+					<div class="spec-select spec-aos-select"></div><br>
+					<a class="spec-check stateful f-dn">查看规范详情</a>
+					<span class="spec-clear f-dn">清除</span><br>
+					<label class="spec-vmlist-label">变量映射规则：</label>
+					<div class="spec-vmlist"></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="tool-part tool-ios">
+			<div class="t-part-head">iOS工程规范
+				<a class="j-open" title='收起'><i class='u-icon-arrow-up-normal'></i></a>
+			</div>
+			<div class="tool-part-content">
+				<div class="t-part-specname">
+					<label>工程规范：</label>
+					<div class="spec-select spec-ios-select"></div><br>
+					<a class="spec-check stateful f-dn">查看规范详情</a>
+					<span class="spec-clear f-dn">清除</span><br>
+					<label class="spec-vmlist-label ">变量映射规则：</label>
+					<div class="spec-vmlist"></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="tool-part tool-test">
+			<div class="t-part-head">测试工程规范
+				<a class="j-open" title='收起'><i class='u-icon-arrow-up-normal'></i></a>
+			</div>
+			<div class="tool-part-content">
+				<div class="t-part-specname">
+					<label>工程规范：</label>
+					<div class="spec-select spec-test-select"></div><br>
+					<a class="spec-check stateful f-dn">查看规范详情</a>
+					<span class="spec-clear f-dn">清除</span><br>
+					<label class="spec-vmlist-label ">变量映射规则：</label>
+					<div class="spec-vmlist"></div>
+				</div>
+			</div>
+		</div>
+  </div>
+</textarea>
+
+<textarea name="jst" id="progroup-setting-items">
+	{list flags as flag}
+	<div class="setting-item ${flag.className || ''}">
+		<div class="setting-item-label">${flag.label}:</div>
+		<div class="setting-item-check ${flag[flag.name] ? 'selected' : ''}" data-name="${flag.name}">
+			<i class="u-icon-checkbox-normal"></i><i class="u-icon-checkbox-pressed"></i>
+		</div>
+	</div>
+	{/list}
+</textarea>
+
+<textarea name="css" data-src="./progroup_detail_tl.css"></textarea>
+<textarea name="js" data-src="./progroup_detail_tl.js"></textarea>

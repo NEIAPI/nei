@@ -1,0 +1,70 @@
+<meta charset="utf-8"/>
+<textarea name="txt" id="module-setting-pat">
+  <div class="m-setting-pat">
+    <div class="m-ps-item">
+      <label class="m-ps-label"><i class="signal-required">*</i>名称：</label>
+      <span class="m-ps-con">
+        <input class="u-m-inp name-value" title="访问令牌名称" placeholder="请输入访问令牌名称" autocomplete="off" maxlength="20"/>
+      </span>
+      <span class="m-ps-tip">
+        请输入访问令牌名称
+      </span>
+    </div>
+    <div class="m-ps-item">
+      <span class="m-ps-label"><i class="signal-required">*</i>访问权限：</span>
+      <span class="m-ps-con">
+        <label class="m-ps-label-1">
+          <i class="u-icon-checkbox-normal u-icon read-value" data-click='{"type":"checkbox"}'></i>
+          <span>读</span>
+        </label>
+        <label class="m-ps-label-1">
+          <i class="u-icon-checkbox-normal u-icon write-value" data-click='{"type":"checkbox"}'></i>
+          <span>写</span>
+        </label>
+      </span>
+      <span class="m-ps-tip">
+        请至少选择一种访问权限
+      </span>
+    </div>
+    <div class="m-ps-item">
+      <label class="m-ps-label">描述：</label>
+      <span class="m-ps-con">
+        <input class="u-m-inp description-value" title="访问令牌名称" placeholder="请输入访问令牌描述" autocomplete="off"/>
+      </span>
+      <span class="m-ps-tip">
+        请输入访问令牌描述
+      </span>
+    </div>
+    <div class="m-ps-item">
+      <label class="m-ps-label">过期时间：</label>
+      <span class="m-ps-con">
+        <input class="u-m-inp expire-value" placeholder="请选择访问令牌过期时间" data-click='{"type":"datepick"}'/>
+        <div class="u-ps-time"></div>
+      </span>
+      <span class="m-ps-tip">
+        默认永不过期
+      </span>
+    </div>
+    <div class="m-ps-item">
+      <label class="m-ps-label">&nbsp;</label>
+      <span class="m-ps-con">
+        <button class="submit-btn" data-click='{"type":"submit"}'>生成访问令牌</button>
+      </span>
+    </div>
+    <div class="m-ps-gen-success f-dn">
+      <div class="success-tip">你新创建名称为 <span class="token-name"></span> 的访问令牌为：</div>
+      <div class="token-wrap">
+        <span class="token"></span>
+        <span class="token-copy">复制</span>
+      </div>
+      <div class="warn-tip">请务必妥善保存上面的访问令牌，之后你无法再次查看。</div>
+    </div>
+  </div>
+  <div class="pat-list-wrap">
+    <div class="pat-list-title">可用的访问令牌</div>
+    <div class="pat-list"></div>
+  </div>
+</textarea>
+
+<textarea name="css" data-src="./setting_pat.css"></textarea>
+<textarea name="js" data-src="./setting_pat.js"></textarea>

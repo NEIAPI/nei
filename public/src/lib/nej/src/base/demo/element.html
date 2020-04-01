@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>element demo</title>
+    <meta charset="utf-8" />
+    <script>
+      function log(m){
+          var p = document.createElement('p');
+          p.innerHTML = m;
+          document.body.appendChild(p);
+      }
+    </script>
+  </head>
+  <body>
+    
+    <script src="../../define.js"></script>
+    <script>
+      NEJ.define([
+          'base/element'
+      ],function(_e){
+          // create element and get by id
+          var _div = _e._$create('div');
+          _div.innerHTML = '<p id="a">aaaa</p>';
+          log(_e._$get('a'));
+          // get element after set element id in memory
+          var _div = document.createElement('div');
+          var _id = _e._$id(_div);
+          log(_e._$get(_id));
+          // parse element
+          log(_e._$html2node('<TR><td>col1</td><td>col2</td></TR>'));
+      });
+    </script>
+  </body>
+</html>

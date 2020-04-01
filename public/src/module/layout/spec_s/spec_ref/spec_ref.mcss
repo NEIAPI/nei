@@ -1,0 +1,26 @@
+.m-spec-ref {
+  margin: 30px;
+  // 资源引用列表页面
+
+  &.m-res-ref {
+
+    .d-title {
+      height: 30px;
+
+      .res-name {
+        font-size: 20px;
+        margin: 0 0 0 4px;
+
+        .tip {
+          font-size: 12px;
+          color: #bbb;
+          margin: 0 0 0 4px;
+        }
+      }
+    }
+
+    .list-bd {
+      top: 266px;
+    }
+  }
+}

@@ -1,0 +1,134 @@
+{#if level == 0}
+<div class="m-paramslist">
+  <div class="list-body">
+    <div r-hide={isHideFullButton} class="fullScreen" title="全屏" on-click={this.doFullScreen($event)}><i
+      class="u-icon-spread-normal"></i></div>
+    <list-head ref="LH" level={level} format="header" on-appendModel={this.appendModel()} on-batRemove={this.remove()}
+               on-reverseSelected={this.reverseSelect($event)}
+               on-headstatuschange={this.listenHeadStatusChange($event)}></list-head>
+    {#if !!params.length}
+    {#list params as p}
+    {#if p.datatypeId}
+    <div class="list-row list-row-hl" on-mouseenter={p.hover= true} on-mouseleave={p.hover
+    = false}>
+    {#list p.imports as item}
+    <div class="list-row-sub">
+      <div class="list-col"><em title={item.name}>{item.name}</em></div>
+      <div class="list-col"><em title={item.defaultValue}>{item.defaultValue}</em></div>
+      <div class="list-col"><em title={item.description}>{item.description}</em></div>
+      <div class="list-col list-col-do"></div>
+    </div>
+    {/list}
+    <div class="list-row-des"><span class="wrap-due"><i class="u-icon-arrow-collected-normal"></i><a
+      title={p.datatypeName} href="/doc/datatypes/?pid={pid}&resid={p.datatypeId}"
+      class="due stateful">{p.datatypeName}</a></span></div>
+  </div>
+  {#else}
+  <div class="list-row ">
+    <div class="list-col"><em title={p.name}>{p.name}</em></div>
+    <div class="list-col"><em title={p.defaultValue}>{p.defaultValue}</em></div>
+    <div class="list-col"><em title={p.description}>{p.description}</em></div>
+    <div class="list-col list-col-do"></div>
+  </div>
+  {/if}
+  {/list}
+  {#else}
+  <params-empty level={level} format="header" on-import={this.import($event)}></params-empty>
+  {/if}
+</div>
+</div>
+{#else}
+<div class="m-paramslist">
+  <div class="list-body">
+    <div r-hide={isHideFullButton} class="fullScreen" title="全屏" on-click={this.doFullScreen($event)}><i
+      class="u-icon-spread-normal"></i></div>
+    <list-head ref="LH" format="header" on-appendModel={this.appendModel()} on-batRemove={this.remove()}
+               on-reverseSelected={this.reverseSelect($event)}
+               on-headstatuschange={this.listenHeadStatusChange($event)}></list-head>
+    {#if !!params.length}
+    {#list params as p}
+    {#if p.datatypeId}
+    <div class="list-row list-row-hl" on-mouseenter={p.hover= true} on-mouseleave={p.hover
+    = false}>
+    {#list p.imports as item}
+    <div class="list-row-sub">
+      <div class="list-col list-col-check" r-class={{"selected":checkStatus["dr"+p.datatypeId]}}
+           on-click={this.selectItem("dr"+p.datatypeId)}><i class="u-icon-checkbox-normal"></i><i
+        class="u-icon-checkbox-pressed"></i></div>
+      <div class="list-col"><em title={item.name}>{item.name}</em></div>
+      <div class="list-col">
+        <select2 source={valueSource} on-focus={this.listenFocus($event,p_index)} selected={item.defaultValue}
+                 choseOnly={false} preview={true} sortList={false} initSilent={true}
+                 on-change={this._onSelectChange($event,{x:p_index,y:item_index},"defaultValue","modify")}></select2>
+      </div>
+      <div class="list-col"><input title={item.description} type="text" readonly r-model={item.description}
+                                   class="u-input " placeholder="添加描述"
+                                   data-active='required=false&id={item.id}&datatypeId={p.datatypeId}&index={p_index}-{item_index}&actionType=input&name=description&cache=iHeader'/>
+      </div>
+      <div class="list-col list-col-do"></div>
+    </div>
+    {/list}
+    <div class="list-row-des"><span class="wrap-due"><i class="u-icon-arrow-collected-normal"></i><a
+      title={p.datatypeName} href="/datatype/detail/?pid={pid}&id={p.datatypeId}"
+      class="due stateful">{p.datatypeName}</a><span title="删除" class="delete" r-class={{"f-dn-important":!p.hover}}
+                                                     on-click={this.remove(p_index)}><i
+      class="u-icon-delete-normal"></i><i class="u-icon-delete-hover-2"></i></span></span></div>
+  </div>
+  {#else}
+  {#if p.isAdding}
+  <div class="list-row list-row-adding">
+    <div class="list-col list-col-check"></div>
+    <div class="list-col" r-class={{"list-col-error":p.error}}>
+      <select2 source={nameSource} ref="nele" choseOnly={false}
+               on-change={this._onSelectChange($event,p_index,"name")}></select2>
+    </div>
+    <div class="list-col">
+      <select2 source={valueSource} ref="vele" choseOnly={false}
+               on-change={this._onSelectChange($event,p_index,"defaultValue")}></select2>
+    </div>
+    <div class="list-col"><input type="text" class="u-input" data-enter={p_index} r-model={p.description}></div>
+    <div class="list-col list-col-do"><a title="保存" on-click={this.update(p_index)}><i class="u-icon-yes-normal"></i><i
+      class="u-icon-yes-hover"></i></a><a title="删除" on-click={this.remove(p_index)}><i class="u-icon-no-normal"></i><i
+      class="u-icon-no-hover"></i></a></div>
+  </div>
+  {#else}
+  <div class="list-row " on-mouseenter={p.hover
+  = true} on-mouseleave={p.hover = false}>
+  <div class="list-col list-col-check" on-click={this.selectItem(p.id)} r-class={{"selected":checkStatus[p.id]}}><i
+    class="u-icon-checkbox-normal"></i><i class="u-icon-checkbox-pressed"></i></div>
+  <div class="list-col">
+    <select2 source={nameSource} selected={p.name} choseOnly={false} preview={true} sortList={false} initSilent={true}
+             on-change={this._onSelectChange($event,p_index,"name","modify")}></select2>
+  </div>
+  <div class="list-col">
+    <select2 source={valueSource} on-focus={this.listenFocus($event,p_index)} selected={p.defaultValue}
+             choseOnly={false} preview={true} sortList={false} initSilent={true}
+             on-change={this._onSelectChange($event,p_index,"defaultValue","modify")}></select2>
+  </div>
+  <div class="list-col"><input title={p.description} type="text" readonly r-model={p.description} class="u-input "
+                               placeholder="添加描述"
+                               data-active='required=false&id={p.id}&index={p_index}&actionType=input&name=description&cache=iHeader'/>
+  </div>
+  <div class="list-col list-col-do"><i title="删除" class="u-icon-delete-normal" r-class={{"f-dn-important":!p.hover}}
+                                       on-click={this.remove(p_index)}></i></div>
+</div>
+{/if}
+{/if}
+{/list}
+{#else}
+<params-empty format="header" on-import={this.import($event)}></params-empty>
+{/if}
+</div>
+<div class="action-row">
+  <span title="添加" class="add" on-click={this.add()}><i class="u-icon u-icon-add-editor-normal"></i><i
+    class="u-icon u-icon-add-editor-hover"></i><i class="u-icon u-icon-add-editor-pressed"></i></span>
+  <div class="more " title="更多">
+    <i class="u-icon u-icon-more-editor-normal"></i><i class="u-icon u-icon-more-editor-hover"></i><i
+    class="u-icon u-icon-more-editor-pressed"></i>
+    <div class="wrap-menu">
+      <param-menu on-check={this._onMenuCheck($event)} format="header"></param-menu>
+    </div>
+  </div>
+</div>
+</div>
+{/if}

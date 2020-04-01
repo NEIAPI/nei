@@ -1,0 +1,70 @@
+.m-activitylist {
+  flex: 1;
+  width: 100%;
+
+  .m-empty {
+    margin: 100px auto 0;
+    text-align: center;
+
+    .u-empty-tip {
+      margin-top: 10px;
+      font-size: 12px;
+      color: #999;
+      display: block;
+    }
+  }
+
+  .m-act-item {
+    font-size: 12px;
+    padding: 0 0 20px 10px;
+    margin-left: 4px;
+    position: relative;
+  }
+
+  .u-act-name {
+    color: #222222;
+    font-weight: bold;
+    line-height: 20px;
+  }
+
+  .u-act-time {
+    font-size: 12px;
+    color: #999999;
+    height: 18px;
+    margin-bottom: 4px;
+  }
+
+  .u-act-con {
+    color: #666666;
+    line-height: 1.5em;
+    word-break: break-word;
+    max-height: 110px;
+    overflow: hidden;
+  }
+
+  .m-act-circle {
+    position: absolute;
+    padding: 5px 0;
+    left: -4px;
+    top: 2px;
+
+    .u-circle {
+      border: 2px solid #b2b2b2;
+      border-radius: 50%;
+      height: 4px;
+      width: 4px;
+    }
+  }
+
+  .u-line {
+    position: absolute;
+    top: 20px;
+    bottom: 0;
+    left: -1px;
+    border-left: 1px solid #e6e6e6;
+  }
+}
+
+.m-act-pager {
+  margin-right: 20px !important;
+}

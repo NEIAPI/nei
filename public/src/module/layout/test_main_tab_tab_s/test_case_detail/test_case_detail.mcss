@@ -1,0 +1,17 @@
+.m-test-case-detail {
+  .retest {
+    background-color: #56c969;
+
+    &:hover {
+      background-color: #4cb05c;
+    }
+
+    &.u-btn-disabled {
+      background-color: #abf1b7;
+
+      &:hover {
+        background-color: #abf1b7;
+      }
+    }
+  }
+}

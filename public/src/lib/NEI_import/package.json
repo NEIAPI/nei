@@ -1,0 +1,40 @@
+{
+  "name": "nei_import",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "@types/chai": "^4.0.4",
+    "@types/har-format": "^1.2.2",
+    "@types/swagger-parser": "^4.0.2",
+    "reflect-metadata": "^0.1.10",
+    "swagger-parser": "^4.0.0",
+    "ts-loader": "^3.1.1"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.0.4",
+    "@types/mocha": "^2.2.44",
+    "@types/node": "^8.0.47",
+    "chai": "^4.1.2",
+    "clean-webpack-plugin": "^0.1.17",
+    "mocha": "^4.0.1",
+    "mocha-typescript": "^1.1.11",
+    "nyc": "^11.2.1",
+    "source-map-support": "^0.5.0",
+    "ts-node": "^3.3.0",
+    "typescript": "^2.5.3",
+    "webpack": "^3.8.1",
+    "webpack-uglify-js-plugin": "^1.1.9"
+  },
+  "scripts": {
+    "pretest": "tsc",
+    "test": "nyc mocha",
+    "watch": "mocha-typescript-watch",
+    "prepare": "tsc"
+  },
+  "author": "",
+  "license": "ISC"
+}

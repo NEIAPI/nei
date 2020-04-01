@@ -1,0 +1,16 @@
+.m-r-dt-d {
+  .tab-body {
+    background-color: #f7f7f7;
+    padding: 20px;
+    position: relative;
+
+    .tab-wrap {
+      margin: 0;
+      background: none;
+    }
+
+    .tab-con {
+      margin-top: 10px;
+    }
+  }
+}

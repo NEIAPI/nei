@@ -1,0 +1,23 @@
+<meta charset="utf-8"/>
+<textarea name="txt" id="module-pg-p-d">
+  <div class="m-pg-p-d u-res-detail"></div>
+</textarea>
+
+<textarea name='jst' id="pro-base-detail">
+	<div class="detail-head">
+        <input type="text" name="name" value="${name|escape2}" class="u-m-inp title{if !canModify} u-m-inp-pre{/if}"
+               readonly {if canModify}data-action='{"type":"modify","cache":"project","id":"${id}","name":"name"}' {/if}>
+    </div>
+    <div class="detail-desc">
+        <textarea placeholder="暂无描述" name="description" title="${description|escape2}"
+                  class="u-m-inp pg-desc u-m-txt {if !canModify} u-m-inp-pre{/if}" readonly {if
+                  canModify}data-action='{"type":"modify","cache":"project","id":"${id}","name":"description"} ' {/if}>${description|escape2}<&#47;textarea>
+    </div>
+    <div class="d-item d-item-activity">
+        <label>项目动态：</label>
+        <div class="activity-list"></div>
+    </div>
+</textarea>
+
+<textarea name="css" data-src="./progroup_p_d.css"></textarea>
+<textarea name="js" data-src="./progroup_p_d.js"></textarea>

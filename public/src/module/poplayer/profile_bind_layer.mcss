@@ -1,0 +1,73 @@
+.p-bind-layer {
+  text-align: center;
+  font-size: 14px;
+
+  .p-bind-layer-con {
+    margin: 0 50px;
+
+    .b-ipt-row {
+      display: flex;
+      margin-bottom: 10px;
+      white-space: normal;
+
+      .u-ipt {
+        box-sizing: border-box;
+        height: 30px;
+        line-height: 30px;
+        flex: 1;
+        font-size: 14px;
+        color: #222;
+        padding: 0 10px;
+        border: 1px solid #999;
+      }
+
+      .u-code-btn {
+        border: none;
+        box-sizing: border-box;
+        background-color: #30a1f2;
+        color: #fff;
+        width: 100px;
+        height: 30px;
+        line-height: 30px;
+        margin-left: 10px;
+
+        &:hover {
+          cursor: pointer;
+          background-color: #2b91d9;
+        }
+      }
+
+      .js-error {
+        border-color: #f00;
+      }
+
+      .js-disabled {
+        background-color: #2b91d9;
+      }
+    }
+
+    .u-submit {
+      margin-top: 20px;
+      height: 40px;
+      line-height: 40px;
+      background-color: #30a1f2;
+      color: #fff;
+
+      &:hover {
+        cursor: pointer;
+        background-color: #2b91d9;
+      }
+    }
+  }
+
+  .u-tip-btn {
+    font-size: 16px;
+    color: #999;
+    margin-top: 10px;
+
+    .u-tip-resubmit {
+      color: #30a1f2;
+      margin-left: 20px;
+    }
+  }
+}

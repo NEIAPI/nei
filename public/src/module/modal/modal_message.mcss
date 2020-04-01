@@ -1,0 +1,10 @@
+.message-content {
+  textarea {
+    width: 400px;
+    height: 200px;
+    overflow: auto;
+    padding: 14px 10px;
+    box-sizing: border-box;
+    border: 1px solid #e6e6e6;
+  }
+}

@@ -1,0 +1,6 @@
+.m-progroup-activity {
+  margin: 0 30px 0 50px;
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+}

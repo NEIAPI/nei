@@ -1,0 +1,45 @@
+<div class="m-datatype-list">
+  <div class="search"><input type="text" class="u-input" ref="input" on-input={this._onListenInput($event)}
+                             placeholder="搜索"></div>
+  <div class="dt-header">
+    <div class="list-row ">
+      <div class="list-col list-col-check" r-class={{"selected":selectAll}}><i class="u-icon-checkbox-normal"
+                                                                               on-click={this.selectAll(xlist)}></i><i
+        class="u-icon-checkbox-pressed" on-click={this.selectAll(xlist)}></i></div>
+      <div class="list-col list-col-type">类型</div>
+      {#if hasVersion}
+      <div class="list-col list-col-version">版本</div>
+      {/if}
+      <div class="list-col list-col-des">描述</div>
+    </div>
+  </div>
+
+  <div class="dt-body">
+    {#if !xlist.length}
+    <div class="list-empty">
+      没有找到相关的数据模型
+    </div>
+    {/if}
+    {#list xlist as x}
+    <div class="list-row" on-click={this.selectItem($event,x_index)}>
+      <div class="list-col list-col-check" r-class={{"selected":checkStatus[x_index]}}><i
+        class="u-icon-checkbox-normal"></i><i class="u-icon-checkbox-pressed"></i></div>
+      <div class="list-col list-col-type" title={x.name}>{x.name}</div>
+      {#if hasVersion}
+      <div class="list-col list-col-version">
+        {#if sourceList[x_index].source.length}
+        <select2 sortFunc={sortFunc} source={sourceList[x_index].source} selected={sourceList[x_index].id}
+                 on-change={this.changeVersion($event,x)} initSilent={true}></select2>
+        {#else}无{/if}
+      </div>
+      {/if}
+      <div class="list-col list-col-des" title={x.description}>{x.description}</div>
+    </div>
+    {/list}
+  </div>
+  <div class="dt-footer">
+    {#if checkArray.length}
+    已选中导入类型:{checkArray|formatCheck}
+    {/if}
+  </div>
+</div>

@@ -1,0 +1,269 @@
+/* 参数编辑器样式 */
+.m-editor {
+  text-align: left;
+  font-size: 12px;
+
+  .j-editor {
+    position: relative;
+
+    .u-tip {
+      position: absolute;
+      top: 5px;
+      left: 70px;
+      padding: 2px 3px 2px 3px;
+      border-radius: 3px;
+      color: #fff;
+      background-color: #424a54;
+      overflow: visible;
+
+      &:before {
+        position: absolute;
+        content: '';
+        left: 10%;
+        top: 22px;
+        border: 6px solid transparent;
+        border-top: 6px solid #424a54;
+      }
+    }
+  }
+
+  .operation {
+    padding-top: 5px;
+    text-align: left;
+    font-size: 0;
+
+    a {
+      font-size: 12px;
+      margin-right: 5px;
+    }
+  }
+
+  .u-btn {
+    height: 30px;
+    line-height: 30px;
+    background: #fff;
+    color: #555;
+    padding: 0 10px;
+    border: 1px solid #efefef;
+
+    &:hover {
+      background: #f7f7f7;
+    }
+
+    &:active {
+      background: #e6e6e6;
+    }
+  }
+
+  .u-input {
+    width: 100%;
+  }
+
+  .u-select2 {
+    background: #fff;
+    width: 100%;
+  }
+
+  .u-input-exp {
+    width: calc(100%);
+  }
+
+  .u-unitgroup {
+    text-align: left;
+    padding-bottom: 10px;
+  }
+}
+
+.wrap-editor {
+  position: relative;
+
+  &:hover {
+    .fullScreen {
+      display: block;
+    }
+  }
+
+  .fullScreen {
+    display: none;
+    position: absolute;
+    right: 2px;
+    top: 2px;
+    text-align: center;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    z-index: 9;
+    border: 1px solid #e6e6e6;
+    cursor: pointer;
+
+    &:hover {
+      border-color: #dccc6c;
+    }
+    transition: all 0.5s ease;
+  }
+}
+
+/*编辑器基础样式
+*/
+.m-tb-editor {
+  width: 100%;
+  border: solid 1px #e6e6e6;
+
+  td, th {
+    padding: 5px 10px;
+  }
+
+  thead {
+    tr {
+      height: 30px;
+      background: #f5f5f5;
+    }
+
+    th {
+      border-bottom: 1px solid #efefef;
+    }
+  }
+
+  tbody {
+    background: #fff;
+  }
+
+  .no-name-datatype {
+    background-color: #f5f5f5;
+    margin: 5px 60px 10px;
+    position: relative;
+
+    .arrow {
+      border: 8px solid transparent;
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-bottom-color: #e6e6e6;
+      top: -15px;
+      left: 20%;
+
+      &::after {
+        content: "";
+        border: 6px solid transparent;
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-bottom-color: #f5f5f5;
+        top: -4px;
+        left: -6px;
+      }
+    }
+
+    tbody {
+      background-color: inherit;
+    }
+
+    th {
+      border: none;
+    }
+
+    .operation {
+      padding: 5px;
+      border: solid 1px #e6e6e6;
+      border-top: none;
+
+      .u-btn {
+        border: solid 1px #e6e6e6;
+      }
+    }
+  }
+
+  .opt {
+    text-align: center;
+
+    a {
+      .u-icon-no-hover {
+        display: none;
+      }
+
+      &:hover {
+        .u-icon-no-hover {
+          display: inline-block;
+        }
+
+        .u-icon-no-normal {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+/**
+编辑器-- 哈希
+*/
+.m-tb-editor-haxi {
+  .sel {
+    min-width: 200px;
+  }
+
+  .opt {
+    width: 40px;
+  }
+}
+
+/**
+编辑器-- 枚举
+*/
+.m-tb-editor-enum {
+  .sel {
+    width: 400px;
+  }
+
+  .opt {
+    width: 120px;
+  }
+}
+
+/**
+编辑器-- 元素
+*/
+.m-tb-editor-org {
+  thead {
+    th {
+      width: 50%;
+    }
+  }
+}
+
+/**
+编辑器-- 元素
+*/
+.m-tb-editor-array {
+  thead {
+    th {
+      width: 20%;
+
+      &:last-child {
+        width: 40%;
+      }
+    }
+  ;
+
+  }
+  .wrap-select {
+    position: relative;
+    width: 20%;
+    min-width: 260px;
+  }
+
+  .u-select2 {
+    width: 100%;
+  }
+
+}
+
+.m-tb-editor-base {
+  thead {
+    th {
+      width: 20%;
+    }
+  ;
+  }
+
+}

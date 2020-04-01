@@ -1,0 +1,16 @@
+.m-res-t-c {
+  .form-group {
+    .tag, .templates, .interfaces {
+      width: 50%;
+    }
+
+    .parameters {
+      width: t('calc(100% - 110px)');
+      padding: 5px 0;
+    }
+  }
+
+  .editor-action {
+    text-align: left;
+  }
+}

@@ -1,0 +1,56 @@
+<h1 class="title tc">页面模版</h1>
+<section class="templates">
+  {list data as dt}
+  <section>
+    <h3 id="templates-${dt.id}">
+      ${dt.name|escape2}
+      <!-- <a class="backtop" href="#catalog">返回目录 ↑</a> -->
+    </h3>
+    <p class="moreinfo"><span class="strong">描述</span>：{if dt.description}${dt.description|escape2}{else}无{/if}</p>
+    <p class="moreinfo"><span class="strong">标签</span>：{if dt.tag}${dt.tag|escape2}{else}无{/if}</p>
+    <p class="moreinfo"><span class="strong">路径</span>：${dt.path|escape2}</p>
+    <p class="moreinfo"><span class="strong">分组</span>：${dt.group.name|escape2}</p>
+    <p class="moreinfo"><span class="strong">创建人</span>：${dt.creator.realname|escape2}</p>
+    <p class="moreinfo"><span class="strong">创建时间</span>：${dt.createTime|format:'yyyy-MM-dd HH:mm:ss'}</p>
+    {if !isNotSystemType(dt.id)||dt.params.length==0}
+    <p class="moreinfo"><span class="strong">参数</span>：无</p>
+    {else}
+    <h5>参数</h5>
+    <table>
+      <thead>
+      <tr>
+        <th>名称</th>
+        <th>类型</th>
+        <th>默认值</th>
+        <th>描述</th>
+      </tr>
+      </thead>
+      <tbody>
+      {list dt.params as param}
+      <tr>
+        <td>${param.name}</td>
+        <td>
+          {if param.isArray}Array-{/if}
+          {if param.type>10003}
+          <a class="stateful" href="/doc/datatypes/?id=${projectInfo.id}&resid=${param.type}"
+             title="${param.typeName|escape2}">${param.typeName|escape2}</a>
+          {else}
+          ${param.typeName|escape2}
+          {/if}
+        </td>
+        <td>${param.defaultValue|escape2}</td>
+        <td>${dt.description|escape2}</td>
+      </tr>
+      {/list}
+      </tbody>
+    </table>
+
+
+    <h5>范例</h5>
+    <pre class="highlight highlight-source-json">
+                    <code class="sample-code hljs" data-id="${dt.id}" data-key="params">{if dt.mockHtml}${dt.mockHtml}{/if}</code>
+                </pre>
+    {/if}
+  </section>
+  {/list}
+</section>

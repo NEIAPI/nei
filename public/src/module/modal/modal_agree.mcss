@@ -1,0 +1,11 @@
+.m-modal-agree .modal-dialog {
+  width: 400px;
+}
+
+.m-modal-agree {
+  font-size: 14px;
+
+  .u-select2 {
+    width: 100%;
+  }
+}

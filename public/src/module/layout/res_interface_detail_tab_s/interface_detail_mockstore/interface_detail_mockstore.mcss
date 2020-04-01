@@ -1,0 +1,121 @@
+.m-inter-d-mockstore {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px !important;
+
+  .ms-item {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 8px;
+
+    .select-type {
+      width: t('calc(100% - 120px)');
+    }
+
+    .clear-model, .clear-type {
+      margin: 5px 0px 5px 128px;
+      color: #30a1f2;
+    }
+
+    .ms-doc-tip {
+      color: #999;
+      margin-right: 8px;
+    }
+
+    .doc-link {
+      color: #30a1f2;
+    }
+  }
+
+  .u-select2 {
+    width: 200px;
+
+    .empty-tip {
+      background-color: #f7f7f7;
+    }
+  }
+
+  .ms-item-label {
+    text-align: right;
+    width: 120px;
+    color: #999;
+    font-size: 12px;
+  }
+
+  .select-model {
+    position: relative;
+  }
+
+  .bind-model {
+    .show-detail {
+      display: block;
+      position: absolute;
+      cursor: default;
+      z-index: 99;
+      width: 400px;
+      top: 100%;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      font-size: 12px;
+      border: 1px solid #e6e6e6;
+      margin-top: -1px;
+
+      .title {
+        display: flex;
+        padding: 6px;
+
+        .format-name, .version-name {
+          flex: 1;
+        }
+
+        &:hover {
+          .glyphicon {
+            color: #30a1f2;
+          }
+        }
+      }
+
+      .s-row-hd {
+        border-top: 1px solid #e6e6e6;
+        padding: 4px 8px;
+        display: flex;
+      }
+
+      .s-row-bd {
+        max-height: 150px;
+        overflow: auto;
+      }
+
+      .s-row {
+        display: flex;
+        padding: 4px 8px;
+
+        a:link, a:visited {
+          color: #30a1f2;
+        }
+      }
+
+      .s-row-hd > span, .s-row > span {
+        flex: 1;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+    }
+  }
+
+  .tip {
+    font-size: 12px;
+    margin-left: 5px;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 10px;
+    color: #e0c05e;
+    background-color: #fdf7e5;
+    width: t('calc(100% - 400px)');
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}

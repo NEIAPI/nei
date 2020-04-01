@@ -1,0 +1,5 @@
+<div class="res-group">
+  <label class="label">分组：</label>
+  <select2 source={groups} selected={group} initSilent={true} on-change={this.setGroup($event)} ref="group"></select2>
+  <a class="btn" on-click={this.showCreate()}>新建</a>
+</div>

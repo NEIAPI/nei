@@ -1,0 +1,40 @@
+.m-test-main-tab-tab {
+  margin-bottom: 20px;
+
+  a:link {
+    color: #666;
+  }
+
+  .tab {
+    float: left;
+    border-radius: 12px;
+    padding: 0 10px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    color: #666;
+  }
+
+  .tab:hover {
+    background-color: #f0f0f0;
+  }
+
+  .tab:active, .tab.js-selected {
+    background-color: #30a1f2;
+    color: #fff;
+  }
+
+  .import-testcase-btn {
+    float: right;
+    padding: 0 5px;
+    background-color: #30a1f2;
+    color: white;
+    padding: 0 10px;
+    height: 24px;
+    line-height: 24px;
+
+    &:link {
+      color: white;
+    }
+  }
+}

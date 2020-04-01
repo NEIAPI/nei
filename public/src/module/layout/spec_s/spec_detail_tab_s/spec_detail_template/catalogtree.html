@@ -1,0 +1,130 @@
+<div class="m-catalogtree" ref="body">
+  <div class="m-loading" r-class={{"f-dn":!loading}}>
+    <div class="u-loading u-loading-center"><i></i></div>
+  </div>
+  {#if isMySpec}
+  <ul class="m-toolbar">
+    <li class="m-toolbar-icon" on-click={this.add(fileType,false)}
+        r-class={{"js-disabled":loading||selectList.length<1||!selected||!selected.id}} title="添加同级文件">
+      <i class="u-icon-add-file-normal normal">
+      </i><i class="u-icon-add-file-hover hover">
+    </i><i class="u-icon-add-file-disable disable"></i>
+    </li>
+    <li class="m-toolbar-icon" on-click={this.add(dirType,false)}
+        r-class={{"js-disabled":loading||selectList.length<1||!selected||!selected.id}} title="添加同级目录">
+      <i class="u-icon-add-catalog-normal normal">
+      </i><i class="u-icon-add-catalog-hover hover">
+    </i><i class="u-icon-add-catalog-disable disable"></i>
+    </li>
+    <li class="m-toolbar-icon" on-click={this.delete()} r-class={{"js-disabled":loading||!selected||!selected.id}}
+        title="删除">
+      <i class="u-icon-delete-normal normal">
+      </i><i class="u-icon-delete-hover hover">
+    </i><i class="u-icon-delete-disable disable"></i>
+    </li>
+    <li class="m-toolbar-icon" on-click={this.showUploadSelect(0)}
+        r-class={{"js-disabled":loading||selectList.length<1||!selected||selected.type!==dirType}} title="上传文件">
+      <i class="u-icon-upload-file-normal normal">
+      </i><i class="u-icon-upload-file-hover hover">
+    </i><i class="u-icon-upload-file-disable disable"></i>
+    </li>
+    {#if isChrome}
+    <li class="m-toolbar-icon" on-click={this.showUploadSelect(1)}
+        r-class={{"js-disabled":loading||selectList.length<1||!selected||selected.type!==dirType}} title="上传文件夹">
+      <i class="u-icon-upload-folder-normal normal">
+      </i><i class="u-icon-upload-folder-hover hover">
+    </i><i class="u-icon-upload-folder-disable disable"></i>
+    </li>
+    {/if}
+    <li class="m-toolbar-icon" r-class={{"js-disabled":loading}} title="导出规范">
+      <a href="/api/specdocs/?export&specId={specId}" download=""><i class="u-icon-download-normal normal">
+      </i><i class="u-icon-download-hover hover">
+      </i><i class="u-icon-download-disable disable"></i></a>
+    </li>
+    <li class="m-toolbar-icon" r-class={{"js-disabled":loading}}>
+      <i title="导入预置模板" class="u-icon-import-normal normal">
+      </i><i title="导入预置模板" class="u-icon-import-normal hover" on-click={this.showImport()} ref="btn1">
+    </i><i class="u-icon-import-disable disable">
+    </i>
+      <ul class="m-toolbar-s" r-class={{"f-dn":!importShow}}>
+        <li on-click={this.import('maven')} r-class={{"f-dn":language!==java}}>Maven</li>
+        <li on-click={this.import('node')} r-class={{'f-dn':language!==node}}>Node</li>
+        <li on-click={this.import('select')}>上传结构(*.zip)</li>
+        <li on-click={this.import('empty')}>清空结构</li>
+      </ul>
+    </li>
+  </ul>
+  {/if}
+  <ul class="m-tree" ref="root">
+    {#if !isMySpec &&(!source||!source.hasChildren)}
+    <div class="empty">
+      <i class="u-icon-no-document"></i>
+      <div class="empty-tip">该规范未创建任何文件</div>
+    </div>
+    {#else}
+    <Node source={source} isMySpec={isMySpec} on-sort={this.sort()} ref="root2" level={0}></Node>
+    {#if !source.hasChildren}
+    <li class="no-file">
+      您还没有任何文件，请
+      <a on-click={this.add(fileType,true)}>创建文件</a>
+      或
+      <a on-click={this.add(dirType,true)}>创建文件夹</a>
+    </li>
+    {/if}
+    {/if}
+  </ul>
+  {#if isMySpec}
+  <ul class="m-menu-spec" r-class={{"f-dn":!menuShow}} ref="menu">
+    <li r-class={{"f-dn":1<selectList.length}}>
+      <span class="menu-item" ref="btn2">添加</span>
+      <ul class="m-menu-s">
+        <li on-click={this.add(fileType)} r-class={{"f-dn":selected.id===0}}>文件</li>
+        <li on-click={this.add(dirType)} r-class={{"f-dn":selected.id===0}}>目录</li>
+        <li on-click={this.addChild(fileType)} r-class={{"f-dn":selected.type!=dirType}}>子文件</li>
+        <li on-click={this.addChild(dirType)} r-class={{"f-dn":selected.type!=dirType}}>子目录</li>
+      </ul>
+    </li>
+    <li on-click={this.delete()} r-class={{"f-dn":selected.id===0}}>删除</li>
+    <li on-click={this.rename()} r-class={{"f-dn":1<selectList.length||selected.id===0}}>重命名</li>
+    <li on-click={this.showUploadSelect(0)} r-class={{"f-dn":1<selectList.length||!selected||selected.type!==dirType}}>
+      上传文件
+    </li>
+    {#if isChrome}
+    <li on-click={this.showUploadSelect(1)} r-class={{"f-dn":1<selectList.length||!selected||selected.type!==dirType}}>
+      上传文件夹
+    </li>
+    {/if}
+    {#if isWeb}
+    <li r-class={{"f-dn":1<selectList.length||selected.id===0||selected.type!=dirType}}>
+      <span class="menu-item" ref="btn3">目录标识</span>
+      <ul class="m-menu-s">
+        <li on-click={this.setDirType("normal")}>常规目录</li>
+        <li on-click={this.setDirType("webRoot")}>静态资源根目录</li>
+        <li on-click={this.setDirType("viewRoot")}>模板根目录</li>
+        <li on-click={this.setDirType("mockApiRoot")}>接口MOCK数据根目录</li>
+        <li on-click={this.setDirType("mockViewRoot")}>模板MOCK数据根目录</li>
+        <li on-click={this.setDirType("jarRoot")}>JAR包根目录</li>
+      </ul>
+    </li>
+    {/if}
+    <li r-class={{"f-dn":1<selectList.length||selected.type==dirType||!textRegex.test(selected.mime)}}>
+      <span class="menu-item" ref="btn4">文件标识</span>
+      <ul class="m-menu-s">
+        <li on-click={this.setDataSource("none")}>常规文件</li>
+        <li on-click={this.setDataSource("interface")}>接口列表填充</li>
+        <li on-click={this.setDataSource("datatype")}>数据模型列表填充</li>
+        <li on-click={this.setDataSource("template")}>页面模板列表填充</li>
+        <li on-click={this.setDataSource("webview")}>视图列表填充</li>
+        <li on-click={this.setDataSource("args_config")}>命令行参数配置文件</li>
+        <li on-click={this.setDataSource("custom_handlebars")}>自定义Handlebars辅助函数</li>
+      </ul>
+    </li>
+  </ul>
+  <div class="m-upload-hidden f-dn">
+    <input type="file" class="u-upload-file" multiple="multiple" on-change={this.upload(0)} ref="fileSelect"/>
+    <input type="file" class="u-upload-dir" webkitdirectory on-change={this.upload(1)} ref="dirSelect">
+    <input type="file" class="u-upload-template" accept="application/zip" on-change={this.import('zip')}
+           ref="templateSelect"/>
+  </div>
+  {/if}
+</div>

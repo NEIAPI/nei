@@ -1,0 +1,14 @@
+.m-setting {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  right: 10px;
+  bottom: 10px;
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 0 30px;
+
+  .con-wrap {
+    margin-top: 20px;
+  }
+}

@@ -1,0 +1,10 @@
+.upload {
+  position: absolute;
+  z-index: 3;
+  cursor: pointer;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  width: 54px;
+  height: 54px;
+}

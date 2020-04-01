@@ -1,0 +1,7 @@
+<div class="p-advice" ref="layout">
+  <div>{errorMsg}{#if advices && advices.length} 考虑使用:{/if}</div>
+  {# list advices as item}
+  <div class="u-advice" on-click={this.clickAdvice(item)}>{item}</div>
+  {/list}
+  <a class="u-link" href="/word/?pid={pid}" target="_blank">查看完整参数字典</a>
+</div>

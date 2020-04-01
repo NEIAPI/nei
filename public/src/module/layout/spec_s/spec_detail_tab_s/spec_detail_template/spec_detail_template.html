@@ -1,0 +1,52 @@
+<meta charset="utf-8"/>
+<textarea name="txt" id="module-spec-detail-template">
+  <div class="m-spec-d-t">
+      <div class="m-sdt-l"></div>
+      <div class="m-sdt-r"></div>
+      <input class="u-hidden" ref="hidden"/>
+  </div>
+</textarea>
+
+<textarea name="jst" id="module-spec-detail-dir">
+    <div class="m-detail {if isMySpec}js-modify{/if}">
+        <input class="node-name {if isMySpec}u-m-inp{/if}" value="${node.name|escape2}" {if !isMySpec}readonly{/if} data-key="name" />
+        {if !isTest}
+        <div class="node-dir-type"><label>此目录：</label></div>
+        {/if}
+        <textarea class="node-desc" placeholder="{if isMySpec}请输入目录描述{else}暂无目录描述{/if}"
+                  {if !isMySpec}readonly{/if} data-key="description">${node.description|escape2}<&#47;textarea>
+    </div>
+</textarea>
+
+<textarea name="jst" id="module-spec-detail-file">
+    <div class="m-detail  {if isMySpec}js-modify{/if}">
+        <input class="node-name {if isMySpec}u-m-inp{/if}" value="${node.name|escape2}" {if !isMySpec}readonly{/if} data-key="name" />
+        {if !isImage && !isUpload}
+        <div class="node-file-datatype"><label>此文件：</label></div>
+        {/if}
+        <textarea class="node-desc file-desc" placeholder="{if isMySpec}请输入文件描述{else}暂无文件描述{/if}" {if
+                  !isMySpec}readonly{/if}
+                data-key="description">${node.description|escape2}<&#47;textarea>
+        {if isImage}
+        <div class="node-content-image">
+            <img class="u-image" src="${node.content}" alt="图片内容"/>
+        </div>
+        {elseif isUpload}
+         <div class="node-content-download">
+             该文件内容不可编辑，请点击链接下载<a href="${node.content}" title="${node.name|escape2}">${node.name|escape2}</a>
+        </div>
+        {else}
+        <div class="node-content-edit">
+            <div class="editor-header">
+                {if isMySpec}
+                <div title="格式化" class="u-format" data-format="format">{ }</div>
+                {/if}
+            </div>
+            <div class="editor"></div>
+        </div>
+        {/if}
+    </div>
+</textarea>
+
+<textarea name="css" data-src="./spec_detail_template.css"></textarea>
+<textarea name="js" data-src="./spec_detail_template.js"></textarea>

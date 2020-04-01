@@ -1,0 +1,18 @@
+<h1 class="title tc">规则函数</h1>
+<section class="constraints">
+  {list data as dt}
+  <section>
+    <h3 id="constraints-${dt.id}">
+      ${dt.name}
+      <!-- <a class="backtop" href="#catalog">返回目录 ↑</a> -->
+    </h3>
+    <p class="moreinfo"><span class="strong">描述</span>：{if dt.description}${dt.description|escape2}{else}无{/if}</p>
+    <p class="moreinfo"><span class="strong">标签</span>：{if dt.tag}${dt.tag|escape2}{else}无{/if}</p>
+    <p class="moreinfo"><span class="strong">适应类型</span>：${dt.type|escape2}</p>
+    <p class="moreinfo"><span class="strong">分组</span>：${dt.group.name|escape2}</p>
+    <p class="moreinfo"><span class="strong">创建人</span>：${dt.creator.realname|escape2}</p>
+    <p class="moreinfo"><span class="strong">创建时间</span>：${dt.createTime|format:'yyyy-MM-dd HH:mm:ss'}</p>
+
+  </section>
+  {/list}
+</section>

@@ -1,0 +1,12 @@
+.m-progroup-p-tab {
+}
+
+.nei-scrolled {
+  .m-progroup-p-tab {
+    box-shadow: 0 1px 2px 0px rgba(0, 0, 0, 0.15);
+
+    .m-tab {
+      border-bottom: 0 none;
+    }
+  }
+}

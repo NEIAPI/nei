@@ -1,0 +1,209 @@
+.wrap-crud {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+
+  &:before {
+    content: "";
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .crud_mask {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(50, 50, 50, 0.5);
+    z-index: 9999;
+  }
+
+  .crud_box {
+    position: relative;
+    display: inline-block;
+    text-align: left;
+    width: 50%;
+    max-height: 90%;
+    vertical-align: middle;
+    z-index: 99999;
+    background: #fff;
+    overflow-y: auto;
+
+    .title {
+      height: 48px;
+      line-height: 48px;
+      padding-left: 20px;
+      background: #f1f1f1;
+      font-size: 15px;
+      position: relative;
+
+      a {
+        position: absolute;
+        right: 10px;
+
+        .u-icon-close-hover-2 {
+          display: none;
+        }
+
+        &:hover {
+          .u-icon-close-normal-2 {
+            display: none;
+          }
+
+          .u-icon-close-hover-2 {
+            display: inline-block;
+          }
+        }
+      }
+    }
+
+    .crud_btn {
+      text-align: center;
+      margin-bottom: 60px;
+
+      .u-btn-gray {
+        margin-right: 20px;
+      }
+
+      .u-btn {
+        width: 100px;
+        height: 30px;
+        line-height: 30px;
+        font-size: 12px;
+        padding: 0;
+      }
+    }
+
+    .crud_list {
+      margin: 20px;
+
+      .item {
+        margin-bottom: 20px;
+
+        .item-con {
+          padding-left: 20px;
+        }
+
+        .interface {
+          margin-bottom: 10px;
+
+          .u-select {
+            margin-top: -4px;
+          }
+
+          .u-select, .select-hd {
+            width: 100px;
+          }
+        }
+
+        .name {
+          width: 150px;
+          display: inline-block;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          position: relative;
+          top: 4px;
+        }
+
+        .path {
+          display: inline-block;
+          padding: 0 5px;
+          max-width: 180px;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          position: relative;
+          top: 4px;
+        }
+
+        .root {
+          position: absolute;
+          left: 50px;
+          right: 0;
+          top: 0;
+        }
+
+        .ipt {
+          height: 30px;
+          line-height: 30px;
+          border: 1px solid #e6e6e6;
+          box-sizing: border-box;
+          padding: 0 5px;
+          width: 120px;
+        }
+
+        .path-ipt {
+          width: 100%;
+        }
+
+        .item-name {
+          height: 30px;
+          line-height: 30px;
+          background: #f1f1f1;
+          padding-left: 10px;
+        }
+
+        .checkbox {
+          float: left;
+          font-size: 0;
+          cursor: pointer;
+          height: 30px;
+          line-height: 30px;
+          margin-right: 5px;
+        }
+
+        .item-path {
+          margin: 10px 0 10px;
+          height: 30px;
+          line-height: 30px;
+          position: relative;
+        }
+
+        .j-error {
+          border-color: #ed5565;
+        }
+
+        .item-tags {
+          margin-top: 10px;
+          height: 30px;
+          line-height: 30px;
+          position: relative;
+
+          .tag {
+            position: absolute;
+            top: 0;
+            left: 68px;
+            right: 0;
+          }
+        }
+      }
+
+    }
+  }
+
+  .resp-dt {
+    margin: 0 20px 20px 40px;
+  }
+
+  .resp-dt-select {
+    display: inline-block;
+  }
+
+  .resp-dt-tip {
+    margin: 10px 0 0 66px;
+    color: #999;
+  }
+
+  .label.align-right {
+    display: inline-block;
+    width: 64px;
+    text-align: right;
+  }
+}
+
+

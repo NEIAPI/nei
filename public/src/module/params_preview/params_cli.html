@@ -1,0 +1,52 @@
+<div class="m-paramslist">
+  <div class="list-body">
+    <div class="list-row list-header">
+      <div class="list-col"><em>键</em></div>
+      <div class="list-col "><em>值</em></div>
+      <div class="list-col list-col-do"></div>
+    </div>
+    {#if !!params.length}
+    {#if level == 0}
+    {#list params as p}
+    <div class="list-row">
+      <div class="list-col "><em>{p.key}</em></div>
+      <div class="list-col"><em>{p.value}</em></div>
+      <div class="list-col list-col-do"></div>
+    </div>
+    {/list}
+    {#else}
+    {#list params as p}
+    {#if p.isAdding}
+    <div class="list-row list-row-adding">
+      <div class="list-col"><input type="text" data-enter={p_index} r-autofocus class="u-input"
+                                   r-class={{"u-input-error":p.error}} r-model={p.key}></div>
+      <div class="list-col"><input type="text" data-enter={p_index} class="u-input" r-model={p.value}></div>
+      <div class="list-col list-col-do"><a title="保存" on-click={this.update(p_index)}><i
+        class="u-icon-yes-normal"></i><i class="u-icon-yes-hover"></i></a><a title="删除" on-click={this.remove(p_index)}><i
+        class="u-icon-no-normal"></i><i class="u-icon-no-hover"></i></a></div>
+    </div>
+    {#else}
+    <div class="list-row" on-mouseenter={p.hover
+    = true} on-mouseleave={p.hover = false}>
+    <div class="list-col "><input title={p.key} type="text" readonly r-model={p.key} class="u-input "
+                                  data-active='required=true&id={p.id}&index={p_index}&actionType=input&name=key&cache=cliArg&choseOnly=false'/>
+    </div>
+    <div class="list-col"><input title={p.value} type="text" readonly r-model={p.value} class="u-input "
+                                 data-active='required=true&id={p.id}&index={p_index}&actionType=input&name=value&cache=cliArg'/>
+    </div>
+    <div class="list-col list-col-do"><i class="u-icon-delete-normal" r-class={{"f-dn-important":!p.hover}}
+                                         on-click={this.remove(p_index)}></i></div>
+  </div>
+  {/if}
+  {/list}
+  {/if}
+  {#else}
+  <params-empty level={level} format={format} on-import={this.import($event)}></params-empty>
+  {/if}
+</div>
+<div class="action-row" r-hide={level == 0}>
+<span class="add" on-click={this.add()}><i class="u-icon u-icon-add-editor-normal"></i><i
+  class="u-icon u-icon-add-editor-hover"></i><i class="u-icon u-icon-add-editor-pressed"></i></span>
+</div>
+
+</div>

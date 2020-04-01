@@ -1,0 +1,52 @@
+<meta charset="utf-8"/>
+<textarea name="txt" id="module-spec-tree">
+  <div class="m-spec-tree">
+      <div class="m-add f-dn">
+          <span class="u-add u-icon-plus-normal"></span>
+          <ul class="m-add-list">
+              <li><a class="u-add-item stateful" href="/spec/create?s=web">WEB规范</a></li>
+              <li><a class="u-add-item stateful" href="/spec/create?s=ios">iOS规范</a></li>
+              <li><a class="u-add-item stateful" href="/spec/create?s=android">Android规范</a></li>
+               <li><a class="u-add-item stateful" href="/spec/create?s=test">测试规范</a></li>
+          </ul>
+      </div>
+  </div>
+</textarea>
+<textarea name="txt" id="regular-spec-tree">
+    <div class="m-header"><a>规范发现</a></div>
+    <ul class="m-tree">
+        {#list list as item}
+        <li class="item">
+            <div class="item-top">
+                <span class="u-icon-arrow1" r-class={{'j-open':item.open}} on-click={this.toggle(item,$event)}></span>
+                <a class="item-name stateful" on-click={this.toggle(item,$event)} r-class={{'j-selected-t':
+                   specType==item.key}}>
+                    {item.name}工程
+                    <a class="u-create-btn stateful" title="新建规范" href="/spec/create?s={item.key}">
+                        <i class="u-icon-plus-small-small"></i>
+                        <i class="u-icon-plus-small-hover"></i>
+                        <i class="u-icon-plus-small-pressed"></i>
+                    </a>
+                </a>
+            </div>
+            <ul class="item-sub {item.open?'':'f-dn'}">
+                <li><a class="item-name stateful" href="/spec/list?s={item.key}&l=all"
+                       r-class={{'j-selected': specType==item.key && listType=='all'}}>全部规范</a></li>
+                <li><a class="item-name stateful" href="/spec/list?s={item.key}&l=my"
+                       r-class={{'j-selected': specType==item.key && listType=='my'}}>我的规范</a></li>
+                <li><a class="item-name stateful" href="/spec/list?s={item.key}&l=share"
+                       r-class={{'j-selected': specType==item.key && listType=='share'}}>我的分享</a></li>
+                <li><a class="item-name stateful" href="/spec/list?s={item.key}&l=favorite"
+                       r-class={{'j-selected': specType==item.key && listType=='favorite'}}>我的收藏</a></li>
+            </ul>
+        </li>
+        {/list}
+    </ul>
+    <div class="u-toggle-animation" r-class={{'z-swallow-not': !showTreeFlag}} on-click={this.toggleTree()}>
+		<i class="u-icon-swallow-normal"></i>
+		<i class="u-icon-swallow-not-normal"></i>
+	</div>
+</textarea>
+
+<textarea name="css" data-src="./spec_tree.css"></textarea>
+<textarea name="js" data-src="./spec_tree.js"></textarea>

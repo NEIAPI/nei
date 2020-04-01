@@ -1,0 +1,94 @@
+.m-test-collection-list {
+  .u-form-create {
+    display: none;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e6e6e6;
+
+    .form-group .u-m-inp {
+      box-sizing: border-box;
+      width: 50%;
+      height: 30px;
+      line-height: 30px;
+    }
+  }
+
+  .interface-list {
+    position: absolute;
+    // top: 72px;
+    bottom: 0;
+    top: 0;
+    width: 100%;
+
+    .collect-actions {
+      position: absolute;
+      top: 0;
+      right: 188px;
+
+      .u-btn {
+        padding: 0;
+        width: 95px;
+        height: 34px;
+        line-height: 34px;
+      }
+
+      i {
+        margin: 10px 4px 0 0;
+        vertical-align: top;
+      }
+    }
+
+    .start-test {
+      background-color: #56c969;
+
+      &:hover {
+        background-color: #4cb05c;
+      }
+
+      &.u-btn-disabled {
+        background-color: #abf1b7;
+
+        &:hover {
+          background-color: #abf1b7;
+        }
+      }
+    }
+
+    .list-row {
+      cursor: move;
+
+      .col-create-time {
+        width: 120px;
+      }
+
+      .col-nei-actions {
+        width: 0;
+        padding: 0;
+      }
+
+      &:hover {
+        background-color: #f2f9fe;
+
+        .col-nei-actions {
+          position: absolute;
+          right: 0;
+          opacity: 1;
+          width: 130px;
+          padding-right: 10px;
+          background-color: #f2f9fe;
+        }
+      }
+    }
+
+    .list-bd {
+      position: absolute;
+      top: 86px;
+      bottom: 40px;
+      overflow: auto;
+      width: 100%;
+    }
+  }
+
+  .batch-action-multi-sel .batch-action-hide {
+    display: none;
+  }
+}

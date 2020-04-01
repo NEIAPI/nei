@@ -1,0 +1,82 @@
+<meta charset="utf-8"/>
+<textarea name="txt" id="module-spec-detail">
+  <div class="m-spec-detail">
+      <div class="con-wrap">
+      </div>
+      <div class="tab-pane">
+          <div class="tab-wrap"></div>
+          <div class="tab-con"></div>
+      </div>
+  </div>
+</textarea>
+<textarea name="jst" id="module-spec-detail-header">
+    {if noDetail}
+    <div class="m-title">
+        <div class="m-right">
+            <div class="u-menu">
+                <a class="m-back icon f-hover stateful" href="/spec/list?s=" + ${showBack.specType} + "&l=" + ${showBack.listType}" >
+                    <span>返回列表</span>
+                    <i class="u-icon-back-normal-2 normal"></i>
+                    <i class="u-icon-back-hover-2 hover"></i>
+              </a>
+            </div>
+        </div>
+    </div>
+    <div class="tip-wrap">
+        <div class="tip">
+            <i class="icon u-icon-share-cancel"></i>
+            <div class="con">该规范未分享，无法查看详情</div>
+        </div>
+    </div>
+    {else}
+    <div class="m-title">
+          <input class="u-title {if flag}u-m-inp{else}u-disedit{/if}" value="${data.name|escape2}"
+                 title="${data.name|escape2}" readonly
+                 {if flag} data-action='{"type":"modify","cache":"spec","name":"name","id":"${data.id}"}' {/if} />
+          <div class="m-right">
+              <div class="u-menu">
+                  <span class="m-copy icon f-hover" data-click="copy">
+                      <i title="复制规范" class="u-icon-top-bar-file-normal normal"></i>
+                      <i title="复制规范" class="u-icon-top-bar-file-hover hover"></i>
+                  </span>
+                  {if flag}
+                  {var title = data.isShare?'取消分享':'分享规范'}
+                  <span class="m-share icon {if !data.isShare}f-hover{/if}" data-click="share">
+                      <i title="${title}" class="u-icon-bar-share-pressed pressed"></i>
+                      <i title="${title}" class="u-icon-bar-share-normal normal"></i>
+                      <i title="${title}" class="u-icon-bar-share-hover hover"></i>
+                  </span>
+                  {elseif data.isShare}
+                  {var title = data.isFavorite?'取消收藏':'收藏规范'}
+                  <span class="m-fav icon {if !data.isFavorite}f-hover{/if}" data-click="fav">
+                      <i title="${title}" class="u-icon-top-bar-collect-pressed pressed"></i>
+                      <i title="${title}" class="u-icon-top-bar-collect-normal normal"></i>
+                      <i title="${title}" class="u-icon-top-bar-collect-hover hover"></i>
+                  </span>
+                  {/if}
+                  <a class="m-back icon f-hover stateful" href="${showBack}">
+                      <span>返回列表</span>
+                      <i class="u-icon-back-normal-2 normal"></i>
+                      <i class="u-icon-back-hover-2 hover"></i>
+                  </a>
+              </div>
+          </div>
+    </div>
+    <div class="m-detail">
+          <div class="m-detail-header"></div>
+	      <textarea cols="3" class="u-con {if flag}u-m-inp u-m-txt{else}u-disedit{/if}" readonly
+                  title="${data.description|escape2}" placeholder="{if flag}请输入规范描述{else}暂无规范描述{/if}"
+                  {if flag} data-action='{"type":"modify","cache":"spec","name":"description","id":"${data.id}"}' {/if}>${data.description|escape2}<&#47;textarea>
+
+    </div>
+    {/if}
+    <div class="u-info-toggle">
+		<span class="icon" title="收起">
+			<i class="u-icon-arrow-close-normal"></i>
+			<i class="u-icon-arrow-open-normal"></i>
+		</span>
+	</div>
+</textarea>
+
+<textarea name="css" data-src="./spec_detail.css"></textarea>
+<textarea name="js" data-src="./spec_detail.js"></textarea>

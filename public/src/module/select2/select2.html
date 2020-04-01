@@ -1,0 +1,38 @@
+<div r-class={{"u-select":true,"u-select2":true,"list-open":isOpen,"create-item":hasCreate}} ref="element">
+  <div r-class={{"select-hd":true,"js-preview":preview&&!isOpen,"js-disabled":!editable}}
+       title={selected?selected.name:placeholder} on-click={this.toggle($event)}>
+    {#if isStatus}
+    <em class="status-name">{inputValue}</em>
+    <input ref="input" class="dis-name status" placeholder={placeholder} type="text"
+           title={inputValue} on-input={this.input($event)} on-focus={this.focusInput($event)}
+           on-keydown={this.keydown($event)} readonly={!editable} maxlength={maxLen}/>
+    {#else}
+    <input ref="input" class="dis-name" placeholder={placeholder} type="text" r-model={inputValue}
+           title={inputValue} on-input={this.input($event)} on-focus={this.focusInput($event)}
+           on-keydown={this.keydown($event)} readonly={!editable} maxlength={maxLen}/>
+    {/if}
+    <i class="u-trigon-down" ref="trigon"></i>
+    <!-- 没有选中项并且preview为true时的提示 -->
+    <span r-class={{"empty-tip":true,"f-dn":!(!inputValue&&preview&&!isOpen)}}
+          on-click={this.toggle($event)}>{emptyTip}</span>
+  </div>
+  <div class="select-bd" r-show={isOpen}>
+    <ul class="list-view" ref="listcon">
+      {#list xlist as item by item.id}
+      <li r-class={{"js-disabled":item.id===undefined,"z-sel":sIndex===item_index}} title={item.title||item.name}
+          on-click={this.select($event,item,item_index)}>
+        {#if item.__uiName}
+        <span r-html={item.__uiName}></span>
+        {#else}
+        <span>{item.name}</span>
+        {/if}
+      </li>
+      {/list}
+    </ul>
+    {#if hasCreate}
+    <div class="create-dt" title="新建模型" on-click={this.create($event)}>
+      <span><strong>+</strong>新建模型</span>
+    </div>
+    {/if}
+  </div>
+</div>

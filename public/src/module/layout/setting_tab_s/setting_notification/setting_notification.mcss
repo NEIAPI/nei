@@ -1,0 +1,110 @@
+.m-setting-notification {
+  margin-top: 30px;
+
+  .notification-part {
+    width: 100%;
+    box-sizing: border-box;
+
+    & > div {
+      margin-top: 20px;
+
+      & > div:first-child {
+        float: left;
+        width: 60px;
+        height: 30px;
+        line-height: 30px;
+      }
+
+      & > div:last-child {
+        margin-left: 65px;
+      }
+    }
+
+    .notification-type {
+      .m-icons {
+        padding: 2px 0;
+      }
+
+      > div:last-child {
+        div {
+          display: inline-block;
+          position: relative;
+
+          i {
+            display: none;
+          }
+        }
+
+        span {
+          margin-right: 20px;
+          text-indent: 0;
+
+        }
+
+        .js-selected {
+          i {
+            display: inline-block;
+            position: absolute;
+            top: 12px;
+            left: 21px;
+          }
+        }
+      }
+    }
+
+    .notification-onoff {
+      .noti-button {
+        width: 64px;
+        height: 30px;
+        border-radius: 15px;
+        cursor: pointer;
+        position: relative;
+        box-sizing: border-box;
+        transition: all 0.3s;
+        background-color: #d8d8d8;
+        font-size: 0;
+
+        & > span {
+          display: inline-block;
+          width: 50%;
+          height: 100%;
+          font-size: 12px;
+          box-sizing: border-box;
+          vertical-align: middle;
+        }
+
+        .off {
+          color: #333;
+          padding: 6px 0 0 4px;
+        }
+
+        .on {
+          color: #fff;
+          padding: 4px 0 0 12px;
+        }
+
+        .noti-button-circle {
+          width: 26px;
+          height: 26px;
+          display: inline-block;
+          background: #fff;
+          border-radius: 100%;
+          border: none;
+          position: absolute;
+          left: 2px;
+          top: 2px;
+          transition: left 0.3s;
+          box-sizing: border-box;
+        }
+      }
+
+      .noti-button.on-btn {
+        background: #30a1f2;
+
+        .noti-button-circle {
+          left: 36px;
+        }
+      }
+    }
+  }
+}

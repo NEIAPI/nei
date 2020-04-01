@@ -1,0 +1,51 @@
+<meta charset="utf-8"/>
+
+<textarea name="txt" id="markdown-body">
+  <div class="markdown-body-wrapper">
+    <div class="markdown-body">
+      <div class="control-group">
+        <label class="control-label">文档标题:</label>
+        <div class="controls">
+          <input type="text" class="doc-title u-m-inp" placeholder="文档标题不能为空"/>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label">文档内容:</label>
+        <div id="doc-custom"></div>
+      </div>
+    </div>
+    <div class="markdown-body-doc">
+
+    </div>
+    <div class="buttons">
+      <div class="btn btn-info edit-doc">编辑文档</div>
+      <div class="btn btn-info save-doc">保存文档</div>
+      <div class="btn btn-default cancle-doc">取消</div>
+      <div class="btn btn-danger del-doc">删除文档</div>
+      <div class="print-toggle-btn">
+       <div class="btn btn-primary print">
+           打印
+           <div class="toggle-btn">
+               <i class="line"></i>
+               <i class="arrow u-icon-arrow-down-white-normal"></i>
+           </div>
+       </div>
+       <div class="menu">
+        <div class="print-all">打印全部</div>
+        <div class="print-all-mock">打印全部 (mock)</div>
+       </div>
+      </div>
+    </div>
+
+  </div>
+</textarea>
+
+<textarea name="jst" id="doc-custom">
+    <h1 class="title tc">${customDocInfo.name|escape2}</h1>
+    <div class="m-doc">
+    <div class="m-doc-content markdown">
+      ${customDocInfo.content}
+    </div>
+    </div>
+</textarea>
+<textarea name="js" data-src="./doc_custom.js"></textarea>

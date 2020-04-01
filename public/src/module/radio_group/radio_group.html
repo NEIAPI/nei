@@ -1,0 +1,15 @@
+<span class="radio-container">
+  {#list source as item}
+    <label>
+      <input
+        type="radio"
+        name={radioGroupName}
+        value={item.value}
+        on-change={this.onRadioChange($event)}
+        checked={defaultValue === item.value ? 'checked' : ''}>
+      <span>
+        { item.name }
+      </span>
+    </label>
+  {/list}
+</span>

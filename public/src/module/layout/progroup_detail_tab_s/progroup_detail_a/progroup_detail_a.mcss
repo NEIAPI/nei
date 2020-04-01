@@ -1,0 +1,10 @@
+.m-pg-d-a {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-size: 14px;
+  overflow-y: scroll;
+  margin-top: 30px;
+}

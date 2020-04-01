@@ -1,0 +1,31 @@
+<div class="exp_opritm j-flag">
+  <div class="exp_title">表达式元素（X）</div>
+  <ul>
+    {#list list as item}
+    {#if item.name}
+    <li on-mousedown={this.clickElem($event, item)} r-class={{"sel": selectElem.name=== item.name}}>{item.label}</li>
+    {/if}
+    {/list}
+  </ul>
+</div>
+<div class="exp_opritm j-flag">
+  <div class="exp_title">表达式类别（C）</div>
+  <ul>
+    {#list selectElem.list as item}
+    {#if item.name}
+    <li on-mousedown={this.clickType($event, item)} r-class={{"sel": selectType.name=== item.name}}>{item.label}</li>
+    {/if}
+    {/list}
+  </ul>
+</div>
+<div class="exp_opritm j-flag">
+  <div class="exp_title">表达式值（V）</div>
+  <ul>
+    {#list selectType.list as item}
+    {#if item.name}
+    <li on-dblclick={this.clickVal($event, item,
+    'dblclick')} on-click={this.clickVal($event,item,'click')}>{item.label}</li>
+    {/if}
+    {/list}
+  </ul>
+</div>

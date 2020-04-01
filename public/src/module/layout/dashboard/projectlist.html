@@ -1,0 +1,47 @@
+{#list xlist as item}
+<div class="project">
+  <div class="info-main" on-click={this._redirect(item.id)}>
+    <div class="belong">{item.progroupName}</div>
+    {#if item.role == 9 || item.role == 10}
+    {#if item.logo == ''}
+    <div class="info-logo {item.bgClassName}">
+      <upload-file on-change={this._change($event,item,item_index)}></upload-file>
+      <span class="txt">{item.letterText}</span>
+      <div class="icon">
+        <i class="u-icon-upload-avartar-normal"></i>
+      </div>
+    </div>
+    {#else}
+    <div class="info-logo " style="background-image:url({item.logo})">
+      <upload-file on-change={this._change($event,item,item_index)}></upload-file>
+      <div class="icon">
+        <i class="u-icon-upload-avartar-normal"></i>
+      </div>
+    </div>
+    {/if}
+    {#else}
+    {#if item.logo == ''}
+    <div class="info-logo {item.bgClassName} z-isOther">
+      <span class="txt">{item.letterText}</span>
+    </div>
+    {#else}
+    <div class="info-logo " style="background-image:url({item.logo})">
+    </div>
+    {/if}
+    {/if}
+    <span class="j-tag progroup-link stateful">{item.name}</span>
+    <div class="pdescription">{#if item.description}{item.description}{#else}<i>暂未添加项目描述</i>{/if}</div>
+    <div class="quickentrence">
+      <div class="wrapsource">
+        <a class="resource stateful" href="/page/?pid={item.id}" r-hide={item.type === 1}>页面</a>
+        <a class="resource stateful" href="/interface/?pid={item.id}">接口</a>
+        <a class="resource stateful" href="/datatype/?pid={item.id}">模型</a>
+        <a class="resource stateful" href="/template/?pid={item.id}" r-hide={item.type === 1}>模板</a>
+        <a class="resource stateful" href="/constraint/?pid={item.id}">规则</a>
+        <a class="resource stateful" href="/group/?pid={item.id}" r-hide={item.type === 1}>分组</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+{/list}

@@ -1,0 +1,424 @@
+.m-spec-d-t {
+  margin: 20px 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  display: flex;
+  font-size: 14px;
+  color: #666666;
+
+  .m-sdt-l {
+    flex: 18;
+    position: relative;
+
+    .m-catalogtree {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      flex-direction: column;
+
+      .m-loading {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 999;
+      }
+
+      .m-toolbar {
+        margin-bottom: 20px;
+
+        li {
+          display: inline-block;
+          margin-right: 15px;
+          position: relative;
+        }
+
+        .m-toolbar-icon {
+          cursor: pointer;
+
+          .hover, .disable {
+            display: none;
+          }
+
+          &:hover {
+            .normal {
+              display: none;
+            }
+
+            .hover {
+              display: inline-block;
+            }
+          }
+        }
+
+        .js-disabled {
+          cursor: default !important;
+
+          .disable {
+            display: inline-block !important;
+          }
+
+          .hover, .normal {
+            display: none !important;
+          }
+        }
+      }
+
+      .m-toolbar-s, .m-menu-spec {
+        z-index: 2;
+        border: 1px solid #e6e6e6;
+        font-size: 12px;
+        background-color: #f7f7f7;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+
+        li {
+          white-space: nowrap;
+          height: 30px;
+          line-height: 30px;
+          padding: 0 20px;
+          cursor: pointer;
+          margin: 0;
+          position: relative;
+
+          .menu-item {
+            display: block;
+          }
+
+          .m-menu-s {
+            display: none;
+            position: absolute;
+            background-color: #f7f7f7;
+            border: 1px solid #e6e6e6;
+            top: 0;
+            left: 100%;
+          }
+
+          &:hover {
+            background-color: #eee;
+
+            .m-menu-s {
+              display: block;
+            }
+          }
+        }
+
+        li:first-child {
+          .m-menu-s {
+            top: -1px;
+          }
+        }
+      }
+
+      .m-toolbar-s {
+        position: absolute;
+        top: 5px;
+        left: 27px;
+
+        li {
+          display: block;
+        }
+      }
+
+      .m-menu3 {
+        .m-menu-s {
+          left: auto !important;
+          right: 100%;
+        }
+      }
+
+      .m-tree {
+        flex: 1;
+        min-width: 100%;
+        overflow: auto;
+        border-right: solid 1px #ededed;
+        padding-right: 5px;
+        font-size: 0;
+
+        .no-file {
+          margin: 5px 0 0 28px;
+          font-size: 12px;
+
+          a {
+            color: #30a1f2;
+          }
+        }
+
+        .empty {
+          margin-top: 100px;
+          text-align: center;
+
+          .empty-tip {
+            margin-top: 5px;
+            font-size: 12px;
+            color: #999;
+          }
+        }
+
+        .m-tree-s {
+          min-width: 160px;
+          font-size: 0;
+        }
+
+        .js-clone {
+          padding: 0 10px;
+          height: 24px;
+          line-height: 24px;
+          position: fixed;
+          font-size: 12px;
+        }
+
+        .js-nodrop {
+          cursor: no-drop !important;
+        }
+
+        .m-item {
+          display: inline-block;
+          min-width: 100%;
+
+          .js-selected {
+            background-color: #eee !important;
+          }
+
+          .js-dragenter {
+            background-color: #e2eef7 !important;
+          }
+
+          .m-node {
+            height: 24px;
+            line-height: 24px;
+            padding: 0 5px;
+            display: flex;
+
+            &:hover {
+              background-color: #e2eef7;
+            }
+
+            .node-name {
+              box-sizing: border-box;
+              flex: 1;
+              padding-left: 2px;
+              border: 1px solid transparent;
+              line-height: 24px;
+              height: 22px;
+              background-color: transparent;
+              position: relative;
+              top: 1px;
+              text-overflow: ellipsis;
+              -webkit-user-select: none;
+              -moz-user-select: none;
+            }
+
+            .js-editable {
+              border-color: #e6e6e6;
+              background-color: #fff;
+            }
+
+            .node-icon {
+              margin: 0 5px 0 15px;
+              position: relative;
+            }
+
+            .node-toggle {
+              display: inline-block;
+              width: 10px;
+
+              .arrow {
+                border: 5px solid transparent;
+                border-left-color: #a6a6a6;
+                cursor: pointer;
+                margin: 8px 0 0 7px;
+              }
+            }
+
+            .js-open {
+              .arrow {
+                border-color: transparent;
+                border-top-color: #a6a6a6;
+                margin: 10px 0 0 3px;
+              }
+            }
+          }
+        }
+      }
+
+      .m-menu-spec {
+        position: fixed;
+        z-index: 1;
+        border: 1px solid #e6e6e6;
+        width: 100px;
+        font-size: 12px;
+        background-color: #f7f7f7;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      }
+
+      .f-dn {
+        display: none !important;
+      }
+
+    }
+  }
+
+  .m-sdt-r {
+    flex: 29;
+
+    .m-detail {
+      margin-left: 30px;
+      height: 100%;
+      display: flex;
+      flex-flow: column;
+      position: relative;
+
+      .node-name {
+        font-size: 18px;
+        color: #30a1f2;
+        border-color: transparent;
+        background-color: transparent;
+        width: auto;
+      }
+
+      .node-dir-type, .node-file-datatype {
+        margin-top: 15px;
+        color: #222222;
+        margin-left: 5px;
+
+        .u-select2 {
+          width: 220px;
+          vertical-align: text-bottom;
+          top: 5px;
+
+          .select-hd.js-disabled {
+            border-color: transparent !important;
+          }
+        }
+      }
+
+      .node-desc {
+        font-size: 12px;
+        flex-grow: 1;
+        margin-top: 20px;
+        line-height: 24px;
+        border: 1px solid transparent;
+        background-color: transparent;
+        padding: 5px;
+        overflow: hidden;
+
+        &:hover {
+          overflow: auto;
+        }
+      }
+
+      .file-desc {
+        flex-grow: 0;
+      }
+
+      .node-content-image {
+        position: absolute;
+        top: 110px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+
+        .u-image {
+          max-width: 100%;
+          max-height: 100%;
+          cursor: pointer;
+        }
+      }
+
+      .node-content-image2 {
+        overflow: auto;
+
+        .u-image {
+          max-height: none;
+          max-width: none;
+        }
+      }
+
+      .node-content-download {
+        margin-top: 20px;
+
+        a {
+          margin-left: 10px;
+          color: #30a1f2;
+        }
+      }
+
+      .node-content-edit {
+        flex-grow: 1;
+        display: flex;
+        flex-flow: column;
+        margin-top: 20px;
+
+        .editor-header {
+          height: 40px;
+          background-color: #e6e6e6;
+
+          &:after {
+            content: '';
+            display: block;
+            clear: both;
+            height: 0;
+          }
+
+          .u-format {
+            background-color: #ffffff;
+            float: right;
+            margin: 10px 20px;
+            height: 20px;
+            width: 20px;
+            text-align: center;
+            line-height: 20px;
+            cursor: default;
+          }
+
+          .u-select2 {
+            margin: 5px 20px;
+            background-color: #ffffff;
+            cursor: default;
+
+            .dis-name {
+              font-size: 14px;
+            }
+          }
+        }
+
+        .editor {
+          flex-grow: 1;
+          position: relative;
+          border: 1px solid #e6e6e6;
+        }
+
+      }
+    }
+
+    .js-modify {
+      .node-desc, .u-m-inp {
+        &:hover {
+          border-color: #e6e6e6;
+        }
+      }
+
+      .editor-header {
+        .u-format {
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+
+  .u-hidden {
+    position: fixed;
+    left: -100px;
+    top: -100px;
+  }
+}

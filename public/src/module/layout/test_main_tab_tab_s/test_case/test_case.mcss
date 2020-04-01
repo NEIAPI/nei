@@ -1,0 +1,34 @@
+.m-test-case {
+  .disable {
+    color: #999;
+  }
+
+  .m-stripedlist .list-row {
+    .col-name {
+      flex: 2;
+    }
+
+    .col-test-beg-time {
+      flex: initial;
+      width: 120px;
+    }
+
+    .col-nei-actions {
+      width: 0;
+      padding: 0;
+    }
+
+    &:hover {
+      background-color: #f2f9fe;
+
+      .col-nei-actions {
+        position: absolute;
+        right: 0;
+        opacity: 1;
+        width: 120px;
+        padding-right: 10px;
+        background-color: #f2f9fe;
+      }
+    }
+  }
+}

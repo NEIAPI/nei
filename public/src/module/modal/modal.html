@@ -1,0 +1,29 @@
+<div class="m-modal {@(class)}" r-hide={!show} on-click={this._onclickBody($event)}>
+  <div class="modal-dialog modal-dialog-{size}">
+    <div class="modal-hd">
+      {#if closeButton}
+      <a class="modal-close" on-click={this.close($event)}><i class="u-icon-close-normal-2"></i><i
+        class="u-icon-close-hover-2"></i></a>
+      {/if}
+      {#if !noTitle}
+      <h3 class="modal-title">{title}</h3>
+      {/if}
+    </div>
+    <div class="modal-bd" r-class={{"modal-bd-noft": !cancelButton&&!okButton,
+    "modal-bd-noscroll": noScroll}} ref="modalbd">
+    {#if contentTemplate}{#include @(contentTemplate)}{#else}{content}{/if}
+  </div>
+  {#if cancelButton || okButton}
+  <div class="modal-ft" r-class={{"modal-ft-single-btn": !cancelButton||!okButton}}>
+    {#if cancelButton}
+    <button class="u-btn u-btn-gray cancel" on-click={this.cancel($event)}>{cancelButton === true ? '取消' :
+      cancelButton}
+    </button>
+    {/if}
+    {#if okButton}
+    <button class="u-btn" on-click={this.ok($event)} ref="ok-btn">{okButton === true ? '确定' : okButton}</button>
+    {/if}
+  </div>
+  {/if}
+</div>
+</div>

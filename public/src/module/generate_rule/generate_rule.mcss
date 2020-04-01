@@ -1,0 +1,60 @@
+.m-modal-rule {
+  .modal-dialog {
+    width: 600px;
+  }
+
+  .explain {
+    text-align: left;
+  }
+
+  .tip {
+    line-height: 20px;
+    font-size: 12px;
+  }
+
+  .tip2 {
+    font-size: 12px;
+    color: #999;
+  }
+
+  .extra {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .other {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 5px 0px;
+  }
+
+  .illustrate {
+    color: #999;
+  }
+
+  .func-name {
+    font-weight: bold;
+  }
+
+  .ace, .constraint-editor {
+    width: 500px;
+    text-align: left;
+    margin: 12px 0;
+    border: 1px solid #e6e6e6;
+    overflow: hidden;
+  }
+
+  .create-btn, .save-btn {
+    padding: 0;
+    width: 95px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+    margin-right: 18px;
+  }
+
+  .create-btn {
+    background-color: #56c969;
+  }
+}

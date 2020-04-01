@@ -1,0 +1,14 @@
+<meta charset="utf-8"/>
+<textarea name="txt" id="module-res-tab">
+  <div class="m-res-tab">
+      <div class="f-cb m-tab-sub"></div>
+  </div>
+</textarea>
+<textarea name="jst" id="module-res-tabs">
+    {list xlist as x}
+    <a class="stateful tab" href="/${x.type}/?pid=${id}" data-id="/progroup/p/res/${x.type}/">${x.name}</a>
+    {/list}
+</textarea>
+
+<textarea name="css" data-src="./res_tab.css"></textarea>
+<textarea name="js" data-src="./res_tab.js"></textarea>

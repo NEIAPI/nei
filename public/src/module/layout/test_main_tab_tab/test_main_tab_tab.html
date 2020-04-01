@@ -1,0 +1,21 @@
+<meta charset="utf-8">
+<textarea name="txt" id="module-test-main-tab-tab">
+    <div class="m-test-main-tab-tab f-cb"></div>
+</textarea>
+<textarea name="jst" id="module-test-main-tab-tab-record">
+    {list xlist as x}
+    <a class="stateful tab" href="/test/${x.type}/${x.m}?iid=${iid}&id=${rid}" data-id="/test/${x.type}/${x.m}/">${x.name}</a>
+    {/list}
+</textarea>
+
+<textarea name="jst" id="module-test-main-tab-tab-progroup">
+    {list xlist as x}
+    <a class="stateful tab" href="/test/${x.type}/${x.m}?pgid=${pgid}&pid=${pid}&iid=${iid}${id?('&id='+id):''}"
+       data-id="/test/${x.type}/${x.m}/">${x.name}</a>
+    {/list}
+    <a class="import-testcase-btn f-dn" href="javascript:void(0);">导入测试用例</a>
+    <input type="file" class="import-testcase-file f-dn" class="j-file f-dn" multiple/>
+</textarea>
+
+<textarea name="css" data-src="./test_main_tab_tab.css"></textarea>
+<textarea name="js" data-src="./test_main_tab_tab.js"></textarea>

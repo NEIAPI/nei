@@ -1,0 +1,13 @@
+<input type={type||"text"} on-focus={this.focus()} on-blur={this.blur()} on-keyup={this.data.pass=this.validate()}
+       r-model={value}
+       maxlength={maxlength || 60} class="u-input u-input-auto" r-class={{"u-input-error":pass===false}}
+       placeholder={placeholder}>
+<div class="m-tooltip" r-hide={!isFoucs}>
+  <div class="conf">你的规则必须包含：</div>
+  <div class="rule">
+    {#list rules as item}
+    <label class="u-radiobox" r-class={{"u-radiobox-checked":item.pass}}>{item.label}</label>
+    {/list}
+  </div>
+  <div class="error" r-hide={pass}>你的输入不符合条件，请重新输入。</div>
+</div>

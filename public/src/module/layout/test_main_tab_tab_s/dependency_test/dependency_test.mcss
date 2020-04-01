@@ -1,0 +1,53 @@
+.module-test-dependency {
+  display: flex;
+  flex-direction: column;
+
+  .btn-bar {
+    align-self: flex-end;
+  }
+
+  .start-test, .reset-test {
+    padding: 0;
+    margin-left: 5px;
+    width: 95px;
+    height: 34px;
+    line-height: 34px;
+  }
+
+  .start-test {
+    background-color: #56c969;
+
+    &:hover {
+      background-color: #45b858;
+    }
+  }
+
+  .report-general {
+    display: none;
+
+    .test-notfinished {
+      color: #999;
+    }
+
+    .test-finished, .report-success {
+      color: green;
+    }
+
+    .report-fail {
+      color: #f04c62;
+    }
+
+    .report-num {
+    }
+
+    &.active {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 5px;
+      color: #888;
+      font-size: 16px;
+    }
+  }
+}

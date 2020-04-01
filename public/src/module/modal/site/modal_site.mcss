@@ -1,0 +1,84 @@
+.m-know-more {
+  &.m-modal {
+    white-space: normal;
+    z-index: 9999;
+  }
+
+  &.m-modal .modal-dialog {
+    width: 993px;
+    height: 620px;
+
+    .modal-title {
+      display: none;
+    }
+
+    video {
+      width: 960px;
+      height: 600px;
+      margin-top: 10px;
+    }
+  }
+
+  .modal-bd {
+    text-align: center;
+  }
+}
+
+.m-modal.m-know-more .modal-bd {
+  flex: none;
+}
+
+.m-modal.m-know-more .modal-dialog {
+  padding: 0;
+}
+
+.m-modal.m-know-more .modal-close {
+  right: -10px;
+  top: -13px;
+
+  .u-icon-close-normal-2 {
+    display: none;
+  }
+
+  .u-icon-close-hover-2 {
+    display: block;
+  }
+}
+
+.m-radar-cnt {
+  white-space: initial;
+  text-align: left;
+  overflow: hidden;
+
+  h5 {
+    font-size: 16px;
+  }
+
+  h6 {
+    text-align: right;
+  }
+
+  p {
+    text-indent: 28px;
+    margin: 6px 0;
+  }
+
+  .btn {
+    display: block;
+    height: 51px;
+    line-height: 51px;
+    width: 190px;
+    margin: 0 auto;
+    font-size: 15px;
+    letter-spacing: 2px;
+    text-align: center;
+    background: #30a1f2;
+    color: #fff;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: #2b91d9;
+    }
+  }
+}

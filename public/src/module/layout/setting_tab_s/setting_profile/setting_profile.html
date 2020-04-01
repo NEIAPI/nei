@@ -1,0 +1,56 @@
+<meta charset="utf-8"/>
+<textarea name="txt" id="module-setting-profile">
+    <div class="m-setting-profile">
+    </div>
+</textarea>
+<textarea name="jst" id="setting-base">
+{for x in label}
+    <div class="m-ps-item {if x_key === 'portrait'}item-portrait{/if}">
+        <label class="m-ps-label">${x}:</label>
+        <div class="m-ps-con">
+            {if x_key === "portrait"}
+                {if data[x_key]=== ''}
+                    <div class="u-ps-portrait ${data.bgClassName}">
+                        <span class="txt">${data.letterText}</span>
+	                    <div class="icon">
+		                    <i class="u-icon-upload-avartar-normal"></i>
+	                    </div>
+                    </div>
+                {else}
+                     <div class="u-ps-portrait" style="background-image:url(${data[x_key]})">
+	                     <div class="icon">
+		                     <i class="u-icon-upload-avartar-normal"></i>
+	                     </div>
+                     </div>
+                    <span class="clear" data-click='{"type":"portrait"}'>清除</span>
+                {/if}
+            {elseif x_key === "username"}
+                <div class="u-ps-value" title="${data[x_key]}">${data[x_key]}</div>
+            {elseif x_key === "role"}
+                <div class="u-ps-role"></div>
+            {elseif x_key === "jobTime"}
+                <input class="u-m-inp" data-click='{"type":"datepick"}' value="${data[x_key]|format:'yyyy-MM-dd'}"/>
+                <div class="u-ps-time"></div>
+            {elseif x_key == "email"}
+                {if ebind == 0}
+                    <input class="u-m-inp u-bind" title="${data[x_key]}" readonly value="${data[x_key]}"
+                           data-action='${JSON.stringify(action[x_key])}'/>
+                    <span class="u-icon-alert-normal"></span>
+                    <a class="u-ps-bind" href="#" data-click='{"type":"bind","key":"${x_key}"}'>绑定</a>
+                {else}
+                    <input class="u-bind-ipt u-bind" title="${data[x_key]}" readonly value="${data[x_key]}"/>
+                    {if isFromSite}
+                    <a class="u-ps-bind" href="#" data-click='{"type":"unbind","key":"${x_key}"}'>解绑</a>
+                    {/if}
+                {/if}
+            {else}
+            <input class="u-m-inp" title="${data[x_key]|escape}" readonly value="${data[x_key]|escape}"
+                   data-action='${JSON.stringify(action[x_key])}'/>
+            {/if}
+        </div>
+    </div>
+{/for}
+</textarea>
+
+<textarea name="css" data-src="./setting_profile.css"></textarea>
+<textarea name="js" data-src="./setting_profile.js"></textarea>

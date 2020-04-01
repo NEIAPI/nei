@@ -1,0 +1,18 @@
+<meta charset="utf-8"/>
+<textarea name="txt" id="module-res-rpc-detail-tab">
+	<div class="m-res-rpc-d-tab">
+		<div class="tab-wrap"></div>
+	</div>
+</textarea>
+<textarea name="jst" id="module-res-rpc-detail-tabs">
+	{list xlist as x}
+	<a class="stateful tab ${x.type}" href="/rpc/detail/${x.type}/?pid=${pid}&id=${id}"
+     data-id="/progroup/p/res/rpc/detail/${x.type}/">
+		${x.name}
+		<span class="${x.type}-sufix"> ${x.sufix || ''} </span>
+	</a>
+	{/list}
+</textarea>
+
+<textarea name="css" data-src="./res_rpc_detail_tab.css"></textarea>
+<textarea name="js" data-src="./res_rpc_detail_tab.js"></textarea>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head><%- include common.ejs %></head>
+<link rel="stylesheet" href="/src/modules/common/module.css"/>
+<link rel="stylesheet" href="/src/modules/common/unit.css"/>
+<link rel="stylesheet" href="/src/lib/plug/bookblock.css"/>
+<link rel="stylesheet" href="/src/page/signup/signup.css"/>
+</head>
+
+<body>
+<header class="g-head">
+  <a class="m-head" href="/">
+    <span class="nei">NEI</span>
+    <span class="des">接口管理平台</span>
+  </a>
+</header>
+<div class="g-body">
+  <div class="main">
+    <div id="bb-bookblock" class="m-bookblock bb-bookblock">
+      <div class="bb-item">
+        <div class="wrap-register">
+          <div class="register">
+            <div class="wrap-form">
+              <div class="titleBar">
+                <strong>注册</strong><span>创建帐号</span>
+              </div>
+              <div id="js-register"></div>
+            </div>
+          </div>
+          <div class="rigister-bg">
+            <div class="logo"></div>
+            <div class="for-login">
+              <p>如果已经有帐号，请登录！</p>
+              <a class="u-btn u-btn-3 u-radius-20px" id="bb-nav-next">切换到登录</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bb-item">
+        <div class="wrap-login">
+          <div class="login-bg">
+            <div class="for-register">
+              <p>如果还有没帐号，请注册一个帐号吧！</p>
+              <a class="u-btn u-btn-3 u-radius-20px" id="bb-nav-prev">立即注册</a>
+            </div>
+          </div>
+          <div class="login">
+            <div class="method">
+              <div class="logo">NEI</div>
+            </div>
+            <div class="wrap-form">
+              <form class="m-form m-form-login" id="Login">
+                <div class="notice"></div>
+                <div class="item">
+                  <i class="u-icon-user"></i>
+                  <input type="text" name="username" data-active="input"
+                         autocomplete="off"
+                         class="u-input u-input-auto u-input-username"
+                         placeholder="输入用户名">
+                </div>
+                <div class="item">
+                  <i class="u-icon-password"></i>
+                  <input type="password" name="password"
+                         autocomplete="off"
+                         data-active="input"
+                         class="u-input u-input-auto u-input-password"
+                         placeholder="输入密码">
+                </div>
+                <div class="item item-submit">
+                  <button type="button" data-active="button"
+                          class="u-btn u-btn-auto u-btn-primary u-radius-20px j-login">登录
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<footer class="g-foot">
+  <div class="m-foot">
+    <a href="https://github.com/x-orpheus" target="_blank">网易云音乐开源作品</a>
+    <i></i>
+    <span>官方唯一反馈 QQ 群: 453281988</span>
+  </div>
+</footer>
+<!-- @MERGE -->
+<script src="/src/lib/plug/c.js"></script>
+<script src="/src/lib/plug/modernizr.custom.js"></script>
+<script src="/src/lib/plug/bookblock.js"></script>
+<script src="/src/lib/plug/json3.js"></script>
+<script src="/src/lib/crypto-js/crypto-js.js"></script>
+<script src="/src/lib/plug/message.js"></script>
+<!-- /@MERGE -->
+<!-- @DEFINE -->
+<script src="/src/lib/nej/src/define.js?index=/src/modules/"></script>
+<script>
+  NEJ.define([
+    '/src/page/signup/signup.js'
+  ], function (m) {
+    m._$$Signup._$allocate({});
+  });
+</script>
+</body>
+
+</html>

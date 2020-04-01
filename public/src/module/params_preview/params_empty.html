@@ -1,0 +1,25 @@
+<div class="list-row list-empty">
+  {#if level==0}
+  <div>没有{emptyTip}</div>
+  {#else}
+  {#if xlist.length}
+  <div>1、没有{emptyTip}，你可以
+    {#list xlist as p}
+    <a data-active={p.action} on-click={this._onAction(p.action)}>{p.name}</a>
+    {#if p_index !=xlist.length-1}
+    <span>/</span>
+    {/if}
+    {/list}
+    来添加{emptyTip}
+  </div>
+  {/if}
+  {#if mlist.length}
+  <div>2、通过
+    <select2 source={source} selected={selected} on-change={this._onChange($event)} hasCreate={false} initSilent={true}
+             format={format} sortList={false} choseOnly={true} isDataType={false} isArray={false} noArray={true}
+             noObject={true}></select2>
+    来调整类型
+  </div>
+  {/if}
+  {/if}
+</div>

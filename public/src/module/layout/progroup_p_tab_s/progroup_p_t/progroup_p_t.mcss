@@ -1,0 +1,210 @@
+.m-pg-p-t {
+  background-color: #fff;
+  padding: 0 0 100px;
+
+  .u-select2 {
+    width: 170px;
+  }
+
+  .tool-info {
+    .tool-part {
+      margin-top: 20px;
+
+      .t-part-head {
+        padding: 0 20px;
+        box-sizing: border-box;
+        width: 100%;
+        height: 40px;
+        line-height: 40px;
+        font-size: 15px;
+        background: rgba(0, 0, 0, 0.05);
+
+        .j-open {
+          float: right;
+          display: block;
+          height: 100%;
+
+          .u-icon-arrow-down-normal {
+            display: block;
+            margin-top: 16px;
+          }
+        }
+      }
+
+      .t-part-specname {
+        label {
+          display: inline-block;
+          vertical-align: middle;
+          width: 85px;
+          text-align: right;
+        }
+
+        .spec-vmlist-label {
+          vertical-align: top;
+        }
+
+        .spec-vmlist {
+          display: inline-block;
+          width: 85%;
+          margin: 20px 0;
+        }
+
+        .spec-vmlist:empty {
+          margin: 0;
+        }
+
+        .spec-vmlist-label {
+          margin-top: 32px;
+        }
+
+        .spec-select {
+          display: inline-block;
+          height: 30px;
+          vertical-align: middle;
+          font-size: 12px;
+        }
+
+        .u-spec-add {
+          margin-left: 10px;
+          color: #fff;
+        }
+
+        .z-empty {
+          display: inline-block;
+          color: #999;
+          line-height: 30px;
+        }
+
+        .spec-check {
+          display: inline-block;
+          color: #30a1f2;
+          font-size: 12px;
+          margin: 5px 0 0 97px;
+        }
+
+        .spec-clear {
+          display: inline-block;
+          cursor: pointer;
+          color: #30a1f2;
+          font-size: 12px;
+          margin-left: 10px;
+        }
+      }
+
+      .t-part-cliarglist {
+        label {
+          display: inline-block;
+          vertical-align: top;
+          margin-top: 15px;
+          width: 85px;
+          text-align: right;
+        }
+
+        .procli-list {
+          display: inline-block;
+          width: 85%;
+        }
+      }
+
+      .t-part-vmlist + .t-part-vmlist {
+        margin-top: 20px;
+      }
+
+      .tool-icon {
+        cursor: pointer;
+      }
+
+      .tool-part-content {
+        padding: 20px;
+      }
+    }
+
+    .tool-tag {
+      .t-part-content {
+        padding: 20px 0 0 20px;
+
+        .copy-txt {
+          display: inline-block;
+          vertical-align: middle;
+          margin: 16px 0;
+
+          .sample-code {
+            border-radius: 4px;
+          }
+        }
+
+        .link {
+          color: #30a1f2;
+        }
+
+        .copy-btn {
+          display: inline-block;
+          vertical-align: middle;
+        }
+
+        .toolkey-warn {
+          margin-top: 20px;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  .tool-setting {
+    .t-part-content {
+      padding-left: 20px;
+    }
+  }
+
+  .setting-item {
+    padding: 10px 0;
+
+    &-label, &-check {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    &-label {
+      margin-right: 6px;
+    }
+
+    &-check {
+      cursor: pointer;
+      font-size: 0;
+    }
+
+    .u-icon-checkbox-pressed {
+      display: none;
+    }
+
+    .selected {
+      .u-icon-checkbox-normal {
+        display: none;
+      }
+
+      .u-icon-checkbox-pressed {
+        display: inline-block;
+      }
+    }
+  }
+
+  .project-view-mode {
+    .setting-item-check {
+      cursor: default;
+    }
+  }
+}
+
+.u-spec-add {
+  color: #fff;
+  display: inline-block;
+  background-color: #30a1f2;
+  width: 95px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+
+  &:link, &:hover, &:active {
+    color: #fff;
+  }
+}

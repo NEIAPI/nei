@@ -1,0 +1,28 @@
+.m-res-g-c {
+  .description {
+    height: 80px;
+  }
+
+  .form-group > label {
+    width: 150px;
+  }
+
+  .button-group {
+    margin-left: 150px;
+  }
+
+  .form-group > .tip {
+    color: #fff;
+    background-color: #17a2b8;
+    border: 0 none;
+    padding: 10px;
+    white-space: normal;
+    text-align: left;
+  }
+
+  .rpc-pom-editor,
+  .rpc-key-editor {
+    width: 50%;
+    min-height: 150px;
+  }
+}

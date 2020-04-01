@@ -1,0 +1,34 @@
+.m-pg-p-p-c {
+  .form-group {
+    .tag, .templates, .interfaces {
+      width: 50%;
+    }
+
+    .parameters {
+      width: 88%;
+    }
+
+    &.form-parameter {
+      label {
+        margin-top: 0;
+        line-height: initial;
+      }
+    }
+
+    .groups, .respo {
+      height: 30px;
+      line-height: 30px;
+    }
+
+    .m-tagme .tag-item {
+      height: 24px;
+      box-sizing: border-box;
+      padding: 3px 18px;
+
+      i {
+        top: 2px;
+      }
+    }
+  }
+
+}

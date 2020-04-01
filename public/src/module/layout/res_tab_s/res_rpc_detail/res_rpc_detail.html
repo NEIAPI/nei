@@ -1,0 +1,97 @@
+<meta charset="utf-8"/>
+<textarea name="txt" id="module-res-rpc-detail">
+	<div class="m-r-rpc-d u-res-detail">
+		<div class="tab-head"></div>
+		<div class="tab-audit f-dn">
+			<a class="audit-btn audit-agree">通过审核</a>
+			<a class="audit-btn audit-reject">打回审核</a>
+			<a class="audit-btn audit-submit">提交审核</a>
+		</div>
+		<div class="tab-body f-dn">
+			<div class="tab-wrap"></div>
+			<div class="tab-con-s"></div>
+		</div>
+	</div>
+</textarea>
+<textarea name="jst" id="m-r-rpc-detail">
+	<div class="d-block-wrap">
+		<div class="d-block">
+
+			<div class="block-item d-title">
+				<input type="text" name="name" value="${name|escape}" class="u-m-inp title"
+               data-action='{"type":"modify","cache":"rpc","id":"${id}","name":"name", "required":true}' readonly>
+			</div>
+
+			<div class="block-item item-classname">
+				<label>类名：</label>
+				<div class="classname-select"></div>
+			</div>
+
+			<div class="block-item item-path">
+				<label>方法名：</label>
+				<input type="text" name="path" value="${path|escape}" class="u-m-inp path" placeholder="暂无方法名" {if !!permit}
+               data-action='{"type":"modify","cache":"rpc","id":"${id}","name":"path"}' {/if} readonly />
+			</div>
+
+			<div class="block-item item-version">
+				<label>版本：</label>
+				<input type="text" name="version" value="${(version && version.name) || '' |escape}"
+               class="u-m-inp version-name" {if !!permit}
+               data-action='{"type":"modify","cache":"rpc","id":"${id}","name":"versionName"}' {/if} readonly />
+			</div>
+
+			<div class="block-item item-tag">
+				<label>标签：</label>
+				<div class="tag-select"></div>
+			</div>
+
+			<div class="block-item status">
+				<label>状态：</label>
+				<div class="status-select"></div>
+			</div>
+			<div class="block-item item-description">
+				<label>描述：</label>
+				<textarea class="u-m-inp u-m-txt" placeholder="暂无描述" {if
+                  permit}data-action='{"type":"modify","cache":"rpc","id":"${id}","name":"description"}' {/if} >${description|escape2}<&#47;textarea>
+			</div>
+
+		</div>
+		<div class="d-block go-back">
+			<a href="javascript:void(0);" class="watch-btn watch {if isWatched==1}fn{/if}">关注</a>
+			<a href="javascript:void(0);" class="watch-btn cancle-watch {if isWatched==0}fn{/if}">取消关注</a>
+			<a href="javascript:void(0);" class="send-btn" title="发送消息给关注人">发送消息</a>
+			<a href="/rpc/?pid=${projectId}" class="stateful">
+				<i class="glyphicon glyphicon-circle-arrow-left"></i>
+			</a>
+		</div>
+		<div class="d-block">
+			<div class="block-item watch-list">
+				<label>创建人：</label>
+				<div class="creator-container"></div>
+			</div>
+			<div class="block-item respo">
+				<label>负责人：</label>
+				<div class="respo-select"></div>
+			</div>
+			<div class="block-item watch-list">
+				<label>关注人：</label>
+				<div class="watch-list-container"></div>
+			</div>
+			<div class="block-item group">
+				<label>业务分组：</label>
+				<div class="group-select"></div>
+			</div>
+			<div class="block-item pom">
+				<label>POM：</label>
+				<div class="rpc-pom-editor"></div>
+			</div>
+			<div class="block-item key">
+				<label>KEY：</label>
+				<div class="rpc-key-editor"></div>
+			</div>
+		</div>
+	</div>
+</textarea>
+
+<textarea name="css" data-src="./res_rpc_detail.css"></textarea>
+<textarea name="js" data-src="./res_rpc_detail.js"></textarea>

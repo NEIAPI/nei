@@ -1,0 +1,73 @@
+.m-modal.m-modal-res-list {
+  .modal-dialog {
+    padding: 30px;
+    width: 800px;
+  }
+
+  .modal-hd .modal-close {
+    right: -10px;
+  }
+
+  .filter-list-trigger {
+    cursor: pointer;
+  }
+
+  .res-list {
+    position: relative;
+  }
+
+  .list-col, .batch-action {
+    text-align: left;
+  }
+
+  .list-row {
+    .col-create-time {
+      width: 120px;
+    }
+
+    .col-nei-actions {
+      width: 0;
+      padding: 0;
+    }
+
+    &:hover {
+      background-color: #f2f9fe;
+
+      .col-nei-actions {
+        position: absolute;
+        right: 0;
+        opacity: 1;
+        width: 130px;
+        padding-right: 10px;
+        background-color: #f2f9fe;
+      }
+    }
+  }
+
+  .list-bd {
+    overflow: auto;
+    height: 360px;
+  }
+
+  .res-actions {
+    position: absolute;
+    top: 0;
+    right: 188px;
+
+    i {
+      margin: 10px 4px 0 0;
+      vertical-align: top;
+    }
+  }
+
+  .res-add {
+    display: inline-block;
+    width: 95px;
+    height: 34px;
+    background-color: #30a1f2;
+    color: #fff;
+    line-height: 34px;
+    text-align: center;
+    cursor: pointer;
+  }
+}

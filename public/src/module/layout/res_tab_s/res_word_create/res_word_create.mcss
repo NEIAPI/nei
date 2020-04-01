@@ -1,0 +1,14 @@
+.m-res-c-c {
+  .tag, .associate {
+    width: 50%;
+  }
+
+  .fg-desc {
+    width: 51%;
+
+    a:link,
+    a:visited {
+      color: #30a1f2;
+    }
+  }
+}

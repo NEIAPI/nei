@@ -1,0 +1,111 @@
+.m-test-main-tab {
+  height: 29px;
+  border-bottom: 1px solid #e6e6e6;
+
+  .tab-wrap {
+    display: flex;
+    height: 30px;
+    font-size: 0;
+    // white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .add-tab-btn {
+    display: none;
+    width: 30px;
+    height: 30px;
+    background-color: #ededed;
+    border-radius: 4px 0 0 0;
+
+    cursor: default;
+    // &:hover {
+    //     background-color: #e0e0e0;
+    // }
+    // &:active {
+    //     background-color: #bebebe;
+    // }
+  }
+
+  .u-icon-add-project {
+    transform-origin: 12px 12px;
+    transform: scale(0.375);
+  }
+
+  .tab {
+    flex-basis: 168px;
+    position: relative;
+    margin-right: 4px;
+    box-sizing: border-box;
+    padding: 0 8px;
+    min-width: 60px;
+    height: 30px;
+    border: 1px solid #f2f2f2;
+    background-color: #f2f2f2;
+    font-size: 12px;
+    border-radius: 4px 0 0 0;
+
+    .tab-name {
+      display: block;
+      line-height: 28px;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+  }
+
+  .tab:last-child {
+    margin-right: 0;
+  }
+
+  .tab:hover {
+    .tab-close-wrap {
+      display: block;
+      background-color: #f2f2f2;
+    }
+  }
+
+  .tab.js-selected {
+    border-color: #e6e6e6;
+    border-bottom-color: #fff;
+    background-color: #fff;
+    color: #222;
+
+    .tab-close-wrap {
+      display: block;
+      background-color: #fff;
+    }
+  }
+
+  .tab-close-wrap {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 4px;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+
+    &:hover {
+      .u-icon-close-normal-2 {
+        display: none;
+      }
+
+      .u-icon-close-hover-2 {
+        display: inline-block;
+      }
+    }
+  }
+
+  .tab-close-btn {
+    transform-origin: 0 0;
+    transform: scale(0.66667);
+  }
+
+  .u-icon-close-hover-2 {
+    display: none;
+  }
+}

@@ -1,0 +1,34 @@
+<div class="m-import-interface" ref="interfaceArea">
+  <div class="item">
+    <label class="lab">请求地址：</label>
+    <div class="ipt">
+      <select2 source={source} on-change={this._onChange($event.selected)}></select2>
+      <input type="text" r-class={{"u-input-error":isError}} r-model={url} class="u-input" on-focus={isError = false}
+      placeholder="http://" />
+    </div>
+  </div>
+  <div class="item">
+    <label class="lab">请求头信息：</label>
+    <div class="ipt ipt-edit" style="height: 140px;">
+      <pre id="editor1"></pre>
+    </div>
+  </div>
+  <div class="item">
+    <label class="lab">请求参数：</label>
+    <div class="ipt ipt-edit" style="height:140px;">
+      <pre id="editor2"></pre>
+    </div>
+  </div>
+</div>
+
+<div class="m-import-json fn" ref="jsonArea">
+  <div class="oper">
+    <span class="func" title="返回" ref="backBtn"><i class="u-icon-back-normal"></i></span>
+    <span class="func" title="json格式化" ref="jsonFormatBtn">
+            <i class="u-icon-json-format"></i>
+        </span>
+  </div>
+  <div class="edit">
+    <pre id="editor_ace"></pre>
+  </div>
+</div>

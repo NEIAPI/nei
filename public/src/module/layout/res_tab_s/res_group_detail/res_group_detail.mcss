@@ -1,0 +1,24 @@
+.m-res-g-d {
+  .u-m-txt {
+    height: 50px !important;
+  }
+
+  .d-item-activity {
+    padding-top: 15px;
+  }
+
+  .block-item > label {
+    width: 150px !important;
+  }
+
+  .item-rpc-pom,
+  .item-rpc-key {
+    align-items: end !important;
+  }
+
+  .rpc-pom-editor,
+  .rpc-key-editor {
+    flex: 0.7 !important;
+    min-height: 150px;
+  }
+}

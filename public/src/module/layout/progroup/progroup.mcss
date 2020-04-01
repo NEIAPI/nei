@@ -1,0 +1,54 @@
+.m-progroup {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  left: 10px;
+  bottom: 10px;
+
+  .tree-wrap {
+    background-color: #fff;
+    box-sizing: border-box;
+    min-width: 200px;
+    width: 200px;
+    border-right: 1px solid #e6e6e6;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    transition: all 0.2s ease;
+    border-radius: 4px;
+  }
+
+  .con-wrap {
+    .tab-wrap {
+      position: relative;
+      z-index: 3;
+    }
+  }
+
+  > .con-wrap {
+    position: absolute;
+    left: 210px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    transition: left 0.4s ease;
+    border-radius: 4px;
+    background-color: #fff;
+  }
+}
+
+.m-progroup .j-animation {
+  left: -196px !important;
+}
+
+.m-progroup .j-animation-width {
+  width: 0;
+  min-width: 0;
+}
+
+.j-contentAnimation {
+  left: 10px !important;
+}

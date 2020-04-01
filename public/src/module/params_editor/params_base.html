@@ -1,0 +1,29 @@
+<div class="wrap-editor">
+  <div r-hide={isHideFullButton} class="fullScreen" title="全屏" on-click={this.doFullScreen($event)}><i
+    class="u-icon-spread-normal"></i></div>
+  <table class="m-tb m-tb-editor m-tb-editor-base">
+    <thead>
+    <tr>
+      {#if !isFile}
+      <th>默认值</th>
+      <th>生成规则</th>
+      <!--<th>验证规则</th>-->
+      {/if}
+      <th>描述</th>
+    </tr>
+    </thead>
+    <tbody>
+    {#list params as p}
+    <tr>
+      {#if !isFile}
+      <td><input title={p.defaultValue} type="text" class="u-input" r-model={p.defaultValue}/></td>
+      <td><input title={p.genExpression} type="text" class="u-input u-input-exp" readonly r-model={p.genExpression}
+                 on-click={this.createExp(p_index,'genExpression')}/></td>
+      <!--<td><input title={p.valExpression} type="text" class="u-input u-input-exp" readonly r-model={p.valExpression} on-click={this.createExp(p_index,'valExpression')} /></td>-->
+      {/if}
+      <td><input title={p.description} type="text" class="u-input" r-model={p.description}/></td>
+    </tr>
+    {/list}
+    </tbody>
+  </table>
+</div>

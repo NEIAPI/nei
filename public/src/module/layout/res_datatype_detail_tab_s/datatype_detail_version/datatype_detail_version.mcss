@@ -1,0 +1,40 @@
+.m-pg-p-r-d-v {
+  margin-top: 15px;
+
+  .batch-action-multi-sel .batch-action-item-test {
+    display: none;
+  }
+
+  .list-content {
+    .resource-feature {
+      position: absolute;
+      top: 67px;
+      right: 145px;
+    }
+
+    .list-bd {
+      position: static;
+    }
+
+    .resource-version-add {
+      color: #fff;
+      display: inline-block;
+      background-color: #30a1f2;
+      width: 95px;
+      height: 34px;
+      line-height: 34px;
+      text-align: center;
+      margin-right: 65px;
+    }
+  }
+
+  .m-stripedlist {
+    .list-hd {
+      background-color: #e3e3e3 !important;
+
+      .batch-action {
+        background-color: #e3e3e3 !important;
+      }
+    }
+  }
+}

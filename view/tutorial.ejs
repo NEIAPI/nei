@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%- include common.ejs %>
+  <link rel="stylesheet" href="/src/modules/common/base.css"/>
+  <link rel="stylesheet" href="/src/page/tutorial/tutorial.css"/>
+  <link rel="stylesheet" href="/src/module/common/icons.css"/>
+</head>
+<body>
+<div class="flex flex-v container-wrapper">
+  <div class="container">
+
+    <aside class="sidebar">
+      <h1>NEI 视频介绍</h1>
+      <ul class="active">
+        <li><p><a href="/tutorial/#interface" class="interface" data-click="interface">接口规范</a></p></li>
+        <li><p><a href="/tutorial/#cooperation" class="cooperation" data-click="cooperation">团队协作</a></p>
+        </li>
+        <li><p><a href="/tutorial/#spec" class="spec" data-click="spec">工程规范</a></p></li>
+        <li><p><a href="/tutorial/#tool" class="tool" data-click="tool">构建工具</a></p></li>
+        <li><p><a href="/tutorial/#mock" class="mock" data-click="mock">接口 MOCK</a></p></li>
+        <li><p><a href="/tutorial/#test" class="test" data-click="test">接口测试</a></p></li>
+        <li><p><a href="/tutorial/#audit" class="audit" data-click="audit">接口审核</a></p></li>
+        <li><p><a href="/tutorial/#changeconfirm" class="changeconfirm"
+                  data-click="changeconfirm">接口变更确认</a></p></li>
+      </ul>
+    </aside>
+
+    <div class="content">
+      <video class="video" src="https://neires.nos-eastchina1.126.net/interface_spec.mp4" controls></video>
+    </div>
+  </div>
+
+  <div class="m-foot">
+    <div class="g-fit">
+      <div class="foot">Copyright ©1997-至今 Netease<i></i>
+        <a href="https://c.163.com/" target="_blank">网易云提供基础服务</a><i></i>
+        <span>外部反馈 QQ 群: 453281988，内部反馈泡泡群: 1311121</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- @DEFINE -->
+<script src="/src/lib/nej/src/define.js?pro=/src/module/&3rd=/src/lib/&rot=/src/"></script>
+<script>
+  NEJ.define([
+    '/src/page/tutorial/tutorial.js'
+  ], function (m) {
+    m._$$Module._$allocate({});
+  });
+</script>
+</body>
+</html>

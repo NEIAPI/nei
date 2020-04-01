@@ -1,0 +1,76 @@
+.m-spec-discover {
+  font-size: 14px;
+  color: #222;
+  margin: 0 30px;
+
+  .spec-disc-logo {
+    margin: 200px 0 40px;
+    text-align: center;
+  }
+
+  .spec-disc-search {
+    width: 660px;
+    margin: 20px auto;
+    font-size: 16px;
+    color: #222222;
+  }
+
+  .search-box {
+    box-sizing: border-box;
+    display: inline-block;
+    border: 2px solid #e6e6e6;
+    height: 44px;
+    line-height: 40px;
+    width: 550px;
+    position: relative;
+  }
+
+  .search-type {
+    float: left;
+    border-right: 1px solid #e6e6e6;
+    padding: 0 20px;
+  }
+
+  .u-icon-arrow-down-normal {
+    display: inline-block;
+    margin-left: 10px;
+  }
+
+  .search-input {
+    font-size: 16px;
+    display: block;
+    border: none;
+    line-height: 40px;
+    padding: 0 20px;
+  }
+
+  .search-button {
+    display: inline-block;
+    vertical-align: top;
+    width: 90px;
+    height: 44px;
+    background: #30a1f2;
+    text-align: center;
+  }
+
+  .search-button a {
+    margin-top: 10px;
+  }
+
+  .search-button:hover {
+    background: #2b91d9;
+    cursor: pointer;
+  }
+
+  .spec-disc-hot {
+    display: flex;
+    margin: 0 auto;
+    width: 660px;
+    justify-content: center;
+  }
+
+  .spec-disc-hot li {
+    width: 220px;
+    text-align: center;
+  }
+}

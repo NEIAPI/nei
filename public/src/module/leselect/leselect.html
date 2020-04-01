@@ -1,0 +1,32 @@
+<div class="u-lt-select u-lt-select-{type}" ref="element">
+  {#if type=='see'}
+  <div>
+    <label class="label">实现语言：</label>
+    <span>{language}</span>
+    {#if isWeb}
+    <label class="label">模板引擎：</label>
+    <span>{engine}</span>
+    <label class="label">模板扩展名：</label>
+    <span>{viewExtension}</span>
+    {/if}
+  </div>
+  {#else}
+  <div class="item">
+    <label class="label">实现语言：</label>
+    <select2 source={language} on-change={this.selectChange($event,0)} selected={lselected} sortList={false}
+             initSilent={initSilent1} preview={preview} editable={editable} ref="language"></select2>
+  </div>
+  {#if isWeb}
+  <div class="item">
+    <label class="label">模板引擎：</label>
+    <select2 source={engine} on-change={this.selectChange($event,1)} selected={eselected} sortList={false}
+             initSilent={initSilent2} preview={preview} editable={editable} ref="engine"></select2>
+  </div>
+  <div class="item">
+    <label class="label">模板扩展名：</label>
+    <input class="u-ext" on-change={this.inputChange($event)} ref="extension" {#if type=="see"}readonly{/if}
+           value={viewExtension}/>
+  </div>
+  {/if}
+  {/if}
+</div>

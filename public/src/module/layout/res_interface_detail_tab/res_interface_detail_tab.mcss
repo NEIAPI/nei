@@ -1,0 +1,27 @@
+.m-res-i-d-tab {
+  .tab-wrap {
+    display: flex;
+    display: -webkit-flex;
+    border-bottom: solid 1px #30a1f2;
+    justify-content: flex-start;
+    height: 30px !important;
+    line-height: 30px !important;
+  }
+
+  .tab {
+    width: 95px;
+    height: 30px;
+    line-height: 30px;
+    margin: 0 5px 0 0;
+    color: #666;
+    background-color: #e9e9e9;
+    font-size: 14px;
+    text-align: center;
+    transition: all ease .3s;
+
+    &.js-selected, &:hover {
+      color: #fff;
+      background-color: #30a1f2;
+    }
+  }
+}

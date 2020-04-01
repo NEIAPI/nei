@@ -1,0 +1,21 @@
+<meta charset="utf-8">
+<textarea name="txt" id="module-test-main-tab">
+    <div class="m-test-main-tab"></div>
+</textarea>
+<textarea name="jst" id="module-test-main-tab-wrap">
+    <div class="tab-wrap">
+        {list xlist as x}
+        <a class="stateful tab" href="${x.href}" data-id="${x.type}-${x.id}" title="${x.name}">
+            <span class="tab-name">${x.name}</span>
+            <span class="tab-close-wrap">
+                <i class="u-icon-close-normal-2 tab-close-btn"></i>
+                <i class="u-icon-close-hover-2 tab-close-btn"></i>
+            </span>
+        </a>
+        {/list}
+        <a class="add-tab-btn"><i class="u-icon-add-project"></i></a></div>
+  </div>
+</textarea>
+
+<textarea name="css" data-src="./test_main_tab.css"></textarea>
+<textarea name="js" data-src="./test_main_tab.js"></textarea>

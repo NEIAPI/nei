@@ -1,0 +1,109 @@
+<meta charset="utf-8"/>
+<textarea name="ntp" id="module-pg-p-p-create">
+	<div class="m-pg-p-p-c u-form-create">
+		<div class="form-title">
+			<div class="title">新建页面</div>
+			<a class="goback stateful">返回<i class="u-icon-back-normal-2"></i></a>
+		</div>
+
+		<form data-focus-mode="1" class="m-form">
+			<div class="form-group form-name page-name">
+				<label>
+					<i class="signal-required">*</i>名称：
+				</label>
+				<input type="text" name="name" class="name form-item" value=''
+               placeholder="请输入名称"
+               data-auto-focus="true"
+               data-required="true"
+               data-message="最多20个中文或者40个英文字符！"
+               data-tip="请输入页面名称，最多20个中文或者40个英文字符"
+               data-max-length=40
+               data-min-length=1
+               data-ignore="true"
+               maxlength="40">
+			</div>
+
+			<div class="form-group form-path page-path">
+				<label>
+					<i class="signal-required">*</i>路径：
+				</label>
+				<input type="text" name="path" class="path form-item" value='/'
+               placeholder="请输入相对路径，例如 /user/profile/:id/"
+               data-tip="请输入相对路径，例如 /user/profile/:id/，路径上携带的参数前面加冒号"
+               data-message="请输入相对路径，例如 /user/profile/:id/，路径上携带的参数前面加冒号！"
+               data-pattern="^(?!.*\:\/\/).*\/(?!.*\:\/\/).*$" data-ignore="true">
+			</div>
+
+			<div class="form-group form-description">
+				<label>描述：</label>
+				<textarea value="" name="description" placeholder="请输入描述信息" class="description form-item" value=''>&lt;/textarea>
+			</div>
+
+            <div class="form-group">
+				<label>代码映射：</label>
+				<input type="text" name="classname" placeholder="请输入Controller名称" class="classname form-item"
+               data-tip="自动生成代码时，作为该页面Controller的名称">
+			</div>
+
+			<div class="form-group form-parameter">
+				<label>参数：</label>
+				<div class="parameters p-c-parameters-editor"></div>
+			</div>
+
+			<div class="form-group form-source-group form-group-group">
+				<label>分组：</label>
+				<div class="groups item-wrap">
+
+					<!-- 智能输入选择器 -->
+
+				</div>
+				<a href="#" class="create">新建</a>
+			</div>
+
+			<div class="form-group form-responsor">
+				<label>负责人：</label>
+				<div class="respo item-wrap">
+
+					<!-- 智能输入选择器 -->
+				</div>
+			</div>
+
+			<div class="form-group form-tag">
+				<label>标签：</label>
+				<div class="tag">
+
+				<!-- 智能提示输入框 -->
+
+				</div>
+			</div>
+
+			<div class="form-group form-template">
+				<label><i class="signal-required">*</i>模板：</label>
+				<div class="templates">
+
+				<!-- 智能提示输入框 -->
+
+				</div>
+				<a class="create">新建</a>
+			</div>
+
+			<div class="form-group form-interface">
+				<label>接口：</label>
+				<div class="interfaces">
+
+				<!-- 智能提示输入框 -->
+
+				</div>
+				<a class="create">新建</a>
+			</div>
+
+			<div class="button-group">
+				<button class="u-btn save" name="save" type="button">保存</button>
+			</div>
+
+		</form>
+		</div>
+	</textarea>
+
+<textarea name="css" data-src="./progroup_p_p_create.css"></textarea>
+<textarea name="js" data-src="./progroup_p_p_create.js"></textarea>

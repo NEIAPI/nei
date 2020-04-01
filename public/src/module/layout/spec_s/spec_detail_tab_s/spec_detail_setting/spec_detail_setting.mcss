@@ -1,0 +1,75 @@
+.m-spec-d-r {
+  height: 100%;
+  position: relative;
+  flex-flow: column;
+
+  .m-map-wrap {
+    //position: absolute;
+    //left: 0;
+    //right: 0;
+    //top: 208px;
+    //bottom: 0;
+    //overflow-y: auto;
+  }
+
+  .m-map-title {
+    padding: 0 20px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    font-size: 15px;
+    background: rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+  }
+
+  .m-map-list {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .tool-tag {
+    //position: absolute;
+    //left: -10px;
+    //right: 0;
+    //top: 20px;
+    //bottom: 0;
+    //overflow-y: auto;
+    padding-top: 20px;
+    padding-left: 10px;
+
+    .t-part-head {
+      padding: 0 20px;
+      box-sizing: border-box;
+      width: 100%;
+      height: 40px;
+      line-height: 40px;
+      font-size: 15px;
+      background: rgba(0, 0, 0, 0.05);
+    }
+
+    .t-part-content {
+      padding: 20px;
+    }
+
+    .copy-txt {
+      display: inline-block;
+      vertical-align: middle;
+      margin: 16px 0;
+    }
+
+    .tool-icon {
+      cursor: pointer;
+    }
+
+    .link {
+      color: #30a1f2;
+    }
+  }
+
+  .hljs {
+    background-color: #fff;
+    border-radius: 4px;
+  }
+}

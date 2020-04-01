@@ -1,0 +1,232 @@
+.m-modal-ftl-import {
+  .modal-dialog {
+    width: 800px !important;
+  }
+
+  .f-dn {
+    display: none !important;
+  }
+
+  .ftl-import {
+    font-size: 12px;
+    padding: 0 30px;
+    text-align: left;
+
+    .m-dt-list {
+      .tip {
+        color: #999;
+        height: 30px;
+        line-height: 30px;
+      }
+
+      .item-detail-block {
+        width: 100%;
+        border-bottom: 1px dashed #e6e6e6;
+      }
+
+      .item-detail {
+        display: inline-block;
+        width: 50%;
+        height: 40px;
+        line-height: 40px;
+        font-size: 14px;
+        text-align: left;
+        color: #37474f;
+      }
+
+      .item-detail-name {
+        margin-left: 21px;
+      }
+
+      .item-detail-path {
+        margin-left: -21px;
+      }
+
+      .m-dt-item {
+        border-bottom: 1px dashed #e6e6e6;
+
+        .item-header {
+          position: relative;
+          height: 40px;
+          line-height: 40px;
+
+          .item-checkbox {
+            font-size: 0;
+            vertical-align: middle;
+            display: inline-block;
+            cursor: pointer;
+            width: 16px;
+            position: absolute;
+            left: 0;
+            top: 0;
+          }
+
+          .item-content-block {
+            margin: 0 16px 0 21px;
+          }
+
+          .item-content {
+            width: 50%;
+            text-align: left;
+            display: inline-block;
+            text-overflow: ellipsis;
+            overflow: hidden;
+          }
+
+          .item-name {
+            input {
+              border: 1px solid transparent;
+              background-color: transparent;
+              padding: 4px;
+              transition: all ease 0.3s;
+              width: 95%;
+
+              &:focus,
+              &:hover {
+                border-color: #ccc;
+                cursor: text;
+                background-color: #fff;
+              }
+            }
+          }
+
+          .item-toggle {
+            cursor: pointer;
+            width: 12px;
+            position: absolute;
+            right: 0;
+            top: 0;
+          }
+        }
+
+        .item-params {
+          width: 100%;
+          border-collapse: collapse;
+          margin-bottom: 20px;
+          table-layout: fixed;
+
+          tr {
+            height: 40px;
+            line-height: 40px;
+            border: 1px solid #e6e6e6;
+          }
+
+          th {
+            padding: 0 10px;
+            background-color: #f5f5f5;
+            color: #999;
+          }
+
+          td {
+            padding: 0 10px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+          }
+
+          .u-desc {
+            width: 50%;
+          }
+        }
+      }
+
+      .m-same-first {
+        border-top: 1px solid #e6e6e6;
+      }
+
+      .m-same-last {
+        border-bottom: 1px solid #e6e6e6;
+        margin-bottom: 20px;
+      }
+
+      .m-last {
+        margin-bottom: 30px;
+      }
+    }
+
+    .m-dt-group {
+      height: 30px;
+      line-height: 30px;
+      margin-top: 20px;
+    }
+
+    .m-dt-tag {
+      margin-top: 10px;
+      height: 30px;
+      line-height: 30px;
+      position: relative;
+
+      .tags {
+        position: absolute;
+        top: 0;
+        left: 39px;
+        right: 0;
+      }
+    }
+
+    .m-dt-more {
+      position: relative;
+      cursor: pointer;
+      width: 20px;
+      height: 20px;
+      margin-top: 10px;
+
+      .menu-wrap {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: none;
+
+        ul {
+          margin: 20px 0 0 20px;
+          width: 135px;
+          box-sizing: border-box;
+          border: 1px solid #efefef;
+          color: #222;
+          font-size: 12px;
+          font-weight: normal;
+          background: #fff;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+
+          li {
+            height: 30px;
+            line-height: 30px;
+            white-space: nowrap;
+            text-align: center;
+
+            &:hover {
+              background: #f1f1f1;
+            }
+          }
+        }
+      }
+
+      .hover, .pressed {
+        display: none;
+      }
+
+      &:hover {
+        .menu-wrap {
+          display: block;
+        }
+
+        .hover {
+          display: inline-block;
+        }
+
+        .normal, .pressed {
+          display: none;
+        }
+      }
+
+      &:active {
+        .pressed {
+          display: inline-block;
+        }
+
+        .normal, .hover {
+          display: none;
+        }
+      }
+    }
+  }
+}

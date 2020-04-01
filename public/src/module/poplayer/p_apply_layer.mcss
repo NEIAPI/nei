@@ -1,0 +1,25 @@
+.apply-part {
+  .pg-title {
+    margin-bottom: 20px;
+    text-align: left;
+  }
+
+  .u-txt {
+    font-size: 14px;
+    width: 100%;
+    height: 80px;
+    padding: 14px 10px;
+    box-sizing: border-box;
+    border: 1px solid #e6e6e6;
+  }
+
+  .u-txt.j-err-txt {
+    border-color: #C71515;
+  }
+}
+
+.m-p-apply .u-btn {
+  width: 100%;
+  box-sizing: border-box;
+  color: #fff;
+}

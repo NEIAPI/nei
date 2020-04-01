@@ -1,0 +1,93 @@
+/* module */
+/* 公共模块样式 */
+@-webkit-keyframes down {
+  0% {
+    top: -50px;
+  }
+  100% {
+    top: 0px;
+  }
+}
+
+.bounceOutDown {
+  -webkit-animation-name: down;
+  -webkit-animation-duration: 0.4s;
+  //-webkit-animation-timing-function: ease-in-out;
+}
+
+.m-notify {
+  position: fixed;
+  z-index: 99999;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  white-space: nowrap;
+  top: 0;
+
+  .u-message:before, .u-message:after {
+    display: table;
+    content: "";
+    line-height: 0;
+  }
+
+  .u-message:after {
+    clear: both;
+  }
+
+  .u-message {
+    position: relative;
+    padding: 10px 20px;
+    background: #f5f5f5;
+    color: #333;
+    font-size: 14px;
+
+    zoom: 1;
+
+    span {
+      padding-right: 5px;
+    }
+
+    .message_icon {
+      font-size: 20px;
+      vertical-align: middle;
+      margin-top: -2px;
+      line-height: 1;
+    }
+
+  }
+
+  .u-message-info {
+    background: #fdf7e5;
+    color: #e0c05e;
+  }
+
+  .u-message-success {
+    background: #e5f6e7;
+    color: #56c969;
+  }
+
+  .u-message-warning {
+    background: #fbe4e4;
+    color: #8a6d3b;
+  }
+
+  .u-message-error {
+    background: #fbe4e4;
+    color: #f04c62;
+  }
+
+  .u-message-tip {
+    cursor: pointer;
+    background: #fdf7e5;
+    color: #e0c05e;
+    border: 1px solid #fdf7e5;
+  }
+
+  .u-icon {
+    text-indent: 0px;
+    vertical-align: bottom;
+  }
+
+}

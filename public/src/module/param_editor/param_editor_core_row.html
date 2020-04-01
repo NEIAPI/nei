@@ -1,0 +1,127 @@
+<!--普通字段的主体内容-->
+<div r-class="{{'x-row':true,'x-row-adding':param.adding}}"
+     id="param-editor-x-row-{param.id}"
+     {#if !readonlyNestEditor&&draggableRow&&!forceReadonly}
+     on-dragstart="{this.dragStart($event, param_index)}"
+     on-dragend="{this.dragEnd($event, param_index)}"
+     on-dragover="{this.dragOver($event)}"
+     on-dragenter="{this.dragEnter($event)}"
+     draggable="true"
+     {/if}>
+<!--循环引用的显示-->
+{#if param.circular}
+<span class="empty-param-tip">{param.circularTip}</span>
+{/if}
+
+{#if !param.circular}
+{#list xheaders as item}
+<span class="{item.clazz}">
+
+        {#if item.select}
+          {#if param.isArray&&item.key!=='required'}
+          <param-select editable="{!readonlyNestEditor}"
+                        forceReadonly="{forceReadonly}"
+                        source="{this.getSelectSource()}"
+                        versionsMap="{versionsMap}"
+                        docPreview="{docPreview}"
+                        isNormalParam="{isNormalParam}"
+                        selectedId="{customDatatypes.ARRAY_ID}"
+                        showModify="{showModify}"
+                        preview="{preview&&!param.adding}"
+                        on-create="{this.createDatatype($event)}"
+                        on-modify="{this.modifyDatatype($event,param)}"
+                        on-checkJump="{this.checkJump()}"
+                        on-change="{this.changeDatatype($event,param_index)}"></param-select>
+          <param-select editable="{!readonlyNestEditor}"
+                        forceReadonly="{forceReadonly}"
+                        source="{this.getSelectSource()}"
+                        versionsMap="{versionsMap}"
+                        docPreview="{docPreview}"
+                        isNormalParam="{isNormalParam}"
+                        showModify="{showModify}"
+                        preview="{preview&&!param.adding}"
+                        selectedId="{param.type}" isArrayElement="{true}"
+                        on-create="{this.createDatatype($event)}"
+                        on-modify="{this.modifyDatatype($event,param)}"
+                        on-checkJump="{this.checkJump()}"
+                        on-change="{this.changeDatatype($event,param_index,true)}"></param-select>
+          {#else}
+          <param-select editable="{!readonlyNestEditor}"
+                        readonlyNestEditor="{readonlyNestEditor}"
+                        forceReadonly="{forceReadonly}"
+                        source="{this.getSelectSource(format === 7 && param.name === '键')}"
+                        versionsMap="{versionsMap}"
+                        docPreview="{docPreview}"
+                        key="{item.key}"
+                        param="{param}"
+                        isHashMapKey="{format === 7 && param.name === '键'}"
+                        isNormalParam="{isNormalParam}"
+                        isRequiredField="{item.key=='required'}"
+                        selectedId="{param.type}"
+                        showModify="{showModify}"
+                        preview="{preview&&!param.adding}"
+                        on-create="{this.createDatatype($event)}"
+                        on-modify="{this.modifyDatatype($event,param)}"
+                        on-checkJump="{this.checkJump()}"
+                        on-change="{this.changeDatatype($event,param_index)}"></param-select>
+          {/if}
+        {#else}
+        <input r-model={param[item.key]} title="{param[item.key]}" placeholder="{item.name}"
+               on-blur="{this.onBlurInput($event,item.key,param_index)}"
+               on-keydown="{this.onKeydownInput($event,item.key,param_index)}"
+               {#if param.inputError&&(item.key==(format===1?'defaultValue':'name'))}
+               class="u-input-error"
+               {/if}
+               {#if item.rule}
+               on-click="{this.createExp('genExpression',param_index)}"
+               class="exp-input"
+               {#else}
+               on-mouseover="{this.onHoverInput($event,param,item.key,param.imported)}"
+               on-focus="{this.onFocusInput($event,param_index,item_index,isNest)}"
+               {/if}
+               on-paste="{this.onPasteInput($event,param_index,item_index)}"
+               {#if readonlyNestEditor ||forceReadonly || (item.key==='name' && (format === 7 && (param.name === '键' || param.name === '值')))}readonly{/if}>
+        {/if}
+    </span>
+{/list}
+{/if}
+<span class="x-act">
+  <!--导入的数据模型的字段，有忽略和恢复的操作-->
+  <!--普通字段，可以排序和删除-->
+  <i class="glyphicon glyphicon-sort" title="拖动调整顺序"></i>
+  <i class="glyphicon glyphicon-remove" on-click="{this.removeParam(param_index)}" title="删除"></i>
+</span>
+<!--拖动显示的遮罩层-->
+{#if param.dragging}
+<span class="dragging-mask"></span>
+{/if}
+</div>
+
+{#if param.isObject&&!param.typeName}
+<!--odd 控制嵌套中奇偶编辑器的背景色-->
+<div r-class="{{'nest-editor':true,odd:odd==undefined?true:odd}}">
+  <em class="arrow"></em>
+  <!--isNest 标识嵌套，嵌套时没有“类别”选项，如果是导入的类型，则不可编辑-->
+  <param-editor-core
+    params="{param.params}"
+    datatypes="{datatypes}"
+    words="{words}"
+    useWordStock="{useWordStock}"
+    source="{source}"
+    isNest="{true}"
+    showRequired="{showRequired}"
+    readonlyNestEditor="{readonlyNestEditor || param.imported}"
+    preview="{preview}"
+    parentId="{param.objectId}"
+    parentType="{paramTypes.datatype}"
+    parentParam="{param}"
+    showModify="{showModify}"
+    odd="{odd==undefined?false:!odd}"
+    pid="{pid}"
+    forceReadonly="{forceReadonly}"
+    docPreview="{docPreview}"
+    showRequired="{showRequired}"
+    isCreatingDatatype="{isCreatingDatatype}"
+  ></param-editor-core>
+</div>
+{/if}

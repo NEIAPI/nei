@@ -1,0 +1,97 @@
+<meta charset="utf-8"/>
+<textarea name="txt" id="module-res-interface-detail">
+	<div class="m-r-i-d u-res-detail">
+		<div class="tab-head"></div>
+		<div class="tab-audit f-dn">
+			<a class="audit-btn audit-agree">通过审核</a>
+			<a class="audit-btn audit-reject">打回审核</a>
+			<a class="audit-btn audit-submit">提交审核</a>
+		</div>
+		<div class="tab-body f-dn">
+
+			<div class="tab-wrap"></div>
+			<div class="tab-con-s"></div>
+
+		</div>
+	</div>
+</textarea>
+<textarea name="jst" id="m-r-i-detail">
+	<div class="d-block-wrap">
+		<div class="d-block">
+			<div class="block-item d-title">
+				<input type="text" name="name" value="${name|escape}" class="u-m-inp title"
+               data-action='{"type":"modify","cache":"interface","id":"${id}","name":"name", "required":true}' readonly>
+			</div>
+
+			<div class="block-item item-version">
+				<label>版本：</label>
+				<input type="text" name="version" value="${(version && version.name) || '' |escape}"
+               class="u-m-inp version-name" {if !!permit}
+               data-action='{"type":"modify","cache":"interface","id":"${id}","name":"versionName"}' {/if} readonly />
+			</div>
+
+			{if !!interfaceSchema}
+			<div class="block-item item-schema">
+				<label>规范：</label>
+				<div class="schema-label">${interfaceSchema|escape}</div>
+			</div>
+			{/if}
+
+			<div class="block-item item-tag">
+				<label>标签：</label>
+				<div class="tag-select"></div>
+			</div>
+
+			<div class="block-item status">
+				<label>状态：</label>
+				<div class="status-select"></div>
+			</div>
+			<div class="block-item item-classname">
+				<label>代码映射：</label>
+				<input type="text" maxlength="500" name="classname" value="${className|escape}" class="u-m-inp classname"
+               placeholder="暂无代码映射" {if !!permit}
+               data-action='{"type":"modify","cache":"interface","id":"${id}","name":"className"}' {/if} readonly />
+			</div>
+			<div class="block-item item-description">
+				<label>描述：</label>
+				<textarea class="u-m-inp u-m-txt" placeholder="暂无描述" {if
+                  permit}data-action='{"type":"modify","cache":"interface","id":"${id}","name":"description"}' {/if} >${description|escape2}<&#47;textarea>
+			</div>
+
+		</div>
+		<div class="d-block go-back">
+			<a href="javascript:void(0);" class="watch-btn watch {if isWatched==1}fn{/if}">关注</a>
+			<a href="javascript:void(0);" class="watch-btn cancle-watch {if isWatched==0}fn{/if}">取消关注</a>
+			<a href="javascript:void(0);" class="send-btn" title="发送消息给关注人">发送消息</a>
+			<a href="/test/group/create/?pgid=${progroupId}&pid=${projectId}&iid=${id}" class="stateful test-btn"
+         title="新建接口测试用例">接口测试</a>
+			<a href="/interface/?pid=${projectId}" class="stateful">
+				<i class="glyphicon glyphicon-circle-arrow-left"></i>
+			</a>
+		</div>
+		<div class="d-block">
+			<div class="block-item watch-list">
+				<label>创建人：</label>
+				<div class="creator-container"></div>
+			</div>
+
+			<div class="block-item respo">
+				<label>负责人：</label>
+				<div class="respo-select"></div>
+			</div>
+
+			<div class="block-item watch-list">
+				<label>关注人：</label>
+				<div class="watch-list-container"></div>
+			</div>
+
+			<div class="block-item group">
+				<label>业务分组：</label>
+				<div class="group-select"></div>
+			</div>
+		</div>
+	</div>
+</textarea>
+
+<textarea name="css" data-src="./res_interface_detail.css"></textarea>
+<textarea name="js" data-src="./res_interface_detail.js"></textarea>

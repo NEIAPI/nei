@@ -1,0 +1,196 @@
+<div r-class={{"m-stripedlist":true,"list-group-mode":!!xlistGroups}}>
+  {#if hasSearchBox || hasViewMode}
+  <div class="f-cb list-option-action">
+    {#if listGroups}
+    <div class="f-cb view-mode">
+      <div r-class={{"view-mode-icon":true,"list-mode":true,"js-selected":listViewMode==='list'}}
+           on-click={this.changeListViewMode('list')} title="列表视图">
+        <em class="u-icon-list-normal"></em>
+        <em class="u-icon-list-pressed"></em>
+      </div>
+      <div r-class={{"view-mode-icon":true,"group-mode":true,"js-selected":listViewMode==='group'}}
+           on-click={this.changeListViewMode('group')} title="分组视图">
+        <em class="u-icon-list2-normal"></em>
+        <em class="u-icon-list2-pressed"></em>
+      </div>
+    </div>
+    <!--只在分组视图才显示-->
+    <div r-class={{"group-select":true,"f-dn":listViewMode!=='group'}}>
+      <span class="group-select-label">分组依据:</span>
+    </div>
+    {/if}
+    {#if hasSearchBox}
+    <input class="search-inp" placeholder="搜索" on-input={this.search($event)} type="search"/>
+    {/if}
+  </div>
+  {/if}
+  <div class="list-wrap">
+    {#if showHeader}
+    <div
+      r-class={{"list-row":true,"list-hd":true,"no-list-item":!xlist.length,"js-selected":selectedAll,"show-batch-action":selectedNum>
+      0||selectedAll,"js-sortable":sortable}} ref="header">
+      {#if batchAction}
+      <div class="list-checkbox" on-click={this.toggleAll()}>
+        <i class="u-icon-checkbox-normal u-icon"></i>
+        <i class="u-icon-checkbox-pressed u-icon"></i>
+      </div>
+      <div class="batch-action">
+        <span class="sel-num">(已选 <em>{selectedNum}</em> 项)</span>
+        <span r-html={batchAction}></span>
+        <a class="quick-action" href="#" on-click={this.clearSelected($event)}>取消选择</a>
+        <a class="quick-action" href="#" on-click={this.reverseSelected($event)}>反向选择</a>
+      </div>
+      {/if}
+      {#if hasHeaderFilter}
+      <div class="header-filter">
+        <em class="u-icon-arrow-filter-normal filter-list-trigger" on-click={this.toggleHeaderFilter($event)}></em>
+        <ul r-class={{"filter-list":true,"open":headerFilterOpen}}>
+          {#list headers as header by header.id}
+          {#if header.name && header.hiddenByGroup !== true}
+          <li title={header.name} r-class={{"filter-item-selected-false":!header.selected}}
+              on-click={this.toggleHeaderFilterItem($event,header)}>
+            <em class="u-icon-right-normal"></em>
+            <em>{header.name}</em>
+          </li>
+          {/if}
+          {/list}
+        </ul>
+      </div>
+      {/if}
+      {#list headers as header by header.id}
+      {#if header.selected !== false && header.hiddenByGroup !== true}
+      <div class="list-col{header.class}{header.sortClass}{header.filterClass}" title={header.name} {#if
+           sortable&&header.sortable!==false} on-click={this.sort(header)}{/if}>
+        {#if sortable && header.sortable !== false}
+        <div class="sort-icon u-icon-arrow-down-normal"></div>
+        <div class="sort-icon u-icon-arrow-up-normal"></div>
+        {/if}
+        <em class="col-name-s">{header.name}</em>
+        {#if header.filter}
+        <sup class="filter-num"></sup>
+        <em class="u-icon-arrow-filter-normal filter-list-trigger" on-click={this.toggleFilterList($event,header)}></em>
+        <div r-class={{"filter-list-wrap":true,"open":header.filterListOpen}}>
+          <!--标签筛选器有额外的取并集还是取交集的选项-->
+          {#if header.key === 'tag'}
+          <div on-click={this.toggleFilterTagByType($event,'union',header)}
+               r-class={{'filter-type':true,'filter-by-union':true,'filter-type-selected':header.filterTagByType==='union'}}
+               title="匹配其中的一个勾选标签即可">匹配其一
+          </div>
+          <div on-click={this.toggleFilterTagByType($event,'intersection',header)}
+               r-class={{'filter-type':true,'filter-by-intersection':true,'filter-type-selected':header.filterTagByType==='intersection'}}
+               title="需要匹配所有勾选的标签">匹配所有
+          </div>
+          {/if}
+          <ul class="filter-list">
+            {#list header.filterList as item by item.id}
+            <li title={item.name} r-class={{"filter-item-selected-false":!item.selected}}
+                on-click={this.toggleFilterItem($event,item,header)}>
+              <em class="u-icon-right-normal"></em>
+              <em>{item.name}</em>
+            </li>
+            {/list}
+          </ul>
+        </div>
+        {/if}
+      </div>
+      {/if}
+      {/list}
+    </div>
+    {/if}
+    <div
+      class="list-bd"
+      {#if !xlistGroups &&itemDraggable}
+      on-dragstart={dragstartHandler($event)}
+      on-dragover={dragoverHandler($event)}
+      on-drop={dropHandler($event)}
+      {
+    /if}
+    >
+    <!--加载数据中-->
+    {#if isLoadingData}
+    <div class="u-loading"><i></i></div>
+    {#else}
+    <!--加载数据完成-->
+    <!-- 分组模式 -->
+    {#if xlistGroups}
+    <!-- 判断有没有数据, 以及总共显示的个数是否大于 0, 搜索时会用到这个值 -->
+    {#if xlistGroups.length && xlistGroupsTotalShownNum}
+    {#list xlistGroups as group by group.id}
+    {#if group.shownNum}
+    <div class="list-group-title" on-click={this.toggleGroup($event, group)} on-dblclick={this.toggleGroupHeight($event,
+         group)}>
+      <div r-class={{"toggle-icon":true,"toggle-collapse":group.__expand===false}}
+           on-click={this.toggleGroupHeight($event, group)}>
+        <i class="u-icon-arrow-down-normal"></i>
+      </div>
+      <span class="group-name" title={group.title}>{group.name} ({group.shownNum})</span>
+      <b class="sep-line"></b>
+    </div>
+    <div class="list-group-wrap"
+         r-style={{height:(group.__expand!==false?group.shownNum*40:0)+'px',overflow:group.__expand!==false?'visible':'hidden'}}>
+      {#list group.xlist as item by item.id}
+      <!-- __invisible 是匿名数据模型, 列表中不用展示 -->
+      {#if this.canShown(item.id)}
+      <div
+        r-html={this.getRowHTML(item)}
+        class={this.getRowClass(item)}
+        data-id={item.id} {#if batchAction && this.isEnable(item.id)}
+        on-click={this.toggleRow($event, item.id, this.indexInGroup(item.id))}{
+      /if}>
+    </div>
+    {/if}
+    {/list}
+  </div>
+  {/if}
+  {/list}
+  {#else}
+  <div r-class={{"no-item-tip":true,"no-item-tip-icon":hasNoItemTipIcon}}>
+    <i class="u-icon-no-found-data"></i>
+    <p r-html={noItemTip}></p>
+  </div>
+  {/if}
+  {/if}
+  <!--列表模式, 清晰起见分开写, 不使用 if else-->
+  {#if !xlistGroups}
+  <!-- 此处不能加 xlist.length 判断，否则可能会在切换筛选条件时让ref丢失 -->
+  <div class="v-list" ref=list r-hide={xlist.length
+  === 0} {#if vlist } on-scroll={this.onScroll()} r-style={{height: vlistHeight }}{#else} r-style={{height: totalHeight
+  + "px"}} {/if}>
+  <div class="v-list-phantom" r-style={{height: totalHeight +
+  "px"}}>
+</div>
+<div class="v-list-content" r-style={{transform: "translate3d(0," + translateY + "px, 0)"}}>
+{#list xlist as item by item.id}
+{#if this.canShown(item.id)}
+<div
+  r-html={this.getRowHTML(item)}
+  class={this.getRowClass(item)}
+  data-id={item.id}
+  {#if itemDraggable} draggable{/if}
+{#if batchAction && this.isEnable(item.id)}
+on-click={this.toggleRow($event, item.id, item_index)}{/if}>
+</div>
+{/if}
+{/list}
+</div>
+</div>
+{#if !xlist.length}
+<div r-class={{"no-item-tip":true,"no-item-tip-icon":hasNoItemTipIcon}}>
+  <i class="u-icon-no-found-data"></i>
+  <p r-html={noItemTip}></p>
+</div>
+{/if}
+{/if}
+{/if}
+</div>
+</div>
+{#if addRow}
+<div class="add-row">
+  <span title="添加" on-click={this.addRow($event)}>
+    <i class="u-icon u-icon-add-editor-normal"></i>
+    <i class="u-icon u-icon-add-editor-hover"></i>
+    <i class="u-icon u-icon-add-editor-pressed"></i>
+  </span>
+</div>
+{/if}
+</div>

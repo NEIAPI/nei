@@ -1,0 +1,23 @@
+.m-spec-copy {
+  .m-name {
+    margin: 0 50px;
+
+    .m-name-hint {
+      text-align: left;
+      color: #999;
+      margin-bottom: 5px;
+    }
+
+    .u-input {
+      width: 100%;
+    }
+
+    .j-err-ipt {
+      border-color: #f04c62;;
+    }
+  }
+  .modal-ft {
+    margin: 0 50px;
+  }
+
+}

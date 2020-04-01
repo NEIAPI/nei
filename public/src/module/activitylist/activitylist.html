@@ -1,0 +1,14 @@
+{list beg..end as y}
+{var x=xlist[y]}
+<div class="m-act-item">
+  <div class="m-act-circle">
+    <div class="u-circle"></div>
+  </div>
+  <div class="u-act-name" title="${x.realname|escape}">${x.realname|escape}</div>
+  <div class="u-act-time" title='${x.createTime|format:"yyyy-MM-dd HH:mm:ss"}'>
+    ${x.createTime|format:"yyyy-MM-dd HH:mm:ss"}
+  </div>
+  <div class="u-act-con" title="${x.opContent|escape}">${x.opContent|escape}</div>
+  <div class="u-line"></div>
+</div>
+{/list}

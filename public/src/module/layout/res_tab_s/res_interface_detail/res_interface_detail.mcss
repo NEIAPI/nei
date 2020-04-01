@@ -1,0 +1,44 @@
+.m-r-i-d {
+  .tab-body {
+    background-color: #f7f7f7;
+    padding: 20px;
+    position: relative;
+
+    .tab-wrap {
+      margin: 0;
+      background: none;
+    }
+
+    .tab-con {
+      margin-top: 10px;
+    }
+  }
+}
+
+.watch-list-container, .creator-container {
+  padding-left: 10px;
+}
+
+.watch-list-container {
+  .m-tagme {
+    margin-top: -6px;
+  }
+}
+
+.u-select2 {
+  &:hover {
+    .u-tooltip {
+      opacity: 1;
+    }
+  }
+}
+
+.d-block-wrap {
+  .item-schema {
+    height: 30px;
+  }
+
+  .schema-label {
+    padding-left: 4px;
+  }
+}

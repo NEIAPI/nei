@@ -1,0 +1,72 @@
+<div class="hosts-editor">
+  <div class="list-wrap">
+    <div class="list-row list-header">
+      <div class="list-col list-col-check" r-class={{"selected":allChecked}}
+           on-click={this.quickSelect('all')}><i class="u-icon-checkbox-normal"></i><i
+        class="u-icon-checkbox-pressed"></i></div>
+      {#if hasChecked}
+      <div class="batch-action">
+        <span class="sel-num">(已选 <em>{checkNum}</em> 项)</span>
+        <span class="batch-action-item" on-click={this.batRemove()}>删除</span>
+        <span class="quick-action" on-click={this.quickSelect('clear')}>取消选择</span>
+        <span class="quick-action" on-click={this.quickSelect('reverse')}>反向选择</span>
+      </div>
+      {#else}
+      <div class="list-col"><em>名称</em></div>
+      <div class="list-col list-col-host"><em>服务器地址</em></div>
+      <div class="list-col list-col-header"><em>请求头</em></div>
+      <div class="list-col list-col-created"><em>创建时间</em></div>
+      <div class="list-col list-col-do"></div>
+      {/if}
+    </div>
+    <div class="list-body" on-enter={this.enter($event)} on-click={this.active($event)}>
+      {#list hosts as host}
+      <div class="list-row list-row-normal">
+        <div class="list-col list-col-check" on-click={this.selectItem(host.id)}
+             r-class={{"selected":checkStatus[host.id]}}><i class="u-icon-checkbox-normal"></i><i
+          class="u-icon-checkbox-pressed"></i></div>
+        <div class="list-col"><input title={host.name} type="text" data-enter="update" readonly r-model={host.name}
+                                     class="u-input"
+                                     data-active='required=true&id={host.id}&actionType=input&name=name'></div>
+        <div class="list-col list-col-host"><input title={host.value} type="text" data-enter="update" readonly
+                                                   r-model={host.value} class="u-input"
+                                                   data-active='required=true&id={host.id}&actionType=input&name=value'>
+        </div>
+        <div class="list-col list-col-header"><em><a href="javascript:void(0);"
+                                                     on-click={this.switchExpandEditor(host.id)}>
+          {#if checkExpand[host.id]}收起{#else}查看{/if}
+        </a></em></div>
+        <div class="list-col list-col-created">{host.createTime | format}</div>
+        <div class="list-col list-col-do" r-class={{"list-col-do-default": hostId== host.id }}>
+          <i title={hostId == host.id?"默认Host":"设为默认"} class="icon-set-default" {#if hostId != host.id}
+          on-click={this.setDefault(host.id)} {/if}>✓</i>
+          <i title="复制" class="u-icon-add-file-normal" on-click={this.copy(host.id)}></i>
+          <i title="删除" class="u-icon-delete-normal" on-click={this.remove(host.id)}></i>
+        </div>
+        <div class="header-list" r-hide={!checkExpand[host.id]} ref={host.id}></div>
+      </div>
+      {/list}
+      {#if addingHost}
+      <div class="list-row list-row-adding">
+        <div class="list-col list-col-check"></div>
+        <div class="list-col"><input type="text" class="u-input" data-enter="add" r-model={addingHost.name} r-autofocus
+                                     r-class={{"u-input-error":addingHost.nameError}}></div>
+        <div class="list-col list-col-host"><input type="text" class="u-input" data-enter="add"
+                                                   r-model={addingHost.value}
+                                                   r-class={{"u-input-error":addingHost.valueError}}></div>
+        <div class="list-col list-col-header"></div>
+        <div class="list-col list-col-created"></div>
+        <div class="list-col list-col-do"><a title="保存" on-click={this.addHost()}><i class="u-icon-yes-normal"></i><i
+          class="u-icon-yes-hover"></i></a><a title="删除" on-click={this.remove('add')}><i
+          class="u-icon-no-normal"></i><i class="u-icon-no-hover"></i></a></div>
+      </div>
+      {#elseif hosts.length === 0}
+      <div class="list-row list-row-empty">该项目没有配置环境！</div>
+      {/if}
+    </div>
+  </div>
+  <div class="action-row">
+    <span title="添加" class="add" on-click={this.add()}><i class="u-icon-add-editor-normal"></i><i
+      class="u-icon-add-editor-hover"></i></span>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+<meta charset="utf-8"/>
+<textarea name="txt" id="module-progroup-detail">
+  <div class="m-progroup-detail">
+      <div class="con-wrap"></div>
+	  <div class="con-main f-dn">
+		  <div class="tab-wrap"></div>
+		  <div class="tab-con">
+			    <div class="u-loading u-loading-center f-dn"><i></i></div>
+		  </div>
+	  </div>
+  </div>
+</textarea>
+
+<textarea name="jst" id='progroup-detail'>
+  {if isOthers }
+	<div class="progroup-detail">
+		<div class="detail-head">
+			<input readonly class="pg-name u-m-inp{if !canModify} u-m-inp-pre{/if}" title="${name|escape}" {if
+             canModify}data-action='{"required":true,"type":"modify","cache":"progroup","id":${id},"name":"name"}' {/if} value="${name|escape}" >
+		</div>
+		<div class="detail-desc">
+			<!-- <textarea placeholder="暂无描述" title = "${description|escape2}"  readonly class="u-m-inp pg-desc u-m-txt {if !canModify} u-m-inp-pre{/if}" {if canModify}data-action='{"type":"modify","cache":"progroup","id":${id},"name":"description"}'{/if}>${description|escape2}<&#47;textarea> -->
+                ${description}
+		</div>
+		{/if}
+		{if !!isOthers && !applying}
+		<a class="apply u-btn stateful" data-action='{"event":"apply","id":${id},"name":"${name|escape2}"}'>申请加入</a>
+		{/if}
+		{if !!isOthers && !!applying}
+		<div class="applying">
+			<div class="applying-cnt">
+				<i class="u-icon-appling-project"></i>
+				<p>项目组正在申请中</p>
+			</div>
+		</div>
+	</div>
+	{/if}
+</textarea>
+
+<textarea name="css" data-src="./progroup_detail.css"></textarea>
+<textarea name="js" data-src="./progroup_detail.js"></textarea>

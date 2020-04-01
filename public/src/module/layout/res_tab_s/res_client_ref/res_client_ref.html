@@ -1,0 +1,23 @@
+<meta charset="utf-8"/>
+<textarea name="txt" id="module-res-client-ref">
+  <div class="m-res-ref m-res-client-ref">
+      <div class="f-cb d-title"></div>
+      <div class="list-content"></div>
+  </div>
+</textarea>
+<textarea name="jst" id='module-res-client-ref-detail'>
+	<div class="client-detail">
+        <div class="res-name f-fl" title="${name|escape}">
+            ${name|escape}
+            <span class="tip">该客户端正在使用的接口列表</span>
+        </div>
+        <a class="f-fr stateful go-back" href="/client/?pid=${projectId}">
+            <span>返回</span>
+            <i class="u-icon-back-normal-2"></i>
+        </a>
+    </div>
+</textarea>
+
+<textarea name="js" data-src="./res_client_ref.js"></textarea>
+
+

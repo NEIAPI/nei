@@ -1,0 +1,175 @@
+<meta charset="utf-8"/>
+<textarea name="txt" id="module-progroup-tree">
+  <div class="m-progroup-tree">
+  </div>
+</textarea>
+<textarea name="txt" id="progroup-tree">
+	<div class="progroup-tree-wrap">
+		<h3 r-class={{'j-selected': !proSelId && !pgSelId}}>
+			<a href="/progroup/home/management/" class="stateful">
+				<i class="glyphicon glyphicon-home"></i>
+				<span>全部项目组</span>
+			</a>
+			<div title="更多" class="u-do-more" on-click={this._doMore($event,"ownprogroup")}>
+				<i class="u-icon-more-normal"></i>
+			</div>
+		</h3>
+		<ul class="j-proGroup" ref=progroupList>
+	  {#list topProgroup as tpg}
+		<li data-res-id='{tpg.id}' data-res-type='progroup'>
+			<a class="pg-item j-stuck stateful" r-class={{'j-selected': tpg.id== pgSelId}} {#if
+         tpg.role=="creator"||tpg.role=="administrator" }href='/progroup/detail/projectmanage/?pgid={tpg.id}'
+         {#else}href='/progroup/detail/project/?pgid={tpg.id}' {/if}  on-click={this.toggleProjects(tpg,$event)} >
+				<span class="glyphicon glyphicon-chevron-right {tpg.open?'glyphicon-chevron-down':''}"></span>
+				<span title='{tpg.name} (创建人：{tpg.creator.realname}，项目数：{tpg.topPro.length+tpg.noTopPro.length}，已置顶'
+              class="pg-name"> {tpg.name}</span>
+				{#if tpg.isLock}
+				<div class="lock"><i class="u-icon-lock-pressed"></i></div>
+				{/if}
+				<div title="更多" class="u-do-more" on-click={this._doMore($event,"progroup",tpg,tpg.id)}>
+					<i class="u-icon-more-normal"></i>
+				</div>
+      </a>
+      <ul class="j-projects {tpg.open?'':'f-dn'}">
+				{#list tpg.topPro as pro}
+				<li data-res-type='project' data-res-id='{pro.id}'>
+          <a title="{pro.name} (创建人：{pro.creator.realname}，已置顶)" href="/project?pid={pro.id}" class="stateful j-stuck"
+             r-class={{'j-selected': pro.id== proSelId}}>{#if pro.lob}<span>【<em title="负责业务线：{pro.lob}">{pro.lob}</em>】</span>{/if}{pro.name}
+						<div title="更多" class="u-do-more" on-click={this._doMore($event,"project",pro,tpg.id)}>
+							<i class="u-icon-more-normal"></i>
+						</div>
+					</a>
+				</li>
+				{/list}
+				{#list tpg.noTopPro as pro}
+				<li data-res-type='project' data-res-id='{pro.id}'>
+					<a title="{pro.name} (创建人：{pro.creator.realname})" href="/project?pid={pro.id}" class="stateful"
+             r-class={{'j-selected': pro.id== proSelId}}>{#if pro.lob}<span>【<em title="负责业务线：{pro.lob}">{pro.lob}</em>】</span>{/if}{pro.name}
+						<div title="更多" class="u-do-more" on-click={this._doMore($event,"project",pro,tpg.id)}>
+							<i class="u-icon-more-normal"></i>
+						</div>
+					</a>
+				</li>
+				{/list}
+				{#if tpg.pubPro}
+				<li data-res-type='project' data-res-id='{tpg.pubPro.id}'>
+					<a title="{tpg.pubPro.name}" href="/project?pid={tpg.pubPro.id}" class="stateful" r-class={{'j-selected':
+             tpg.pubPro.id== proSelId}}>{tpg.pubPro.name}
+						<div title="更多" class="u-do-more" on-click={this._doMore($event,"publicsource",tpg.pubPro,tpg.id)}>
+							<i class="u-icon-more-normal"></i>
+						</div>
+					</a>
+				</li>
+				{/if}
+			</ul>
+		</li>
+	  {/list}
+	  {#list noTopProgroup as npg}
+		<li data-res-id='{npg.id}' data-res-type='progroup'>
+			<a class="pg-item stateful" r-class={{'j-selected': npg.id== pgSelId}} {#if
+         npg.role=="creator"||npg.role=="administrator"} href='/progroup/detail/projectmanage/?pgid={npg.id}'
+         {#else}href='/progroup/detail/project/?pgid={npg.id}' {/if} on-click={this.toggleProjects(npg,$event)}>
+				<span class="glyphicon glyphicon-chevron-right {npg.open?'glyphicon-chevron-down':''}"></span>
+				<span title='{npg.name} (创建人：{npg.creator.realname}，项目数：{npg.topPro.length+npg.noTopPro.length})'
+              class="pg-name"> {npg.name}
+				</span>
+				{#if npg.isLock}
+				<div class="lock"><i class="u-icon-lock-pressed"></i></div>
+				{/if}
+				<div title="更多" class="u-do-more" on-click={this._doMore($event,"progroup",npg,npg.id)}>
+					<i class="u-icon-more-normal"></i>
+				</div>
+      </a>
+      <ul class="j-projects {npg.open?'':'f-dn'}">
+				{#list npg.topPro as pro}
+				<li data-res-type='project' data-res-id='{pro.id}'>
+					<a title="{pro.name} (创建人：{pro.creator.realname}，已置顶)" href="/project?pid={pro.id}" class="stateful"
+             r-class={{'j-selected': pro.id== proSelId}}>{#if pro.lob}<span>【<em title="负责业务线：{pro.lob}">{pro.lob}</em>】</span>{/if}{pro.name}
+						<div title="更多" class="u-do-more" on-click={this._doMore($event,"project",pro,npg.id)}>
+							<i class="u-icon-more-normal"></i>
+						</div>
+					</a>
+				</li>
+				{/list}
+				{#list npg.noTopPro as pro}
+				<li title="更多" data-res-type='project' data-res-id='{pro.id}'>
+					<a title="{pro.name} (创建人：{pro.creator.realname})" href="/project?pid={pro.id}" class="stateful"
+             r-class={{'j-selected': pro.id== proSelId}}>{#if pro.lob}<span>【<em title="负责业务线：{pro.lob}">{pro.lob}</em>】</span>{/if}{pro.name}
+						<div class="u-do-more" on-click={this._doMore($event,"project",pro,npg.id)}>
+							<i class="u-icon-more-normal"></i>
+						</div>
+					</a>
+				</li>
+				{/list}
+				{#if npg.pubPro}
+				<li data-res-type='project' data-res-id='{npg.pubPro.id}'>
+					<a title="{npg.pubPro.name}" href="/project?pid={npg.pubPro.id}" class="stateful" r-class={{'j-selected':
+             npg.pubPro.id== proSelId}}>{npg.pubPro.name}
+						<div title="更多" class="u-do-more" on-click={this._doMore($event,"publicsource",npg.pubPro,npg.id)}>
+							<i class="u-icon-more-normal"></i>
+						</div>
+					</a>
+				</li>
+				{/if}
+			</ul>
+		</li>
+	{/list}
+	{#list defaultPG as dpg}
+		<li data-res-id='{dpg.id}' data-res-type='progroup'>
+			<a class="pg-item stateful" r-class={{'j-selected': dpg.id== pgSelId}} {#if
+         dpg.role=="creator"||dpg.role=="administrator"} href='/progroup/detail/projectmanage/?pgid={dpg.id}'
+         {#else}href='/progroup/detail/project/?pgid={dpg.id}' {/if} on-click={this.toggleProjects(dpg,$event)}>
+				<span class="glyphicon glyphicon-chevron-right {dpg.open?'glyphicon-chevron-down':''}"></span>
+				<span title='{dpg.name} (创建人：{dpg.creator.realname})' class="pg-name"> {dpg.name}
+				</span>
+				{#if dpg.isLock}
+				<div class="lock"><i class="u-icon-lock-pressed"></i></div>
+				{/if}
+				<div title="更多" class="u-do-more" on-click={this._doMore($event,"defaultProgroup",dpg,dpg.id)}>
+					<i class="u-icon-more-normal"></i>
+				</div>
+      </a>
+      <ul class="j-projects {dpg.open?'':'f-dn'}">
+				{#list dpg.topPro as pro}
+				<li data-res-type='project' data-res-id='{pro.id}'>
+					<a title="{pro.name} (创建人：{pro.creator.realname})" href="/project?pid={pro.id}" class="stateful"
+             r-class={{'j-selected': pro.id== proSelId}}>{#if pro.lob}<span>【<em title="负责业务线：{pro.lob}">{pro.lob}</em>】</span>{/if}{pro.name}
+						<div title="更多" class="u-do-more" on-click={this._doMore($event,"project",pro,dpg.id)}>
+							<i class="u-icon-more-normal"></i>
+						</div>
+					</a>
+				</li>
+				{/list}
+				{#list dpg.noTopPro as pro}
+				<li data-res-type='project' data-res-id='{pro.id}'>
+					<a title="{pro.name} (创建人：{pro.creator.realname})" href="/project?pid={pro.id}" class="stateful"
+             r-class={{'j-selected': pro.id== proSelId}}>{#if pro.lob}<span>【<em title="负责业务线：{pro.lob}">{pro.lob}</em>】</span>{/if}{pro.name}
+						<div title="更多" class="u-do-more" on-click={this._doMore($event,"project",pro,dpg.id)}>
+							<i class="u-icon-more-normal"></i>
+						</div>
+					</a>
+				</li>
+				{/list}
+				{#if dpg.pubPro}
+				<li data-res-type='project' data-res-id='{dpg.pubPro.id}'>
+					<a title="{dpg.pubPro.name}" href="/project?pid={dpg.pubPro.id}" class="stateful" r-class={{'j-selected':
+             dpg.pubPro.id== proSelId}}>{dpg.pubPro.name}
+						<div title="更多" class="u-do-more" on-click={this._doMore($event,"publicsource",dpg.pubPro,dpg.id)}>
+							<i class="u-icon-more-normal"></i>
+						</div>
+					</a>
+				</li>
+				{/if}
+			</ul>
+		</li>
+	{/list}
+	</ul>
+	</div>
+	<div class="u-toggle-animation" r-class={{'z-swallow-not': !showTreeFlag}} on-click={this.toggleTree(false)}>
+		<i class="u-icon-swallow-normal"></i>
+		<i class="u-icon-swallow-not-normal"></i>
+	</div>
+</textarea>
+
+<textarea name="css" data-src="./progroup_tree.css"></textarea>
+<textarea name="js" data-src="./progroup_tree.js"></textarea>

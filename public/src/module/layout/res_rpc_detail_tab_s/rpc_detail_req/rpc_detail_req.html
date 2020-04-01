@@ -1,0 +1,32 @@
+<meta charset="utf-8"/>
+<textarea name="txt" id="module-rpc-detail-req">
+	<div class="m-rpc-d-req"></div>
+</textarea>
+
+<textarea name="jst" id="rpc-detail-req-content">
+	<div class="d-item d-item-mock-url">
+		<label>Mock地址：</label>
+    <p class="mock-url"></p>
+    <a href="#" class="copy-mock-url">复制地址</a>
+    <a href="https://github.com/x-orpheus/nei-toolkit/blob/master/doc/RPC在线Mock接口调用说明.md" target="_blank">更多详情</a>
+	</div>
+
+	<div class="block-item d-item d-item-mock-delay">
+		<label>Mock请求延时响应毫秒数：</label>
+    <input type="text" name="mockDelay" value="${mockDelay|escape}" class="u-m-inp"
+           data-action='{"type":"modify","cache":"rpc","id":"${id}","name":"mockDelay"}' readonly>
+	</div>
+
+	<div class="d-item d-item-inputs">
+		<label>请求参数：</label>
+		<div class="inputs-list"></div>
+	</div>
+	<div class="d-item d-item-examples">
+		<label>范例：</label>
+		<div class="sample-code f-dn"></div>
+		<div class="f-italic no-sample-code">正在生成 mock 数据...</div>
+	</div>
+</textarea>
+
+<textarea name="css" data-src="./rpc_detail_req.css"></textarea>
+<textarea name="js" data-src="./rpc_detail_req.js"></textarea>

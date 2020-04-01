@@ -1,0 +1,184 @@
+{#if level == 0}
+<div class="m-paramslist">
+  <div class="list-body">
+    <div r-hide={isHideFullButton} class="fullScreen" title="全屏" on-click={this.doFullScreen($event)}><i
+      class="u-icon-spread-normal"></i></div>
+    <list-head ref="LH" level={level} format={format} on-appendModel={this.appendModel()} on-batRemove={this.remove()}
+               on-reverseSelected={this.reverseSelect($event)}
+               on-headstatuschange={this.listenHeadStatusChange($event)}></list-head>
+    {#if !!params.length}
+    {#list params as p}
+    {#if p.datatypeId}
+    <div class="list-row list-row-hl" on-mouseenter={p.hover
+    = true} on-mouseleave={p.hover = false}>
+    {#list p.imports as item}
+    <div class="list-row-sub">
+      <div class="list-col list-col-name"><em>{item.defaultValue}</em></div>
+      {#if item.type == 10000 || item.originalType == 10000}
+      <div class="list-col list-col-type">
+        <div class="arraytype"><span title={item.typeName} class="type">{item.typeName}</span></div>
+      </div>
+      {#else}
+      <div class="list-col list-col-type"><em title={item.typeName} r-class={{"u-link":item.type>10003}}>{item.typeName
+        || "Object"}</em>{#if p.type>10003}
+        <type-property pid={pid} id={p.type}></type-property>
+        {/if}
+      </div>
+      {/if}
+      <div class="list-col"><em title={p.description}>{p.description}</em></div>
+      <div class="list-col"><em title={p.name}>{p.name}</em></div>
+
+      <div class="list-col list-col-do"></div>
+    </div>
+    {/list}
+    <div class="list-row-des"><span class="wrap-due"><i class="u-icon-arrow-collected-normal"></i><a
+      href="/datatype/detail/?pid={pid}&id={p.datatypeId}" class="due stateful"
+      title={p.datatypeName}>{p.datatypeName}</a></span></div>
+  </div>
+  {#else}
+  <div class="list-row">
+    <div class="list-col list-col-name"><em title={p.defaultValue}>{p.defaultValue}</em></div>
+    <div class="list-col list-col-type">
+      <div class="arraytype">{#if p.isArray == 1}<span class="array">Array</span>{/if}<span title={p.typeName}
+                                                                                            class="type"
+                                                                                            r-class={{"u-link":p.type>10003}}>{p.typeName || "Object"}</span>{#if
+        p.type>10003}
+        <type-property pid={pid} id={p.type}></type-property>
+        {/if}
+      </div>
+    </div>
+    <div class="list-col"><em title={p.description}>{p.description}</em></div>
+    <div class="list-col"><em title={p.name}>{p.name}</em></div>
+    <div class="list-col list-col-do"></div>
+  </div>
+  {/if}
+  {/list}
+  {#else}
+  <params-empty level={level} format={format} on-import={this.import($event)}></params-empty>
+  {/if}
+</div>
+</div>
+{#else}
+<div class="m-paramslist">
+  <div class="list-body">
+    <div r-hide={isHideFullButton} class="fullScreen" title="全屏" on-click={this.doFullScreen($event)}><i
+      class="u-icon-spread-normal"></i></div>
+    <list-head ref="LH" format={format} on-appendModel={this.appendModel()} on-batRemove={this.remove()}
+               on-reverseSelected={this.reverseSelect($event)}
+               on-headstatuschange={this.listenHeadStatusChange($event)}></list-head>
+    {#if !!params.length}
+    {#list params as p}
+    {#if p.datatypeId}
+    <div class="list-row list-row-hl" on-mouseenter={p.hover
+    = true} on-mouseleave={p.hover = false}>
+    {#list p.imports as item}
+    <div class="list-row-sub" r-class={{"list-row-ignored":item.ignored
+    == 1}} r-hide={!p.allProperty && item.ignored}>
+    <div class="list-col list-col-check" r-class={{"selected":checkStatus["dr"+p.datatypeId]}}
+         on-click={this.selectItem("dr"+p.datatypeId)}><i class="u-icon-checkbox-normal"></i><i
+      class="u-icon-checkbox-pressed"></i></div>
+    <div class="list-col list-col-name"><em>{item.defaultValue}</em></div>
+    {#if item.type == 10000 || item.originalType == 10000}
+    <div class="list-col list-col-type">
+      <div class="wrap-arraytype"
+           data-active='required=false&id={item.id}&index={p_index}-{item_index}&actionType=select&isArray={item.isArray}&name=typeName&datatypeId={p.datatypeId}&type={item.type}&typeName={item.typeName}&cache=parameter'>
+        <div class="arraytype"><span title={item.typeName} class="type"><span
+          class="backtype">{item.typeName}</span></span></div>
+      </div>
+    </div>
+    {#else}
+    <div class="list-col list-col-type"><em title={item.typeName} r-class={{"u-link":item.type>10003}}>{item.typeName ||
+      "Object"}</em>{#if p.type>10003}
+      <type-property ref="tp{p_index}-{item_index}" pid={pid} id={p.type}></type-property>
+      {/if}
+    </div>
+    {/if}
+    <div class="list-col"><input type="text" title={item.name} readonly r-model={item.name} class="u-input "
+                                 placeholder="添加键"
+                                 data-active='required=false&id={item.id}&datatypeId={p.datatypeId}&index={p_index}-{item_index}&actionType=input&name=name&cache=parameter'/>
+    </div>
+    <div class="list-col"><input type="text" title={item.description} readonly r-model={item.description}
+                                 class="u-input " placeholder="添加默认值"
+                                 data-active='required=false&id={item.id}&datatypeId={p.datatypeId}&index={p_index}-{item_index}&actionType=input&name=description&cache=parameter'/>
+    </div>
+    <div class="list-col list-col-do list-col-ignore"><span on-click={this.doIgnoreProperty(p_index+"-"+item_index)}>{item|ignoreTextStatus:p_index,item_index}</span>{#if
+      item.ignored}<span class="ignored">已忽略</span>{/if}
+    </div>
+  </div>
+  {/list}
+  <div class="list-row-des"><span class="wrap-due"><i class="u-icon-arrow-collected-normal"></i><a
+    href="/datatype/detail/?pid={pid}&id={p.datatypeId}" class="due stateful"
+    title={p.datatypeName}>{p.datatypeName}</a><span title="全部属性" class="toggle-showIgnore glyphicon glyphicon-eye-open"
+                                                     r-class={{"glyphicon-eye-close":!p.allProperty}}
+                                                     on-click={this.doShowAllProperty(p_index)}></span><span title="删除"
+                                                                                                             class="delete"
+                                                                                                             r-class={{"f-dn-important":!p.hover}}
+                                                                                                             on-click={this.remove(p_index)}><i
+    class="u-icon-delete-normal"></i><i class="u-icon-delete-hover-2"></i></span></span></div>
+</div>
+{#else}
+{#if p.isAdding}
+<div class="list-row list-row-adding">
+  <div class="list-col list-col-name"><input type="text" data-enter={p_index} r-autofocus class="u-input"
+                                             r-class={{"u-input-error":p.error}} r-model={p.defaultValue}></div>
+  <div class="list-col list-col-type">
+    <DatatypeSelect pid={pid} type={p.type} typeName={p.typeName} isArray={p.isArray} format={format}
+                    hasCreate={hasCreate} isolate on-change={this._onSelectChange($event,p_index)} noArray={noArray}
+                    noObject={noObject}></DatatypeSelect>
+  </div>
+  <div class="list-col"><input type="text" data-enter={p_index} class="u-input" r-model={p.name}></div>
+  <div class="list-col"><input type="text" data-enter={p_index} class="u-input" r-model={p.description}></div>
+  <div class="list-col list-col-do"><a title="保存" on-click={this.update(p_index)}><i class="u-icon-yes-normal"></i><i
+    class="u-icon-yes-hover"></i></a><a title="删除" on-click={this.remove(p_index)}><i class="u-icon-no-normal"></i><i
+    class="u-icon-no-hover"></i></a></div>
+</div>
+{#else}
+<div class="list-row" on-mouseenter={p.hover = true} on-mouseleave={p.hover = false}>
+<div class="list-col list-col-check" on-click={this.selectItem(p.id)} r-class={{"selected":checkStatus[p.id]}}><i
+  class="u-icon-checkbox-normal"></i><i class="u-icon-checkbox-pressed"></i></div>
+<div class="list-col list-col-name"><input type="text" title={p.defaultValue} readonly r-model={p.defaultValue}
+                                           class="u-input " placeholder="添加默认值"
+                                           data-active='required=true&id={p.id}&index={p_index}&actionType=input&name=defaultValue&cache=parameter'/>
+</div>
+<div class="list-col list-col-type">
+  <div class="wrap-arraytype"
+       data-active='required=false&id={p.id}&index={p_index}&actionType=select&isArray={p.isArray}&name=typeName&type={p.type}&typeName={p.typeName}&noArray={true}&noObject={true}&cache=parameter'>
+    <div class="arraytype">{#if p.isArray == 1}<span class="array">Array</span>{/if}<span title={p.typeName}
+                                                                                          class="type"
+                                                                                          r-class={{"u-link":p.type>10003}}><span
+      class="backtype">{p.typeName || "Object"}</span></span>{#if p.type>10003}
+      <type-property ref="tp{p_index}" pid={pid} id={p.type}></type-property>
+      {/if}
+    </div>
+  </div>
+</div>
+<div class="list-col"><input type="text" readonly title={p.name} r-model={p.name} class="u-input " placeholder="添加键"
+                             data-active='required=false&id={p.id}&index={p_index}&actionType=input&name=name&cache=parameter'/>
+</div>
+<div class="list-col"><input type="text" readonly title={p.description} r-model={p.description} class="u-input "
+                             placeholder="添加描述"
+                             data-active='required=false&id={p.id}&index={p_index}&actionType=input&name=description&cache=parameter'/>
+</div>
+<div class="list-col list-col-do"><i class="u-icon-delete-normal" title="删除" r-class={{"f-dn-important":!p.hover}}
+                                     on-click={this.remove(p_index)}></i></div>
+</div>
+{/if}
+{/if}
+{/list}
+{#else}
+<params-empty format={format} on-import={this.import($event)}></params-empty>
+{/if}
+</div>
+<div class="action-row">
+  <span title="添加" class="add" on-click={this.add()}><i class="u-icon u-icon-add-editor-normal"></i><i
+    class="u-icon u-icon-add-editor-hover"></i><i class="u-icon u-icon-add-editor-pressed"></i></span>
+  <div title="更多" class="more ">
+    <i class="u-icon u-icon-more-editor-normal"></i><i class="u-icon u-icon-more-editor-hover"></i><i
+    class="u-icon u-icon-more-editor-pressed"></i>
+    <div class="wrap-menu">
+      <param-menu on-check={this._onMenuCheck($event)} format={format}></param-menu>
+    </div>
+  </div>
+</div>
+</div>
+{/if}

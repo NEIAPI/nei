@@ -1,0 +1,16 @@
+{#if !list.length}
+无
+{#else}
+<div class="u-head">
+  <div class="list-row list-header">
+    <div class="list-col"><em>名称</em></div>
+    <div class="list-col"><em>值</em></div>
+  </div>
+  {#list list as item}
+  <div r-class={{"list-row":true,"highlight":highlight[item.key]}}>
+    <div class="list-col"><em>{item.key}</em></div>
+    <div class="list-col"><em>{item.value}</em></div>
+  </div>
+  {/list}
+</div>
+{/if}

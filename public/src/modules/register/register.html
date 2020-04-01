@@ -1,0 +1,40 @@
+{#if !!success}
+<div class="info-success">
+  <div class="icon"></div>
+  <div class="msg">恭喜你，注册成功！</div>
+</div>
+{#else}
+<form class="m-form m-form-register">
+  <validation ref="validation">
+    <div class="item" id="Account">
+      <input2 name="username" rules={username} placeholder="输入帐号"></input2>
+    </div>
+    <div class="item" id="PWD">
+      <input2 type="password" name="password" rules={password} placeholder="输入密码"></input2>
+    </div>
+    <div class="item">
+      <input2 type="password" name="confirmPassword" rules={confirmPassword} placeholder="确认密码"></input2>
+    </div>
+    <div class="item">
+      <input2 name="realname" rules={realname} placeholder="真实姓名"></input2>
+    </div>
+    <div class="item">
+      <input2 name="company" rules={company} maxlength="50" placeholder="企业名称"></input2>
+    </div>
+    <div class="item">
+      <input data-min-length="1" data-required="true" type="hidden" class="u-input" name="role"/>
+      <roleSelect name="role" source={roleSource.selectSource} title={roleSource.title}></roleSelect>
+    </div>
+    <div class="item">
+      {#if fail === true}
+      <div class="notice">注册失败</div>
+      {/if}
+    </div>
+    <div class="item item-submit">
+      <button type="button" class="u-btn u-btn-primary j-submitBtn" r-class={{"u-btn-disabled":disabled}} {#if disabled}
+              disabled {
+      /if} on-click={this.submit($event)}>注册</button>
+    </div>
+  </validation>
+</form>
+{/if}

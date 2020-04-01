@@ -1,0 +1,11 @@
+<div class="cascade-select">
+  <label class="label">{label}</label>
+  {#if progroupEditable}
+  <select2 ref="select1" source={progroups} selected={progroupSelected} on-change={this.select($event,0)}
+           sortList={false} initSilent={true}></select2>
+  {#else}
+  <span class="label name">{progroupSelected.name}</span>
+  {/if}
+  <select2 ref="select2" source={projects} selected={projectSelected} on-change={this.select($event,1)} sortList={false}
+           initSilent={true}></select2>
+</div>

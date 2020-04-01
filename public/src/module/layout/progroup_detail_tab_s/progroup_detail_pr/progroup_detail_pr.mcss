@@ -1,0 +1,134 @@
+
+.m-pg-d-pr {
+  padding-top: 30px;
+  box-sizing: border-box;
+  font-size: 12px;
+
+  .pg-pr-method {
+    margin-bottom: 10px;
+    height: 30px;
+    line-height: 30px;
+
+    .role-select {
+      margin-left: 10px;
+      margin-top: -13px;
+
+      .u-dropdown {
+        width: 150px;
+      }
+    }
+
+    & > label, & > div {
+      display: block;
+      float: left;
+      color: #222;
+    }
+
+    & > div:last-child {
+      display: inline-block;
+      float: none;
+    }
+
+    .type-choose {
+      .method-text,
+      .u-icon-radio-normal {
+        cursor: pointer;
+      }
+
+      .u-icon-radio-pressed {
+        display: none;
+      }
+
+      &.j-selected {
+        .u-icon-radio-normal {
+          display: none;
+        }
+
+        .u-icon-radio-pressed {
+          display: inline-block;
+        }
+      }
+
+      div {
+        display: inline-block;
+      }
+    }
+
+    .type-verify {
+      margin-right: 25px;
+    }
+  }
+
+  .m-stripedlist {
+    font-size: 12px;
+
+    .list-hd {
+      background-color: #ededed !important;
+
+      .batch-action-item {
+        padding: 0 28px;
+      }
+    }
+
+    .list-row {
+      &.even {
+        background-color: #f0f0f0;
+      }
+
+      &:hover {
+        background-color: #f2f9fe;
+      }
+
+      .list-col {
+        &.col-nei-actions {
+          visibility: visible;
+          overflow: hidden;
+          flex: 1;
+          text-overflow: ellipsis;
+          box-sizing: border-box;
+          padding: 0 5px;
+          text-align: left;
+
+          span {
+            .pass, .reject {
+              display: inline-block;
+              width: 50px;
+              height: 30px;
+              line-height: 30px;
+              text-align: center;
+              background: #30a1f2;
+              color: #fff;
+              vertical-align: middle;
+              margin-right: 10px;
+              border-radius: 2px;
+              text-indent: 0;
+            }
+          }
+
+          .pass {
+            display: inline-block;
+            margin-right: 25px;
+          }
+        }
+
+        &.col-create-time {
+          flex: initial;
+          width: 140px;
+        }
+
+        &.col-applicant-realname {
+          flex: initial;
+          width: 100px;
+        }
+      }
+    }
+
+    .u-icon-yes-normal, .u-icon-no-normal {
+      margin-top: -3px;
+    }
+  }
+
+  .u-select2 {
+    background-color: #fff;
+  }
+}
