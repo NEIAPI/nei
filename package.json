@@ -47,7 +47,6 @@
     "mockjs": "^1.0.1-beta3",
     "moment": "^2.18.1",
     "mongodb": "^3.1.1",
-    "morgan": "~1.5.1",
     "mysql": "^2.10.2",
     "nodemailer": "^2.4.1",
     "path-to-regexp": "^1.1.1",

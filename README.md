@@ -49,7 +49,7 @@ npm run build
 
 ### 停止应用
 ```shell
- npm run stop
+ npm stop
 ```
 
 ## 注意事项
