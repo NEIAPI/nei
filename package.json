@@ -18,7 +18,7 @@
     "toolkit"
   ],
   "author": "Netease Cloud Music",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://github.com/x-orpheus/nei",
   "bin": {
     "aps": "./bin/nei.js"

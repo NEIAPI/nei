@@ -3,9 +3,9 @@ NEJ.define([
   'base/util',
   'base/element',
   'util/ajax/xdr',
-  'index/component/base',
-  'index/extend/util',
-  'index/validation/validation',
+  '/src/modules/component/base.js',
+  '/src/modules/extend/util.js',
+  '/src/modules/validation/validation.js',
   'text!./input3.html'
 ], function (v, u, e, j, b, _, Validation, tpl, pro) {
   var Base = b.Component;

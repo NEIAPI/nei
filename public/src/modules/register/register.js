@@ -4,8 +4,8 @@ NEJ.define([
   'base/event',
   'base/util',
   'util/ajax/xdr',
-  'index/component/base',
-  'index/extend/util',
+  '/src/modules/component/base.js',
+  '/src/modules/extend/util.js',
   'text!./register.html'
 ], function (k, e, v, u, j, b, _, tpl, p, pro) {
   var Base = b.Component;

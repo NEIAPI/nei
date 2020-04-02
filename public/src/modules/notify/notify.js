@@ -2,7 +2,7 @@
  * 全局提示组件--------------------------------------------------
  */
 NEJ.define([
-  'index/component/base',
+  '/src/modules/component/base.js',
   'base/event',
   'base/util',
   'base/element',

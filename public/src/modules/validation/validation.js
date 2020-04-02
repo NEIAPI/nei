@@ -1,5 +1,5 @@
 NEJ.define([
-  'index/component/base',
+  '/src/modules/component/base.js',
   'base/event',
   'base/util'
 ], function (b, v, u, pro) {

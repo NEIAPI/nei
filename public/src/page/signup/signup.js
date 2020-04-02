@@ -5,11 +5,11 @@ NEJ.define([
   'util/ajax/xdr',
   'util/history/history',
   'util/toggle/toggle',
-  'index/module',
-  'index/validation/validation',
-  'index/dropdown/dropdown',
-  'index/input2/input2',
-  'index/register/register'
+  '/src/modules/module.js',
+  '/src/modules/validation/validation.js',
+  '/src/modules/dropdown/dropdown.js',
+  '/src/modules/input2/input2.js',
+  '/src/modules/register/register.js'
 ], function (k, e, v, j, history, tog, m, validation, Select, input2, Register, p, pro) {
 
   p._$$Signup = k._$klass();

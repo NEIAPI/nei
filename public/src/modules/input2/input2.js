@@ -2,8 +2,8 @@ NEJ.define([
   'base/event',
   'base/util',
   'base/element',
-  'index/component/base',
-  'index/validation/validation',
+  '/src/modules/component/base.js',
+  '/src/modules/validation/validation.js',
   'text!./input2.html'
 ], function (v, u, e, b, Validation, tpl, pro) {
   var Base = b.Component;
