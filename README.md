@@ -25,7 +25,7 @@
 使用 [NEJ](https://github.com/genify/toolkit2) 构建工具，在服务器上运行下述安装命令：
 
 ```shell
-npm install nej –g
+npm install nej -g
 ```
 
 然后再在项目根目录运行下述构建命令：
