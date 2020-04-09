@@ -223,14 +223,11 @@
       }
 
       tbody {
-        tr: nth-child(odd) > td,
-        tr: nth-child(odd
-
-)
-> th {
+        tr:nth-child(odd) > td,
+        tr:nth-child(odd)
+        > th {
           background-color: #f9f9f9;
         }
-
       }
     }
   }
