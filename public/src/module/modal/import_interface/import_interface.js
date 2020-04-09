@@ -1,7 +1,6 @@
 /**
  * 导入接口的定义文件，swagger、json、postman、har 等
  * 参考 javabean_import2.js 实现
- * Created by baoym on 2017/11/13
  */
 NEJ.define([
   'base/util',

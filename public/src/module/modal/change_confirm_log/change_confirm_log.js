@@ -1,6 +1,5 @@
 /**
  * 资源变更确认记录列表弹窗
- * Created by baoym on 2017/9/18
  */
 NEJ.define([
   'base/element',

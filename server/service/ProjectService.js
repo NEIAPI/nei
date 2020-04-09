@@ -337,7 +337,7 @@ class ProjectService extends require('./ResourceService') {
       for (let item of datatypes) {
         if (item.type != dbMap.BIS_TYP_SYSTEM) {
           // 这里可以看下此处改动的历史记录。原来的逻辑是要先检查这个公共资源库中的数据模型是否被该项目中的资源（异步接口、模型、页面等）引用，如果有引用，就复制，否则就不复制
-          // 但检查是否被引用，太耗时了，这里就改成直接复制吧 -2019.1.3 bym
+          // 但检查是否被引用，太耗时了，这里就改成直接复制吧
           datatypeIdSet.add(item.id);
         }
       }

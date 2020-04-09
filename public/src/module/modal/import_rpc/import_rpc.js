@@ -1,7 +1,6 @@
 /**
  * 导入 PRC 接口的定义文件，json、rpc controller 等
  * 参考 import_interface.js 实现
- * Created by baoym on 2017/11/13
  */
 NEJ.define([
   'base/util',
