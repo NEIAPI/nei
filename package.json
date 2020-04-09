@@ -2,7 +2,7 @@
   "name": "nei",
   "description": "nei platform, for specification definition",
   "scripts": {
-    "build": "npm run mcss & npm run nej",
+    "build": "npm run mcss && npm run nej",
     "start": "node ./bin/nei.js online",
     "dev": "node ./bin/server.js start -m develop",
     "test": "node ./bin/nei.js test",
