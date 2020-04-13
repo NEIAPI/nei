@@ -31,7 +31,9 @@ module.exports = {
     port: '6379',
     expire: 2678400
   },
-  ip: {},
+  ip: {
+    disabled: true
+  },
   mail: {
     disabled: true
   },
