@@ -29,7 +29,8 @@ module.exports = {
     key: 'test_',
     host: '127.0.0.1',
     port: '6379',
-    expire: 2678400
+    expire: 2678400,
+    password: ''
   },
   ip: {
     disabled: true
