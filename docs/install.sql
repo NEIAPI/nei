@@ -1,3 +1,4 @@
+SET NAMES utf8;
 CREATE DATABASE IF NOT EXISTS `nei-test` DEFAULT CHARACTER SET utf8mb4;
 
 USE `nei-test`;
