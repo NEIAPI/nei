@@ -143,89 +143,92 @@
               return;
             }
             params.forEach(function (param) {
-              // 先检查字段是否存在
-              if ((checkRequiredParam && !data.hasOwnProperty(param.name))|| (!checkRequiredParam && param.required === 1 && !data.hasOwnProperty(param.name))) {
-                result = false;
-                errors.push({
-                  type: ERROR_TYPE.MISS_ERROR,
-                  message: tipPrefix + '缺少字段',
-                  keys: walkParams.map(mapName).concat([param.name])
-                });
-              } else if (data.hasOwnProperty(param.name)) {
-                function checkParam(item, tipPrefix) {
-                  if (item === null) {
-                    return;
-                  }
-                  if (!isSysTypeMatch(item, param.type)) {
-                    if (param.type > db.MDL_SYS_BOOLEAN) {
-                      // 检查是否为匿名类型
-                      // 因为要考虑菜单类型的树型数据，一般最后一层都会设置为 null
-                      if (item === null) {
-                        // 先判断是否是树型结构
-                        var foundDatatype = walkParams.find(function (walkParam) {
-                          return walkParam.typeName === param.typeName;
+              // 先检查是否为隐藏字段 0 为否 1 为是
+              if (param.ignored === 0) {
+                // 先检查字段是否存在
+                if ((checkRequiredParam && !data.hasOwnProperty(param.name))|| (!checkRequiredParam && param.required === 1 && !data.hasOwnProperty(param.name))) {
+                  result = false;
+                  errors.push({
+                    type: ERROR_TYPE.MISS_ERROR,
+                    message: tipPrefix + '缺少字段',
+                    keys: walkParams.map(mapName).concat([param.name])
+                  });
+                } else if (data.hasOwnProperty(param.name)) {
+                  function checkParam(item, tipPrefix) {
+                    if (item === null) {
+                      return;
+                    }
+                    if (!isSysTypeMatch(item, param.type)) {
+                      if (param.type > db.MDL_SYS_BOOLEAN) {
+                        // 检查是否为匿名类型
+                        // 因为要考虑菜单类型的树型数据，一般最后一层都会设置为 null
+                        if (item === null) {
+                          // 先判断是否是树型结构
+                          var foundDatatype = walkParams.find(function (walkParam) {
+                            return walkParam.typeName === param.typeName;
+                          });
+                          if (!foundDatatype) {
+                            result = false;
+                            // 普通匿名类型
+                            errors.push({
+                              type: ERROR_TYPE.TYPE_ERROR,
+                              message: tipPrefix + '值为 null，不符合定义',
+                              keys: walkParams.map(mapName).concat([param.name])
+                            });
+                          }
+                          return;
+                        }
+                        var datatype = datatypes.find(function (datatype) {
+                          return datatype.id === param.type;
                         });
-                        if (!foundDatatype) {
-                          result = false;
-                          // 普通匿名类型
+                        var walkParamsPrevLength = walkParams.length;
+                        walkParams.push(param)
+                        checkParamsRequiredAndTypeMatched(datatype.format, item, datatype.params, walkParams, tipPrefix);
+                        walkParams.length = walkParamsPrevLength;
+                      } else {
+                        result = false;
+                        if (param.type === db.MDL_SYS_FILE) {
+                          errors.push({
+                            type: ERROR_TYPE.NOT_SUPPORT_ERROR,
+                            message: tipPrefix + '暂不支持保存文件类别的数据',
+                            keys: walkParams.map(mapName)
+                          });
+                        } else {
+                          var shouldBeParamType = param.typeName.toLowerCase();
+                          var actualParamType = typeof item;
                           errors.push({
                             type: ERROR_TYPE.TYPE_ERROR,
-                            message: tipPrefix + '值为 null，不符合定义',
+                            data: actualParamType,
+                            expect: shouldBeParamType,
+                            message: tipPrefix + '类型不匹配',
                             keys: walkParams.map(mapName).concat([param.name])
                           });
                         }
-                        return;
-                      }
-                      var datatype = datatypes.find(function (datatype) {
-                        return datatype.id === param.type;
-                      });
-                      var walkParamsPrevLength = walkParams.length;
-                      walkParams.push(param)
-                      checkParamsRequiredAndTypeMatched(datatype.format, item, datatype.params, walkParams, tipPrefix);
-                      walkParams.length = walkParamsPrevLength;
-                    } else {
-                      result = false;
-                      if (param.type === db.MDL_SYS_FILE) {
-                        errors.push({
-                          type: ERROR_TYPE.NOT_SUPPORT_ERROR,
-                          message: tipPrefix + '暂不支持保存文件类别的数据',
-                          keys: walkParams.map(mapName)
-                        });
-                      } else {
-                        var shouldBeParamType = param.typeName.toLowerCase();
-                        var actualParamType = typeof item;
-                        errors.push({
-                          type: ERROR_TYPE.TYPE_ERROR,
-                          data: actualParamType,
-                          expect: shouldBeParamType,
-                          message: tipPrefix + '类型不匹配',
-                          keys: walkParams.map(mapName).concat([param.name])
-                        });
                       }
                     }
                   }
-                }
-
-                if (param.isArray) {
-                  // 数组的每一项都要符合
-                  if (Array.isArray(data[param.name])) {
-                    data[param.name].forEach(function (item, idx) {
-                      checkParam(item, '数组第 ' + idx + ' 项');
-                    });
+  
+                  if (param.isArray) {
+                    // 数组的每一项都要符合
+                    if (Array.isArray(data[param.name])) {
+                      data[param.name].forEach(function (item, idx) {
+                        checkParam(item, '数组第 ' + idx + ' 项');
+                      });
+                    } else {
+                      result = false;
+                      var shouldBeParamType = param.typeName.toLowerCase();
+                      var actualParamType = typeof data[param.name];
+                      errors.push({
+                        type: ERROR_TYPE.TYPE_ERROR,
+                        data: actualParamType,
+                        expect: shouldBeParamType,
+                        message: tipPrefix + '类型不匹配',
+                        keys: walkParams.map(mapName).concat([param.name])
+                      });
+                    }
                   } else {
-                    result = false;
-                    var shouldBeParamType = param.typeName.toLowerCase();
-                    var actualParamType = typeof data[param.name];
-                    errors.push({
-                      type: ERROR_TYPE.TYPE_ERROR,
-                      data: actualParamType,
-                      expect: shouldBeParamType,
-                      message: tipPrefix + '类型不匹配',
-                      keys: walkParams.map(mapName).concat([param.name])
-                    });
+                    checkParam(data[param.name], tipPrefix);
                   }
-                } else {
-                  checkParam(data[param.name], tipPrefix);
                 }
               }
             });
@@ -609,15 +612,18 @@
             var param = outputs.find(function(output) {
               return output.name === i;
             });
-            if (checkRequiredParam || (!checkRequiredParam && param && param.required === 1)) {
-              if (expectData[i].value && JSON.stringify(data[i]) !== JSON.stringify(expectData[i].value)) {
-                result.push({
-                  type: ERROR_TYPE.EXPECT_ERROR,
-                  data: JSON.stringify(data[i]),
-                  keys: [i],
-                  message: expectData[i].error || '响应结果期望值不匹配',
-                  expect: JSON.stringify(expectData[i].value)
-                });
+            // 先检查是否为隐藏字段 0 为否 1 为是
+            if (param.ignored === 0) {
+              if (checkRequiredParam || (!checkRequiredParam && param && param.required === 1)) {
+                if (expectData[i].value && JSON.stringify(data[i]) !== JSON.stringify(expectData[i].value)) {
+                  result.push({
+                    type: ERROR_TYPE.EXPECT_ERROR,
+                    data: JSON.stringify(data[i]),
+                    keys: [i],
+                    message: expectData[i].error || '响应结果期望值不匹配',
+                    expect: JSON.stringify(expectData[i].value)
+                  });
+                }
               }
             }
           }
