@@ -92,6 +92,6 @@ npm run dev
 感谢 [网易云](http://www.163yun.com/) 提供的云计算服务，目前 [NEI](https://nei.netease.com) 在线版本托管在网易云上。
 
 ## 使用交流组
-NEI 用户交流 QQ 群(453281988)，也可以加管理员微信 @huntbao（申请信息中请务必备注 NEI 字样）进到微信交流群。
+NEI 用户交流 QQ 群(453281988)
 
-![QQ 群](./docs/nei_qq.jpeg) ![WX 群](./docs/nei_wx.jpeg)
+![QQ 群](./docs/nei_qq.jpeg)
