@@ -10,7 +10,7 @@
 ## 赞助
 为了NEI开源版本能更长远的发展，考虑到团队的实际情况，我们决定打开赞助通道，所得赞助会作为NEI的日常运营费用，如容器费用、研发和维护人员的劳务报酬等。
 
-![NEI](https://neires.nos-eastchina1.126.net/nei_sponsor.png)
+<img src="https://neires.nos-eastchina1.126.net/nei_sponsor.png" width = "300" />
 
 ## 收费服务
 此外，我们还提供以下收费服务，有需求的朋友可以加微信 `neidev` 详谈：
