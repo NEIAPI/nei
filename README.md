@@ -1,4 +1,4 @@
-![NEI](/docs/logo.png)
+![NEI](https://neires.nos-eastchina1.126.net/logo.png)
 
 专业的研发团队协作平台。
 
@@ -10,7 +10,7 @@
 ## 赞助
 为了NEI开源版本能更长远的发展，考虑到团队的实际情况，我们决定打开赞助通道，所得赞助会作为NEI的日常运营费用，如容器费用、研发和维护人员的劳务报酬等。
 
-![NEI](/docs/nei_sponsor.png)
+![NEI](https://neires.nos-eastchina1.126.net/nei_sponsor.png)
 
 ## 收费服务
 此外，我们还提供以下收费服务，有需求的朋友可以加微信 `neidev` 详谈：
@@ -104,4 +104,4 @@ npm run dev
 ## 使用交流组
 NEI 用户交流 QQ 群(453281988)
 
-![QQ 群](./docs/nei_qq.jpeg)
+![QQ 群](https://neires.nos-eastchina1.126.net/nei_qq.jpeg)
