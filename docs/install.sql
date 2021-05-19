@@ -476,7 +476,7 @@ CREATE TABLE `datatype` (
     `tag_pinyin`    VARCHAR(255) NOT NULL DEFAULT '' COMMENT '标签拼音',
     `type`          TINYINT UNSIGNED NOT NULL DEFAULT 0 COMMENT '数据类型形式\n\n0 － 普通类型，列表中可见\n1 － 系统预置类型，列表中置顶\n2 － 匿名类型，列表中不可见',
     `name`          VARCHAR(100) NOT NULL DEFAULT '' COMMENT '数据类型名称',
-    `format`        TINYINT UNSIGNED NOT NULL DEFAULT 0 COMMENT '数据类型格式\n\n0 － 集合\n1 － 枚举\n2 － 数组\n3 － 字符\n4 － 数值\n5 － 布尔\n6 － 文件',
+    `format`        TINYINT UNSIGNED NOT NULL DEFAULT 0 COMMENT '数据类型格式\n\n0 － 集合\n1 － 枚举\n2 － 数组\n3 － 字符\n4 － 数值\n5 － 布尔\n6 － 文件\n7 － 集合',
     `description`   VARCHAR(10000) NOT NULL DEFAULT '' COMMENT '数据类型描述',
     `group_id`      INT UNSIGNED NOT NULL DEFAULT 0 COMMENT '业务分组标识',
     `project_id`    INT UNSIGNED NOT NULL COMMENT '归属项目标识',

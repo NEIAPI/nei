@@ -77,6 +77,9 @@ NEJ.define([
         list.forEach(function (item) {
           var url;
           var itemState = listStates[item.id];
+          if (item.project) {
+            return;
+          }
           var projectId = item.project.id;
           url = '/interface/detail/?pid=' + projectId + '&id=' + item.resData.id;
           var projectUrl = '/project/detail?pid=' + projectId;
