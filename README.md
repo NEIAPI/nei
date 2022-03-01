@@ -82,7 +82,6 @@ npm run dev
 ```
 
 ## 文档教程
-- [视频教程](https://nei.netease.com/tutorial)
 - [使用文档](https://github.com/x-orpheus/nei-toolkit/blob/master/doc/NEI基本概念介绍.md)
 
 ## 使用要求
@@ -91,11 +90,3 @@ npm run dev
 
 ## 更新记录
 [更新记录](./CHANGELOG)
-
-## 感谢
-感谢 [网易云](http://www.163yun.com/) 提供的云计算服务，目前 [NEI](https://nei.netease.com) 在线版本托管在网易云上。
-
-## 使用交流组
-NEI 用户交流 QQ 群(453281988)
-
-![QQ 群](https://neires.nos-eastchina1.126.net/nei_qq.jpeg)
